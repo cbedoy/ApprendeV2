@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="azul">#0174DF</color>
+    <color name="negro">#222222</color>
+    <color name="blanco">#ffffff</color>
+    <color name="pregunta">#F5DA81</color>
+    <color name="respuesta">#F2F2F2</color>
+    <color name="boton_finalizar">#99F7D358</color>
+    <color name="amarillo">#D7DF01</color>
+    <color name="descripcion">#01DF74</color>
+    <color name="gris">#BDBDBD</color>
+    <color name="rojo">#B40431</color>
+    <color name="verde">#016326</color>
+    <color name="verde_transparente">#9904B404</color>
+    <color name="blanco_transparente">#99ffffff</color>
+    <color name="azulito">#00BFFF</color>
+    <color name="action_color">#FA5882</color>
+    <color name="cafe">#cc6d442e</color>
+    <color name="azul_titulos">#045FB4</color>
+    <color name="correcto">#04B431</color>
+    <color name="error">#FF8000</color>
+    <color name="negro_transparente">#dd000000</color>
+    <color name="naranja">#ffc132</color>
+    
+</resources>

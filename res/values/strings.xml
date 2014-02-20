@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">APPrende</string>
+    <string name="action_settings">Opciones</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_splash">Apprende</string>
+    <string name="title_activity_examen">Examen</string>
+    <string name="title_section1">Pregunta #</string>
+    <string name="title_activity_temas">Temas</string>
+    <string name="title_activity_lateral">LateralActivity</string>
+    <string name="title_activity_estadisticas">Estadisticas</string>
+    <string name="points">Puntos:</string>
+    <string name="date">Fecha</string>
+    <string name="rate">Calificacion:</string>
+    <string name="numberOfQuestions">"Preguntas: "</string>
+    <string name="successes">Aciertos:</string>
+    <string name="errors">Errores:</string>
+    <string name="empty">Vacias:</string>
+    <string name="report">Reporte</string>
+    <string name="example">EJEMPLO</string>
+    <string name="action_search">Buscar tema</string>
+    <string name="ip_fija">192.168.0.11</string>
+    <string name="title_activity_registro">RegistroActivity</string>
+
+    <string-array name="estados">
+        <item>Aguascalientes</item>
+        <item>Durango</item>
+        <item>Monterrey</item>
+        <item>Distrito federal</item>
+        <item>Zacatecas</item>
+        <item>Chiapas</item>
+        <item>Veracruz</item>
+        <item>Guadalajara</item>
+    </string-array>
+    <string-array name="universidades">
+        <item>Universidad autonoma de aguascalientes</item>
+        <item>Universidad Nacional Autonoma de Mexico</item>
+        <item>Instituto tecnologico de monterrey</item>
+        <item>Instituto tecnologico de aguascalientes</item>
+    </string-array>
+
+    <string name="title_activity_presentacion">PresentacionActivity</string>
+    <string name="miniproyectos">MINIPROYECTOS UAA 2013</string>
+    <string name="title_activity_dificultad">DificultadActivity</string>
+    <string name="title_activity_materias">MateriasActivity</string>
+
+</resources>
