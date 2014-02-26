@@ -3,8 +3,9 @@ package com.uandroides.aprende.controladores;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.uandroides.aprende.controladores.RESTClient.RequestMethod;
 import com.uandroides.aprende.modelos.APPTema;
+import com.uandroides.aprende.utils.RESTClient;
+import com.uandroides.aprende.utils.RESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.ExamenActivity;
 import com.uandroides.aprende.vistas.MainActivity;
 import com.uandroides.aprende.vistas.PerfilActivity;

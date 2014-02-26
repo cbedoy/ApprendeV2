@@ -14,9 +14,11 @@ package com.uandroides.aprende.servicios;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.uandroides.aprende.controladores.RESTClient;
-import com.uandroides.aprende.controladores.RESTClient.RequestMethod;
+
+
 import com.uandroides.aprende.modelos.APPUsuario;
+import com.uandroides.aprende.utils.RESTClient;
+import com.uandroides.aprende.utils.RESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.ExamenActivity;
 import com.uandroides.aprende.vistas.MainActivity;
 import com.uandroides.aprende.vistas.PerfilActivity;
@@ -31,6 +33,8 @@ public class createUser extends AsyncTask<String, Integer, String> implements IS
 	private ProgressDialog pd;
 	private Context contexto;
 	private final String url="";
+	
+	
 	public createUser(Context contexto){
 		this.contexto = contexto;
 	}
