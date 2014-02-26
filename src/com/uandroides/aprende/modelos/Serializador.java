@@ -19,15 +19,15 @@ import android.os.Parcelable;
 
 public class Serializador implements Parcelable{
 
-	private ArrayList<APPregunta> preguntas;
+	private ArrayList<Pregunta> preguntas;
 	
-	public Serializador(ArrayList<APPregunta> preguntas){
+	public Serializador(ArrayList<Pregunta> preguntas){
 		this.preguntas = preguntas;
 	}
-	public ArrayList<APPregunta> getPreguntas() {
+	public ArrayList<Pregunta> getPreguntas() {
 		return preguntas;
 	}
-	public void setPreguntas(ArrayList<APPregunta> preguntas) {
+	public void setPreguntas(ArrayList<Pregunta> preguntas) {
 		this.preguntas = preguntas;
 	}
 	@Override

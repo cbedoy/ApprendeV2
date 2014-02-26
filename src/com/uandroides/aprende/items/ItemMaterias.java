@@ -23,29 +23,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.uandroides.aprende.R;
-import com.uandroides.aprende.modelos.APPMaterias;
+import com.uandroides.aprende.modelos.Materia;
 
 public class ItemMaterias extends BaseAdapter {
 	
 	private int llave;
 	private String llaveHash;
-	private ArrayList<APPMaterias> data;
+	private ArrayList<Materia> data;
 	private Activity contexto;
 	public ItemMaterias(Activity contexto) {
-		data = new ArrayList<APPMaterias>();
-		data.add(new APPMaterias(1, "Parciales"));
-		data.add(new APPMaterias(2, "Matematicas"));
-		data.add(new APPMaterias(3, "Ingles"));
-		data.add(new APPMaterias(4, "Español"));
-		data.add(new APPMaterias(5, "Fisica"));
-		data.add(new APPMaterias(6, "Geografia"));
+		data = new ArrayList<Materia>();
+		data.add(new Materia(1, "Parciales"));
+		data.add(new Materia(2, "Matematicas"));
+		data.add(new Materia(3, "Ingles"));
+		data.add(new Materia(4, "Español"));
+		data.add(new Materia(5, "Fisica"));
+		data.add(new Materia(6, "Geografia"));
 		
-		data.add(new APPMaterias(7, "Ciencias naturales"));
-		data.add(new APPMaterias(8, "Ciencias sociales"));
-		data.add(new APPMaterias(9, "Psicologia"));
-		data.add(new APPMaterias(10, "Quimica"));
-		data.add(new APPMaterias(11, "Biologia"));
-		data.add(new APPMaterias(12, "IT"));
+		data.add(new Materia(7, "Ciencias naturales"));
+		data.add(new Materia(8, "Ciencias sociales"));
+		data.add(new Materia(9, "Psicologia"));
+		data.add(new Materia(10, "Quimica"));
+		data.add(new Materia(11, "Biologia"));
+		data.add(new Materia(12, "IT"));
 		
 		llave = 1;
 		llaveHash = "Parciales";

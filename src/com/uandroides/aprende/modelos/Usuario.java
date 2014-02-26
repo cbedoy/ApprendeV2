@@ -11,7 +11,7 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class APPUsuario {
+public class Usuario {
 	private int id;
 	private String correo;
 	private String contrasena;
@@ -21,7 +21,7 @@ public class APPUsuario {
 	private int puntos;
 	private int pruebas;
 	
-	public APPUsuario(){
+	public Usuario(){
 		
 	}
 	

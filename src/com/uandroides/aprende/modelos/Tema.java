@@ -11,20 +11,20 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class APPTema {
+public class Tema {
 	private int id;
 	private String nombre;
 	private String descripcion;
 	private String dificultad;
 	private int numeroPreguntas;
-	public APPTema(int id, String nombre, String descripcion){
+	public Tema(int id, String nombre, String descripcion){
 		this.setId(id);
 		this.setNombre(nombre);
 		this.setDescripcion(descripcion);
 		
 	}
 	
-	public APPTema(){
+	public Tema(){
 		
 	}
 

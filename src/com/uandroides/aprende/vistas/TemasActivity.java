@@ -24,8 +24,8 @@ import com.uandroides.aprende.R.menu;
 import com.uandroides.aprende.controladores.MyAnsyTask;
 import com.uandroides.aprende.items.ItemMaterias;
 import com.uandroides.aprende.items.ItemTemario;
-import com.uandroides.aprende.modelos.APPMaterias;
-import com.uandroides.aprende.modelos.APPTemario;
+import com.uandroides.aprende.modelos.Materia;
+import com.uandroides.aprende.modelos.Temario;
 
 
 
@@ -66,9 +66,9 @@ public class TemasActivity extends Activity implements AdapterView.OnItemClickLi
     private SlidingPaneLayout mPanes;
 	public static TemasActivity mthis;
 	public SharedPreferences shared;
-	public ArrayList<APPTemario> temas;
+	public ArrayList<Temario> temas;
 	private String dificultad;
-	public ArrayList<APPMaterias> data;
+	public ArrayList<Materia> data;
 	public int llave;
 	public String llaveHash;
 	private String[] niveles = new String[] { "FACILdasdasd", "INTERMEDIO",
@@ -81,7 +81,7 @@ public class TemasActivity extends Activity implements AdapterView.OnItemClickLi
 		overridePendingTransition(R.anim.push_up, R.anim.push_up);
 	    mPanes = (SlidingPaneLayout) findViewById(R.id.slidingPane);
 		shared = this.getPreferences(MODE_PRIVATE);
-		temas = new ArrayList<APPTemario>();
+		temas = new ArrayList<Temario>();
 		//MyAnsyTask miTarea = new MyAnsyTask(this, 3);
 		//miTarea.execute();
 
@@ -121,10 +121,10 @@ public class TemasActivity extends Activity implements AdapterView.OnItemClickLi
 		try {
 			JSONArray arreglo = json.getJSONArray("temario");
 			mthis.temas.clear();
-			APPTemario temario;
+			Temario temario;
 			for (int i = 0; i < arreglo.length(); i++) {
 				JSONObject jobj = arreglo.getJSONObject(i);
-				temario  = new APPTemario();
+				temario  = new Temario();
 				temario.setIdTema(jobj.getInt("idTema"));
 				temario.setNombre(jobj.getString("nombre"));
 				temario.setDescripcion(jobj.getString("descripcion"));

@@ -11,14 +11,14 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class APPTemario {
+public class Temario {
 	private int idTema;
 	private String nombre;
 	private String descripcion;
 	private int idMateria;
 	private String nombreMateria;
 	
-	public APPTemario(String nombre, String descripcion, String nombreMateria){
+	public Temario(String nombre, String descripcion, String nombreMateria){
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.nombreMateria = nombreMateria;
@@ -26,9 +26,9 @@ public class APPTemario {
 	}
 	
 	
-	public APPTemario(){}
+	public Temario(){}
 	
-	public APPTemario(int k, String string, String string2, String nombre2) {
+	public Temario(int k, String string, String string2, String nombre2) {
 		// TODO Auto-generated constructor stub
 		this.idTema = k;
 		this.nombre = string;

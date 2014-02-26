@@ -14,7 +14,7 @@ package com.uandroides.aprende.modelos;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class APPregunta implements Parcelable{
+public class Pregunta implements Parcelable{
 
 	private String pregunta;
 	private String respuesta1;
@@ -30,12 +30,12 @@ public class APPregunta implements Parcelable{
 	private int idTema;
 	private String seleccionUsuario;
 	
-	public APPregunta(){
+	public Pregunta(){
 		
 	}
 	
 
-	public APPregunta(String pregunta, String r1, String r2, String r3, String r4, int correcta, String link){
+	public Pregunta(String pregunta, String r1, String r2, String r3, String r4, int correcta, String link){
 		this.pregunta = pregunta;
 		this.respuesta1 = r1;
 		this.respuesta2 = r2;
@@ -49,7 +49,7 @@ public class APPregunta implements Parcelable{
 	}
 	
 	
-	public APPregunta(Parcel in) {
+	public Pregunta(Parcel in) {
 		// TODO Auto-generated constructor stub
 		readFromParcel(in);
 	}
@@ -291,15 +291,15 @@ public class APPregunta implements Parcelable{
 
 		}
 	
-	public static final Parcelable.Creator<APPregunta> CREATOR = new Parcelable.Creator<APPregunta>() {
+	public static final Parcelable.Creator<Pregunta> CREATOR = new Parcelable.Creator<Pregunta>() {
 	    @Override
-	    public APPregunta createFromParcel(Parcel in) {
-	        return new APPregunta(in);
+	    public Pregunta createFromParcel(Parcel in) {
+	        return new Pregunta(in);
 	    }
 
 	    @Override
-	    public APPregunta[] newArray(int size) {
-	        return new APPregunta[size];
+	    public Pregunta[] newArray(int size) {
+	        return new Pregunta[size];
 	    }
 	};
 }

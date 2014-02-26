@@ -28,20 +28,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.uandroides.aprende.R;
-import com.uandroides.aprende.modelos.APPTemario;
+import com.uandroides.aprende.modelos.Temario;
 import com.uandroides.aprende.vistas.ExamenActivity;
 
 public class ItemTemario extends BaseAdapter {
 	public TextView materia;
 	public TextView tema, descripcion;
 	public Button seleccion;
-	public ArrayList<APPTemario> temario;
+	public ArrayList<Temario> temario;
 	Activity contexto;
 	private String[] niveles = new String[] { "FACIL", "INTERMEDIO",
 	"DIFICIL"};
 	public ItemTemario(Activity contexto) {
-		temario = new ArrayList<APPTemario>();
-		temario.add(new APPTemario(99, "Examen Demo", "Este es un examen que contiene multiples temas sobre diferentes materias en este comprobaras tus conocimeintos genelares", "Demo"));
+		temario = new ArrayList<Temario>();
+		temario.add(new Temario(99, "Examen Demo", "Este es un examen que contiene multiples temas sobre diferentes materias en este comprobaras tus conocimeintos genelares", "Demo"));
 		//for(int i=0, k=100; i<data.size(); i++, k++){
 		//temario.add(new APPTemario(k, "Tema #1", "Temas selectos del area de "+data.get(i).getNombre(), data.get(i).getNombre()));
 		//temario.add(new APPTemario(k, "Tema #2", "Temas selectos del area de "+data.get(i).getNombre(), data.get(i).getNombre()));

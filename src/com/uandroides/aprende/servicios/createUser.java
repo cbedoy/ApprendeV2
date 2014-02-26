@@ -16,7 +16,7 @@ import org.json.JSONObject;
 
 
 
-import com.uandroides.aprende.modelos.APPUsuario;
+import com.uandroides.aprende.modelos.Usuario;
 import com.uandroides.aprende.utils.RESTClient;
 import com.uandroides.aprende.utils.RESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.ExamenActivity;
@@ -53,7 +53,7 @@ public class createUser extends AsyncTask<String, Integer, String> implements IS
 	
 	@Override
 	public String correrServicio(Object objeto) {
-		APPUsuario usuario = (APPUsuario) objeto;
+		Usuario usuario = (Usuario) objeto;
 		try{
 			RESTClient request = new RESTClient(url);
 			request .Execute(RequestMethod.GET);

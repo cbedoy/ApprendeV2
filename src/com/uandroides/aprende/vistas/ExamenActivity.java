@@ -26,8 +26,8 @@ import com.uandroides.aprende.R.layout;
 import com.uandroides.aprende.R.menu;
 import com.uandroides.aprende.R.string;
 import com.uandroides.aprende.controladores.MyAnsyTask;
-import com.uandroides.aprende.modelos.APPTema;
-import com.uandroides.aprende.modelos.APPregunta;
+import com.uandroides.aprende.modelos.Tema;
+import com.uandroides.aprende.modelos.Pregunta;
 import com.uandroides.aprende.modelos.CuestionarioDemo;
 import com.uandroides.aprende.modelos.Serializador;
 
@@ -67,9 +67,9 @@ public class ExamenActivity extends FragmentActivity {
 	public static ExamenActivity mthis;
 	private RadioButton opcion1, opcion2, opcion3, opcion4;
 	private TextView pregunta;
-	public ArrayList<APPregunta> preguntas;
+	public ArrayList<Pregunta> preguntas;
 	public SharedPreferences shared;
-	private APPTema tema;
+	private Tema tema;
 	public  int cantidad;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -177,9 +177,9 @@ public class ExamenActivity extends FragmentActivity {
 
 		@Override
 		public Fragment getItem(int position) {
-			Fragment fragment = new Pregunta();
+			Fragment fragment = new PreguntaFragment();
 			Bundle args = new Bundle();
-			args.putInt(Pregunta.ARG_SECTION_NUMBER, position);
+			args.putInt(PreguntaFragment.ARG_SECTION_NUMBER, position);
 			fragment.setArguments(args);
 			Log.i("depu", ""
 					+position);
@@ -200,12 +200,12 @@ public class ExamenActivity extends FragmentActivity {
 	}
 
 
-	public static class Pregunta extends Fragment {
+	public static class PreguntaFragment extends Fragment {
 
 		private int posicion;
 		public static final String ARG_SECTION_NUMBER = "section_number";
 
-		public Pregunta() {
+		public PreguntaFragment() {
 		}
 
 		@Override
@@ -339,11 +339,11 @@ public class ExamenActivity extends FragmentActivity {
 	public void convertirPreguntas(JSONObject json) {
 		try {
 			JSONArray array = json.getJSONArray("preguntas");
-			this.preguntas = new ArrayList<APPregunta>();
-			APPregunta pregunta;
+			this.preguntas = new ArrayList<Pregunta>();
+			Pregunta pregunta;
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject jobj = array.getJSONObject(i);
-				pregunta = new APPregunta();
+				pregunta = new Pregunta();
 				pregunta.setIdPregunta(jobj.getInt("id"));
 				pregunta.setPregunta(jobj.getString("pregunta"));
 				pregunta.setRespuesta1(jobj.getString("respuesta1"));

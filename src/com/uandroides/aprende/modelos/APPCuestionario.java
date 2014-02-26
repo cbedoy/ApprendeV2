@@ -16,14 +16,14 @@ import java.util.ArrayList;
 
 
 public class APPCuestionario {
-	private ArrayList<APPregunta> preguntas;
+	private ArrayList<Pregunta> preguntas;
 	private int cantidad;
 	private float puntuacion;
 	private int resueltas;
 	private int errores;
-	private ArrayList<APPregunta> retroalimentacion;
+	private ArrayList<Pregunta> retroalimentacion;
 	
-	public APPCuestionario(ArrayList<APPregunta> preguntas){
+	public APPCuestionario(ArrayList<Pregunta> preguntas){
 		this.preguntas = preguntas;
 		validarPreguntas();
 	}
@@ -33,8 +33,8 @@ public class APPCuestionario {
 		resueltas = 0;
 		errores = 0;
 		cantidad = preguntas.size();
-		APPregunta retro = new APPregunta();
-		for(APPregunta pregunta : preguntas){
+		Pregunta retro = new Pregunta();
+		for(Pregunta pregunta : preguntas){
 			if(pregunta.getRespuestaUsuario() == pregunta.getRespuestaCorrecta()){
 				resueltas++;
 				
@@ -50,10 +50,10 @@ public class APPCuestionario {
 	}
 	
 	
-	public ArrayList<APPregunta> getPreguntas() {
+	public ArrayList<Pregunta> getPreguntas() {
 		return preguntas;
 	}
-	public void setPreguntas(ArrayList<APPregunta> preguntas) {
+	public void setPreguntas(ArrayList<Pregunta> preguntas) {
 		this.preguntas = preguntas;
 	}
 	public int getCantidad() {
@@ -74,10 +74,10 @@ public class APPCuestionario {
 	public void setResueltas(int resueltas) {
 		this.resueltas = resueltas;
 	}
-	public ArrayList<APPregunta> getRetroalimentacion() {
+	public ArrayList<Pregunta> getRetroalimentacion() {
 		return retroalimentacion;
 	}
-	public void setRetroalimentacion(ArrayList<APPregunta> retroalimentacion) {
+	public void setRetroalimentacion(ArrayList<Pregunta> retroalimentacion) {
 		this.retroalimentacion = retroalimentacion;
 	}
 	public int getErrores() {

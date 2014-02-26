@@ -25,7 +25,7 @@ import com.uandroides.aprende.R;
 import com.uandroides.aprende.R.id;
 import com.uandroides.aprende.R.layout;
 import com.uandroides.aprende.R.menu;
-import com.uandroides.aprende.modelos.APPLateral;
+import com.uandroides.aprende.modelos.EstadisticasLateral;
 
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -129,12 +129,12 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
 		action.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
 		ListView list = (ListView) findViewById(R.id.left_drawer);
 		
-		ArrayList<APPLateral> laterales = new ArrayList<APPLateral>();
-		laterales.add(new APPLateral("11/NOVIEMBRE/13", "10", "8", "2", "Suma y resta", "80.0"));
-		laterales.add(new APPLateral("12/NOVIEMBRE/13", "20", "15", "5", "Ingles I", "75.0"));
-		laterales.add(new APPLateral("13/NOVIMEBRE/13", "50", "45", "5", "Examen Oracle - Primer parcial", "90.0"));
-		laterales.add(new APPLateral("14/NOVIEMBRE/13", "20", "10", "10", "Investigacion de operaciones", "50.0"));
-		laterales.add(new APPLateral("15/NOVIEMBRE/13", "10", "10", "10", "Compresion lectora", "10.0"));
+		ArrayList<EstadisticasLateral> laterales = new ArrayList<EstadisticasLateral>();
+		laterales.add(new EstadisticasLateral("11/NOVIEMBRE/13", "10", "8", "2", "Suma y resta", "80.0"));
+		laterales.add(new EstadisticasLateral("12/NOVIEMBRE/13", "20", "15", "5", "Ingles I", "75.0"));
+		laterales.add(new EstadisticasLateral("13/NOVIMEBRE/13", "50", "45", "5", "Examen Oracle - Primer parcial", "90.0"));
+		laterales.add(new EstadisticasLateral("14/NOVIEMBRE/13", "20", "10", "10", "Investigacion de operaciones", "50.0"));
+		laterales.add(new EstadisticasLateral("15/NOVIEMBRE/13", "10", "10", "10", "Compresion lectora", "10.0"));
         list.setAdapter(new ItemEstadisticas(laterales, this));
         this.loadPicture(null, R.id.perfil_foto);
     }

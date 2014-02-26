@@ -11,14 +11,14 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class APPEstadisticas{
+public class EstadisticaRefactory{
 	
 	private String pregunta;
 	private String respuesta;
 	private String retroalimentacion;
 	
 	
-	public APPEstadisticas(String pregunta, String respuesta, String retroalimentacion){
+	public EstadisticaRefactory(String pregunta, String respuesta, String retroalimentacion){
 		this.setPregunta(pregunta);
 		this.setRespuesta(respuesta);
 		this.setRetroalimentacion(retroalimentacion);

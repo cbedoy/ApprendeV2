@@ -14,15 +14,15 @@ package com.uandroides.aprende.modelos;
 import java.util.ArrayList;
 
 public class CuestionarioDemo {
-	private ArrayList<APPregunta> cuestionario;
+	private ArrayList<Pregunta> cuestionario;
 
 	public CuestionarioDemo() {
-		cuestionario = new ArrayList<APPregunta>();
+		cuestionario = new ArrayList<Pregunta>();
 
 		// ESPAÑOL_____________________________________________________________
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Selecciona la opción cuya relación sea similar a la que se observa en la pareja de palabras en mayúsculas. SUSTANCIAS es a LABORATORIO, como:",
 
 						"albañiles a carretilla", "enfermeras a hospital",
@@ -31,7 +31,7 @@ public class CuestionarioDemo {
 						2, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Selecciona la opción cuyo significado sea similar al de la palabra en mayúsculas. Su sonrisa SOCARRONA le molestaba sobremanera.",
 
 						"Sincera", "Formal", "Cínica ", "Pícara ",
@@ -39,14 +39,14 @@ public class CuestionarioDemo {
 						3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Selecciona la opción cuyo significado sea opuesto al de la palabra en mayúsculas. Francamente, estos problemas para mí son un ALICIENTE.",
 
 						"Atractivo", "Impedimento", "Retraso ", "Estímulo ",
 
 						2, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"¿Cuál de los siguientes enunciados expresa un consejo? ",
 
 				"I want to be a doctor ", " She is going to be a doctor ",
@@ -55,7 +55,7 @@ public class CuestionarioDemo {
 				3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa la siguiente frase. Como el hielo es menos _____ que el agua, flota sobre ella. ",
 
 						"frágil", "gélido ", " denso ", "rígido ",
@@ -63,7 +63,7 @@ public class CuestionarioDemo {
 						3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Es la oración subordinada en la que la coma se utiliza correctamente. ",
 
 						"María, la hija del maestro, no llegó a la fiesta ",
@@ -74,7 +74,7 @@ public class CuestionarioDemo {
 						3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Las fichas bibliográficas son útiles ya que la información de estas es: ",
 
 						"importante para conocer a los grandes autores literarios ",
@@ -87,7 +87,7 @@ public class CuestionarioDemo {
 		// BIOLOGIA_________________________________________________________________________
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Ordena cronológicamente las fases del ciclo de división celular",
 
 						"Profase, metafase, anafase, telofase e interfase",
@@ -98,7 +98,7 @@ public class CuestionarioDemo {
 						4, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Enfermedades causadas por bacterias en las vías respiratorias. ",
 
 						"Gonorrea y meningitis ", "Tétanos y difteria ",
@@ -108,7 +108,7 @@ public class CuestionarioDemo {
 						3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Es el conjunto de características que permite a los individuos sobrevivir y reproducirse en un ambiente determinado: ",
 
 						"adaptación ", "evolución ", "selección natural ",
@@ -117,7 +117,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Una característica que comparten la ciencia y la tecnología es que ambas: ",
 
 						"buscan la solución de problemas específicos reales ",
@@ -128,7 +128,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Es una categoría taxonómica que se define como el conjunto de individuos capaces de entrecruzarse y dejar descendencia fértil: ",
 
 						"familia ", "género ", "orden ", "especie ",
@@ -136,7 +136,7 @@ public class CuestionarioDemo {
 						4, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Son consecuencias de la acumulación del bióxido de carbono en la atmósfera, excepto: ",
 
 						"lluvia ácida en las ciudades ",
@@ -147,7 +147,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"¿Cuáles son los productos elaborados en el organismo durante la respiración aerobia? ",
 
 						"Bióxido de carbono, agua y energía (ATP) ",
@@ -160,20 +160,20 @@ public class CuestionarioDemo {
 		// FISICA________________________________________________________________________________
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Cuando sintonizamos una estación de radio en la banda de AM, la señal es más débil o posee menor energía que la de FM. Esto se debe a que sus ondas son de menor... ",
 
 						"amplitud ", "frecuencia ", "longitud ", "periodo ", 2,
 						null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Es la relación que existe entre una fuerza aplicada y el área sobre la que esta actúa. ",
 
 						"Cohesión ", "Fluidez ", "Presión ", "Empuje ", 1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"El modelo cinético de las partículas permite entender el comportamiento de la: ",
 
 						"presión de los líquidos ",
@@ -183,7 +183,7 @@ public class CuestionarioDemo {
 						3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Cuando un rayo de luz viaja por el aire y atraviesa por un vidrio cambia la dirección de su trayectoria debido al cambio en: ",
 
 						"el color de la luz ", "la naturaleza de la luz ",
@@ -191,7 +191,7 @@ public class CuestionarioDemo {
 						null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Las líneas magnéticas del imán de una brújula salen por el_______ y llegan hacia el _______. ",
 
 						"sur - norte ", "norte - sur ", "este - oeste ",
@@ -200,7 +200,7 @@ public class CuestionarioDemo {
 						2, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Es el proceso mediante el cual un cuerpo adquiere carga eléctrica a través de otro cuerpo cargado eléctricamente; esto sin que haya contacto entre ambos cuerpos. ",
 
 						"Conducción ", "Frotamiento ", "Inducción ",
@@ -211,7 +211,7 @@ public class CuestionarioDemo {
 		// QUIMICA_____________________________________________________________________________
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"La masa de un mol de una sustancia expresada en gramos recibe el nombre de: ",
 
 						"masa molar ", "peso atómico ", "masa atómica ",
@@ -219,21 +219,21 @@ public class CuestionarioDemo {
 
 						1, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"Es la combinación física de dos o más sustancias. ",
 
 				"Compuesto ", "Elemento ", "Mezcla ", "Molécula ",
 
 				3, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"¿Qué sustancia es considerada el disolvente universal? ",
 
 				"Alcohol ", "Acetona ", "Agua ", "Vinagre ",
 
 				3, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"¿Qué le sucede a un átomo cuando se oxida? ",
 
 				"Gana uno o más electrones ", "Pierde uno o más protones ",
@@ -242,7 +242,7 @@ public class CuestionarioDemo {
 				4, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa el enunciado. En una ________________ hay una reorganización de los átomos formando nuevas sustancias. ",
 
 						"fusión ", "reacción química ", "mezcla homogénea ",
@@ -251,7 +251,7 @@ public class CuestionarioDemo {
 						2, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Esta ley establece que, en un proceso químico, la masa permanece constante antes y después de la reacción. ",
 
 						"Proust ", "Dalton ", "Lavoisier ", "Wenzel ",
@@ -259,7 +259,7 @@ public class CuestionarioDemo {
 						3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Una de las características de estas sustancias es que al entrar en contacto con el papel tornasol lo cambian a color rosa. ",
 
 						"Básicas ", "Indicadoras ", "Ácidas ", "Neutras ",
@@ -267,7 +267,7 @@ public class CuestionarioDemo {
 						3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Mendeleiev construyó la tabla periódica de los elementos, de acuerdo con: ",
 
 						"los números atómicos ", "las masas atómicas ",
@@ -278,7 +278,7 @@ public class CuestionarioDemo {
 		// HISTORIA_________________________________________________________________________
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa el siguiente enunciado. Entre 1822 y ______ , __________ protagonizó fallidos intentos para reconquistar México, cuya independencia había desconocido. ",
 
 						"1829 - España ", "1838 - Francia ",
@@ -287,7 +287,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"La principal actividad de la economía de los pueblos mesoamericanos fue la explotación: ",
 
 						"agrícola ", "minera ", "maderera ", "artesanal ",
@@ -295,7 +295,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Se considera el efecto demográfico más importante de la Segunda Guerra Mundial: ",
 
 						"millones de mutilados y heridos ",
@@ -305,7 +305,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Se considera el efecto demográfico más importante de la Segunda Guerra Mundial: ",
 
 						"millones de mutilados y heridos ",
@@ -315,7 +315,7 @@ public class CuestionarioDemo {
 						2, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"El invento de James Watt que transformó el comercio terrestre y marítimo durante la Revolución Industrial fue: ",
 
 						"la locomotora ", "el motor a diesel ",
@@ -323,7 +323,7 @@ public class CuestionarioDemo {
 
 						3, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"La principal consecuencia de la llamada Paz Armada fue: ",
 
 				"el inicio de la Primera Guerra Mundial ",
@@ -334,7 +334,7 @@ public class CuestionarioDemo {
 				1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"¿Cuál es el principal contenido del Tratado de Guadalupe Hidalgo? ",
 
 						"Casi la mitad del territorio mexicano pasaría a ser parte de Estados Unidos ",
@@ -345,7 +345,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Son factores que impulsan el desarrollo de la globalización, excepto: ",
 
 						"libre comercio mundial ", "empresas multinacionales ",
@@ -357,7 +357,7 @@ public class CuestionarioDemo {
 		// GEOGRAFIA__________________________________________________________________________
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Es una consecuencia positiva para los países receptores de inmigrantes. ",
 
 						"Trabajadores especializados ",
@@ -366,7 +366,7 @@ public class CuestionarioDemo {
 
 						2, null));
 
-		cuestionario.add(new APPregunta(" Las tradiciones son ejemplo de:",
+		cuestionario.add(new Pregunta(" Las tradiciones son ejemplo de:",
 
 		"educación ", "multiculturalidad ", "interculturalidad ",
 				"identidad cultural ",
@@ -374,7 +374,7 @@ public class CuestionarioDemo {
 				4, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Es el factor astronómico que influye en la dinámica terrestre, permitiendo el desarrollo de la vida en el planeta. ",
 
 						"Distancia de la Tierra al Sol ",
@@ -383,7 +383,7 @@ public class CuestionarioDemo {
 
 						1, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"Constantemente, en el interior del Sol se transforma el...",
 
 				"helio en hidrógeno", "helio de uranio", "Hidrogeno de helio",
@@ -392,7 +392,7 @@ public class CuestionarioDemo {
 				3, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"La conclusión de que el Sol es un gigantesco reactor nuclear se debe a...",
 
 						" la nueva explicación de los geólogos y biólogos",
@@ -403,7 +403,7 @@ public class CuestionarioDemo {
 						2, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"De acuerdo con el autor, si el Sol fuera un cuerpo ________ ya se habría extinguido hace mucho tiempo.",
 
 						"inanimado", "incandescente", "incoloro",
@@ -411,14 +411,14 @@ public class CuestionarioDemo {
 
 						2, null));
 
-		cuestionario.add(new APPregunta("¿Cual es la capital de Suiza?",
+		cuestionario.add(new Pregunta("¿Cual es la capital de Suiza?",
 
 		"Estocolmo", "Vienna", "Madrid", "Berna",
 
 		4, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"El río _________________ es límite de México con Estados Unidos, y el río _________________ es límite con Belice",
 
 						"Bravo - Hondo", "Bravo - Suchiate",
@@ -427,7 +427,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Las capas de la atmósfera ordenadas de abajo hacia arriba son...",
 
 						"estratosfera, troposfera, ionosfera",
@@ -440,7 +440,7 @@ public class CuestionarioDemo {
 		// INGLES____________________________________________________________________________
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa el enunciado. What ________________? You look fascinated. ",
 
 						"are you reading ", "do you read ", "will you read ",
@@ -449,7 +449,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa el enunciado. She _______ a businesswoman. She has ________ own company. ",
 
 						"is - her ", "was - her ", "were - his ", "are - my ",
@@ -457,7 +457,7 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa el enunciado. Jack was _______ yesterday morning when it started to rain. ",
 
 						"run ", "runs ", "ran ", "running ",
@@ -465,7 +465,7 @@ public class CuestionarioDemo {
 						4, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa la pregunta. How _____ you _____ to the concert tonight? ",
 
 						"are - going ", "do - go ", "did - go ",
@@ -474,14 +474,14 @@ public class CuestionarioDemo {
 						1, null));
 
 		cuestionario
-				.add(new APPregunta(
+				.add(new Pregunta(
 						"Completa el enunciado. I _______ do that. It is too difficult to understand. ",
 
 						"can ", "can’t ", "could ", "couldn’t ",
 
 						2, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"What was Robert doing when he had the accident? ",
 
 				"Running on the beach ", "Water skiing in the sea ",
@@ -489,7 +489,7 @@ public class CuestionarioDemo {
 
 				2, null));
 
-		cuestionario.add(new APPregunta(
+		cuestionario.add(new Pregunta(
 				"How long was Robert in the hospital? ",
 
 				"Nearly a month ", " Less than a month ",
@@ -498,7 +498,7 @@ public class CuestionarioDemo {
 				4, null));
 
 		cuestionario
-				.add(new APPregunta("Why did the nurses feed him? Because… ",
+				.add(new Pregunta("Why did the nurses feed him? Because… ",
 						"his Spanish was not good ",
 						"he was there for a long time ",
 						"he didn´t like spoons ", "his arms were in plasters ",
@@ -506,7 +506,7 @@ public class CuestionarioDemo {
 
 	}
 
-	public ArrayList<APPregunta> getCuestionario() {
+	public ArrayList<Pregunta> getCuestionario() {
 		return this.cuestionario;
 	}
 }

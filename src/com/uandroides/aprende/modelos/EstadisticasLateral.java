@@ -11,7 +11,7 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class APPLateral {
+public class EstadisticasLateral {
 	private String fecha;
 	private String preguntas;
 	private String aciertos;
@@ -20,7 +20,7 @@ public class APPLateral {
 	private String puntos;
 	
 	
-	public APPLateral(String fecha, String preguntas, String aciertos, String errores, String titulo, String puntos){
+	public EstadisticasLateral(String fecha, String preguntas, String aciertos, String errores, String titulo, String puntos){
 		this.fecha = fecha;
 		this.preguntas = preguntas;
 		this.aciertos = aciertos;
@@ -29,7 +29,7 @@ public class APPLateral {
 		this.puntos = puntos;
 	}
 	
-	public APPLateral(){
+	public EstadisticasLateral(){
 		
 	}
 	public String getPuntos() {

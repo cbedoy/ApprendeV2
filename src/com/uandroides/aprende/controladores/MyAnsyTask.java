@@ -3,7 +3,7 @@ package com.uandroides.aprende.controladores;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.uandroides.aprende.modelos.APPTema;
+import com.uandroides.aprende.modelos.Tema;
 import com.uandroides.aprende.utils.RESTClient;
 import com.uandroides.aprende.utils.RESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.ExamenActivity;
@@ -37,7 +37,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 	
 	private String usuario;
 	private String contrasena;
-	private APPTema tema;
+	private Tema tema;
 	private String url = "http://192.168.0.10/apprende/";
 	
 	
@@ -71,7 +71,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 		this.contrasena = contrasena;
 	}
 
-	public MyAnsyTask(Context context, int link, APPTema tema) {
+	public MyAnsyTask(Context context, int link, Tema tema) {
 		this.context = context;
 		this.link = link;
 		this.tema = tema;

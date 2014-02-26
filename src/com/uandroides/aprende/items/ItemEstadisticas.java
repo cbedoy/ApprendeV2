@@ -26,7 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.uandroides.aprende.R;
-import com.uandroides.aprende.modelos.APPLateral;
+import com.uandroides.aprende.modelos.EstadisticasLateral;
 
 public class ItemEstadisticas extends BaseAdapter {
 
@@ -36,10 +36,10 @@ public class ItemEstadisticas extends BaseAdapter {
 	private TextView aciertos;
 	private TextView errores;
 	private TextView puntos;
-	private ArrayList<APPLateral> data;
+	private ArrayList<EstadisticasLateral> data;
 	private Activity contexto;
 
-	public ItemEstadisticas(ArrayList<APPLateral> data, Activity contexto) {
+	public ItemEstadisticas(ArrayList<EstadisticasLateral> data, Activity contexto) {
 		this.data = data;
 		this.contexto = contexto;
 	}

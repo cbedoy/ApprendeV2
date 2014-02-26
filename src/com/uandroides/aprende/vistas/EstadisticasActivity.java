@@ -21,7 +21,7 @@ import com.uandroides.aprende.R.color;
 import com.uandroides.aprende.R.id;
 import com.uandroides.aprende.R.layout;
 import com.uandroides.aprende.R.menu;
-import com.uandroides.aprende.modelos.APPregunta;
+import com.uandroides.aprende.modelos.Pregunta;
 import com.uandroides.aprende.modelos.Serializador;
 
 import android.os.Bundle;
@@ -53,7 +53,7 @@ public class EstadisticasActivity extends Activity {
 
 	
 	public static EstadisticasActivity mthis;
-	ArrayList<APPregunta>  preguntas;
+	ArrayList<Pregunta>  preguntas;
 	int cantidad;
 	MyAdaptador adapter;
 	Serializador dataSerializada;
@@ -89,7 +89,7 @@ public class EstadisticasActivity extends Activity {
 		
 		int aciertosCantidad=0, vaciasCantidad=0;
 		for(int i=0; i<cantidad; i++){
-			APPregunta pregunta = preguntas.get(i);
+			Pregunta pregunta = preguntas.get(i);
 			if(pregunta.getRespuestaCorrecta() == pregunta.getRespuestaUsuario())
 				aciertosCantidad++;
 			else if(pregunta.getRespuestaUsuario()==0)
@@ -233,9 +233,9 @@ public class EstadisticasActivity extends Activity {
 	}
 
 
-	public void setData(ArrayList<APPregunta> preguntas) {
+	public void setData(ArrayList<Pregunta> preguntas) {
 		// TODO Auto-generated method stub
-		this.preguntas = new ArrayList<APPregunta>();
+		this.preguntas = new ArrayList<Pregunta>();
 		this.preguntas = preguntas;
 		
 		//Log.i("depu", "esta: "+preguntas.size());

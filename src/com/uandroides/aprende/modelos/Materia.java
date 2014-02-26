@@ -11,20 +11,20 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class APPMaterias {
+public class Materia {
 	private int id;
 	private String nombre;
 	
 	
-	public APPMaterias(String nombre){
+	public Materia(String nombre){
 		this.nombre = nombre;
 	}
 	
-	public APPMaterias(){
+	public Materia(){
 		
 	}
 
-	public APPMaterias(int i, String string) {
+	public Materia(int i, String string) {
 		// TODO Auto-generated constructor stub
 		this.id = i;
 		this.nombre = string;
