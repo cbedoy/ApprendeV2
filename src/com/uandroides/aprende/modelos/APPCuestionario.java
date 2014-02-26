@@ -1,10 +1,21 @@
+//--------------------------------------------
+//
+//	Apprende
+//  Develop by Carlos Alfredo Cervantes Bedoy
+//
+//	Android Developer
+//
+//	Independent project:	carlos.bedoy@gmail.com
+//
+//	Aguascalientes | Mexico
+//-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
 import java.util.ArrayList;
 
-import com.uandroides.aprende.IServiceDelegate;
 
-public class APPCuestionario implements IServiceDelegate{
+
+public class APPCuestionario {
 	private ArrayList<APPregunta> preguntas;
 	private int cantidad;
 	private float puntuacion;
