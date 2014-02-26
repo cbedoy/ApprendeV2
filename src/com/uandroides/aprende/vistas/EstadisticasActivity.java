@@ -40,6 +40,7 @@ import android.widget.TextView;
 
 public class EstadisticasActivity extends Activity {
 
+	
 	public static EstadisticasActivity mthis;
 	ArrayList<APPregunta>  preguntas;
 	int cantidad;
