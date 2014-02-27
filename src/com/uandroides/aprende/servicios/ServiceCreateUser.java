@@ -17,8 +17,8 @@ import org.json.JSONObject;
 
 
 import com.uandroides.aprende.modelos.Usuario;
-import com.uandroides.aprende.utils.RESTClient;
-import com.uandroides.aprende.utils.RESTClient.RequestMethod;
+import com.uandroides.aprende.utils.CBRESTClient;
+import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.ExamenActivity;
 import com.uandroides.aprende.vistas.MainActivity;
 import com.uandroides.aprende.vistas.PerfilActivity;
@@ -29,13 +29,13 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-public class createUser extends AsyncTask<String, Integer, String> implements IServiceConector{
+public class ServiceCreateUser extends AsyncTask<String, Integer, String> implements IServiceConector{
 	private ProgressDialog pd;
 	private Context contexto;
 	private final String url="";
 	
 	
-	public createUser(Context contexto){
+	public ServiceCreateUser(Context contexto){
 		this.contexto = contexto;
 	}
 	
@@ -55,7 +55,7 @@ public class createUser extends AsyncTask<String, Integer, String> implements IS
 	public String correrServicio(Object objeto) {
 		Usuario usuario = (Usuario) objeto;
 		try{
-			RESTClient request = new RESTClient(url);
+			CBRESTClient request = new CBRESTClient(url);
 			request .Execute(RequestMethod.GET);
 			request.AddParam("correo", usuario.getCorreo());
 			request.AddParam("contrasena", usuario.getContrasena());

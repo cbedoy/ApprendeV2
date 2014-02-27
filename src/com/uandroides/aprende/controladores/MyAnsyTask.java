@@ -4,8 +4,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.uandroides.aprende.modelos.Tema;
-import com.uandroides.aprende.utils.RESTClient;
-import com.uandroides.aprende.utils.RESTClient.RequestMethod;
+import com.uandroides.aprende.utils.CBRESTClient;
+import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.ExamenActivity;
 import com.uandroides.aprende.vistas.MainActivity;
 import com.uandroides.aprende.vistas.PerfilActivity;
@@ -85,7 +85,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 	@Override
 	protected String doInBackground(String... arg0) {
 	
-		RESTClient request = null;
+		CBRESTClient request = null;
 		String respuesta = null;
 		switch(link){
 			case 1:	
@@ -94,7 +94,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 				 * JUTNO CON SU RESPECTIVA CONTRASEÑA
 				 * 
 				 * */
-				request= new RESTClient(url+
+				request= new CBRESTClient(url+
 						"getUsuaurio.php?correo="+usuario+"&contrasena="+contrasena+"");
 				respuesta = servicioLogin(request);	
 				break;
@@ -104,7 +104,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 				 * EXAMEN QUE HA REALIZADO 
 				 * 
 				 * */
-				request= new RESTClient(url+
+				request= new CBRESTClient(url+
 						"getEstadisticas.php");
 				respuesta = servicioTemas(request);	
 				break;
@@ -115,13 +115,13 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 				 * DE AHI SACAR LOS TEMAS
 				 * 
 				 * */
-				request= new RESTClient(url +
+				request= new CBRESTClient(url +
 						"getTemario.php");
 				respuesta = servicioTemario(request);	
 				break;
 			case 4:
 			case 5:
-				request= new RESTClient(url +
+				request= new CBRESTClient(url +
 						"getExamen.php?tema="+tema.getNombre()+"&cantidad="+tema.getNumeroPreguntas());
 				respuesta = servicioExamen(request);
 				break;
@@ -134,7 +134,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 	
 	
 
-	private String servicioTemario(RESTClient request) {
+	private String servicioTemario(CBRESTClient request) {
 		try{
 			request.Execute(RequestMethod.GET);
 			String respuesta = TemasActivity.mthis.shared.getString("temario", null);
@@ -155,7 +155,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 		}
 	}
 
-	private String servicioExamen(RESTClient request) {
+	private String servicioExamen(CBRESTClient request) {
 		try{
 			request.Execute(RequestMethod.GET);
 			String respuesta = ExamenActivity.mthis.shared.getString("examen", null);
@@ -176,7 +176,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 		}
 	}
 
-	private String servicioTemasContenido(RESTClient request) {
+	private String servicioTemasContenido(CBRESTClient request) {
 		try{
 			request.Execute(RequestMethod.GET);
 			String respuesta = TemasActivity.mthis.shared.getString("temas", null);
@@ -197,7 +197,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 		}
 	}
 
-	private String servicioLogin(RESTClient request){
+	private String servicioLogin(CBRESTClient request){
 		try{
 			request.Execute(RequestMethod.GET);
 			String respuesta = MainActivity.mthis.shared.getString("usuario", null);
@@ -219,7 +219,7 @@ public class MyAnsyTask extends AsyncTask<String, Integer, /*Boolean*/ String> {
 		
 	}
 	
-	private String servicioTemas(RESTClient request){
+	private String servicioTemas(CBRESTClient request){
 		try{
 			request.Execute(RequestMethod.GET);
 			String respuesta = PerfilActivity.mthis.shared.getString("temas", null);

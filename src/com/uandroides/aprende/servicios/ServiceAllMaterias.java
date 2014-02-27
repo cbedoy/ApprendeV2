@@ -8,19 +8,16 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-import com.uandroides.aprende.modelos.Estadistica;
-import com.uandroides.aprende.modelos.Usuario;
-import com.uandroides.aprende.utils.RESTClient;
-import com.uandroides.aprende.utils.RESTClient.RequestMethod;
+import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.vistas.MainActivity;
 
-public class createEstadistica extends AsyncTask<String, Integer, String> implements IServiceConector{
+public class ServiceAllMaterias extends AsyncTask<String, Integer, String> implements IServiceConector{
 	private ProgressDialog pd;
 	private Context contexto;
 	private final String url="";
 	
 	
-	public createEstadistica(Context contexto){
+	public ServiceAllMaterias(Context contexto){
 		this.contexto = contexto;
 	}
 	
@@ -38,21 +35,13 @@ public class createEstadistica extends AsyncTask<String, Integer, String> implem
 	
 	@Override
 	public String correrServicio(Object objeto) {
-		Estadistica estadistica = (Estadistica) objeto;
+		
 		try{
-			RESTClient request = new RESTClient(url);
-			request .Execute(RequestMethod.GET);
-			
-			request.AddParam("nivel", estadistica.getNivel()+"");
-			request.AddParam("aciertos", estadistica.getAciertos()+"");
-			request.AddParam("idUsuario", estadistica.getIdUsuario()+"");
-			request.AddParam("idTema", estadistica.getIdTema()+"");
-
-
-			String respuesta = MainActivity.mthis.shared.getString("usuario", null);
+			CBRESTClient request = new CBRESTClient(url);
+			String respuesta = MainActivity.mthis.shared.getString("estadisticas", null);
 			if(request.getResponse()!=null){
 				Editor edit = MainActivity.mthis.shared.edit();
-				edit.putString("usuario", request.getResponse());
+				edit.putString("estadisticas", request.getResponse());
 				edit.commit();
 				return request.getResponse();
 				
@@ -60,7 +49,7 @@ public class createEstadistica extends AsyncTask<String, Integer, String> implem
 			return respuesta;
 		}catch(Exception e){
 			e.printStackTrace();
-			String responsedsavedd = MainActivity.mthis.shared.getString("usuario", null);
+			String responsedsavedd = MainActivity.mthis.shared.getString("estadisticas", null);
 			return responsedsavedd;
 		
 		}

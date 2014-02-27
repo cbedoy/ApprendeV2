@@ -8,17 +8,16 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-import com.uandroides.aprende.utils.RESTClient;
-import com.uandroides.aprende.utils.RESTClient.RequestMethod;
+import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.vistas.MainActivity;
 
-public class obtainAllEstadisticas extends AsyncTask<String, Integer, String> implements IServiceConector{
+public class ServiceTemasByMateria extends AsyncTask<String, Integer, String> implements IServiceConector{
 	private ProgressDialog pd;
 	private Context contexto;
 	private final String url="";
 	
 	
-	public obtainAllEstadisticas(Context contexto){
+	public ServiceTemasByMateria(Context contexto){
 		this.contexto = contexto;
 	}
 	
@@ -38,7 +37,7 @@ public class obtainAllEstadisticas extends AsyncTask<String, Integer, String> im
 	public String correrServicio(Object objeto) {
 		
 		try{
-			RESTClient request = new RESTClient(url);
+			CBRESTClient request = new CBRESTClient(url);
 			String respuesta = MainActivity.mthis.shared.getString("estadisticas", null);
 			if(request.getResponse()!=null){
 				Editor edit = MainActivity.mthis.shared.edit();

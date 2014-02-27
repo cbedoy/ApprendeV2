@@ -8,16 +8,17 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-import com.uandroides.aprende.utils.RESTClient;
+import com.uandroides.aprende.utils.CBRESTClient;
+import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.MainActivity;
 
-public class loginUser extends AsyncTask<String, Integer, String> implements IServiceConector{
+public class ServiceAllEstadisticas extends AsyncTask<String, Integer, String> implements IServiceConector{
 	private ProgressDialog pd;
 	private Context contexto;
 	private final String url="";
 	
 	
-	public loginUser(Context contexto){
+	public ServiceAllEstadisticas(Context contexto){
 		this.contexto = contexto;
 	}
 	
@@ -37,10 +38,8 @@ public class loginUser extends AsyncTask<String, Integer, String> implements ISe
 	public String correrServicio(Object objeto) {
 		
 		try{
-			RESTClient request = new RESTClient(url);
-			request.AddParam("usuario", "");
-			request.AddParam("contrasena", "");
-			String respuesta = MainActivity.mthis.shared.getString("usuario", null);
+			CBRESTClient request = new CBRESTClient(url);
+			String respuesta = MainActivity.mthis.shared.getString("estadisticas", null);
 			if(request.getResponse()!=null){
 				Editor edit = MainActivity.mthis.shared.edit();
 				edit.putString("estadisticas", request.getResponse());
@@ -64,6 +63,9 @@ public class loginUser extends AsyncTask<String, Integer, String> implements ISe
 		pd.dismiss();
 		try {
 			JSONObject json = new JSONObject(respuesta);
+			
+			
+			
 			
 			
 		} catch (JSONException e) {

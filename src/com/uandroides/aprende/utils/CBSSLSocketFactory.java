@@ -8,9 +8,9 @@ import java.security.cert.*;
 import javax.net.ssl.*;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 
-public class MySSLSocketFactory extends SSLSocketFactory {
+public class CBSSLSocketFactory extends SSLSocketFactory {
     SSLContext sslContext = SSLContext.getInstance("TLS");
-    public MySSLSocketFactory(KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
+    public CBSSLSocketFactory(KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
         super(truststore);
         TrustManager tm = new X509TrustManager() {
             public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {

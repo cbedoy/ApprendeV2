@@ -1,29 +1,14 @@
-/* *************************************************************************
- *
- *   Copyright (c)  2012 by Jaguar Labs.
- *   Confidential and Proprietary
- *   All Rights Reserved
- *
- *   This software is furnished under license and may be used and copied
- *   only in accordance with the terms of its license and with the
- *   inclusion of the above copyright notice. This software and any other
- *   copies thereof may not be provided or otherwise made available to any
- *   other party. No title to and/or ownership of the software is hereby
- *   transferred.
- *
- *   The information in this software is subject to change without notice and
- *   should not be construed as a commitment by JaguarLabs.
- *
- * @(#)$Id: $
- * Last Revised By   : $Author:Carlos Bedoy
- * Last Checked In   : $Date: $
- * Last Version      : $Revision:  $
- *
- * Original Author   : Carlos Bedoy  -- carlos.bedoy@gmail.com
- * 
- * Notes             :
- *
- * *************************************************************************/
+//--------------------------------------------
+//
+//	Apprende
+//  Develop by Carlos Alfredo Cervantes Bedoy
+//
+//	Android Developer
+//
+//	Independent project:	carlos.bedoy@gmail.com
+//
+//	Aguascalientes | Mexico
+//-------------------------------------------------------
 
 package com.uandroides.aprende.utils;
 import java.io.BufferedReader;
@@ -56,7 +41,7 @@ import org.apache.http.protocol.HTTP;
 import android.util.Log;
 
 
-public class RESTClient {
+public class CBRESTClient {
 
 	public static enum RequestMethod {
 		GET, POST
@@ -85,7 +70,7 @@ public class RESTClient {
 		return responseCode;
 	}
 
-	public RESTClient(String url) {
+	public CBRESTClient(String url) {
 		this.url = url;
 		params = new ArrayList<NameValuePair>();
 		headers = new ArrayList<NameValuePair>();
@@ -206,8 +191,8 @@ public class RESTClient {
 	    try {
 	        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
 	        trustStore.load(null, null);
-	        MySSLSocketFactory sf = new MySSLSocketFactory(trustStore);
-	        sf.setHostnameVerifier(MySSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER); 
+	        CBSSLSocketFactory sf = new CBSSLSocketFactory(trustStore);
+	        sf.setHostnameVerifier(CBSSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER); 
 	        HttpParams params = new BasicHttpParams();
 	        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 	        HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
