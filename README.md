@@ -15,6 +15,7 @@ Develop by:
 Current project includes custom library make for me.
 
 carlos.bedoy@gmail.com
+
 carlos.cervantes@pademobile.com
 
 I'm a iOS and Android Developer for pademobile.
