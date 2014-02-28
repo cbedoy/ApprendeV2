@@ -26,14 +26,16 @@ public class PreguntaFragment extends Fragment {
 	private int posicion;
 	public static final String ARG_SECTION_NUMBER = "section_number";
 
-	private ArrayList<Pregunta> preguntas;
-	private Application context;
+	public static ArrayList<Pregunta> preguntas;
+	public static  Application context;
 	private int cantidad;
 	
-	public PreguntaFragment(Application context, ArrayList<Pregunta> preguntas) {
-		this.context = context;
-		this.preguntas = preguntas;
+
+
+	public PreguntaFragment() {
+		// TODO Auto-generated constructor stub
 	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

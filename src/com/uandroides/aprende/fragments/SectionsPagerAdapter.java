@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
-import com.uandroides.aprende.vistas.ExamenActivity.PreguntaFragment;
+
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -16,13 +16,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int position) {
-		Fragment fragment = new PreguntaFragment();
-		Bundle args = new Bundle();
-		args.putInt(PreguntaFragment.ARG_SECTION_NUMBER, position);
-		fragment.setArguments(args);
-		Log.i("depu", ""
-				+position);
-		return fragment;
+
+		return new PreguntaExamen();
 	}
 
 	@Override
