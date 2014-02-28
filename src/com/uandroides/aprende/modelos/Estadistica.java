@@ -42,8 +42,8 @@ public class Estadistica implements IModel{
 	public int getPuntos() {
 		return puntos;
 	}
-	public void setPuntos(int puntos) {
-		this.puntos = puntos;
+	public void setPuntos(float f) {
+		this.puntos = f;
 	}
 	public int getIdUsuario() {
 		return idUsuario;
