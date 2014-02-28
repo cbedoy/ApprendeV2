@@ -11,7 +11,7 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class Estadistica {
+public class Estadistica implements IModel{
 	private int nivel;
 	private int aciertos;
 	private int puntos;
@@ -86,6 +86,18 @@ public class Estadistica {
 	}
 	public void setTema(String tema) {
 		this.tema = tema;
+	}
+
+	@Override
+	public void setModelName() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getModelName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

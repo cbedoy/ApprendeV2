@@ -16,8 +16,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int position) {
-
-		return new PreguntaExamen();
+		Fragment fragment = new PreguntaFragment();
+		Bundle args = new Bundle();
+		args.putInt(PreguntaFragment.ARG_SECTION_NUMBER, position);
+		fragment.setArguments(args);
+		Log.i("depu", ""
+				+position);
+		return fragment;
 	}
 
 	@Override
