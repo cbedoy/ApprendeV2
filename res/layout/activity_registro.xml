@@ -14,9 +14,9 @@
         android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nombre completo"
-        android:inputType="textNoSuggestions"
-        android:ems="10" >
+        android:ems="10"
+        android:hint="example@example.com"
+        android:inputType="textNoSuggestions" >
 
         <requestFocus />
     </EditText>
@@ -26,18 +26,8 @@
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:ems="10"
-         android:hint="correo electronico"
-         android:inputType="textEmailAddress" >
-        
-    </EditText>
-    
-     <EditText
-         android:id="@+id/editText1"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:ems="10"
          android:hint="contraseña"
-         android:inputType="textPassword" >
+         android:inputType="textEmailAddress" >
         
     </EditText>
     
@@ -50,13 +40,23 @@
          android:inputType="textPassword" >
         
     </EditText>
+    
+     <EditText
+         android:id="@+id/editText1"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:ems="10"
+         android:hint="nombre(s)"
+         android:inputType="textPassword" >
+        
+    </EditText>
 
     <AutoCompleteTextView
         android:id="@+id/registro_universidades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="universidad"
+        android:hint="apellido paterno"
         android:inputType="textNoSuggestions" />
     
     <AutoCompleteTextView
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="estado"
+        android:hint="apellido materno"
         android:inputType="textNoSuggestions" />
 
     <ImageView
