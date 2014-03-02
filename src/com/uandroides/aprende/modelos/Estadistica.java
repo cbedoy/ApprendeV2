@@ -14,7 +14,7 @@ package com.uandroides.aprende.modelos;
 public class Estadistica implements IModel{
 	private int nivel;
 	private int aciertos;
-	private int puntos;
+	private float puntos;
 	private int idUsuario;
 	private int idTema;
 	private int errores;
@@ -39,11 +39,11 @@ public class Estadistica implements IModel{
 	public void setAciertos(int aciertos) {
 		this.aciertos = aciertos;
 	}
-	public int getPuntos() {
+	public float getPuntos() {
 		return puntos;
 	}
-	public void setPuntos(float f) {
-		this.puntos = f;
+	public void setPuntos(float puntos) {
+		this.puntos = puntos;
 	}
 	public int getIdUsuario() {
 		return idUsuario;
@@ -88,16 +88,5 @@ public class Estadistica implements IModel{
 		this.tema = tema;
 	}
 
-	@Override
-	public void setModelName() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getModelName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }

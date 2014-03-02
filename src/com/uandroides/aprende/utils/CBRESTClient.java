@@ -19,7 +19,7 @@ import java.net.URLEncoder;
 import java.security.KeyStore;
 import java.util.ArrayList;
 
-import javax.net.ssl.SSLSocketFactory;
+
 
 import org.apache.http.*;
 import org.apache.http.client.*;

@@ -14,7 +14,7 @@ package com.uandroides.aprende.modelos;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Pregunta implements Parcelable{
+public class Pregunta implements Parcelable, IModel{
 
 	private String pregunta;
 	private String respuesta1;

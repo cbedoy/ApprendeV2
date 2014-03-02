@@ -21,6 +21,7 @@ import com.uandroides.aprende.R.color;
 import com.uandroides.aprende.R.id;
 import com.uandroides.aprende.R.layout;
 import com.uandroides.aprende.R.menu;
+import com.uandroides.aprende.items.ItemEstadisticaRetroalimentacion;
 import com.uandroides.aprende.modelos.Pregunta;
 import com.uandroides.aprende.modelos.Serializador;
 
@@ -55,7 +56,6 @@ public class EstadisticasActivity extends Activity {
 	public static EstadisticasActivity mthis;
 	ArrayList<Pregunta>  preguntas;
 	int cantidad;
-	MyAdaptador adapter;
 	Serializador dataSerializada;
 	TextView puntos, calificacion, pregunta, aciertos, errores, vacias;
 	private TextView fecha;
@@ -118,7 +118,7 @@ public class EstadisticasActivity extends Activity {
 
 		ListView lista = (ListView)findViewById(R.id.lista_resultados);
 
-		lista.setAdapter(new MyAdaptador());
+		lista.setAdapter(new ItemEstadisticaRetroalimentacion(this, preguntas));
 		
 		new Thread(new Runnable() {
 	        public void run() {
@@ -140,14 +140,7 @@ public class EstadisticasActivity extends Activity {
 	}
 
 	
-	public void showMensaje(int index){
-		AlertDialog.Builder mensaje = new AlertDialog.Builder(mthis);
-		mensaje.setMessage("Reactivo #"+(index+1));
-		mensaje.setMessage("Tu respuesta:\n"+preguntas.get(index).getSeleccionUsuario());
-		mensaje.setMessage("\nRetroalimentacion:\n"+preguntas.get(index).getRetroalimentacion());
-		mensaje.setNeutralButton("OK", null);
-		mensaje.show();
-	}
+
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -156,75 +149,7 @@ public class EstadisticasActivity extends Activity {
 		return true;
 	}
 	
-	private class MyAdaptador extends BaseAdapter{
 
-		public MyAdaptador(){
-			
-		}
-		
-		@Override
-		public int getCount() {
-			// TODO Auto-generated method stub
-			return cantidad;
-		}
-
-		@Override
-		public Object getItem(int index) {
-			// TODO Auto-generated method stub
-			return index;
-		}
-
-		@Override
-		public long getItemId(int index) {
-			// TODO Auto-generated method stub
-			return index;
-		}
-
-		@Override
-		public View getView(final int position, View convertView, 
-				ViewGroup viewGroup) {
-			
-			if(convertView == null){
-				LayoutInflater inflate = (LayoutInflater)mthis.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				
-				View vistaView  = inflate.inflate(R.layout.inflate_estadisticas, null);
-				
-				convertView = vistaView;
-			}
-			
-			if(convertView != null){
-				LinearLayout layout = (LinearLayout)convertView; 
-				
-				Button boton = (Button)layout.findViewById(R.id.item_boton);
-				
-				TextView pregunta = (TextView)layout.findViewById(R.id.item_contenido);
-				pregunta.setText(preguntas.get(position).getPregunta());
-				TextView respuesta = (TextView)layout.findViewById(R.id.item_respuesta_usuario);
-				respuesta.setText(preguntas.get(position).getSeleccionUsuario());
-				TextView foco = (TextView)layout.findViewById(R.id.item_valor);
-				
-				
-				if(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()){
-					foco.setBackgroundResource(R.color.correcto);
-					foco.setText("  CORRECTO  ");
-				}else {
-					foco.setBackgroundResource(R.color.error);
-					foco.setText(" INCORRECTO ");
-				}
-				
-				
-				boton.setOnClickListener(new View.OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						mthis.showMensaje(position);
-					}
-				});
-			}
-			return convertView;
-		}
-	}
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
