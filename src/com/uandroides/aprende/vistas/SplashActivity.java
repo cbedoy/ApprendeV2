@@ -33,8 +33,6 @@ public class SplashActivity extends Activity {
 		ActionBar a = getActionBar();
 		a.hide();
 		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-		
-		
 		TimerTask task = new TimerTask() {
 		      @Override
 		      public void run() {

@@ -13,6 +13,7 @@ package com.uandroides.aprende.items;
 
 import java.util.ArrayList;
 
+import android.app.*;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -115,8 +116,6 @@ public class ItemEstadisticas extends BaseAdapter {
 					
 					LayoutInflater inflater = contexto.getLayoutInflater();
 					View view = inflater.inflate(R.layout.dialog_detalle, null);
-					view.setMinimumHeight(350);
-					view.setMinimumWidth(350);
 					TextView titulo = (TextView) view
 							.findViewById(R.id.dialogo_titulo);
 					TextView preguntas = (TextView) view

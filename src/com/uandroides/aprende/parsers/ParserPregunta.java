@@ -31,8 +31,7 @@ public class ParserPregunta implements IParser{
 				pregunta.setLink(jobj.getString("recurso"));
 				pregunta.setRetroalimentacion(jobj.getString("retroalimentacion"));
 				preguntas.add(pregunta);
-			} catch (JSONException e) {
-				
+			} catch (JSONException e) {	
 				e.printStackTrace();
 			}
 		

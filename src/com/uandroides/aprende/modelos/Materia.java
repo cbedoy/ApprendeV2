@@ -11,7 +11,9 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class Materia {
+import com.uandroides.aprende.interfaces.IModel;
+
+public class Materia implements IModel{
 	private int id;
 	private String nombre;
 	

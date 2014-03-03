@@ -11,14 +11,16 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class EstadisticaRefactory{
+import com.uandroides.aprende.interfaces.IModel;
+
+public class Retroalimentacion implements IModel{
 	
 	private String pregunta;
 	private String respuesta;
 	private String retroalimentacion;
 	
 	
-	public EstadisticaRefactory(String pregunta, String respuesta, String retroalimentacion){
+	public Retroalimentacion(String pregunta, String respuesta, String retroalimentacion){
 		this.setPregunta(pregunta);
 		this.setRespuesta(respuesta);
 		this.setRetroalimentacion(retroalimentacion);

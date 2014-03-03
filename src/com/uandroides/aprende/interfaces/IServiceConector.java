@@ -9,7 +9,7 @@
 //
 //	Aguascalientes | Mexico
 //-------------------------------------------------------
-package com.uandroides.aprende.servicios;
+package com.uandroides.aprende.interfaces;
 
 public interface IServiceConector {
 	public String correrServicio(Object objecto);

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
+import com.uandroides.aprende.interfaces.IServiceConector;
 import com.uandroides.aprende.modelos.Estadistica;
 import com.uandroides.aprende.modelos.Usuario;
 import com.uandroides.aprende.utils.CBRESTClient;

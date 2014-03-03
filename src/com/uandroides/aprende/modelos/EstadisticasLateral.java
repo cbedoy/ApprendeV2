@@ -11,7 +11,9 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class EstadisticasLateral {
+import com.uandroides.aprende.interfaces.IModel;
+
+public class EstadisticasLateral implements IModel{
 	private String fecha;
 	private String preguntas;
 	private String aciertos;

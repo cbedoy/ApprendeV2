@@ -11,7 +11,9 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-public class Usuario {
+import com.uandroides.aprende.interfaces.IModel;
+
+public class Usuario implements IModel{
 	private int id;
 	private String correo;
 	private String contrasena;
