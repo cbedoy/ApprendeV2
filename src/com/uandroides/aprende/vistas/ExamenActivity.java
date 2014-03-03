@@ -42,6 +42,8 @@ public class ExamenActivity extends FragmentActivity {
 	public SharedPreferences shared;
 	private Tema tema;
 	public  int cantidad;
+	private CuestionarioDemo demo;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -106,6 +108,9 @@ public class ExamenActivity extends FragmentActivity {
 	            });
 	        }
 	    }).start();
+		
+		demo = new CuestionarioDemo();
+		
 		
 	}
 	

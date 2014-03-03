@@ -12,12 +12,8 @@ import android.util.Log;
 
 
 public class PaginadoAdapter extends FragmentPagerAdapter {
-	public static PaginadoAdapter mthis;
-	private CuestionarioDemo demo;
 	public PaginadoAdapter(FragmentManager fm) {
 		super(fm);
-		mthis = this;
-		demo = new CuestionarioDemo();
 	}
 
 	@Override
@@ -25,8 +21,7 @@ public class PaginadoAdapter extends FragmentPagerAdapter {
 		Fragment fragment = new PreguntaFragment();
 		Bundle args = new Bundle();
 		args.putInt(PreguntaFragment.ARG_SECTION_NUMBER, position);
-		args.putParcelable("pregunta", demo.getCuestionario().get(position));
-		
+		args.putInt("size", 10);
 		fragment.setArguments(args);
 		Log.i("depu", "Posicion del fragment"
 				+position);

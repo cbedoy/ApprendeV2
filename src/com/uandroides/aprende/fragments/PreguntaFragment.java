@@ -1,5 +1,7 @@
 package com.uandroides.aprende.fragments;
 
+import java.util.ArrayList;
+
 import android.app.Application;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import com.uandroides.aprende.R;
 import com.uandroides.aprende.modelos.Pregunta;
 import com.uandroides.aprende.vistas.EstadisticasActivity;
+import com.uandroides.aprende.vistas.ExamenActivity;
 
 public class PreguntaFragment extends Fragment {
 
@@ -26,10 +29,9 @@ public class PreguntaFragment extends Fragment {
 	private RadioButton opcion4;
 	private TextView preg;
 	private int posicion;
+	private ArrayList<Pregunta> preguntas;
 	public static final String ARG_SECTION_NUMBER = "section_number";
 
-	public Pregunta pregunta;
-	public static  Application context;
 	private int cantidad;
 	
 
@@ -41,13 +43,12 @@ public class PreguntaFragment extends Fragment {
 
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.cuestionario, container,
-				false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		
+		View rootView = inflater.inflate(R.layout.cuestionario, container,false);
 		
 		
-		
+		preguntas = ExamenActivity.mthis.preguntas;
 		
 		
 		Log.i("Depu", "Posicion en el fragment: "+posicion);
@@ -62,11 +63,12 @@ public class PreguntaFragment extends Fragment {
 		Button botonFinalizar = (Button) rootView.findViewById(R.id.botonFinalizar);
 
 		posicion = getArguments().getInt(ARG_SECTION_NUMBER);
-		pregunta = getArguments().getParcelable("pregunta");
+		cantidad = getArguments().getInt("size");
+		
 		if (posicion % 2 == 0)
 			imagen.setVisibility(View.GONE);
 
-		imagen.setVisibility((pregunta.getLink() == null || pregunta.getLink().equals("null"))?View.GONE:View.INVISIBLE);
+		imagen.setVisibility((preguntas.get(posicion).getLink() == null || preguntas.get(posicion).getLink().equals("null"))?View.GONE:View.INVISIBLE);
 	
 
 		if (posicion < cantidad-1) {
@@ -81,24 +83,22 @@ public class PreguntaFragment extends Fragment {
 				}
 
 				private void showNewActivity() {
-					Intent i = new Intent(context,EstadisticasActivity.class);
+					Intent i = new Intent(getActivity(),EstadisticasActivity.class);
 					i.putExtra("cantidad", cantidad);
-					//i.putParcelableArrayListExtra("preguntas", pregunta);
 					startActivity(i);
 					
 				}
 			});
 		}
 
-		preg.setText(pregunta.getPregunta());
-		opcion1.setText("A) "+pregunta.getRespuesta1());
-		opcion2.setText("B) "+pregunta.getRespuesta2());
+		preg.setText(preguntas.get(posicion).getPregunta());
+		opcion1.setText("A) "+preguntas.get(posicion).getRespuesta1());
+		opcion2.setText("B) "+preguntas.get(posicion).getRespuesta2());
 		
 		
-		opcion3.setText("C) "+pregunta.getRespuesta3());
-		opcion4.setText("D) "+pregunta.getRespuesta4());
+		opcion3.setText("C) "+preguntas.get(posicion).getRespuesta3());
+		opcion4.setText("D) "+preguntas.get(posicion).getRespuesta4());
 
-		// mthis.setColorSeleccion();
 
 		Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"font/BlackBoard.ttf");
 		opcion1.setTypeface(tf);
@@ -110,28 +110,28 @@ public class PreguntaFragment extends Fragment {
 		opcion1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pregunta.setRespuestaUsuario(1);
+				preguntas.get(posicion).setRespuestaUsuario(1);
 			}
 		});
 
 		opcion2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pregunta.setRespuestaUsuario(2);
+				preguntas.get(posicion).setRespuestaUsuario(2);
 			}
 		});
 
 		opcion3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pregunta.setRespuestaUsuario(3);
+				preguntas.get(posicion).setRespuestaUsuario(3);
 			}
 		});
 
 		opcion4.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pregunta.setRespuestaUsuario(4);
+				preguntas.get(posicion).setRespuestaUsuario(4);
 			}
 		});
 
