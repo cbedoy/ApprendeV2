@@ -9,12 +9,14 @@
 //
 //	Aguascalientes | Mexico
 //-------------------------------------------------------
-package com.uandroides.aprende;
+package com.uandroides.aprende.vistas;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.uandroides.aprende.vistas.SplashActivity;
+import com.uandroides.aprende.R;
+import com.uandroides.aprende.R.layout;
+import com.uandroides.aprende.R.menu;
 
 import android.os.Bundle;
 import android.app.ActionBar;

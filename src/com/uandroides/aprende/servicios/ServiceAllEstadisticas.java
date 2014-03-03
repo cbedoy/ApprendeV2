@@ -9,7 +9,6 @@ import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
 import com.uandroides.aprende.utils.CBRESTClient;
-import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.MainActivity;
 
 public class ServiceAllEstadisticas extends AsyncTask<String, Integer, String> implements IServiceConector{

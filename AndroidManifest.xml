@@ -51,7 +51,7 @@
             android:label="@string/title_activity_registro" >
         </activity>
         <activity
-            android:name="com.uandroides.aprende.PresentacionActivity"
+            android:name="com.uandroides.aprende.vistas.PresentacionActivity"
             android:label="@string/title_activity_presentacion" >
         </activity>
     </application>
