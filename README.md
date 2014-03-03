@@ -1,3 +1,4 @@
+# Apprende
 
 ![alt tag](https://scontent-a-dfw.xx.fbcdn.net/hphotos-frc3/t1/1463651_237800966382557_514520905_n.png)
 
@@ -21,7 +22,11 @@ carlos.cervantes@pademobile.com
 
 I'm a iOS and Android Developer for pademobile.
 
+#### About
+
+Code code = [[[Code new]initWithCode:self]autorelease];
 
 :D
+
 
 
