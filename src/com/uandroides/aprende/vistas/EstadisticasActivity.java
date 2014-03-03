@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,19 +45,17 @@ public class EstadisticasActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		overridePendingTransition(R.anim.push_up, R.anim.push_up);
-		
+		getActionBar().hide();
 		setContentView(R.layout.activity_estadisticas);
-		ActionBar action = getActionBar();
-		action.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
 		Bundle bundle = getIntent().getExtras();
 	
 		cantidad = bundle.getInt("cantidad");
-		preguntas = bundle.getParcelableArrayList("preguntas");
+		preguntas = ExamenActivity.mthis.preguntas;
 		
 		fecha = (TextView)findViewById(R.id.estadisticas_fecha);
 		
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String currentDateandTime = sdf.format(new Date());		
 		
 		fecha.setText(currentDateandTime);
@@ -67,10 +66,18 @@ public class EstadisticasActivity extends Activity {
 		aciertos = (TextView)findViewById(R.id.s_successes);
 		errores = (TextView)findViewById(R.id.s_erros);
 		vacias = (TextView)findViewById(R.id.s_empty);
+		Typeface tf = Typeface.createFromAsset(getAssets(),"font/dudu.ttf");
+		puntos.setTypeface(tf);
+		calificacion.setTypeface(tf);
+		pregunta.setTypeface(tf);
+		aciertos.setTypeface(tf);
+		errores.setTypeface(tf);
+		vacias.setTypeface(tf);
+		fecha.setTypeface(tf);
+		
 		
 		int aciertosCantidad=0, vaciasCantidad=0;
-		for(int i=0; i<cantidad; i++){
-			Pregunta pregunta = preguntas.get(i);
+		for(Pregunta pregunta : preguntas){
 			if(pregunta.getRespuestaCorrecta() == pregunta.getRespuestaUsuario())
 				aciertosCantidad++;
 			else if(pregunta.getRespuestaUsuario()==0)
@@ -86,7 +93,7 @@ public class EstadisticasActivity extends Activity {
 		aciertos.setText(""+aciertosCantidad);
 		errores.setText(""+(cantidad-aciertosCantidad));
 		vacias.setText("0");
-
+	
 
 		
 		

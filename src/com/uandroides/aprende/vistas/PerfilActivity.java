@@ -26,6 +26,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -63,27 +64,10 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
         setContentView(R.layout.activity_perfil);
         overridePendingTransition(R.anim.push_out, R.anim.push_out);
         Bundle extras = getIntent().getExtras();
+         
         shared = this.getPreferences(MODE_PRIVATE);
-        s_nombre = (TextView)findViewById(R.id.perfil_nombre);
-        s_edad = (TextView)findViewById(R.id.perfil_edad);
-        s_ubicacion = (TextView)findViewById(R.id.perfil_ubicacion);
-        s_escuela = (TextView)findViewById(R.id.perfil_universidad);
-        s_numero_pruebas = (TextView)findViewById(R.id.perfil_pruebas);
-        s_rankin = (TextView)findViewById(R.id.perfil_ranking);
-        s_puntos = (TextView)findViewById(R.id.perfil_puntos);
-        imagen = (ImageView)findViewById(R.id.perfil_foto);
-        
-        s_nombre.setText("Esmeralda Hernandez Ruiz");
-        s_edad.setText("27 años");
-        s_ubicacion.setText("Aguascalientes");
-        s_escuela.setText("Universidad Autonoma De Aguascalientes");
-        s_numero_pruebas.setText("5 pruebas");
-        s_rankin.setText("1th Lugar");
-        s_puntos.setText("85.9 puntos");
-     
+        init();
 
-        
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         getActionBar().setDisplayHomeAsUpEnabled(true);
          this.setTitle("Perfil de usuario");
         
@@ -253,6 +237,34 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
 	
 	}
 	
-	
+	private void init(){
+		Typeface tf = Typeface.createFromAsset(getAssets(),"font/dudu.ttf");
+		
+		s_nombre = (TextView)findViewById(R.id.perfil_nombre);
+        s_edad = (TextView)findViewById(R.id.perfil_edad);
+        s_ubicacion = (TextView)findViewById(R.id.perfil_ubicacion);
+        s_escuela = (TextView)findViewById(R.id.perfil_universidad);
+        s_numero_pruebas = (TextView)findViewById(R.id.perfil_pruebas);
+        s_rankin = (TextView)findViewById(R.id.perfil_ranking);
+        s_puntos = (TextView)findViewById(R.id.perfil_puntos);
+        imagen = (ImageView)findViewById(R.id.perfil_foto);
+        
+        s_nombre.setTypeface(tf);
+        s_edad.setTypeface(tf);
+        s_ubicacion.setTypeface(tf);
+        s_escuela.setTypeface(tf);
+        s_numero_pruebas.setTypeface(tf);
+        s_rankin.setTypeface(tf);
+        s_puntos.setTypeface(tf);
+        
+        
+        s_nombre.setText("Esmeralda Hernandez Ruiz");
+        s_edad.setText("27 años");
+        s_ubicacion.setText("Aguascalientes");
+        s_escuela.setText("Universidad Autonoma De Aguascalientes");
+        s_numero_pruebas.setText("5 pruebas");
+        s_rankin.setText("1th Lugar");
+        s_puntos.setText("85.9 puntos");
+	}
 
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,7 @@ public class ItemEstadisticaRetroalimentacion extends BaseAdapter{
 		
 		if(convertView != null){
 			LinearLayout layout = (LinearLayout)convertView; 
-			
+			Typeface tf = Typeface.createFromAsset(context.getAssets(),"font/dudu.ttf");
 			Button boton = (Button)layout.findViewById(R.id.item_boton);
 			
 			TextView pregunta = (TextView)layout.findViewById(R.id.item_contenido);
@@ -67,7 +68,10 @@ public class ItemEstadisticaRetroalimentacion extends BaseAdapter{
 			respuesta.setText(preguntas.get(position).getSeleccionUsuario());
 			TextView foco = (TextView)layout.findViewById(R.id.item_valor);
 			
-			
+			boton.setTypeface(tf);
+			pregunta.setTypeface(tf);
+			respuesta.setTypeface(tf);
+			foco.setTypeface(tf);
 			if(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()){
 				foco.setBackgroundResource(R.color.correcto);
 				foco.setText("  CORRECTO  ");

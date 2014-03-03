@@ -18,6 +18,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -94,20 +95,25 @@ public class ItemTemario extends BaseAdapter {
 			descripcion.setText((temario.get(position).getDescripcion()
 					.equals("null") ? "" : temario.get(position)
 					.getDescripcion()));
-			if(position==0){
-				seleccion.setVisibility(View.VISIBLE);
-				seleccion.setOnClickListener(new View.OnClickListener() {
+			
+			Typeface tf = Typeface.createFromAsset(contexto.getAssets(),"font/dudu.ttf");
+			
+			tema.setTypeface(tf);
+			seleccion.setTypeface(tf);
+			descripcion.setTypeface(tf);
+			
+			
+			seleccion.setVisibility(View.VISIBLE);
+			seleccion.setOnClickListener(new View.OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
 						showMensaje(position, tema, descripcion);
 
 					}
-
 				});
-			}else{
-				seleccion.setVisibility(View.GONE);
-			}
+
+
 			
 
 		}

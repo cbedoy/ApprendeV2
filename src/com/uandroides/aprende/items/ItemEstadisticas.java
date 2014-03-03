@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,12 +75,23 @@ public class ItemEstadisticas extends BaseAdapter {
 
 		if (convertView != null) {
 			LinearLayout layout = (LinearLayout) convertView;
+			
+			Typeface tf = Typeface.createFromAsset(contexto.getAssets(),"font/dudu.ttf");
+			
+			
 			fecha = (TextView) layout.findViewById(R.id.textView1);
 			titulo = (TextView) layout.findViewById(R.id.textView2);
 			preguntas = (TextView) layout.findViewById(R.id.textView3);
 			aciertos = (TextView) layout.findViewById(R.id.textView4);
 			errores = (TextView) layout.findViewById(R.id.textView5);
 			puntos = (TextView) layout.findViewById(R.id.textView6);
+			
+			fecha.setTypeface(tf);
+			titulo.setTypeface(tf);
+			preguntas.setTypeface(tf);
+			aciertos.setTypeface(tf);
+			errores.setTypeface(tf);
+			puntos.setTypeface(tf);
 
 			fecha.setText(data.get(position).getFecha());
 			titulo.setText(data.get(position).getTitulo().toUpperCase());

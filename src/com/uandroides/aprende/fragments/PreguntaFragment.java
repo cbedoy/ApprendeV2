@@ -93,14 +93,12 @@ public class PreguntaFragment extends Fragment {
 
 		preg.setText(preguntas.get(posicion).getPregunta());
 		opcion1.setText("A) "+preguntas.get(posicion).getRespuesta1());
-		opcion2.setText("B) "+preguntas.get(posicion).getRespuesta2());
-		
-		
+		opcion2.setText("B) "+preguntas.get(posicion).getRespuesta2());		
 		opcion3.setText("C) "+preguntas.get(posicion).getRespuesta3());
 		opcion4.setText("D) "+preguntas.get(posicion).getRespuesta4());
 
 
-		Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"font/BlackBoard.ttf");
+		Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"font/dudu.ttf");
 		opcion1.setTypeface(tf);
 		opcion2.setTypeface(tf);
 		opcion3.setTypeface(tf);

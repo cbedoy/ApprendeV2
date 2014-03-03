@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,6 +89,9 @@ public class ItemMaterias extends BaseAdapter {
 			LinearLayout layout = (LinearLayout) convertView;
 			TextView nombre = (TextView)layout.findViewById(R.id.bMateria);
 			nombre.setText(data.get(position).getNombre());
+			
+			Typeface tf = Typeface.createFromAsset(contexto.getAssets(),"font/dudu.ttf");
+			nombre.setTypeface(tf);
 			
 			layout.setOnClickListener(new View.OnClickListener() {
 				

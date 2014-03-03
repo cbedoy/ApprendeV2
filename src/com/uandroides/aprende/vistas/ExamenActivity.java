@@ -60,8 +60,7 @@ public class ExamenActivity extends FragmentActivity {
 		else 
 			cantidad=20;
 		
-		Log.i("depu", ""+preguntas.size());
-		Log.i("depu", "cantidad "+cantidad);
+
 		mthis = this;
 		mSectionsPagerAdapter = new PaginadoAdapter(
 				getSupportFragmentManager());
