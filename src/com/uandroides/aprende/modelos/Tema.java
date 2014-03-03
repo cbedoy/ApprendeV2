@@ -19,12 +19,7 @@ public class Tema implements IModel{
 	private String descripcion;
 	private String dificultad;
 	private int numeroPreguntas;
-	public Tema(int id, String nombre, String descripcion){
-		this.setId(id);
-		this.setNombre(nombre);
-		this.setDescripcion(descripcion);
-		
-	}
+
 	
 	public Tema(){
 		
@@ -60,13 +55,8 @@ public class Tema implements IModel{
 
 	public void setDificultad(String dificultad) {
 		this.dificultad = dificultad;
-		if(dificultad.toUpperCase().equals("FACIL"))
-			numeroPreguntas = 20;
-		else
-			if(dificultad.toUpperCase().equals("INTERMEDIO"))
-				numeroPreguntas = 10;
-			else
-				numeroPreguntas = 5;
+		numeroPreguntas = dificultad.toUpperCase().equals("FACIL")?20:dificultad.toUpperCase().equals("INTERMEDIO")?10:5;
+
 					
 		
 	}

@@ -53,20 +53,12 @@ public class ExamenActivity extends FragmentActivity {
 		this.preguntas = new CuestionarioDemo().getCuestionario();
 		cantidad = (bundle.getInt("dificultad"));
 		Collections.shuffle(preguntas);
-		if(cantidad==0)
-			cantidad=5;
-		else if(cantidad==1)
-			cantidad=10;
-		else 
-			cantidad=20;
+		
+		cantidad = (cantidad==0)?5:(cantidad==1)?10:20;
 		
 
 		mthis = this;
-		mSectionsPagerAdapter = new PaginadoAdapter(
-				getSupportFragmentManager());
-		
-		//MyAnsyTask tarea = new MyAnsyTask(mthis, 5, tema);
-		//tarea.execute();
+		mSectionsPagerAdapter = new PaginadoAdapter(getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		
 		showMensajeDemo();
@@ -82,7 +74,7 @@ public class ExamenActivity extends FragmentActivity {
 		new Thread(new Runnable() {
 	        public void run() {
 	            try {
-					Thread.sleep(5000);
+					Thread.sleep(cantidad*500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -90,18 +82,8 @@ public class ExamenActivity extends FragmentActivity {
 	            
 	            mthis.runOnUiThread(new Runnable() {
 	                public void run() {
+	                	showAlerta();
 	                	
-	                	AlertDialog.Builder alerta = new AlertDialog.Builder(mthis);
-	                	alerta.setMessage("Tiempo agotado, el examen ha terminado");
-	                	alerta.setCancelable(false);
-	                	alerta.setNeutralButton("Finalizar", new DialogInterface.OnClickListener() {
-							
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								// TODO Auto-generated method stub
-								 mthis.startActivity(new Intent(mthis, EstadisticasActivity.class));
-							}
-						});
 	                   
 	                }
 	            });
@@ -120,6 +102,19 @@ public class ExamenActivity extends FragmentActivity {
 		alerta.show();
 	}
 
+	private void showAlerta(){
+		AlertDialog.Builder alerta = new AlertDialog.Builder(mthis);
+    	alerta.setMessage("Tiempo agotado, el examen ha terminado");
+    	alerta.setCancelable(false);
+    	alerta.setNeutralButton("Finalizar", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				 mthis.startActivity(new Intent(mthis, EstadisticasActivity.class));
+			}
+		});
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

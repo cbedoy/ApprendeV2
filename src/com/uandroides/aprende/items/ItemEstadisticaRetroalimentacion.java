@@ -72,13 +72,10 @@ public class ItemEstadisticaRetroalimentacion extends BaseAdapter{
 			pregunta.setTypeface(tf);
 			respuesta.setTypeface(tf);
 			foco.setTypeface(tf);
-			if(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()){
-				foco.setBackgroundResource(R.color.correcto);
-				foco.setText("  CORRECTO  ");
-			}else {
-				foco.setBackgroundResource(R.color.error);
-				foco.setText(" INCORRECTO ");
-			}
+			
+			foco.setText(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()?"  CORRECTO  ":"  INCORRECTO");
+			foco.setBackgroundResource(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()?R.color.correcto:R.color.error);
+			
 			
 			
 			boton.setOnClickListener(new View.OnClickListener() {
@@ -89,18 +86,20 @@ public class ItemEstadisticaRetroalimentacion extends BaseAdapter{
 					showMensaje(position);
 				}
 
-				private void showMensaje(int position) {
-					AlertDialog.Builder mensaje = new AlertDialog.Builder(context);
-					mensaje.setMessage("Reactivo #"+(position+1));
-					mensaje.setMessage("Tu respuesta:\n"+preguntas.get(position).getSeleccionUsuario());
-					mensaje.setMessage("\nRetroalimentacion:\n"+preguntas.get(position).getRetroalimentacion());
-					mensaje.setNeutralButton("OK", null);
-					mensaje.show();
-					
-				}
+				
 			});
 		}
 		return convertView;
+	}
+	
+	private void showMensaje(int position) {
+		AlertDialog.Builder mensaje = new AlertDialog.Builder(context);
+		mensaje.setMessage("Reactivo #"+(position+1));
+		mensaje.setMessage("Tu respuesta:\n"+preguntas.get(position).getSeleccionUsuario());
+		mensaje.setMessage("\nRetroalimentacion:\n"+preguntas.get(position).getRetroalimentacion());
+		mensaje.setNeutralButton("OK", null);
+		mensaje.show();
+		
 	}
 	
 }

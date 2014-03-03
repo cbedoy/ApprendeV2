@@ -110,57 +110,7 @@ public class ItemEstadisticas extends BaseAdapter {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					AlertDialog.Builder dialogo = new AlertDialog.Builder(
-							contexto);
-					
-					
-					LayoutInflater inflater = contexto.getLayoutInflater();
-					View view = inflater.inflate(R.layout.dialog_detalle, null);
-					TextView titulo = (TextView) view
-							.findViewById(R.id.dialogo_titulo);
-					TextView preguntas = (TextView) view
-							.findViewById(R.id.dialogo_reactivos);
-					TextView puntos = (TextView) view
-							.findViewById(R.id.dialogo_puntuacion);
-					TextView fecha = (TextView) view
-							.findViewById(R.id.dialogo_fecha);
-					Button share = (Button) view.findViewById(R.id.button1);
-					titulo.setText(data.get(position).getTitulo().toUpperCase());
-					preguntas.setText(data.get(position).getPreguntas());
-					puntos.setText(data.get(position).getPuntos());
-					fecha.setText(data.get(position).getFecha());
-					
-					Typeface tf = Typeface.createFromAsset(contexto.getAssets(),"font/dudu.ttf");
-					titulo.setTypeface(tf);
-					preguntas.setTypeface(tf);
-					puntos.setTypeface(tf);
-					fecha.setTypeface(tf);
-					share.setTypeface(tf);
-					
-					share.setOnClickListener(new View.OnClickListener() {
-
-						@Override
-						public void onClick(View v) {
-							// TODO Auto-generated method stub
-							String mensaje = "Mi calificacion usando APPrende:\n";
-							mensaje += ""
-									+ data.get(position).getTitulo()
-											.toUpperCase() + "\n"
-									+ "NUMERO DE REACTIVOS: \n"
-									+ data.get(position).getPreguntas() + ""
-									+ "NUMERO DE PUNTOS: \n"
-									+ data.get(position).getPuntos();
-							Intent share = new Intent(Intent.ACTION_SEND);
-							share.setType("text/plain");
-							share.putExtra(Intent.EXTRA_TEXT, mensaje);
-
-							contexto.startActivity(Intent.createChooser(share,
-									"Compartir"));
-						}
-					});
-					dialogo.setView(view);
-
-					dialogo.show();
+					showCustomAlerta(position);
 				}
 			});
 
@@ -168,5 +118,63 @@ public class ItemEstadisticas extends BaseAdapter {
 		return convertView;
 
 	}
+	private void showCustomAlerta(final int position){
+		AlertDialog.Builder dialogo = new AlertDialog.Builder(
+				contexto);
+		
+		
+		LayoutInflater inflater = contexto.getLayoutInflater();
+		View view = inflater.inflate(R.layout.dialog_detalle, null);
+		TextView titulo = (TextView) view
+				.findViewById(R.id.dialogo_titulo);
+		TextView preguntas = (TextView) view
+				.findViewById(R.id.dialogo_reactivos);
+		TextView puntos = (TextView) view
+				.findViewById(R.id.dialogo_puntuacion);
+		TextView fecha = (TextView) view
+				.findViewById(R.id.dialogo_fecha);
+		Button share = (Button) view.findViewById(R.id.button1);
+		titulo.setText(data.get(position).getTitulo().toUpperCase());
+		preguntas.setText(data.get(position).getPreguntas());
+		puntos.setText(data.get(position).getPuntos());
+		fecha.setText(data.get(position).getFecha());
+		
+		Typeface tf = Typeface.createFromAsset(contexto.getAssets(),"font/dudu.ttf");
+		titulo.setTypeface(tf);
+		preguntas.setTypeface(tf);
+		puntos.setTypeface(tf);
+		fecha.setTypeface(tf);
+		share.setTypeface(tf);
+		
+		share.setOnClickListener(new View.OnClickListener() {
 
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showMessageToShare(position);
+			}
+		});
+		dialogo.setView(view);
+
+		dialogo.show();
+	
+	}
+	
+	private void showMessageToShare(int position){
+		String mensaje = "Mi calificacion usando APPrende:\n";
+		mensaje += ""
+				+ data.get(position).getTitulo()
+						.toUpperCase() + "\n"
+				+ "NUMERO DE REACTIVOS: \n"
+				+ data.get(position).getPreguntas() + ""
+				+ "NUMERO DE PUNTOS: \n"
+				+ data.get(position).getPuntos();
+		Intent share = new Intent(Intent.ACTION_SEND);
+		share.setType("text/plain");
+		share.putExtra(Intent.EXTRA_TEXT, mensaje);
+
+		contexto.startActivity(Intent.createChooser(share,
+				"Compartir"));
+	
+	}
 }
