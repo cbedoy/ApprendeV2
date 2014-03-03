@@ -17,48 +17,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.uandroides.aprende.R;
-import com.uandroides.aprende.R.id;
-import com.uandroides.aprende.R.layout;
-import com.uandroides.aprende.R.menu;
-
-import com.uandroides.aprende.items.ItemMaterias;
-import com.uandroides.aprende.items.ItemTemario;
-import com.uandroides.aprende.modelos.Materia;
-import com.uandroides.aprende.modelos.Temario;
-
-
-
-
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.view.MenuItemCompat;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.uandroides.aprende.R;
+import com.uandroides.aprende.items.ItemMaterias;
+import com.uandroides.aprende.items.ItemTemario;
+import com.uandroides.aprende.modelos.Materia;
+import com.uandroides.aprende.modelos.Temario;
 
 public class TemasActivity extends Activity implements AdapterView.OnItemClickListener{
 

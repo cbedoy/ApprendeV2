@@ -13,52 +13,24 @@ package com.uandroides.aprende.vistas;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Locale;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.uandroides.aprende.R;
-
-import com.uandroides.aprende.R.id;
-import com.uandroides.aprende.R.layout;
-import com.uandroides.aprende.R.menu;
-import com.uandroides.aprende.R.string;
-import com.uandroides.aprende.fragments.SectionsPagerAdapter;
-import com.uandroides.aprende.modelos.Tema;
-import com.uandroides.aprende.modelos.Pregunta;
-import com.uandroides.aprende.modelos.CuestionarioDemo;
-import com.uandroides.aprende.modelos.Serializador;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.TextView;
+
+import com.uandroides.aprende.R;
+import com.uandroides.aprende.fragments.SectionsPagerAdapter;
+import com.uandroides.aprende.modelos.CuestionarioDemo;
+import com.uandroides.aprende.modelos.Pregunta;
+import com.uandroides.aprende.modelos.Tema;
 
 public class ExamenActivity extends FragmentActivity {
 

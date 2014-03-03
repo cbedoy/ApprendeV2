@@ -16,39 +16,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.uandroides.aprende.R;
-import com.uandroides.aprende.R.color;
-import com.uandroides.aprende.R.id;
-import com.uandroides.aprende.R.layout;
-import com.uandroides.aprende.R.menu;
-import com.uandroides.aprende.items.ItemEstadisticaRetroalimentacion;
-import com.uandroides.aprende.modelos.Pregunta;
-import com.uandroides.aprende.modelos.Serializador;
-
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
-import android.view.LayoutInflater;
+import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.uandroides.aprende.R;
+import com.uandroides.aprende.items.ItemEstadisticaRetroalimentacion;
+import com.uandroides.aprende.modelos.Pregunta;
+import com.uandroides.aprende.modelos.Serializador;
 
 public class EstadisticasActivity extends Activity {
 

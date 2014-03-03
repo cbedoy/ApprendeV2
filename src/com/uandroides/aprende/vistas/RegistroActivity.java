@@ -11,17 +11,13 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.vistas;
 
-import com.uandroides.aprende.R;
-import com.uandroides.aprende.R.array;
-import com.uandroides.aprende.R.id;
-import com.uandroides.aprende.R.layout;
-import com.uandroides.aprende.R.menu;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+
+import com.uandroides.aprende.R;
 
 public class RegistroActivity extends Activity {
 

@@ -14,54 +14,35 @@ package com.uandroides.aprende.vistas;
 import java.net.URL;
 import java.util.ArrayList;
 
-import com.uandroides.aprende.items.ItemEstadisticas;
-import com.uandroides.aprende.modelos.*;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.uandroides.aprende.R;
-import com.uandroides.aprende.R.id;
-import com.uandroides.aprende.R.layout;
-import com.uandroides.aprende.R.menu;
-import com.uandroides.aprende.modelos.EstadisticasLateral;
-
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.app.AlertDialog.Builder;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.uandroides.aprende.R;
+import com.uandroides.aprende.items.ItemEstadisticas;
+import com.uandroides.aprende.modelos.EstadisticasLateral;
 
 public class PerfilActivity extends Activity implements AdapterView.OnItemClickListener {
 

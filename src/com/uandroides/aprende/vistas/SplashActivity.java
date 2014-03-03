@@ -14,15 +14,13 @@ package com.uandroides.aprende.vistas;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.uandroides.aprende.R;
-import com.uandroides.aprende.R.layout;
-import com.uandroides.aprende.R.menu;
-
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+
+import com.uandroides.aprende.R;
 
 public class SplashActivity extends Activity {
 
