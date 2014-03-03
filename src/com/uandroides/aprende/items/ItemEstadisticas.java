@@ -111,8 +111,12 @@ public class ItemEstadisticas extends BaseAdapter {
 					// TODO Auto-generated method stub
 					AlertDialog.Builder dialogo = new AlertDialog.Builder(
 							contexto);
+					
+					
 					LayoutInflater inflater = contexto.getLayoutInflater();
 					View view = inflater.inflate(R.layout.dialog_detalle, null);
+					view.setMinimumHeight(350);
+					view.setMinimumWidth(350);
 					TextView titulo = (TextView) view
 							.findViewById(R.id.dialogo_titulo);
 					TextView preguntas = (TextView) view
@@ -126,6 +130,14 @@ public class ItemEstadisticas extends BaseAdapter {
 					preguntas.setText(data.get(position).getPreguntas());
 					puntos.setText(data.get(position).getPuntos());
 					fecha.setText(data.get(position).getFecha());
+					
+					Typeface tf = Typeface.createFromAsset(contexto.getAssets(),"font/dudu.ttf");
+					titulo.setTypeface(tf);
+					preguntas.setTypeface(tf);
+					puntos.setTypeface(tf);
+					fecha.setTypeface(tf);
+					share.setTypeface(tf);
+					
 					share.setOnClickListener(new View.OnClickListener() {
 
 						@Override

@@ -40,13 +40,27 @@
          android:textColor="@color/blanco"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="NUMERO DE REACTIVOS"
-         android:textColor="@color/blanco"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NUMERO DE REACTIVOS"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blanco" />
+
+        <TextView
+            android:id="@+id/dialogo_reactivos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="50"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blanco" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,15 +69,32 @@
          android:textColor="@color/blanco"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    
-    <TextView
-        android:id="@+id/dialogo_reactivos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="50"
-         android:textColor="@color/blanco"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PUNTUACION"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blanco" />
+
+        <TextView
+            android:id="@+id/dialogo_puntuacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="500"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blanco" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </LinearLayout>
   
  <TextView
 
@@ -74,30 +105,10 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="PUNTUACION"
-         android:textColor="@color/blanco"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    
-
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" "
         android:textAppearance="?android:attr/textAppearanceSmall" />
-    
-    <TextView
-        android:id="@+id/dialogo_puntuacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="500"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/blanco" />
     
         <TextView
         android:layout_width="wrap_content"
