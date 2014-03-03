@@ -8,14 +8,14 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-import com.uandroides.aprende.interfaces.IServiceConector;
+import com.uandroides.aprende.interfaces.IServiceInteractor;
+import com.uandroides.aprende.modelos.Constantes;
 import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.vistas.MainActivity;
 
-public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> implements IServiceConector{
+public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> implements IServiceInteractor{
 	private ProgressDialog pd;
 	private Context contexto;
-	private final String url="";
 	
 	
 	public ServiceAllUsuarios(Context contexto){
@@ -38,8 +38,8 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 	public String correrServicio(Object objeto) {
 		
 		try{
-			CBRESTClient request = new CBRESTClient(url);
-			String respuesta = MainActivity.mthis.shared.getString("estadisticas", null);
+			CBRESTClient request = new CBRESTClient(Constantes.getAllUsers);
+			String respuesta = MainActivity.mthis.shared.getString(Constantes.usuarios, null);
 			if(request.getResponse()!=null){
 				Editor edit = MainActivity.mthis.shared.edit();
 				edit.putString("estadisticas", request.getResponse());

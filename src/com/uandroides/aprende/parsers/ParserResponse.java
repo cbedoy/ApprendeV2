@@ -8,10 +8,11 @@ import org.json.JSONObject;
 
 import com.uandroides.aprende.interfaces.IModel;
 import com.uandroides.aprende.interfaces.IParser;
+import com.uandroides.aprende.interfaces.IServiceDelegate;
 import com.uandroides.aprende.modelos.Response;
 import com.uandroides.aprende.modelos.Usuario;
 
-public class ParserResponse implements IParser{
+public class ParserResponse implements IParser, IServiceDelegate{
 
 	private ArrayList<IModel> response;
 	@Override
@@ -32,7 +33,6 @@ public class ParserResponse implements IParser{
 
 	@Override
 	public ArrayList<IModel> getDataParsed() {
-		
 		return response;
 	}
 }

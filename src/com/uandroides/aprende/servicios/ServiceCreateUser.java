@@ -16,7 +16,7 @@ import org.json.JSONObject;
 
 
 
-import com.uandroides.aprende.interfaces.IServiceConector;
+import com.uandroides.aprende.interfaces.IServiceInteractor;
 import com.uandroides.aprende.modelos.Usuario;
 import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
@@ -30,7 +30,7 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-public class ServiceCreateUser extends AsyncTask<String, Integer, String> implements IServiceConector{
+public class ServiceCreateUser extends AsyncTask<String, Integer, String> implements IServiceInteractor{
 	private ProgressDialog pd;
 	private Context contexto;
 	private final String url="";

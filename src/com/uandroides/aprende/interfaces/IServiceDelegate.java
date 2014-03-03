@@ -1,5 +1,7 @@
 package com.uandroides.aprende.interfaces;
 
-public interface IServiceDelegate {
+import java.util.ArrayList;
 
+public interface IServiceDelegate {
+	public ArrayList<IModel> getDataParsed();
 }

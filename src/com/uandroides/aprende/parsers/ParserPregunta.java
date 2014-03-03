@@ -8,9 +8,10 @@ import org.json.JSONObject;
 
 import com.uandroides.aprende.interfaces.IModel;
 import com.uandroides.aprende.interfaces.IParser;
+import com.uandroides.aprende.interfaces.IServiceDelegate;
 import com.uandroides.aprende.modelos.Pregunta;
 
-public class ParserPregunta implements IParser{
+public class ParserPregunta implements IParser, IServiceDelegate{
 
 	private ArrayList<IModel> preguntas;
 	@Override

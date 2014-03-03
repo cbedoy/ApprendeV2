@@ -8,5 +8,5 @@ import org.json.JSONArray;
 
 public interface IParser {
 	public void setStringToParse(JSONArray json);
-	public ArrayList<IModel> getDataParsed();
+
 }

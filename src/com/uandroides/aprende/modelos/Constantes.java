@@ -12,5 +12,8 @@ public class Constantes {
 	public static String getAllTemas = "";
 	public static String getAllUsers = "";
 	public static String getTemaById = "";
+	
+	
+	public static String usuarios="allUsers";
 
 }
