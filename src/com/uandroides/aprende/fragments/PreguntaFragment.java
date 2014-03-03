@@ -70,26 +70,17 @@ public class PreguntaFragment extends Fragment {
 
 		imagen.setVisibility((preguntas.get(posicion).getLink() == null || preguntas.get(posicion).getLink().equals("null"))?View.GONE:View.INVISIBLE);
 	
-
-		if (posicion < cantidad-1) {
-			botonFinalizar.setVisibility(View.INVISIBLE);
-
-		} else {
+		botonFinalizar.setVisibility((posicion < cantidad-1)?View.GONE:View.VISIBLE); 
+		
+		
 			botonFinalizar.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
 					showNewActivity();
 				}
-
-				private void showNewActivity() {
-					Intent i = new Intent(getActivity(),EstadisticasActivity.class);
-					i.putExtra("cantidad", cantidad);
-					startActivity(i);
-					
-				}
 			});
-		}
+		
 
 		preg.setText(preguntas.get(posicion).getPregunta());
 		opcion1.setText("A) "+preguntas.get(posicion).getRespuesta1());
@@ -135,5 +126,12 @@ public class PreguntaFragment extends Fragment {
 
 		return rootView;
 
+	}
+	
+    private void showNewActivity() {
+		Intent i = new Intent(getActivity(),EstadisticasActivity.class);
+		i.putExtra("cantidad", cantidad);
+		startActivity(i);
+		
 	}
 }
