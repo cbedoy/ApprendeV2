@@ -20,7 +20,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 		Bundle args = new Bundle();
 		args.putInt(PreguntaFragment.ARG_SECTION_NUMBER, position);
 		fragment.setArguments(args);
-		Log.i("depu", ""
+		Log.i("depu", "Posicion del fragment"
 				+position);
 		return fragment;
 	}
@@ -28,7 +28,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		// Show 3 total pages.
-		return 5;
+		return 10;
 	}
 
 	@Override

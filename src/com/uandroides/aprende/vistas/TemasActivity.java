@@ -21,7 +21,7 @@ import com.uandroides.aprende.R;
 import com.uandroides.aprende.R.id;
 import com.uandroides.aprende.R.layout;
 import com.uandroides.aprende.R.menu;
-import com.uandroides.aprende.controladores.MyAnsyTask;
+
 import com.uandroides.aprende.items.ItemMaterias;
 import com.uandroides.aprende.items.ItemTemario;
 import com.uandroides.aprende.modelos.Materia;

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,6 @@ public class PreguntaFragment extends Fragment {
 	private RadioButton opcion3;
 	private RadioButton opcion4;
 	private TextView preg;
-	
 	private int posicion;
 	public static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -39,8 +39,7 @@ public class PreguntaFragment extends Fragment {
 
 	public PreguntaFragment() {
 		// TODO Auto-generated constructor stub
-		preguntas = new CuestionarioDemo().getCuestionario();
-		posicion = 10;
+
 	}
 
 
@@ -49,8 +48,8 @@ public class PreguntaFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.cuestionario, container,
 				false);
-		
-
+		/*
+		Log.i("Depu", "Posicion en el fragment: "+posicion);
 
 		ImageView imagen = (ImageView) rootView
 				.findViewById(R.id.imagen_cuestionario);
@@ -133,7 +132,7 @@ public class PreguntaFragment extends Fragment {
 				preguntas.get(posicion).setRespuestaUsuario(4);
 			}
 		});
-
+*/
 		return rootView;
 
 	}

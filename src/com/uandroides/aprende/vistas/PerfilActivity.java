@@ -92,37 +92,22 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
         s_puntos = (TextView)findViewById(R.id.perfil_puntos);
         imagen = (ImageView)findViewById(R.id.perfil_foto);
         
-        s_nombre.setText("Mauricio Tiscareño Aguilera");
-        s_edad.setText("24 años");
+        s_nombre.setText("Esmeralda Hernandez Ruiz");
+        s_edad.setText("27 años");
         s_ubicacion.setText("Aguascalientes");
         s_escuela.setText("Universidad Autonoma De Aguascalientes");
         s_numero_pruebas.setText("5 pruebas");
         s_rankin.setText("1th Lugar");
         s_puntos.setText("85.9 puntos");
      
-        
-        //MyAnsyTask tarea = new MyAnsyTask(this, 1, 
-        //		extras.getString("usuario"), extras.getString("contrasena"));
-        //tarea.execute();
+
         
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         getActionBar().setDisplayHomeAsUpEnabled(true);
          this.setTitle("Perfil de usuario");
-       // mDrawerOptions = (ListView) findViewById(R.id.left_drawer);
-       // mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-
-       // mDrawerOptions.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values));
-       // mDrawerOptions.setOnItemClickListener(this);
         
         mPanes = (SlidingPaneLayout) findViewById(R.id.slidingPane);
         
-
-        // tarea = new MyAnsyTask(this, 2); 
-        		
-       // tarea.execute();
-
-        // ListView initialization
         
         mthis = this;
         ActionBar action = getActionBar();
@@ -234,7 +219,7 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
 			@Override
 			public void run() {
 				try{
-					URL url = new URL("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.0.412.412/s200x200/543271_3813037598062_1196470297_n.jpg");
+					URL url = new URL("https://scontent-a-pao.xx.fbcdn.net/hphotos-ash3/t1/533423_365041146938186_881277949_n.jpg");
 					Log.i("miLog", ""+url.toString());
 					bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 					mthis.runOnUiThread(new Runnable(){

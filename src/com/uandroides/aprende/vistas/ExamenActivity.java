@@ -25,7 +25,6 @@ import com.uandroides.aprende.R.id;
 import com.uandroides.aprende.R.layout;
 import com.uandroides.aprende.R.menu;
 import com.uandroides.aprende.R.string;
-import com.uandroides.aprende.controladores.MyAnsyTask;
 import com.uandroides.aprende.fragments.SectionsPagerAdapter;
 import com.uandroides.aprende.modelos.Tema;
 import com.uandroides.aprende.modelos.Pregunta;
@@ -149,19 +148,6 @@ public class ExamenActivity extends FragmentActivity {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -178,45 +164,6 @@ public class ExamenActivity extends FragmentActivity {
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 
-	}
-
-	public void convertirPreguntas(JSONObject json) {
-		try {
-			JSONArray array = json.getJSONArray("preguntas");
-			this.preguntas = new ArrayList<Pregunta>();
-			Pregunta pregunta;
-			for (int i = 0; i < array.length(); i++) {
-				JSONObject jobj = array.getJSONObject(i);
-				pregunta = new Pregunta();
-				pregunta.setIdPregunta(jobj.getInt("id"));
-				pregunta.setPregunta(jobj.getString("pregunta"));
-				pregunta.setRespuesta1(jobj.getString("respuesta1"));
-				pregunta.setRespuesta2(jobj.getString("respuesta2"));
-				pregunta.setRespuesta3(jobj.getString("respuesta3"));
-				pregunta.setRespuesta4(jobj.getString("respuesta4"));
-				pregunta.setRespuestaCorrecta(jobj.getInt("correcta"));
-				pregunta.setLink(jobj.getString("recurso"));
-				
-				Log.i("examen", ".........................................");
-				Log.i("examen", ""+pregunta.getIdPregunta());
-				Log.i("examen", ""+pregunta.getPregunta());
-				Log.i("examen", ""+pregunta.getRespuesta1());
-				Log.i("examen", ""+pregunta.getRespuesta2());
-				Log.i("examen", ""+pregunta.getRespuesta3());
-				Log.i("examen", ""+pregunta.getRespuesta4());
-				Log.i("examen", ""+pregunta.getLink());
-				
-				this.preguntas.add(pregunta);
-			}
-
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Log.i("examen", "tama�o "+preguntas.size());
-		
-		mViewPager.setAdapter(mSectionsPagerAdapter);
 	}
 
 }
