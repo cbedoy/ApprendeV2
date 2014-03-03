@@ -27,14 +27,14 @@ import android.util.Log;
 import android.view.Menu;
 
 import com.uandroides.aprende.R;
-import com.uandroides.aprende.fragments.SectionsPagerAdapter;
+import com.uandroides.aprende.fragments.PaginadoAdapter;
 import com.uandroides.aprende.modelos.CuestionarioDemo;
 import com.uandroides.aprende.modelos.Pregunta;
 import com.uandroides.aprende.modelos.Tema;
 
 public class ExamenActivity extends FragmentActivity {
 
-	SectionsPagerAdapter mSectionsPagerAdapter;
+	PaginadoAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
 	public static ExamenActivity mthis;
 	
@@ -48,9 +48,6 @@ public class ExamenActivity extends FragmentActivity {
 		setContentView(R.layout.activity_examen);
 		shared = this.getPreferences(MODE_PRIVATE);
 		Bundle bundle = getIntent().getExtras();
-		//tema = new APPTema();
-		//tema.setNombre(bundle.getString("nombre_tema"));
-		//tema.setId(bundle.getInt("idtema"));
 		this.preguntas = new CuestionarioDemo().getCuestionario();
 		cantidad = (bundle.getInt("dificultad"));
 		Collections.shuffle(preguntas);
@@ -64,7 +61,7 @@ public class ExamenActivity extends FragmentActivity {
 		Log.i("depu", ""+preguntas.size());
 		Log.i("depu", "cantidad "+cantidad);
 		mthis = this;
-		mSectionsPagerAdapter = new SectionsPagerAdapter(
+		mSectionsPagerAdapter = new PaginadoAdapter(
 				getSupportFragmentManager());
 		
 		//MyAnsyTask tarea = new MyAnsyTask(mthis, 5, tema);

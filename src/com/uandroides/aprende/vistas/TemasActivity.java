@@ -60,8 +60,7 @@ public class TemasActivity extends Activity implements AdapterView.OnItemClickLi
 	    mPanes = (SlidingPaneLayout) findViewById(R.id.slidingPane);
 		shared = this.getPreferences(MODE_PRIVATE);
 		temas = new ArrayList<Temario>();
-		//MyAnsyTask miTarea = new MyAnsyTask(this, 3);
-		//miTarea.execute();
+
 
 		mthis = this;
 		ActionBar action = getActionBar();

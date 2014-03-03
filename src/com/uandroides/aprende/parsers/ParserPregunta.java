@@ -6,7 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.uandroides.aprende.modelos.IModel;
+import com.uandroides.aprende.interfaces.IModel;
+import com.uandroides.aprende.interfaces.IParser;
 import com.uandroides.aprende.modelos.Pregunta;
 
 public class ParserPregunta implements IParser{

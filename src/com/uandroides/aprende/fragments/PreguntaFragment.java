@@ -1,7 +1,5 @@
 package com.uandroides.aprende.fragments;
 
-import java.util.ArrayList;
-
 import android.app.Application;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -17,7 +15,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.uandroides.aprende.R;
-import com.uandroides.aprende.modelos.CuestionarioDemo;
 import com.uandroides.aprende.modelos.Pregunta;
 import com.uandroides.aprende.vistas.EstadisticasActivity;
 
@@ -31,7 +28,7 @@ public class PreguntaFragment extends Fragment {
 	private int posicion;
 	public static final String ARG_SECTION_NUMBER = "section_number";
 
-	public static ArrayList<Pregunta> preguntas;
+	public Pregunta pregunta;
 	public static  Application context;
 	private int cantidad;
 	
@@ -39,7 +36,7 @@ public class PreguntaFragment extends Fragment {
 
 	public PreguntaFragment() {
 		// TODO Auto-generated constructor stub
-
+		
 	}
 
 
@@ -48,11 +45,14 @@ public class PreguntaFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.cuestionario, container,
 				false);
-		/*
+		
+		
+		
+		
+		
 		Log.i("Depu", "Posicion en el fragment: "+posicion);
 
-		ImageView imagen = (ImageView) rootView
-				.findViewById(R.id.imagen_cuestionario);
+		ImageView imagen = (ImageView) rootView.findViewById(R.id.imagen_cuestionario);
 
 		preg = (TextView) rootView.findViewById(R.id.pregunta_cuestionario);
 		opcion1 = (RadioButton) rootView.findViewById(R.id.opcion1_cuestionario);
@@ -62,12 +62,12 @@ public class PreguntaFragment extends Fragment {
 		Button botonFinalizar = (Button) rootView.findViewById(R.id.botonFinalizar);
 
 		posicion = getArguments().getInt(ARG_SECTION_NUMBER);
-
+		pregunta = getArguments().getParcelable("pregunta");
 		if (posicion % 2 == 0)
 			imagen.setVisibility(View.GONE);
 
-		imagen.setVisibility((preguntas.get(posicion).getLink() == null || preguntas.get(posicion).getLink().equals("null"))?View.GONE:View.INVISIBLE);
-		
+		imagen.setVisibility((pregunta.getLink() == null || pregunta.getLink().equals("null"))?View.GONE:View.INVISIBLE);
+	
 
 		if (posicion < cantidad-1) {
 			botonFinalizar.setVisibility(View.INVISIBLE);
@@ -83,22 +83,24 @@ public class PreguntaFragment extends Fragment {
 				private void showNewActivity() {
 					Intent i = new Intent(context,EstadisticasActivity.class);
 					i.putExtra("cantidad", cantidad);
-					i.putParcelableArrayListExtra("preguntas", preguntas);
+					//i.putParcelableArrayListExtra("preguntas", pregunta);
 					startActivity(i);
 					
 				}
 			});
 		}
 
-		preg.setText(preguntas.get(posicion).getPregunta());
-		opcion1.setText(preguntas.get(posicion).getRespuesta1());
-		opcion2.setText(preguntas.get(posicion).getRespuesta2());
-		opcion3.setText(preguntas.get(posicion).getRespuesta3());
-		opcion4.setText(preguntas.get(posicion).getRespuesta4());
+		preg.setText(pregunta.getPregunta());
+		opcion1.setText("A) "+pregunta.getRespuesta1());
+		opcion2.setText("B) "+pregunta.getRespuesta2());
+		
+		
+		opcion3.setText("C) "+pregunta.getRespuesta3());
+		opcion4.setText("D) "+pregunta.getRespuesta4());
 
 		// mthis.setColorSeleccion();
 
-		Typeface tf = Typeface.createFromAsset(context.getAssets(),"font/dudu.ttf");
+		Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"font/BlackBoard.ttf");
 		opcion1.setTypeface(tf);
 		opcion2.setTypeface(tf);
 		opcion3.setTypeface(tf);
@@ -108,31 +110,31 @@ public class PreguntaFragment extends Fragment {
 		opcion1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				preguntas.get(posicion).setRespuestaUsuario(1);
+				pregunta.setRespuestaUsuario(1);
 			}
 		});
 
 		opcion2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				preguntas.get(posicion).setRespuestaUsuario(2);
+				pregunta.setRespuestaUsuario(2);
 			}
 		});
 
 		opcion3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				preguntas.get(posicion).setRespuestaUsuario(3);
+				pregunta.setRespuestaUsuario(3);
 			}
 		});
 
 		opcion4.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				preguntas.get(posicion).setRespuestaUsuario(4);
+				pregunta.setRespuestaUsuario(4);
 			}
 		});
-*/
+
 		return rootView;
 
 	}

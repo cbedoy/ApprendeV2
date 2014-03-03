@@ -11,6 +11,8 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
+import com.uandroides.aprende.interfaces.IModel;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 

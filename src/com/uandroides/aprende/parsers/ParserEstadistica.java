@@ -6,8 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.uandroides.aprende.interfaces.IModel;
+import com.uandroides.aprende.interfaces.IParser;
 import com.uandroides.aprende.modelos.Estadistica;
-import com.uandroides.aprende.modelos.IModel;
 
 
 public class ParserEstadistica implements IParser{

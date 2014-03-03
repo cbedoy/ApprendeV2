@@ -40,7 +40,7 @@ public class SplashActivity extends Activity {
 		      public void run() {
 		        Intent mainIntent = new Intent().setClass(SplashActivity.this, MainActivity.class);
 		        startActivity(mainIntent);
-		        finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+		        finish();
 		      }
 		    };
 

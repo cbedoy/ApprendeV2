@@ -30,7 +30,6 @@ import android.widget.TextView;
 import com.uandroides.aprende.R;
 import com.uandroides.aprende.items.ItemEstadisticaRetroalimentacion;
 import com.uandroides.aprende.modelos.Pregunta;
-import com.uandroides.aprende.modelos.Serializador;
 
 public class EstadisticasActivity extends Activity {
 
@@ -38,7 +37,7 @@ public class EstadisticasActivity extends Activity {
 	public static EstadisticasActivity mthis;
 	ArrayList<Pregunta>  preguntas;
 	int cantidad;
-	Serializador dataSerializada;
+
 	TextView puntos, calificacion, pregunta, aciertos, errores, vacias;
 	private TextView fecha;
 	@Override
