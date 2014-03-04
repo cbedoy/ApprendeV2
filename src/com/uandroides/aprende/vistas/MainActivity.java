@@ -11,6 +11,8 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.vistas;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,9 +28,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.uandroides.aprende.R;
+import com.uandroides.aprende.interfaces.IModel;
+import com.uandroides.aprende.interfaces.IRepresentationDelegate;
 import com.uandroides.aprende.servicios.ServiceAllUsuarios;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements IRepresentationDelegate{
 
 	private ActionBar action;
 	private EditText usuario_txt, password_txt;
@@ -92,6 +96,12 @@ public class MainActivity extends Activity {
 	public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         
+	}
+
+	@Override
+	public void ReloadData(ArrayList<IModel> modelo) {
+		//TODO RELOAD DATA
+		
 	}
 
 }

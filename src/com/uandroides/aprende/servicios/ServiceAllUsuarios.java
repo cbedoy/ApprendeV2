@@ -66,8 +66,9 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 		pd.dismiss();
 		try{
 			JSONArray array = new JSONObject(respuesta).getJSONArray("usuario");
-			IParser parser = new ParserAllUsuarios();
+			ParserAllUsuarios parser = new ParserAllUsuarios();
 			parser.setStringToParse(array);
+			MainActivity.mthis.ReloadData(parser.getDataParsed());
 		} catch (JSONException e) {
 			e.printStackTrace();
 			
