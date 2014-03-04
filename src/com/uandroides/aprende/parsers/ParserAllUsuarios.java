@@ -23,6 +23,7 @@ public class ParserAllUsuarios implements IParser,IServiceDelegate{
 				JSONObject jobj = json.getJSONObject(i);
 				Usuario usuario = new Usuario();
 				//Todo parser
+				
 				usuarios.add(usuario);
 			} catch (JSONException e) {	
 				e.printStackTrace();

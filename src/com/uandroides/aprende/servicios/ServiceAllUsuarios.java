@@ -1,5 +1,6 @@
 package com.uandroides.aprende.servicios;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -8,8 +9,10 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
+import com.uandroides.aprende.interfaces.IParser;
 import com.uandroides.aprende.interfaces.IServiceInteractor;
 import com.uandroides.aprende.modelos.Constantes;
+import com.uandroides.aprende.parsers.ParserAllUsuarios;
 import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.vistas.MainActivity;
 
@@ -42,7 +45,7 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 			String respuesta = MainActivity.mthis.shared.getString(Constantes.usuarios, null);
 			if(request.getResponse()!=null){
 				Editor edit = MainActivity.mthis.shared.edit();
-				edit.putString("estadisticas", request.getResponse());
+				edit.putString(Constantes.usuarios, request.getResponse());
 				edit.commit();
 				return request.getResponse();
 				
@@ -50,7 +53,7 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 			return respuesta;
 		}catch(Exception e){
 			e.printStackTrace();
-			String responsedsavedd = MainActivity.mthis.shared.getString("estadisticas", null);
+			String responsedsavedd = MainActivity.mthis.shared.getString(Constantes.usuarios, null);
 			return responsedsavedd;
 		
 		}
@@ -61,13 +64,10 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 	@Override
 	protected void onPostExecute(String respuesta){
 		pd.dismiss();
-		try {
-			JSONObject json = new JSONObject(respuesta);
-			
-			
-			
-			
-			
+		try{
+			JSONArray array = new JSONObject(respuesta).getJSONArray("usuario");
+			IParser parser = new ParserAllUsuarios();
+			parser.setStringToParse(array);
 		} catch (JSONException e) {
 			e.printStackTrace();
 			

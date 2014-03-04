@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.uandroides.aprende.R;
+import com.uandroides.aprende.servicios.ServiceAllUsuarios;
 
 public class MainActivity extends Activity {
 
@@ -74,6 +75,9 @@ public class MainActivity extends Activity {
 				mthis.startActivity(new Intent(mthis, RegistroActivity.class));
 			}
 		});
+		
+		ServiceAllUsuarios task = new ServiceAllUsuarios(this);
+		task.execute();
 		
 	}
 
