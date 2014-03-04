@@ -23,7 +23,7 @@ public class ParserAllUsuarios implements IParser,IServiceDelegate{
 				JSONObject jobj = json.getJSONObject(i);
 				Usuario usuario = new Usuario();
 				usuario.setId(jobj.getInt("id"));
-				usuario.setCorreo(jobj.getString(""));
+				usuario.setCorreo(jobj.getString("correo"));
 				usuario.setNombre(jobj.getString("nombre"));
 				usuario.setEdad(jobj.getInt("edad"));
 				usuario.setLink(jobj.getString("foto"));
@@ -39,7 +39,6 @@ public class ParserAllUsuarios implements IParser,IServiceDelegate{
 
 	@Override
 	public ArrayList<IModel> getDataParsed() {
-		
 		return usuarios;
 	}
 }

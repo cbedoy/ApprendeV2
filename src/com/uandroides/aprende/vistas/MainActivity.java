@@ -21,6 +21,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ import android.widget.TextView;
 import com.uandroides.aprende.R;
 import com.uandroides.aprende.interfaces.IModel;
 import com.uandroides.aprende.interfaces.IRepresentationDelegate;
+import com.uandroides.aprende.modelos.Usuario;
 import com.uandroides.aprende.servicios.ServiceAllUsuarios;
 
 public class MainActivity extends Activity implements IRepresentationDelegate{
@@ -101,7 +103,11 @@ public class MainActivity extends Activity implements IRepresentationDelegate{
 	@Override
 	public void ReloadData(ArrayList<IModel> modelo) {
 		//TODO RELOAD DATA
-		
+		Log.i("parsed", modelo.size()+"");
+		for(IModel model: modelo){
+			Usuario user = (Usuario) model;
+			
+		}
 	}
 
 }

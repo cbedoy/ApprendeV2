@@ -10,13 +10,13 @@ public class Constantes {
 	public static String getAllStadistics = "";
 	public static String getAllMaterias = "";
 	public static String getAllTemas = "";
-	public static String getAllUsers = "http://148.211.67.146/apprende/getAllUsuarios.php";
+	public static String getAllUsers = "http://192.168.0.15/apprende/getAllUsuarios.php";
 	public static String getTemaById = "";
 	
 	
 	public static String usuarios="allUsers";
 	
 	
-	public static String server = "localhost";
+	public static String server = "192.168.0.15";
 
 }
