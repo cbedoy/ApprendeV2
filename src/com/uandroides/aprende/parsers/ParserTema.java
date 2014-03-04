@@ -21,7 +21,10 @@ public class ParserTema implements IParser, IServiceDelegate{
 			try {
 				JSONObject jobj = json.getJSONObject(i);
 				Tema tema = new Tema();
-				//Todo parser
+				tema.setId(jobj.getInt("id"));
+				tema.setNombre(jobj.getString("nombre"));
+				tema.setDificultad(jobj.getString("dificultad"));
+				tema.setDescripcion(jobj.getString("descripcion"));
 				temas.add(tema);
 			} catch (JSONException e) {	
 				e.printStackTrace();
