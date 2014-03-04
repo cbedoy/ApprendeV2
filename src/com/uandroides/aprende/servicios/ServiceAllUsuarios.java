@@ -31,41 +31,26 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 	@Override
 	protected void onPreExecute(){
 		pd = ProgressDialog.show(contexto, "", "Cargando...");
-		Log.i("json", "1");
+		Log.i("json", "Pre");
 	}
 	
 	@Override
 	protected String doInBackground(String... arg0) {
-		Log.i("json", "2");
+		Log.i("json", "DO");
 		return correrServicio(null);
 	}
 	
 	@Override
 	public String correrServicio(Object objeto) {
-		
 		try{
 			CBRESTClient request = new CBRESTClient(Constantes.getAllUsers);
 			request.Execute(RequestMethod.GET);
-			//String respuesta = MainActivity.mthis.shared.getString(Constantes.usuarios, null);
 			if(request.getResponse()!=null){
-				
-				Log.i("json", request.getResponse());
-				
-				//Editor edit = MainActivity.mthis.shared.edit();
-				//edit.putString(Constantes.usuarios, request.getResponse());
-				//edit.commit();
 				return request.getResponse();
-				
 			}
-		//	return respuesta;
 			return null;
 		}catch(Exception e){
-		
-			Log.i("json", e.getMessage());
-			
-			//String responsedsavedd = MainActivity.mthis.shared.getString(Constantes.usuarios, null);
 			return "";
-		
 		}
 	}
 	
@@ -74,7 +59,7 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 	@Override
 	protected void onPostExecute(String respuesta){
 		pd.dismiss();
-		Log.i("json", "3");
+		Log.i("json", "POST");
 		try{
 			JSONArray array = new JSONObject(respuesta).getJSONArray("usuario");
 			ParserAllUsuarios parser = new ParserAllUsuarios();

@@ -9,7 +9,9 @@ import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
 import com.uandroides.aprende.interfaces.IServiceInteractor;
+import com.uandroides.aprende.modelos.Constantes;
 import com.uandroides.aprende.utils.CBRESTClient;
+import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.MainActivity;
 
 public class ServiceAllTemas extends AsyncTask<String, Integer, String> implements IServiceInteractor{
@@ -38,21 +40,14 @@ public class ServiceAllTemas extends AsyncTask<String, Integer, String> implemen
 	public String correrServicio(Object objeto) {
 		
 		try{
-			CBRESTClient request = new CBRESTClient(url);
-			String respuesta = MainActivity.mthis.shared.getString("estadisticas", null);
+			CBRESTClient request = new CBRESTClient(Constantes.getAllUsers);
+			request.Execute(RequestMethod.GET);
 			if(request.getResponse()!=null){
-				Editor edit = MainActivity.mthis.shared.edit();
-				edit.putString("estadisticas", request.getResponse());
-				edit.commit();
 				return request.getResponse();
-				
 			}
-			return respuesta;
+			return null;
 		}catch(Exception e){
-			e.printStackTrace();
-			String responsedsavedd = MainActivity.mthis.shared.getString("estadisticas", null);
-			return responsedsavedd;
-		
+			return "";
 		}
 	}
 	

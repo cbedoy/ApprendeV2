@@ -22,7 +22,8 @@ public class ParserResponse implements IParser, IServiceDelegate{
 			try {
 				JSONObject jobj = json.getJSONObject(i);
 				Response rsp = new Response();
-				//Todo parser
+				rsp.setId(jobj.getInt("id"));
+				rsp.setMensaje(jobj.getString("mensaje"));
 				response.add(rsp);
 			} catch (JSONException e) {	
 				e.printStackTrace();
