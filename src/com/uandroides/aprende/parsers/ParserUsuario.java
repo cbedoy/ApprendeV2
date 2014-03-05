@@ -26,6 +26,11 @@ public class ParserUsuario implements IParser, IServiceDelegate{
 				Usuario  usr = new Usuario();
 				usr.setId(jobj.getInt("id"));
 				usr.setCorreo(jobj.getString("correo"));
+				usr.setNombre(jobj.getString("nombre"));
+				usr.setEdad(jobj.getInt("edad"));
+				usr.setLink(jobj.getString("foto"));
+				usr.setPuntos(jobj.getInt("puntos"));
+				usr.setPruebas(jobj.getInt("pruebas"));
 				usuario.add(usr);
 			} catch (JSONException e) {	
 				e.printStackTrace();
