@@ -16,13 +16,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ListView;
@@ -46,7 +43,7 @@ public class EstadisticasActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		overridePendingTransition(R.anim.push_up, R.anim.push_up);
 		getActionBar().hide();
-		setContentView(R.layout.activity_estadisticas);
+		setContentView(R.layout.report_view);
 		Bundle bundle = getIntent().getExtras();
 	
 		cantidad = bundle.getInt("cantidad");

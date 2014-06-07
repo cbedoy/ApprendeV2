@@ -11,33 +11,28 @@
 
     
     <TextView
-        android:id="@+id/dialogo_fecha"
+        android:id="@+id/dialog_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-         android:textColor="@color/blanco"
-        android:text="TITULO"
+        android:textColor="@color/white_color"
+        android:text="18 june 2014"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-         android:textColor="@color/blanco"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+
     <TextView
-        android:id="@+id/dialogo_titulo"
+        android:id="@+id/dialog_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-         android:textColor="@color/blanco"
-        android:text="TITULO"
+         android:textColor="@color/white_color"
+        android:text="Some title"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" "
-         android:textColor="@color/blanco"
+         android:textColor="@color/white_color"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <LinearLayout
@@ -49,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="NUMERO DE REACTIVOS"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/blanco" />
+            android:textColor="@color/white_color" />
 
         <TextView
             android:id="@+id/dialogo_reactivos"
@@ -58,7 +53,7 @@
             android:gravity="right"
             android:text="50"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/blanco" />
+            android:textColor="@color/white_color" />
 
     </LinearLayout>
 
@@ -66,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" "
-         android:textColor="@color/blanco"
+         android:textColor="@color/white_color"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <LinearLayout
@@ -78,7 +73,7 @@
             android:layout_height="wrap_content"
             android:text="PUNTUACION"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/blanco" />
+            android:textColor="@color/white_color" />
 
         <TextView
             android:id="@+id/dialogo_puntuacion"
@@ -87,42 +82,16 @@
             android:text="500"
             android:gravity="right"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/blanco" />
+            android:textColor="@color/white_color" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </LinearLayout>
-  
- <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-         android:textColor="@color/blanco"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-    
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-         android:textColor="@color/blanco"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cafe"
-         android:textColor="@color/blanco"
+        android:background="@color/brow_color"
+        android:textColor="@color/white_color"
         android:text="COMPARTIR" />
 
 </LinearLayout>

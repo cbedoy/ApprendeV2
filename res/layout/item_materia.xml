@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:background="@color/cafe"
+        android:background="@color/brow_color"
         android:text="Matematicas"
         android:textColor="#ffffff"
         android:textSize="30dp" />

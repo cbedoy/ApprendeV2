@@ -5,33 +5,33 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/item_contenido"
-        android:layout_width="wrap_content"
+        android:id="@+id/item_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textSize="20sp"
+        android:text="Suppose here we have any question for example, Who develop this application" />
     <TextView
-        android:id="@+id/item_respuesta_usuario"
-        android:layout_width="wrap_content"
+        android:id="@+id/item_answer_user"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textSize="18sp"
+        android:text="Suppose here the user selected any geek name" />
 
     <TextView
-        android:id="@+id/item_valor"
+        android:id="@+id/item_clarification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textColor="#ffffff"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textSize="15sp"
+        android:text="Maybe correct! or Maybe wrong :("
+        android:textColor="#111111" />
 
     <Button
-        android:id="@+id/item_boton"
+        android:id="@+id/item_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:background="@color/negro_transparente"
-        android:text=" Ver mas "
-        android:textColor="@color/blanco" />
+        android:background="@color/black_black_color"
+        android:text="@string/detail"
+        android:textColor="@color/white_color" />
 
 </LinearLayout>

@@ -44,5 +44,10 @@
     <string name="miniproyectos">MINIPROYECTOS UAA 2013</string>
     <string name="title_activity_dificultad">DificultadActivity</string>
     <string name="title_activity_materias">MateriasActivity</string>
+    <string name="refactory">Refactory</string>
+    <string name="AppName">Apprende </string>
+    <string name="Pandamobile">Pandamobile</string>
+    <string name="detail">Detail</string>
+    <string name="Terminate">Terminar</string>
 
 </resources>

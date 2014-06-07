@@ -27,7 +27,7 @@
                 android:text="@string/date"
                 
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/azul_titulos"
+                android:textColor="@color/title_color"
                 android:textStyle="italic|bold" />
 
            <LinearLayout
@@ -164,13 +164,13 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/perfil_pruebas"
+                android:id="@+id/profile_plays"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/report"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/azul_titulos"
+                android:textColor="@color/title_color"
                 android:textStyle="bold|italic" />
 
             <ListView

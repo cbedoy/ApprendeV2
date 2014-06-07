@@ -11,7 +11,7 @@
     tools:context=".PresentacionActivity" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/registration_image"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/uaa" />
@@ -27,16 +27,16 @@
     
     
     <TextView
-            android:id="@+id/perfil_ubicacion"
+            android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Creditos:"
-            android:textColor="@color/azul"
+            android:textColor="@color/blue_color"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/perfil_universidad"
+            android:id="@+id/profile_university"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -45,7 +45,7 @@
              />
 
         <TextView
-            android:id="@+id/perfil_ranking"
+            android:id="@+id/profile_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -63,13 +63,13 @@
              />
     
         <TextView
-            android:id="@+id/perfil_puntos"
+            android:id="@+id/profile_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Tutores:"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/azul" />
+            android:textColor="@color/blue_color" />
 
         <TextView
             android:id="@+id/textView7"

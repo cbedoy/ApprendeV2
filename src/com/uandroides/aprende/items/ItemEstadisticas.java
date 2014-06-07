@@ -13,7 +13,6 @@ package com.uandroides.aprende.items;
 
 import java.util.ArrayList;
 
-import android.app.*;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -126,13 +125,13 @@ public class ItemEstadisticas extends BaseAdapter {
 		LayoutInflater inflater = contexto.getLayoutInflater();
 		View view = inflater.inflate(R.layout.dialog_detalle, null);
 		TextView titulo = (TextView) view
-				.findViewById(R.id.dialogo_titulo);
+				.findViewById(R.id.dialog_title);
 		TextView preguntas = (TextView) view
 				.findViewById(R.id.dialogo_reactivos);
 		TextView puntos = (TextView) view
 				.findViewById(R.id.dialogo_puntuacion);
 		TextView fecha = (TextView) view
-				.findViewById(R.id.dialogo_fecha);
+				.findViewById(R.id.dialog_date);
 		Button share = (Button) view.findViewById(R.id.button1);
 		titulo.setText(data.get(position).getTitulo().toUpperCase());
 		preguntas.setText(data.get(position).getPreguntas());

@@ -23,7 +23,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 
 import com.uandroides.aprende.R;
@@ -47,7 +46,7 @@ public class ExamenActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_examen);
+		setContentView(R.layout.exam_view);
 		shared = this.getPreferences(MODE_PRIVATE);
 		Bundle bundle = getIntent().getExtras();
 		this.preguntas = new CuestionarioDemo().getCuestionario();
@@ -83,8 +82,7 @@ public class ExamenActivity extends FragmentActivity {
 	            mthis.runOnUiThread(new Runnable() {
 	                public void run() {
 	                	showAlerta();
-	                	
-	                   
+	                	           
 	                }
 	            });
 	        }

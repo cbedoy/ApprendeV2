@@ -22,33 +22,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="VERSION DEMO"
+            android:textSize="20sp"
+            android:text="@string/refactory"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/rojo" />
+            android:textColor="@color/turquesa_color" />
 
         <ImageView
-            android:id="@+id/perfil_foto"
+            android:id="@+id/profile_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:src="@drawable/logo_nuevo" />
 
         <TextView
-            android:id="@+id/perfil_pruebas"
+            android:id="@+id/profile_plays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/verde"
-            android:text="APPRENDE "
+            android:textColor="@color/green_color"
+            android:text="@string/AppName"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/miniproyectos"
+            android:text="@string/Pandamobile"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ProgressBar

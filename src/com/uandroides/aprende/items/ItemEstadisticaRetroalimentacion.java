@@ -60,13 +60,13 @@ public class ItemEstadisticaRetroalimentacion extends BaseAdapter{
 		if(convertView != null){
 			LinearLayout layout = (LinearLayout)convertView; 
 			Typeface tf = Typeface.createFromAsset(context.getAssets(),"font/dudu.ttf");
-			Button boton = (Button)layout.findViewById(R.id.item_boton);
+			Button boton = (Button)layout.findViewById(R.id.item_detail);
 			
-			TextView pregunta = (TextView)layout.findViewById(R.id.item_contenido);
+			TextView pregunta = (TextView)layout.findViewById(R.id.item_content);
 			pregunta.setText(preguntas.get(position).getPregunta());
-			TextView respuesta = (TextView)layout.findViewById(R.id.item_respuesta_usuario);
+			TextView respuesta = (TextView)layout.findViewById(R.id.item_answer_user);
 			respuesta.setText(preguntas.get(position).getSeleccionUsuario());
-			TextView foco = (TextView)layout.findViewById(R.id.item_valor);
+			TextView foco = (TextView)layout.findViewById(R.id.item_clarification);
 			
 			boton.setTypeface(tf);
 			pregunta.setTypeface(tf);
@@ -74,7 +74,7 @@ public class ItemEstadisticaRetroalimentacion extends BaseAdapter{
 			foco.setTypeface(tf);
 			
 			foco.setText(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()?"  CORRECTO  ":"  INCORRECTO");
-			foco.setBackgroundResource(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()?R.color.correcto:R.color.error);
+			foco.setBackgroundResource(preguntas.get(position).getRespuestaCorrecta() == preguntas.get(position).getRespuestaUsuario()?R.color.correct_color :R.color.error_color);
 			
 			
 			

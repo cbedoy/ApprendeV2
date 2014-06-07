@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <color name="azul">#0174DF</color>
-    <color name="negro">#222222</color>
-    <color name="blanco">#ffffff</color>
-    <color name="pregunta">#F5DA81</color>
-    <color name="respuesta">#F2F2F2</color>
-    <color name="boton_finalizar">#99F7D358</color>
-    <color name="amarillo">#D7DF01</color>
-    <color name="descripcion">#01DF74</color>
-    <color name="gris">#BDBDBD</color>
-    <color name="rojo">#B40431</color>
-    <color name="verde">#016326</color>
-    <color name="verde_transparente">#9904B404</color>
-    <color name="blanco_transparente">#99ffffff</color>
-    <color name="azulito">#00BFFF</color>
+    <color name="blue_color">#0174DF</color>
+    <color name="black_color">#222222</color>
+    <color name="white_color">#ffffff</color>
+    <color name="question_color">#F5DA81</color>
+    <color name="answer_color">#F2F2F2</color>
+    <color name="finish_button_color">#99F7D358</color>
+    <color name="yellow_color">#D7DF01</color>
+    <color name="description_color">#01DF74</color>
+    <color name="gray_color">#BDBDBD</color>
+    <color name="red_color">#B40431</color>
+    <color name="green_color">#016326</color>
+    <color name="black_green_color">#9904B404</color>
+    <color name="black_white_color">#99ffffff</color>
+    <color name="turquesa_color">#00BFFF</color>
     <color name="action_color">#FA5882</color>
-    <color name="cafe">#cc6d442e</color>
-    <color name="azul_titulos">#045FB4</color>
-    <color name="correcto">#04B431</color>
-    <color name="error">#FF8000</color>
-    <color name="negro_transparente">#dd000000</color>
-    <color name="naranja">#ffc132</color>
+    <color name="brow_color">#cc6d442e</color>
+    <color name="title_color">#045FB4</color>
+    <color name="correct_color">#04B431</color>
+    <color name="error_color">#FF8000</color>
+    <color name="black_black_color">#dd000000</color>
+    <color name="orange_color">#ffc132</color>
+
+    <color name="rank1">#99FFCC00</color>
+    <color name="rank2">#994CD964</color>
+    <color name="rank3">#99007AFF</color>
+    <color name="rank4">#995856D6</color>
+    <color name="rank5">#99FF2D55</color>
     
 </resources>

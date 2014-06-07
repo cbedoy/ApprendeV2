@@ -86,7 +86,7 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
 		laterales.add(new EstadisticasLateral("14/NOVIEMBRE/13", "20", "10", "10", "Investigacion de operaciones", "50.0"));
 		laterales.add(new EstadisticasLateral("15/NOVIEMBRE/13", "10", "10", "10", "Compresion lectora", "10.0"));
         list.setAdapter(new ItemEstadisticas(laterales, this));
-        this.loadPicture(null, R.id.perfil_foto);
+        this.loadPicture(null, R.id.profile_picture);
     }
 
 
@@ -151,7 +151,7 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
 			JSONArray arreglo = json.getJSONArray("usuarios");
 			for(int i=0; i<arreglo.length(); i++){
 				JSONObject jobj = arreglo.getJSONObject(i);
-				mthis.loadPicture(jobj.getString("foto"), R.id.perfil_foto);
+				mthis.loadPicture(jobj.getString("foto"), R.id.profile_picture);
 				mthis.s_nombre.setText(jobj.getString("nombre"));
 				mthis.s_edad.setText(jobj.getString("edad")+" aï¿½os");
 				mthis.s_escuela.setText(jobj.getString("escuela"));
@@ -240,14 +240,14 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
 	private void init(){
 		Typeface tf = Typeface.createFromAsset(getAssets(),"font/dudu.ttf");
 		
-		s_nombre = (TextView)findViewById(R.id.perfil_nombre);
-        s_edad = (TextView)findViewById(R.id.perfil_edad);
-        s_ubicacion = (TextView)findViewById(R.id.perfil_ubicacion);
-        s_escuela = (TextView)findViewById(R.id.perfil_universidad);
-        s_numero_pruebas = (TextView)findViewById(R.id.perfil_pruebas);
-        s_rankin = (TextView)findViewById(R.id.perfil_ranking);
-        s_puntos = (TextView)findViewById(R.id.perfil_puntos);
-        imagen = (ImageView)findViewById(R.id.perfil_foto);
+		s_nombre = (TextView)findViewById(R.id.profile_username);
+        s_edad = (TextView)findViewById(R.id.profile_age);
+        s_ubicacion = (TextView)findViewById(R.id.location);
+        s_escuela = (TextView)findViewById(R.id.profile_university);
+        s_numero_pruebas = (TextView)findViewById(R.id.profile_plays);
+        s_rankin = (TextView)findViewById(R.id.profile_position);
+        s_puntos = (TextView)findViewById(R.id.profile_points);
+        imagen = (ImageView)findViewById(R.id.profile_picture);
         
         s_nombre.setTypeface(tf);
         s_edad.setTypeface(tf);
@@ -259,7 +259,7 @@ public class PerfilActivity extends Activity implements AdapterView.OnItemClickL
         
         
         s_nombre.setText("Esmeralda Hernandez Ruiz");
-        s_edad.setText("27 años");
+        s_edad.setText("27 aï¿½os");
         s_ubicacion.setText("Aguascalientes");
         s_escuela.setText("Universidad Autonoma De Aguascalientes");
         s_numero_pruebas.setText("5 pruebas");
