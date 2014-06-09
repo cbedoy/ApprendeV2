@@ -11,9 +11,7 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-import com.uandroides.aprende.interfaces.IModel;
-
-public class Estadistica implements IModel{
+public class Estadistica {
 	private int nivel;
 	private int aciertos;
 	private float puntos;

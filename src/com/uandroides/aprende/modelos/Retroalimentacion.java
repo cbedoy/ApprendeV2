@@ -11,9 +11,7 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-import com.uandroides.aprende.interfaces.IModel;
-
-public class Retroalimentacion implements IModel{
+public class Retroalimentacion {
 	
 	private String pregunta;
 	private String respuesta;

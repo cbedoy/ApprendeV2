@@ -6,14 +6,10 @@ import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.uandroides.aprende.interfaces.IParser;
-import com.uandroides.aprende.interfaces.IServiceInteractor;
 import com.uandroides.aprende.modelos.Constantes;
-import com.uandroides.aprende.parsers.ParserAllUsuarios;
 import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
 import com.uandroides.aprende.vistas.MainActivity;

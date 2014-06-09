@@ -15,15 +15,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-
-import com.uandroides.aprende.interfaces.IServiceInteractor;
 import com.uandroides.aprende.modelos.Usuario;
 import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
-import com.uandroides.aprende.vistas.ExamenActivity;
 import com.uandroides.aprende.vistas.MainActivity;
-import com.uandroides.aprende.vistas.PerfilActivity;
-import com.uandroides.aprende.vistas.TemasActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
