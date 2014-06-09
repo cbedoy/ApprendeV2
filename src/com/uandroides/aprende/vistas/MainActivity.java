@@ -11,8 +11,6 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.vistas;
 
-import java.util.ArrayList;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -21,7 +19,6 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -29,12 +26,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.uandroides.aprende.R;
-import com.uandroides.aprende.interfaces.IModel;
-import com.uandroides.aprende.interfaces.IRepresentationDelegate;
-import com.uandroides.aprende.modelos.Usuario;
+import com.uandroides.aprende.bussiness.MasterController;
+import com.uandroides.aprende.bussiness.MasterViewController;
 import com.uandroides.aprende.servicios.ServiceAllUsuarios;
 
-public class MainActivity extends Activity implements IRepresentationDelegate{
+public class MainActivity extends Activity {
 
 	private ActionBar action;
 	private EditText usuario_txt, password_txt;
@@ -47,6 +43,7 @@ public class MainActivity extends Activity implements IRepresentationDelegate{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_view);
 		overridePendingTransition(R.anim.push_up, R.anim.push_up);
+
         
 		mthis = this;
 		action = getActionBar();
@@ -100,14 +97,6 @@ public class MainActivity extends Activity implements IRepresentationDelegate{
         
 	}
 
-	@Override
-	public void ReloadData(ArrayList<IModel> modelo) {
-		//TODO RELOAD DATA
-		Log.i("parsed", modelo.size()+"");
-		for(IModel model: modelo){
-			Usuario user = (Usuario) model;
-			
-		}
-	}
+
 
 }

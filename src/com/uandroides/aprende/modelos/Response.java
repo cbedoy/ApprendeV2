@@ -1,8 +1,6 @@
 package com.uandroides.aprende.modelos;
 
-import com.uandroides.aprende.interfaces.IModel;
-
-public class Response implements IModel {
+public class Response {
 	private int id;
 	private String mensaje;
 

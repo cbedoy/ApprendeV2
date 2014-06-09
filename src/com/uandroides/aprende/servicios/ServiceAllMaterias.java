@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-import com.uandroides.aprende.interfaces.IServiceInteractor;
 import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.vistas.MainActivity;
 

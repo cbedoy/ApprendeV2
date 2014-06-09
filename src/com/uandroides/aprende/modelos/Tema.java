@@ -11,9 +11,7 @@
 //-------------------------------------------------------
 package com.uandroides.aprende.modelos;
 
-import com.uandroides.aprende.interfaces.IModel;
-
-public class Tema implements IModel{
+public class Tema {
 	private int id;
 	private String nombre;
 	private String descripcion;

@@ -5,14 +5,11 @@ import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-import com.uandroides.aprende.interfaces.IServiceInteractor;
 import com.uandroides.aprende.modelos.Constantes;
 import com.uandroides.aprende.utils.CBRESTClient;
 import com.uandroides.aprende.utils.CBRESTClient.RequestMethod;
-import com.uandroides.aprende.vistas.MainActivity;
 
 public class ServiceAllTemas extends AsyncTask<String, Integer, String> implements IServiceInteractor{
 	private ProgressDialog pd;
