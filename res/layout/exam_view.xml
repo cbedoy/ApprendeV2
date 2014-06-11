@@ -4,7 +4,7 @@
     android:background="@drawable/bg_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExamenActivity" >
+    tools:context=".ExamActivity" >
 
     <!--
     This title strip will display the currently visible page title, as well as the page
