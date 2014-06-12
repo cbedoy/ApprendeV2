@@ -26,20 +26,20 @@
                 android:layout_weight="1"
                 android:text="Cuando se celebro el día de la revolucion en mexico"
                 android:textColor="#ffffff"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <RadioButton
                     android:id="@+id/opcion1_cuestionario"
-                    android:layout_width="305dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="RadioButton"
                     android:textColor="#dddddd"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
                 <RadioButton
                     android:id="@+id/opcion2_cuestionario"
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:text="RadioButton"
                     android:textColor="#dddddd"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
                 <RadioButton
                     android:id="@+id/opcion3_cuestionario"
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:text="RadioButton"
                     android:textColor="#dddddd"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
                 <RadioButton
                     android:id="@+id/opcion4_cuestionario"
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:text="RadioButton"
                     android:textColor="#dddddd"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
             </RadioGroup>
         </LinearLayout>
     </ScrollView>
@@ -80,7 +80,7 @@
             android:id="@+id/botonFinalizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            
+            android:background="#99000000"
             android:text=" Finalizar "
             android:textColor="#ffffff" />
     </LinearLayout>

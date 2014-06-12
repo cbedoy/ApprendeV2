@@ -1,25 +1,19 @@
-<android.support.v4.widget.SlidingPaneLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/slidingPane"
-    
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <ListView
         android:id="@+id/left_drawer"
-       		  
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_gravity="start"
-              android:choiceMode="singleChoice"
-              android:background="@drawable/bgb"
-              android:dividerHeight="0dp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/bgb"
+        android:choiceMode="singleChoice"
+        android:dividerHeight="0dp" />
 
-      <include
+    <include
         android:layout_width="wrap_content"
         layout="@layout/temario" />
-    
-  
 
 </android.support.v4.widget.SlidingPaneLayout>

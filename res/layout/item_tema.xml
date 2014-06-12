@@ -15,13 +15,12 @@
         android:id="@+id/nombre_tema"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:textColor="@color/blue_color"
+        android:textColor="#34AADC"
         android:layout_height="wrap_content"
         android:text="Matematicas"
 		android:textSize="20sp"
 		android:layout_marginLeft="11dp"
-		android:layout_marginRight="11dp"
-        android:textColor="@color/question_color" />
+		android:layout_marginRight="11dp"/>
 
 
     <TextView

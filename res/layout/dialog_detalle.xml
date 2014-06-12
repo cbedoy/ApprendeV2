@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:textColor="@color/white_color"
+       	android:textColor="#ffffff"
         android:text="18 june 2014"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-         android:textColor="@color/white_color"
+        android:textColor="#dddddd"
         android:text="Some title"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" "
-         android:textColor="@color/white_color"
+        android:textColor="#dddddd"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <LinearLayout
@@ -43,8 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NUMERO DE REACTIVOS"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/white_color" />
+           	android:textColor="#dddddd" />
 
         <TextView
             android:id="@+id/dialogo_reactivos"
@@ -52,8 +51,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="50"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/white_color" />
+            android:textColor="#dddddd" />
 
     </LinearLayout>
 
@@ -61,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" "
-         android:textColor="@color/white_color"
+       android:textColor="#dddddd"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <LinearLayout
@@ -73,7 +71,7 @@
             android:layout_height="wrap_content"
             android:text="PUNTUACION"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/white_color" />
+           android:textColor="#dddddd" />
 
         <TextView
             android:id="@+id/dialogo_puntuacion"
@@ -82,16 +80,17 @@
             android:text="500"
             android:gravity="right"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/white_color" />
+           android:textColor="#dddddd" />
 
     </LinearLayout>
 
     <Button
+        android:layout_marginTop="40dp"
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/brow_color"
-        android:textColor="@color/white_color"
+        android:background="#99ffffff"
+        android:textColor="#ffffff"
         android:text="COMPARTIR" />
 
 </LinearLayout>
