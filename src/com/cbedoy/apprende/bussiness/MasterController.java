@@ -13,7 +13,5 @@ public class MasterController {
         return  masterController;
     }
 
-    public void setServiceKey(){
 
-    }
 }
