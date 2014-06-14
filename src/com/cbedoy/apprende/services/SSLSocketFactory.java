@@ -1,4 +1,4 @@
-package com.cbedoy.apprende.utils;
+package com.cbedoy.apprende.services;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -6,7 +6,6 @@ import java.net.UnknownHostException;
 import java.security.*;
 import java.security.cert.*;
 import javax.net.ssl.*;
-import org.apache.http.conn.ssl.SSLSocketFactory;
 
 public class SSLSocketFactory extends SSLSocketFactory {
     SSLContext sslContext = SSLContext.getInstance("TLS");

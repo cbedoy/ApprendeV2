@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
-import com.cbedoy.apprende.utils.RESTClient;
 
 import java.util.HashMap;
 

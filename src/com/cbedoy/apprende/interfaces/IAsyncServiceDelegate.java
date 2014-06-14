@@ -1,4 +1,4 @@
-package com.cbedoy.apprende.services;
+package com.cbedoy.apprende.interfaces;
 
 import org.json.JSONObject;
 

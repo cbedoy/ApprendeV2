@@ -4,8 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.cbedoy.apprende.utils.RESTClient;
-import com.cbedoy.apprende.utils.RESTClient.RequestMethod;
+import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
+import com.cbedoy.apprende.services.RESTClient.RequestMethod;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +14,7 @@ public class AsyncServiceController extends AsyncTask<String, Integer, String> {
 
 	private ProgressDialog 			progressDialog;
 	private Context 				context;
-	private IAsyncServiceDelegate 	ansyncServiceDelegate;
+	private IAsyncServiceDelegate ansyncServiceDelegate;
     private RESTClient              restClient;
 
     public void setRestClient(RESTClient restClient) {
