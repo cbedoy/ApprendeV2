@@ -16,6 +16,7 @@ public class SplashView extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+		getActionBar().hide();
 		setContentView(R.layout.splash_view);
 		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 		TimerTask task = new TimerTask() {
