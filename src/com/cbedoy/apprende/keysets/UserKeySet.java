@@ -9,5 +9,9 @@ public enum UserKeySet {
     BIRTHDAY,
     AGE, 
     POINTS,
-    PLAYS
+    PLAYS, 
+    BESTOFYOU,
+    BELLOWYOU,
+    COUNTRY,
+    UNIVERSITY
 }

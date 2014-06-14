@@ -3,6 +3,7 @@ package com.cbedoy.apprende;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ public class LoginView extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().hide();
 		setContentView(R.layout.activity_login_view);
 
 		((TextView) findViewById(R.id.version_name)).setTypeface(AppInstanceProvider.lightFont);
@@ -25,7 +27,9 @@ public class LoginView extends Activity {
 		View.OnClickListener loginAction = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
+				Intent mainIntent = new Intent().setClass(LoginView.this, ProfileView.class);
+		        startActivity(mainIntent);
+		        finish();
 			}
 		};
 		
