@@ -3,6 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
 
+    <TextView
+        android:id="@+id/theme_name"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_height="48dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:textSize="20sp"
+        android:textColor="#444444"
+        android:text="Algebra superior" />
+
+    <TextView
+        android:id="@+id/theme_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:textSize="16sp"
+        android:textColor="#999999"
+        android:text="In this questionary the user make some operation for learn about the prime numbers." />
+	
 </LinearLayout>
