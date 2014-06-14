@@ -6,7 +6,7 @@ import java.util.List;
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.interfaces.representationDelegates.IFeedRepresentationDelegate;
 import com.cbedoy.apprende.keysets.QuestionKeySet;
-import com.cbedoy.apprende.keysets.UserKeySet;
+import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -56,7 +56,9 @@ public class FeedViewAdapter extends BaseAdapter implements IFeedRepresentationD
 			feedQuestion.setText(information.get(QuestionKeySet.QUESTION).toString());
 			feedCorrect.setText(information.get(QuestionKeySet.CORRECT).toString());
 			feedUser.setText(information.get(QuestionKeySet.OPTION_USER).toString());
-			
+			feedQuestion.setTypeface(AppInstanceProvider.regularFont);
+			feedCorrect.setTypeface(AppInstanceProvider.lightFont);
+			feedUser.setTypeface(AppInstanceProvider.lightFont);
 		
 		}
 		return view;

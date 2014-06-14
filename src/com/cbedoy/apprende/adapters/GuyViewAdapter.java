@@ -9,6 +9,7 @@ import com.cbedoy.apprende.R.id;
 import com.cbedoy.apprende.R.layout;
 import com.cbedoy.apprende.interfaces.representationDelegates.IGuyRepresentationDelegate;
 import com.cbedoy.apprende.keysets.UserKeySet;
+import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -60,7 +61,7 @@ public class GuyViewAdapter extends BaseAdapter implements IGuyRepresentationDel
 			ImageView   guyImage 						= (ImageView) view.findViewById(R.id.guy_view_image);
 			TextView	guyName 						= (TextView) view.findViewById(R.id.guy_view_username);
 			guyName.setText(information.get(UserKeySet.USERNAME).toString());
-		
+			guyName.setTypeface(AppInstanceProvider.lightFont);
 		}
 		return view;
 	}
