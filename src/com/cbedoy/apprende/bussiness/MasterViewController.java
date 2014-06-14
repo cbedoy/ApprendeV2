@@ -6,12 +6,14 @@ package com.cbedoy.apprende.bussiness;
 public class MasterViewController {
 
     private static MasterViewController masterViewController;
-   
+    
     public static MasterViewController getInstance(){
         if (masterViewController == null)
             masterViewController = new MasterViewController();
         return masterViewController;
     }
+    
+    
     
     
 

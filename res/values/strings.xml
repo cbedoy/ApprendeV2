@@ -52,5 +52,8 @@
     <string name="cbedoy">Carlos Alfredo Cervantes Bedoy</string>
     <string name="dave">David Angel Gutierrez Duron</string>
     <string name="tito">Efrain Sanchez Vazquez</string>
+    <string name="title_activity_splash_view">SplashView</string>
+    <string name="title_activity_login_view">LoginView</string>
+    <string name="title_activity_profile_view">ProfileView</string>
 
 </resources>
