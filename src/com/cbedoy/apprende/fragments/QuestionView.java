@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.cbedoy.apprende.viewcontrollers.StatisticsActivity;
 import com.cbedoy.apprende.viewcontrollers.ExamActivity;
-import com.uandroides.aprende.R;
+
 
 public class QuestionView extends Fragment {
 
