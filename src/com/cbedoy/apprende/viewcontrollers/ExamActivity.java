@@ -26,7 +26,6 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 
 import com.cbedoy.apprende.fragments.ViewPagerAdapter;
-import com.cbedoy.apprende.models.CuestionarioDemo;
 import com.cbedoy.apprende.models.Pregunta;
 import com.cbedoy.apprende.models.Tema;
 import com.uandroides.aprende.R;
@@ -35,13 +34,7 @@ public class ExamActivity extends FragmentActivity {
 
 	ViewPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
-	public static ExamActivity mthis;
-	
-	public ArrayList<Pregunta> preguntas;
-	public SharedPreferences shared;
-	private Tema tema;
-	public  int cantidad;
-	private CuestionarioDemo demo;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
