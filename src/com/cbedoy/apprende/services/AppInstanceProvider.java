@@ -22,7 +22,7 @@ public class AppInstanceProvider {
 
         MasterController masterController               = MasterController.getInstance();
         AsyncServiceController asyncServiceController   = new AsyncServiceController(context);
-        RESTClient restClient                           = new RESTClient(serviceKeySet.toString());
+        CBRESTClient restClient                           = new CBRESTClient(serviceKeySet.toString());
 
         for(String key : dataModel.keySet()){
             restClient.AddParam(key, dataModel.get(key).toString());

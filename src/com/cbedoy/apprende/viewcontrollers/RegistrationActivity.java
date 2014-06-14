@@ -26,15 +26,7 @@ public class RegistrationActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_registro);
-		
-		this.estados = (AutoCompleteTextView)findViewById(R.id.registro_estados);
-		this.universidades = (AutoCompleteTextView)findViewById(R.id.registro_universidades);
-		String[] estadosArray = getResources().getStringArray(R.array.estados);
-		estados.setAdapter(new ArrayAdapter<String>(
-				this, android.R.layout.simple_list_item_1, estadosArray));
-		String[] universidadArray = getResources().getStringArray(R.array.universidades);
-		estados.setAdapter(new ArrayAdapter<String>(
-				this, android.R.layout.simple_list_item_1, universidadArray));
+
 	}
 
 	@Override

@@ -34,46 +34,18 @@ import android.widget.ListView;
 
 import com.cbedoy.apprende.items.CourseView;
 import com.cbedoy.apprende.items.ThemeView;
-import com.cbedoy.apprende.models.Materia;
-import com.cbedoy.apprende.models.Temario;
-import com.uandroides.aprende.R;
+
 
 public class ThemesActivity extends Activity implements AdapterView.OnItemClickListener{
 
-	private DrawerLayout mDrawer;
-    private SlidingPaneLayout mPanes;
-	public static ThemesActivity mthis;
-	public SharedPreferences shared;
-	public ArrayList<Temario> temas;
-	private String dificultad;
-	public ArrayList<Materia> data;
-	public int llave;
-	public String llaveHash;
-	private String[] niveles = new String[] { "FACILdasdasd", "INTERMEDIO",
-			"DIFICIL"};
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_temas);
 		overridePendingTransition(R.anim.push_up, R.anim.push_up);
-	    mPanes = (SlidingPaneLayout) findViewById(R.id.slidingPane);
-		shared = this.getPreferences(MODE_PRIVATE);
-		temas = new ArrayList<Temario>();
-
-
-		mthis = this;
-		ActionBar action = getActionBar();
-		action.setBackgroundDrawable(new ColorDrawable(Color
-				.parseColor("#000000")));
-		
-		
-		
-		ListView list = (ListView) findViewById(R.id.left_drawer);
-        list.setAdapter(new CourseView(this));
-        
-        ListView lista = (ListView) findViewById(R.id.lista_temas);
-      		lista.setAdapter(new ThemeView(this));
+	    
 	}
 
 	@Override
@@ -92,34 +64,9 @@ public class ThemesActivity extends Activity implements AdapterView.OnItemClickL
 		super.onConfigurationChanged(newConfig);
 	}
 
-	public void convertirTemas(JSONObject json) {
-		// TODO Auto-generated method stub
-
-		try {
-			JSONArray arreglo = json.getJSONArray("temario");
-			mthis.temas.clear();
-			Temario temario;
-			for (int i = 0; i < arreglo.length(); i++) {
-				JSONObject jobj = arreglo.getJSONObject(i);
-				temario  = new Temario();
-				temario.setIdTema(jobj.getInt("idTema"));
-				temario.setNombre(jobj.getString("nombre"));
-				temario.setDescripcion(jobj.getString("descripcion"));
-				temario.setIdMateria(jobj.getInt("idMateria"));
-				temario.setNombreMateria(jobj.getString("nombre_materia"));
-				temas.add(temario);
-			}
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Log.i("miLog", e.getMessage());
-		}
-
-		ListView lista = (ListView) findViewById(R.id.lista_temas);
-		lista.setAdapter(new ThemeView(this));
-		Log.i("miLog", "tama�o"+temas.size());
+	
 		
-	}
+	
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
