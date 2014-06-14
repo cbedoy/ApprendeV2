@@ -33,6 +33,10 @@
             android:name="com.cbedoy.apprende.ProfileView"
             android:label="@string/title_activity_profile_view" >
         </activity>
+        <activity
+            android:name="com.cbedoy.apprende.ThemeView"
+            android:label="@string/title_activity_theme_view" >
+        </activity>
     </application>
 
 </manifest>

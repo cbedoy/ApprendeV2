@@ -1,10 +1,13 @@
-package com.cbedoy.apprende;
+package com.cbedoy.apprende.adapters;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.cbedoy.apprende.interfaces.IGuyRepresentationDelegate;
+import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.R.id;
+import com.cbedoy.apprende.R.layout;
+import com.cbedoy.apprende.interfaces.representationDelegates.IGuyRepresentationDelegate;
 import com.cbedoy.apprende.keysets.UserKeySet;
 
 import android.content.Context;
@@ -18,8 +21,6 @@ import android.widget.TextView;
 public class GuyViewAdapter extends BaseAdapter implements IGuyRepresentationDelegate{
 
 	private List<Object> 	dataModel;
-	private ImageView		guyPhoto;
-	private TextView		guyName;
 	private Context 		context;
 	
 	public GuyViewAdapter(Context context){

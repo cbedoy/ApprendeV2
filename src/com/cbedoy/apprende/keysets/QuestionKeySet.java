@@ -9,5 +9,6 @@ public enum QuestionKeySet {
     ANSWER_4,
     CORRECT,
     FEEDBACK,
+    OPTION_USER,
     ID_THEME
 }
