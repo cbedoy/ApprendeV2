@@ -94,7 +94,6 @@ public class ExamActivity extends FragmentActivity {
 	}
 	
 	private void showMensajeDemo() {
-		// TODO Auto-generated method stub
 		AlertDialog.Builder alerta = new AlertDialog.Builder(mthis);
 		alerta.setMessage("Esta aplicacion es una version demo de la aplicacion, por lo cual el examen que realizara acontinuacion puede resultar facil o bien similar a uno que ya haya realizado");
 		alerta.show();

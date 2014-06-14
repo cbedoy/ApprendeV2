@@ -1,23 +1,27 @@
 package com.cbedoy.apprende.services;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.cbedoy.apprende.models.Constantes;
-import com.cbedoy.apprende.utils.RESTClient;
-import com.cbedoy.apprende.utils.RESTClient.RequestMethod;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+
+import com.cbedoy.apprende.utils.RESTClient;
+import com.cbedoy.apprende.utils.RESTClient.RequestMethod;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AsyncServiceController extends AsyncTask<String, Integer, String> {
 
 	private ProgressDialog 			progressDialog;
 	private Context 				context;
 	private IAsyncServiceDelegate 	ansyncServiceDelegate;
-	
-	public AsyncServiceController(Context context){
+    private RESTClient              restClient;
+
+    public void setRestClient(RESTClient restClient) {
+        this.restClient = restClient;
+    }
+
+    public AsyncServiceController(Context context){
 		this.context = context;
 	}
 	
@@ -25,7 +29,7 @@ public class AsyncServiceController extends AsyncTask<String, Integer, String> {
 	public void setAnsycServiceDelegate(IAsyncServiceDelegate ansyncServiceDelegate){
 		this.ansyncServiceDelegate = ansyncServiceDelegate;
 	}
-	
+
 	@Override
 	protected void onPreExecute(){
 		progressDialog = ProgressDialog.show(context, "", "Cargando...");
@@ -34,16 +38,16 @@ public class AsyncServiceController extends AsyncTask<String, Integer, String> {
 	@Override
 	protected String doInBackground(String... information) {
 		try{
-			RESTClient request = new RESTClient(Constantes.getAllUsers);
-			request.Execute(RequestMethod.GET);
-			if(request.getResponse()!=null)
-				return request.getResponse();
+            restClient.Execute(RequestMethod.GET);
+			if(restClient.getResponse()!=null)
+				return restClient.getResponse();
 			return null;
 		}catch(Exception e){
 			return null;
 		}
 	}
 	
+
 	@Override
 	protected void onPostExecute(String response){
 		progressDialog.dismiss();
