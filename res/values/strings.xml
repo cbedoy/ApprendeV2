@@ -55,5 +55,6 @@
     <string name="title_activity_splash_view">SplashView</string>
     <string name="title_activity_login_view">LoginView</string>
     <string name="title_activity_profile_view">ProfileView</string>
+    <string name="title_activity_theme_view">ThemeView</string>
 
 </resources>

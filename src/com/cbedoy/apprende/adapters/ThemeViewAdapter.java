@@ -1,10 +1,13 @@
-package com.cbedoy.apprende;
+package com.cbedoy.apprende.adapters;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.cbedoy.apprende.interfaces.IThemeRepresentationDelegate;
+import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.R.id;
+import com.cbedoy.apprende.R.layout;
+import com.cbedoy.apprende.interfaces.representationDelegates.IThemeRepresentationDelegate;
 import com.cbedoy.apprende.keysets.CourseKeySet;
 import com.cbedoy.apprende.keysets.ThemeKeySet;
 
@@ -50,7 +53,7 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 
 		if (view == null) {
 			
-			view = LayoutInflater.from(context).inflate(R.layout.course_view, null, false);
+			view = LayoutInflater.from(context).inflate(R.layout.theme_view, null, false);
 			
 		}else{
 			

@@ -1,4 +1,4 @@
-package com.cbedoy.apprende.interfaces;
+package com.cbedoy.apprende.interfaces.representationDelegates;
 
 import java.util.HashMap;
 

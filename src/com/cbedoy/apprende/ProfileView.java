@@ -2,7 +2,7 @@ package com.cbedoy.apprende;
 
 import java.util.HashMap;
 
-import com.cbedoy.apprende.interfaces.IProfileRepresentacionDelegate;
+import com.cbedoy.apprende.interfaces.representationDelegates.IProfileRepresentacionDelegate;
 import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 

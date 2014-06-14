@@ -1,4 +1,4 @@
-package com.cbedoy.apprende;
+package com.cbedoy.apprende.adapters;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.cbedoy.apprende.interfaces.ICourseRepresentationDelegate;
+import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.R.id;
+import com.cbedoy.apprende.R.layout;
+import com.cbedoy.apprende.interfaces.representationDelegates.ICourseRepresentationDelegate;
 import com.cbedoy.apprende.keysets.CourseKeySet;
 
 public class CourseViewAdapter extends BaseAdapter implements ICourseRepresentationDelegate{
