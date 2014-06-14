@@ -1,5 +1,6 @@
 package com.cbedoy.apprende;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,23 +23,24 @@ public class GuyViewAdapter extends BaseAdapter implements IGuyRepresentationDel
 	private Context 		context;
 	
 	public GuyViewAdapter(Context context){
-		this.context = context;
+		this.context 	= context;
+		this.dataModel 	= new ArrayList<Object>();
 	}
 	
 	@Override
 	public int getCount() {
 
-		return 0;
-	}
-
-	@Override
-	public Object getItem(int arg0) {
-
 		return dataModel.size();
 	}
 
 	@Override
-	public long getItemId(int arg0) {
+	public Object getItem(int position) {
+
+		return dataModel.get(position);
+	}
+
+	@Override
+	public long getItemId(int position) {
 
 		return 0;
 	}
