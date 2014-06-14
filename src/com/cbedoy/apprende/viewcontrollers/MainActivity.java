@@ -44,49 +44,13 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.login_view);
 		overridePendingTransition(R.anim.push_up, R.anim.push_up);
 
-        
-		mthis = this;
-		action = getActionBar();
-		action.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
-		usuario_txt = (EditText)findViewById(R.id.usuario_txt);
-		
-		password_txt = (EditText)findViewById(R.id.contrasena_txt);
-		
-		botonLogin = (Button)findViewById(R.id.button1);
-		botonLogin.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				
-				mthis.intent = new Intent(mthis, UserProfileActivity.class);
-				
-				
-				intent.putExtra("usuario", usuario_txt.getText().toString());
-				intent.putExtra("contrasena", password_txt.getText().toString());
-				mthis.startActivity(intent);
-				finish();
-			}
-		});
-		
-		TextView link = (TextView)findViewById(R.id.sLink);
-		link.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				mthis.startActivity(new Intent(mthis, RegistrationActivity.class));
-			}
-		});
-		
-		ServiceAllUsuarios task = new ServiceAllUsuarios(this);
-		task.execute();
+
 		
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
