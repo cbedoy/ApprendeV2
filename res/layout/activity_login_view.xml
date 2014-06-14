@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
+    android:gravity="center"
     android:orientation="vertical" >
 
     <TextView
@@ -11,8 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
-        android:layout_marginTop="22dp"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:gravity="right"
         android:text="Version"
         android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -20,11 +20,11 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
-        android:layout_height="192dp"
+        android:layout_height="168dp"
         android:layout_marginBottom="22dp"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="11dp"
         android:src="@drawable/logo_nuevo" />
 
     <EditText
@@ -33,9 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
-        android:layout_marginTop="22dp"
         android:ems="10"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textColor="#444444"
         android:hint="username"
         android:inputType="textEmailAddress" >
@@ -48,7 +47,7 @@
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
         android:ems="10"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textColor="#444444"
         android:hint="password"
         android:inputType="textPassword" >
@@ -57,6 +56,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
         android:layout_height="wrap_content" >
 
         <Button
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:background="#99000000"
             android:textColor="#ffffff"
             android:layout_marginRight="22dp"
