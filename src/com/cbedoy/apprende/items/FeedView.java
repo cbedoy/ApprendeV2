@@ -17,12 +17,12 @@ import android.widget.TextView;
 import com.cbedoy.apprende.models.Pregunta;
 import com.uandroides.aprende.R;
 
-public class ItemEstadisticaRetroalimentacion extends BaseAdapter{
+public class FeedView extends BaseAdapter{
 
 	private Activity context;
 	private ArrayList<Pregunta> preguntas;
 	
-	public ItemEstadisticaRetroalimentacion(Activity context, ArrayList<Pregunta> preguntas){
+	public FeedView(Activity context, ArrayList<Pregunta> preguntas){
 		this.context = context;
 		this.preguntas = preguntas;
 	}

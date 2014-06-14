@@ -32,7 +32,7 @@ import com.cbedoy.apprende.models.Temario;
 import com.cbedoy.apprende.viewcontrollers.ExamActivity;
 import com.uandroides.aprende.R;
 
-public class ItemTemario extends BaseAdapter {
+public class ThemeView extends BaseAdapter {
 	public TextView materia;
 	public TextView tema, descripcion;
 	public Button seleccion;
@@ -40,7 +40,7 @@ public class ItemTemario extends BaseAdapter {
 	Activity contexto;
 	private String[] niveles = new String[] { "FACIL", "INTERMEDIO",
 	"DIFICIL"};
-	public ItemTemario(Activity contexto) {
+	public ThemeView(Activity contexto) {
 		temario = new ArrayList<Temario>();
 		temario.add(new Temario(99, "Examen Demo", "Este es un examen que contiene multiples temas sobre diferentes materias en este comprobaras tus conocimeintos genelares", "Demo"));
 		//for(int i=0, k=100; i<data.size(); i++, k++){

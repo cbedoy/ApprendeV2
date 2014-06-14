@@ -21,7 +21,7 @@ import com.cbedoy.apprende.viewcontrollers.StatisticsActivity;
 import com.cbedoy.apprende.viewcontrollers.ExamActivity;
 import com.uandroides.aprende.R;
 
-public class PreguntaFragment extends Fragment {
+public class QuestionView extends Fragment {
 
 	private RadioButton opcion1;
 	private RadioButton opcion2;
@@ -36,7 +36,7 @@ public class PreguntaFragment extends Fragment {
 	
 
 
-	public PreguntaFragment() {
+	public QuestionView() {
 		// TODO Auto-generated constructor stub
 		
 	}

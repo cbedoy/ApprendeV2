@@ -11,16 +11,16 @@ import android.util.Log;
 
 
 
-public class PaginadoAdapter extends FragmentPagerAdapter {
-	public PaginadoAdapter(FragmentManager fm) {
+public class ViewPagerAdapter extends FragmentPagerAdapter {
+	public ViewPagerAdapter(FragmentManager fm) {
 		super(fm);
 	}
 
 	@Override
 	public Fragment getItem(int position) {
-		Fragment fragment = new PreguntaFragment();
+		Fragment fragment = new QuestionView();
 		Bundle args = new Bundle();
-		args.putInt(PreguntaFragment.ARG_SECTION_NUMBER, position);
+		args.putInt(QuestionView.ARG_SECTION_NUMBER, position);
 		args.putInt("size", 10);
 		fragment.setArguments(args);
 		Log.i("depu", "Posicion del fragment"

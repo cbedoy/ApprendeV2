@@ -25,7 +25,7 @@ import android.view.Menu;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.cbedoy.apprende.items.ItemEstadisticaRetroalimentacion;
+import com.cbedoy.apprende.items.FeedView;
 import com.cbedoy.apprende.models.Pregunta;
 import com.uandroides.aprende.R;
 
@@ -103,7 +103,7 @@ public class StatisticsActivity extends Activity {
 
 		ListView lista = (ListView)findViewById(R.id.lista_resultados);
 
-		lista.setAdapter(new ItemEstadisticaRetroalimentacion(this, preguntas));
+		lista.setAdapter(new FeedView(this, preguntas));
 		
 		new Thread(new Runnable() {
 	        public void run() {

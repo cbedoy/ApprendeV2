@@ -19,8 +19,8 @@ import org.json.JSONObject;
 
 
 import com.cbedoy.apprende.models.Usuario;
-import com.cbedoy.apprende.utils.CBRESTClient;
-import com.cbedoy.apprende.utils.CBRESTClient.RequestMethod;
+import com.cbedoy.apprende.utils.RESTClient;
+import com.cbedoy.apprende.utils.RESTClient.RequestMethod;
 import com.cbedoy.apprende.viewcontrollers.MainActivity;
 
 import android.app.ProgressDialog;
@@ -54,7 +54,7 @@ public class ServiceCreateUser extends AsyncTask<String, Integer, String> implem
 	public String correrServicio(Object objeto) {
 		Usuario usuario = (Usuario) objeto;
 		try{
-			CBRESTClient request = new CBRESTClient(url);
+			RESTClient request = new RESTClient(url);
 			request .Execute(RequestMethod.GET);
 			request.AddParam("correo", usuario.getCorreo());
 			request.AddParam("contrasena", usuario.getContrasena());

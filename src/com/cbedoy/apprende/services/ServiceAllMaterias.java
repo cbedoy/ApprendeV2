@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-import com.cbedoy.apprende.utils.CBRESTClient;
+import com.cbedoy.apprende.utils.RESTClient;
 import com.cbedoy.apprende.viewcontrollers.MainActivity;
 
 public class ServiceAllMaterias extends AsyncTask<String, Integer, String> implements IServiceInteractor{
@@ -37,7 +37,7 @@ public class ServiceAllMaterias extends AsyncTask<String, Integer, String> imple
 	public String correrServicio(Object objeto) {
 		
 		try{
-			CBRESTClient request = new CBRESTClient(url);
+			RESTClient request = new RESTClient(url);
 			String respuesta = MainActivity.mthis.shared.getString("estadisticas", null);
 			if(request.getResponse()!=null){
 				Editor edit = MainActivity.mthis.shared.edit();

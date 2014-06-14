@@ -41,7 +41,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cbedoy.apprende.items.ItemEstadisticas;
+import com.cbedoy.apprende.items.StatisticsView;
 import com.cbedoy.apprende.models.EstadisticasLateral;
 import com.uandroides.aprende.R;
 
@@ -85,7 +85,7 @@ public class UserProfileActivity extends Activity implements AdapterView.OnItemC
 		laterales.add(new EstadisticasLateral("13/NOVIMEBRE/13", "50", "45", "5", "Examen Oracle - Primer parcial", "90.0"));
 		laterales.add(new EstadisticasLateral("14/NOVIEMBRE/13", "20", "10", "10", "Investigacion de operaciones", "50.0"));
 		laterales.add(new EstadisticasLateral("15/NOVIEMBRE/13", "10", "10", "10", "Compresion lectora", "10.0"));
-        list.setAdapter(new ItemEstadisticas(laterales, this));
+        list.setAdapter(new StatisticsView(laterales, this));
         this.loadPicture(null, R.id.profile_picture);
     }
 

@@ -8,8 +8,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.cbedoy.apprende.models.Constantes;
-import com.cbedoy.apprende.utils.CBRESTClient;
-import com.cbedoy.apprende.utils.CBRESTClient.RequestMethod;
+import com.cbedoy.apprende.utils.RESTClient;
+import com.cbedoy.apprende.utils.RESTClient.RequestMethod;
 
 public class ServiceAllTemas extends AsyncTask<String, Integer, String> implements IServiceInteractor{
 	private ProgressDialog pd;
@@ -37,7 +37,7 @@ public class ServiceAllTemas extends AsyncTask<String, Integer, String> implemen
 	public String correrServicio(Object objeto) {
 		
 		try{
-			CBRESTClient request = new CBRESTClient(Constantes.getAllUsers);
+			RESTClient request = new RESTClient(Constantes.getAllUsers);
 			request.Execute(RequestMethod.GET);
 			if(request.getResponse()!=null){
 				return request.getResponse();

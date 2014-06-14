@@ -25,7 +25,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 
-import com.cbedoy.apprende.fragments.PaginadoAdapter;
+import com.cbedoy.apprende.fragments.ViewPagerAdapter;
 import com.cbedoy.apprende.models.CuestionarioDemo;
 import com.cbedoy.apprende.models.Pregunta;
 import com.cbedoy.apprende.models.Tema;
@@ -33,7 +33,7 @@ import com.uandroides.aprende.R;
 
 public class ExamActivity extends FragmentActivity {
 
-	PaginadoAdapter mSectionsPagerAdapter;
+	ViewPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
 	public static ExamActivity mthis;
 	
@@ -57,7 +57,7 @@ public class ExamActivity extends FragmentActivity {
 		
 
 		mthis = this;
-		mSectionsPagerAdapter = new PaginadoAdapter(getSupportFragmentManager());
+		mSectionsPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		
 		showMensajeDemo();

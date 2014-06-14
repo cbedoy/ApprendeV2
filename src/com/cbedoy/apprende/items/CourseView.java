@@ -26,13 +26,13 @@ import android.widget.TextView;
 import com.cbedoy.apprende.models.Materia;
 import com.uandroides.aprende.R;
 
-public class ItemMaterias extends BaseAdapter {
+public class CourseView extends BaseAdapter {
 	
 	private int llave;
 	private String llaveHash;
 	private ArrayList<Materia> data;
 	private Activity contexto;
-	public ItemMaterias(Activity contexto) {
+	public CourseView(Activity contexto) {
 		data = new ArrayList<Materia>();
 		data.add(new Materia(1, "Parciales"));
 		data.add(new Materia(2, "Matematicas"));

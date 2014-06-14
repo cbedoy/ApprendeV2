@@ -10,8 +10,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.cbedoy.apprende.models.Constantes;
-import com.cbedoy.apprende.utils.CBRESTClient;
-import com.cbedoy.apprende.utils.CBRESTClient.RequestMethod;
+import com.cbedoy.apprende.utils.RESTClient;
+import com.cbedoy.apprende.utils.RESTClient.RequestMethod;
 import com.cbedoy.apprende.viewcontrollers.MainActivity;
 
 public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> implements IServiceInteractor{
@@ -39,7 +39,7 @@ public class ServiceAllUsuarios extends AsyncTask<String, Integer, String> imple
 	@Override
 	public String correrServicio(Object objeto) {
 		try{
-			CBRESTClient request = new CBRESTClient(Constantes.getAllUsers);
+			RESTClient request = new RESTClient(Constantes.getAllUsers);
 			request.Execute(RequestMethod.GET);
 			if(request.getResponse()!=null){
 				return request.getResponse();

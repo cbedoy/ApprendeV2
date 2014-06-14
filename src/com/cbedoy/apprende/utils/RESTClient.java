@@ -41,7 +41,7 @@ import org.apache.http.protocol.HTTP;
 import android.util.Log;
 
 
-public class CBRESTClient {
+public class RESTClient {
 
 	public static enum RequestMethod {
 		GET, POST
@@ -70,7 +70,7 @@ public class CBRESTClient {
 		return responseCode;
 	}
 
-	public CBRESTClient(String url) {
+	public RESTClient(String url) {
 		this.url = url;
 		params = new ArrayList<NameValuePair>();
 		headers = new ArrayList<NameValuePair>();
@@ -191,8 +191,8 @@ public class CBRESTClient {
 	    try {
 	        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
 	        trustStore.load(null, null);
-	        CBSSLSocketFactory sf = new CBSSLSocketFactory(trustStore);
-	        sf.setHostnameVerifier(CBSSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER); 
+	        SSLSocketFactory sf = new SSLSocketFactory(trustStore);
+	        sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER); 
 	        HttpParams params = new BasicHttpParams();
 	        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 	        HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);

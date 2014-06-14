@@ -32,8 +32,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.cbedoy.apprende.items.ItemMaterias;
-import com.cbedoy.apprende.items.ItemTemario;
+import com.cbedoy.apprende.items.CourseView;
+import com.cbedoy.apprende.items.ThemeView;
 import com.cbedoy.apprende.models.Materia;
 import com.cbedoy.apprende.models.Temario;
 import com.uandroides.aprende.R;
@@ -70,10 +70,10 @@ public class ThemesActivity extends Activity implements AdapterView.OnItemClickL
 		
 		
 		ListView list = (ListView) findViewById(R.id.left_drawer);
-        list.setAdapter(new ItemMaterias(this));
+        list.setAdapter(new CourseView(this));
         
         ListView lista = (ListView) findViewById(R.id.lista_temas);
-      		lista.setAdapter(new ItemTemario(this));
+      		lista.setAdapter(new ThemeView(this));
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class ThemesActivity extends Activity implements AdapterView.OnItemClickL
 		}
 
 		ListView lista = (ListView) findViewById(R.id.lista_temas);
-		lista.setAdapter(new ItemTemario(this));
+		lista.setAdapter(new ThemeView(this));
 		Log.i("miLog", "tama�o"+temas.size());
 		
 	}

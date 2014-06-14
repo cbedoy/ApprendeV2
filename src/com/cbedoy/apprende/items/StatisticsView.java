@@ -29,7 +29,7 @@ import android.widget.TextView;
 import com.cbedoy.apprende.models.EstadisticasLateral;
 import com.uandroides.aprende.R;
 
-public class ItemEstadisticas extends BaseAdapter {
+public class StatisticsView extends BaseAdapter {
 
 	private TextView fecha;
 	private TextView titulo;
@@ -40,7 +40,7 @@ public class ItemEstadisticas extends BaseAdapter {
 	private ArrayList<EstadisticasLateral> data;
 	private Activity contexto;
 
-	public ItemEstadisticas(ArrayList<EstadisticasLateral> data, Activity contexto) {
+	public StatisticsView(ArrayList<EstadisticasLateral> data, Activity contexto) {
 		this.data = data;
 		this.contexto = contexto;
 	}
