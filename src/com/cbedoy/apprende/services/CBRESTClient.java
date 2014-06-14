@@ -41,24 +41,20 @@ import org.apache.http.protocol.HTTP;
 import android.util.Log;
 
 
-public class RESTClient {
-
+public class CBRESTClient {
+	
 	public static enum RequestMethod {
 		GET, POST
 	}
 
-	private ArrayList<NameValuePair> params;
-	private ArrayList<NameValuePair> headers;
-	public String post;
-	private String url;
+	private ArrayList<NameValuePair> 	params;
+	private ArrayList<NameValuePair> 	headers;
+	public  String 						post;
+	private String 						url;
+	private int 						responseCode;
+	private String 						message;
+	private String 						response;
 
-	private int responseCode;
-	private String message;
-	private String response;
-
-/*
- * default methods to manage the restclient
- * */
 	public String getResponse() {
 		return response;
 	}
@@ -70,10 +66,10 @@ public class RESTClient {
 		return responseCode;
 	}
 
-	public RESTClient(String url) {
+	public CBRESTClient(String url) {
 		this.url = url;
-		params = new ArrayList<NameValuePair>();
-		headers = new ArrayList<NameValuePair>();
+		params 		= new ArrayList<NameValuePair>();
+		headers 	= new ArrayList<NameValuePair>();
 	}
 
 	public void AddParam(String name, String value) {
@@ -83,29 +79,24 @@ public class RESTClient {
 	public void AddHeader(String name, String value) {
 		headers.add(new BasicNameValuePair(name, value));
 	}
-/*
- * exceute the post defined to the url defined
- * 
- * */
+
 	public void Execute(RequestMethod method) throws Exception {
 		switch (method) {
 		case GET: {
-			// add parameters
-			String combinedParams = "";
+			String combinedParams 		= "";
 			if (!params.isEmpty()) {
-				combinedParams += "?";
+				combinedParams 			+= "?";
 				for (NameValuePair p : params) {
-					String paramString = p.getName() + "=" + URLEncoder.encode(p.getValue(), "UTF-8");
+					String paramString 	= p.getName() + "=" + URLEncoder.encode(p.getValue(), "UTF-8");
 					if (combinedParams.length() > 1) {
-						combinedParams += "&" + paramString;
+						combinedParams 	+= "&" + paramString;
 					} else {
-						combinedParams += paramString;
+						combinedParams 	+= paramString;
 					}
 				}
 			}
 			Log.i("RestClient","GET  :"+url + combinedParams);
 			HttpGet request = new HttpGet(url + combinedParams);
-			// add headers
 			for (NameValuePair h : headers) {
 				request.addHeader(h.getName(), h.getValue());
 			}
@@ -114,15 +105,11 @@ public class RESTClient {
 		}
 		case POST: {			
 			HttpPost request = new HttpPost(url);
-			//request.setHeader("Content-type","application/json");
 			request.setHeader("Content-type","application/x-www-form-urlencoded");
-			// add headers
 			for (NameValuePair h : headers) {
 				request.addHeader(h.getName(), h.getValue());
-				//Log.i("headeradding",""+h.getName()+","+h.getValue());
 			}		
 			if (!params.isEmpty()) {
-				//request.setEntity(new ByteArrayEntity(post.toString().getBytes("UTF8")));
 				request.setEntity(new UrlEncodedFormEntity(params,"UTF-8"));  
 				Log.i("posting",request.getEntity().toString()+" in "+url );
 			}		
@@ -132,22 +119,18 @@ public class RESTClient {
 		}
 		}
 	}
-/*
- * executing recuest from post in execute restclient
- * 
- * */
+
 	private void executeRequest(HttpUriRequest request, String url) throws Exception{
-		HttpParams httpParams = new BasicHttpParams();
-	   
-		HttpClient client =this.getNewHttpClient();//; new DefaultHttpClient(httpParams);
+		HttpParams httpParams 			= new BasicHttpParams();
+		HttpClient client 				= this.getNewHttpClient();
 		HttpResponse httpResponse;
 		try {
-			httpResponse = client.execute(request);
-			responseCode = httpResponse.getStatusLine().getStatusCode();
+			httpResponse 				= client.execute(request);
+			responseCode 				= httpResponse.getStatusLine().getStatusCode();
 			message = httpResponse.getStatusLine().getReasonPhrase();
-			HttpEntity entity = httpResponse.getEntity();
+			HttpEntity entity 			= httpResponse.getEntity();
 			if (entity != null) {
-				InputStream instream = entity.getContent();
+				InputStream instream 	= entity.getContent();
 				response = convertStreamToString(instream);
 				instream.close();
 			}
@@ -163,11 +146,8 @@ public class RESTClient {
 			throw new Exception();	
 		}
 	}
-/*
- * 
- * convert the Stream from the request in a String readeable to the rest client
- * 
- * */
+
+	
 	private static String convertStreamToString(InputStream is) {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 		StringBuilder sb = new StringBuilder();
@@ -187,13 +167,14 @@ public class RESTClient {
 		}
 		return sb.toString();
 	}
+	
 	public HttpClient getNewHttpClient() {
 	    try {
-	        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+	        KeyStore trustStore 	= KeyStore.getInstance(KeyStore.getDefaultType());
 	        trustStore.load(null, null);
-	        SSLSocketFactory sf = new SSLSocketFactory(trustStore);
-	        sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER); 
-	        HttpParams params = new BasicHttpParams();
+	        CBSSLSocketFactory sf 	= new CBSSLSocketFactory(trustStore);
+	        sf.setHostnameVerifier(CBSSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER); 
+	        HttpParams params 		= new BasicHttpParams();
 	        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 	        HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
 	        HttpConnectionParams.setConnectionTimeout(params, 3000);
