@@ -16,6 +16,7 @@ import com.cbedoy.apprende.R.id;
 import com.cbedoy.apprende.R.layout;
 import com.cbedoy.apprende.interfaces.representationDelegates.ICourseRepresentationDelegate;
 import com.cbedoy.apprende.keysets.CourseKeySet;
+import com.cbedoy.apprende.services.AppInstanceProvider;
 
 public class CourseViewAdapter extends BaseAdapter implements ICourseRepresentationDelegate{
 
@@ -58,6 +59,8 @@ public class CourseViewAdapter extends BaseAdapter implements ICourseRepresentat
 			TextView   courseQuantity					= (TextView) view.findViewById(R.id.course_theme_qunatity);
 			courseName.setText(information.get(CourseKeySet.NAME).toString());
 			courseQuantity.setText(information.get(CourseKeySet.QUANTITY).toString());
+			courseName.setTypeface(AppInstanceProvider.regularFont);
+			courseQuantity.setTypeface(AppInstanceProvider.lightFont);
 		
 		}
 		return view;

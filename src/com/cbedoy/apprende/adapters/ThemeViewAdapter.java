@@ -10,6 +10,7 @@ import com.cbedoy.apprende.R.layout;
 import com.cbedoy.apprende.interfaces.representationDelegates.IThemeRepresentationDelegate;
 import com.cbedoy.apprende.keysets.CourseKeySet;
 import com.cbedoy.apprende.keysets.ThemeKeySet;
+import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -63,7 +64,8 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 			TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
 			themeName.setText(information.get(ThemeKeySet.NAME).toString());
 			themeDescription.setText(information.get(ThemeKeySet.DESCRIPTION).toString());
-		
+			themeName.setTypeface(AppInstanceProvider.regularFont);
+			themeDescription.setTypeface(AppInstanceProvider.lightFont);
 		}
 		return view;
 	}
