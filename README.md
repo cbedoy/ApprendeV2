@@ -5,16 +5,17 @@
 
 Original idea by:
 
-- David Angel Gutierrez Duron
 - Carlos Alfredo Cervantes Bedoy
+- David Angel Gutierrez Duron
+
 
 
 Develop by:
 
-- Carlos Alfredo Cervantes Bedoy
+- Carlos Alfredo Cervantes Bedoy | UI, Backend, Refactory
 
 
-Current project includes custom library make for me.
+Current project includes custom library make for me, where implements Delegates and support for RestClient (Django web services)
 
 carlos.bedoy@gmail.com
 
@@ -24,9 +25,9 @@ I'm a iOS and Android Developer for pademobile.
 
 #### About
 
-Code code = [[[Code new]initWithCode:self]autorelease];
+Current status for project is on refactory, we´ll adapting a new flow of source code based in delegates, singleton, and dependency injections :)
 
-:D
+
 
 
 
