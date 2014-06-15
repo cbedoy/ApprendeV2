@@ -3,6 +3,7 @@ package com.cbedoy.apprende;
 import java.util.HashMap;
 
 import com.cbedoy.apprende.interfaces.representationDelegates.IFeedResultRepresentationDelegate;
+import com.cbedoy.apprende.keysets.FeedKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
@@ -49,12 +50,20 @@ public class FeedView extends Activity implements IFeedResultRepresentationDeleg
 		this.feedTitle.setTypeface(AppInstanceProvider.lightFont);
 		this.feedPosition.setTypeface(AppInstanceProvider.lightFont);
 		this.feedText.setTypeface(AppInstanceProvider.regularFont);
+		
 	}
 
 	@Override
 	public void reloadViewWithData(HashMap<Object, Object> response) {
+		
 		this.feedBellowYou.setText(response.get(UserKeySet.BELLOWYOU).toString());
-
+		this.feedLevel.setText(response.get(FeedKeySet.LEVEL).toString());
+		this.feedQuestions.setText(response.get(FeedKeySet.QUESTIONS).toString());
+		this.feedErrors.setText(response.get(FeedKeySet.WRONGS).toString());
+		this.feedPoints.setText(response.get(FeedKeySet.POINTS).toString());
+		this.feedBestYou.setText(response.get(UserKeySet.BESTOFYOU).toString());
+		this.feedPosition.setText(response.get(UserKeySet.POSITION).toString());
+		
 		
 	}
 }

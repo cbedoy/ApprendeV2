@@ -13,5 +13,6 @@ public enum UserKeySet {
     BESTOFYOU,
     BELLOWYOU,
     COUNTRY,
-    UNIVERSITY
+    UNIVERSITY, 
+    POSITION
 }

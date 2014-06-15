@@ -3,7 +3,7 @@ package com.cbedoy.apprende.keysets;
 public enum FeedKeySet {
     ID,
     LEVEL,
-    CORRECTS,
+    QUESTIONS,
     WRONGS,
     POINTS,
     DATE,

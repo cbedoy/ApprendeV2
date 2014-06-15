@@ -27,9 +27,7 @@ public class LoginView extends Activity {
 		View.OnClickListener loginAction = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent mainIntent = new Intent().setClass(LoginView.this, ProfileView.class);
-		        startActivity(mainIntent);
-		        finish();
+				
 			}
 		};
 		
