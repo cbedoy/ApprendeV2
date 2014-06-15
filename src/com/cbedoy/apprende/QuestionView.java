@@ -29,8 +29,7 @@ public  class QuestionView extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView 			= inflater.inflate(R.layout.fragment_questionary_view, container, false);
 		TextView question 		= (TextView) rootView.findViewById(R.id.question);
 		RadioButton optionOne 	= (RadioButton) rootView.findViewById(R.id.optionOne);

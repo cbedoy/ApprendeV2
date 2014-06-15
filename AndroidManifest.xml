@@ -41,6 +41,14 @@
             android:name="com.cbedoy.apprende.QuestionaryView"
             android:label="@string/title_activity_questionary_view" >
         </activity>
+        <activity
+            android:name="com.cbedoy.apprende.FeedView"
+            android:label="@string/title_activity_feed_view" >
+        </activity>
+        <activity
+            android:name="com.cbedoy.apprende.RegistrationView"
+            android:label="@string/title_activity_registration_view" >
+        </activity>
     </application>
 
 </manifest>
