@@ -46,7 +46,7 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 	}
 
 	@Override
-	public void reloadViewWithData(HashMap<UserKeySet, Object> dataModel) {
+	public void reloadViewWithData(HashMap<Object, Object> dataModel) {
 		
 		this.profileAge.setText(dataModel.get(UserKeySet.AGE).toString());
 		this.profileName.setText(dataModel.get(UserKeySet.FIRST_NAME)+" "+dataModel.get(UserKeySet.LAST_NAME));

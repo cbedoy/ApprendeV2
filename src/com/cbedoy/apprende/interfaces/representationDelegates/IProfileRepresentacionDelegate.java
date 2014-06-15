@@ -6,6 +6,6 @@ import com.cbedoy.apprende.keysets.UserKeySet;
 
 public interface IProfileRepresentacionDelegate {
 	
-	public void reloadViewWithData(HashMap<UserKeySet, Object> dataModel);
+	public void reloadViewWithData(HashMap<Object, Object> dataModel);
 	
 }

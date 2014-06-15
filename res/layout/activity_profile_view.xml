@@ -5,125 +5,136 @@
     android:background="@drawable/bg_app"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_marginTop="22dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="fill_parent"
-        android:orientation="horizontal"
-        android:layout_height="192dp" >
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-        <View
-            android:id="@+id/rank_view"
-            android:background="@color/rank1"
-            android:layout_width="fill_parent"
-            android:layout_weight="4"
-            android:layout_height="wrap_content" />
-        
-        <ImageView
-            android:id="@+id/user_image"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:src="@drawable/mock_profile" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="240dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="22dp"
+                android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/profile_username"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="mermelada.h.ruiz" />
-    
-    <TextView
-        android:id="@+id/profile_name"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="Esmeralda Ruiz" />
-    
-     <TextView
-        android:id="@+id/profile_university"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="Universidad Autonoma De Aguas" />
-     
-      <TextView
-        android:id="@+id/profile_country"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="Mexico" />
-      
-       <TextView
-        android:id="@+id/profile_age"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="27 years." />
-       
-        <TextView
-        android:id="@+id/profile_pints"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="3512 points" />
-        
-         <TextView
-        android:id="@+id/profile_BestOfYou"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="45 guys" />
-         
-          <TextView
-        android:id="@+id/profile_BellowYou"
-        android:layout_gravity="right"
-        android:layout_marginTop="11dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:text="49 guys" />
+                <View
+                    android:id="@+id/rank_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:background="@color/rank1" />
+
+                <ImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/mock_profile" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/profile_university"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="Universidad Autonoma De Aguas"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/profile_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="mermelada.h.ruiz"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="Esmeralda Ruiz"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/profile_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="Mexico"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/profile_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="27 years."
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/profile_pints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="3512 points"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/profile_BestOfYou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="45 guys"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/profile_BellowYou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="11dp"
+                android:text="49 guys"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

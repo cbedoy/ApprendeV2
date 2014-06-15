@@ -1,6 +1,6 @@
 package com.cbedoy.apprende.keysets;
 
-public enum StatisticsKeySet {
+public enum FeedKeySet {
     ID,
     LEVEL,
     CORRECTS,
