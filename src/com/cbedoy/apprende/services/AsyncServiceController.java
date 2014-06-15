@@ -14,8 +14,8 @@ public class AsyncServiceController extends AsyncTask<String, Integer, String> {
 
 	private ProgressDialog 			progressDialog;
 	private Context 				context;
-	private IAsyncServiceDelegate ansyncServiceDelegate;
-    private CBRESTClient              restClient;
+	private IAsyncServiceDelegate 	ansyncServiceDelegate;
+    private CBRESTClient            restClient;
 
     public void setRestClient(CBRESTClient restClient) {
         this.restClient = restClient;
@@ -32,7 +32,7 @@ public class AsyncServiceController extends AsyncTask<String, Integer, String> {
 
 	@Override
 	protected void onPreExecute(){
-		progressDialog = ProgressDialog.show(context, "", "Cargando...");
+		//progressDialog = ProgressDialog.show(context, "", "Cargando...");
 	}
 	
 	@Override
@@ -50,10 +50,15 @@ public class AsyncServiceController extends AsyncTask<String, Integer, String> {
 
 	@Override
 	protected void onPostExecute(String response){
-		progressDialog.dismiss();
+		//progressDialog.dismiss();
 		try {
-			JSONObject json = new JSONObject(response);
-			ansyncServiceDelegate.reloadData(json);
+			if(response != null){
+				JSONObject json = new JSONObject(response);
+				ansyncServiceDelegate.reloadData(json);
+			}else{
+				ansyncServiceDelegate.reloadData(null);
+			}
+				
 		} catch (JSONException e) {
 			e.printStackTrace();
 			
