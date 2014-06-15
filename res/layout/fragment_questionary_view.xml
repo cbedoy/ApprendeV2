@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="11dp"
+        android:textSize="16sp"
+        android:textColor="#444444"
+        android:text="What is the name of your girlfriend?" />
+
+    <RadioGroup
+        android:id="@+id/optionGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/question" >
+
+        <RadioButton
+            android:id="@+id/optionOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Esme"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/optionTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fani"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/optionThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lili"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/optionFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/question"
+        android:layout_alignParentBottom="true"
+        android:background="#99000000"
+        android:textColor="#ffffff"
+        android:layout_alignRight="@+id/question"
+        android:layout_marginBottom="18dp"
+        android:text="Finish" />
+
+</RelativeLayout>

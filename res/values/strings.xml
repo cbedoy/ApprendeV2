@@ -56,5 +56,8 @@
     <string name="title_activity_login_view">LoginView</string>
     <string name="title_activity_profile_view">ProfileView</string>
     <string name="title_activity_theme_view">ThemeView</string>
+    <string name="title_activity_questionary_view">QuestionaryView</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
 
 </resources>

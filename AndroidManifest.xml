@@ -37,6 +37,10 @@
             android:name="com.cbedoy.apprende.ThemeView"
             android:label="@string/title_activity_theme_view" >
         </activity>
+        <activity
+            android:name="com.cbedoy.apprende.QuestionaryView"
+            android:label="@string/title_activity_questionary_view" >
+        </activity>
     </application>
 
 </manifest>
