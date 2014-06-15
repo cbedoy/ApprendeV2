@@ -22,6 +22,8 @@
     <string name="action_search">Buscar tema</string>
     <string name="ip_fija">192.168.0.11</string>
     <string name="title_activity_registro">RegistroActivity</string>
+    <string name="action_guys">Guys</string>
+    <string name="action_course">Course</string>
 
     <string-array name="estados">
         <item>Aguascalientes</item>

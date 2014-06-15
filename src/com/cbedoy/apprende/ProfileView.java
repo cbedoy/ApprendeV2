@@ -7,7 +7,11 @@ import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class ProfileView extends Activity implements IProfileRepresentacionDelegate{
@@ -58,4 +62,27 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profilePoints.setText(dataModel.get(UserKeySet.POINTS).toString());
 		
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.profile_menu, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case R.id.action_guys:
+	            
+	            return true;
+	        case R.id.action_course:
+	            Intent intent = new Intent(this, ThemeView.class);
+	            startActivity(intent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
 }
