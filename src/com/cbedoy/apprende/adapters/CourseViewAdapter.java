@@ -58,9 +58,9 @@ public class CourseViewAdapter extends BaseAdapter implements ICourseRepresentat
 				TextView   courseName 						= (TextView) view.findViewById(R.id.course_name);
 				TextView   courseQuantity					= (TextView) view.findViewById(R.id.course_theme_qunatity);
 				courseName.setText(information.get(CourseKeySet.NAME).toString());
-				courseQuantity.setText(information.get(CourseKeySet.QUANTITY).toString());
+				//courseQuantity.setText(information.get(CourseKeySet.QUANTITY).toString());
 				courseName.setTypeface(AppInstanceProvider.regularFont);
-				courseQuantity.setTypeface(AppInstanceProvider.lightFont);
+				//courseQuantity.setTypeface(AppInstanceProvider.lightFont);
 			}
 		
 		}

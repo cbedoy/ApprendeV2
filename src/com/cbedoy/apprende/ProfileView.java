@@ -2,6 +2,7 @@ package com.cbedoy.apprende;
 
 import java.util.HashMap;
 
+import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.representationDelegates.IProfileRepresentacionDelegate;
 import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ProfileView extends Activity implements IProfileRepresentacionDelegate{
@@ -24,12 +26,13 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 	private TextView profilePoints;
 	private TextView profileUniversity;
 	private TextView profileUserName;
+	private ImageView profileImage;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile_view);
-		
+		this.profileImage       = (ImageView)findViewById(R.id.user_image);
 		this.profileName 		= (TextView) findViewById(R.id.profile_name);
 		this.profileAge 		= (TextView) findViewById(R.id.profile_age);
 		this.profileBellowYou 	= (TextView) findViewById(R.id.profile_BellowYou);
@@ -46,7 +49,7 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profilePoints.setTypeface(AppInstanceProvider.lightFont);
 		this.profileUniversity.setTypeface(AppInstanceProvider.lightFont);
 		this.profileUserName.setTypeface(AppInstanceProvider.lightFont);
-		
+		this.reloadViewWithData(MasterController.getInstance().getUserInformation());
 	}
 
 	@Override
@@ -55,11 +58,12 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profileAge.setText(dataModel.get(UserKeySet.AGE).toString());
 		this.profileName.setText(dataModel.get(UserKeySet.FIRST_NAME)+" "+dataModel.get(UserKeySet.LAST_NAME));
 		this.profileUserName.setText(dataModel.get(UserKeySet.USERNAME).toString());
-		this.profileBellowYou.setText(dataModel.get(UserKeySet.BELLOWYOU).toString());
-		this.profileBestOfYou.setText(dataModel.get(UserKeySet.BESTOFYOU).toString());
-		this.profileCountry.setText(dataModel.get(UserKeySet.COUNTRY).toString());
-		this.profileUniversity.setText(dataModel.get(UserKeySet.UNIVERSITY).toString());
+		//this.profileBellowYou.setText(dataModel.get(UserKeySet.BELLOWYOU).toString());
+		//this.profileBestOfYou.setText(dataModel.get(UserKeySet.BESTOFYOU).toString());
+		//this.profileCountry.setText(dataModel.get(UserKeySet.COUNTRY).toString());
+		//this.profileUniversity.setText(dataModel.get(UserKeySet.UNIVERSITY).toString());
 		this.profilePoints.setText(dataModel.get(UserKeySet.POINTS).toString());
+		//this.profileImage.setImageBitmap(AppInstanceProvider.getInstance().getImageFromURL(dataModel.get(UserKeySet.IMAGE).toString()));
 		
 	}
 	

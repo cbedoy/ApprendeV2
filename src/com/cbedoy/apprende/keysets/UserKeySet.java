@@ -14,5 +14,6 @@ public enum UserKeySet {
     BELLOWYOU,
     COUNTRY,
     UNIVERSITY, 
-    POSITION
+    POSITION, 
+    IMAGE
 }

@@ -65,21 +65,23 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 	}
 
 	@Override
-	public void reloadData(JSONObject jsonObject) {
+	public void reloadData(JSONObject response) {
 		
-		if(jsonObject!=null){
+		if(response!=null){
 			
 			HashMap<Object, Object> userInformation = new HashMap<Object, Object>();
 			try {
-				userInformation.put(UserKeySet.ID, 			jsonObject.get("pk"));
-				userInformation.put(UserKeySet.USERNAME, 	jsonObject.get("username"));
-				userInformation.put(UserKeySet.FIRST_NAME, 	jsonObject.get("first_name"));
-				userInformation.put(UserKeySet.LAST_NAME, 	jsonObject.get("last_name"));
-				userInformation.put(UserKeySet.PLAYS, 		jsonObject.get("plays"));
-				userInformation.put(UserKeySet.AGE, 		jsonObject.get("age"));
-				userInformation.put(UserKeySet.BIRTHDAY, 	jsonObject.get("birthday"));
-				userInformation.put(UserKeySet.PASSWORD, 	jsonObject.get("password"));
-				userInformation.put(UserKeySet.POINTS, 		jsonObject.get("points"));
+				JSONObject fields 					= (JSONObject) response.get("fields");
+				userInformation.put(UserKeySet.ID, 			response.get("pk"));
+				userInformation.put(UserKeySet.USERNAME, 	fields.get("username"));
+				userInformation.put(UserKeySet.FIRST_NAME, 	fields.get("first_name"));
+				userInformation.put(UserKeySet.LAST_NAME, 	fields.get("last_name"));
+				userInformation.put(UserKeySet.PLAYS, 		fields.get("plays"));
+				userInformation.put(UserKeySet.AGE, 		fields.get("age"));
+				userInformation.put(UserKeySet.BIRTHDAY, 	fields.get("birthday"));
+				userInformation.put(UserKeySet.PASSWORD, 	fields.get("password"));
+				userInformation.put(UserKeySet.POINTS, 		fields.get("points"));
+				userInformation.put(UserKeySet.IMAGE, 		"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/t1.0-9/10395844_914281698598196_6581668355249980923_n.jpg");
 				MasterController.getInstance().setUserInfo(userInformation);
 				Intent intent = new Intent(this, ProfileView.class);
 				startActivity(intent);

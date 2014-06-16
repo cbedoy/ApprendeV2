@@ -1,6 +1,9 @@
 package com.cbedoy.apprende.services;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 
 import com.cbedoy.apprende.bussiness.MasterController;
@@ -12,6 +15,9 @@ import com.cbedoy.apprende.interfaces.viewdelegates.IThemeViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 
 public class AppInstanceProvider {
@@ -112,6 +118,17 @@ public class AppInstanceProvider {
         feedService.setViewDelegate(viewDelegate);
         masterController.setAnsycTask(feedService);
         return masterController;
+    }
+    
+    public Bitmap getImageFromURL(String url){
+    	try {
+    		URL urlImage 					= new URL(url);
+    		Bitmap bitmap					= BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
+    		return bitmap;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    		return null;
+    	}
     }
         
 }
