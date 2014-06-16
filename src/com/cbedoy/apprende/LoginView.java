@@ -18,11 +18,12 @@ import android.widget.TextView;
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
 import com.cbedoy.apprende.interfaces.IContextDetection;
+import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
-public class LoginView extends Activity implements IAsyncServiceDelegate, IContextDetection{
+public class LoginView extends Activity implements ILoginViewDelegate{
 
 	private MasterController masterController;
 	private EditText username;
@@ -56,9 +57,8 @@ public class LoginView extends Activity implements IAsyncServiceDelegate, IConte
 		HashMap<Object, Object> information = new HashMap<Object, Object>();
 		information.put(UserKeySet.USERNAME, this.username.getText().toString());
 		information.put(UserKeySet.PASSWORD, this.password.getText().toString());
-		AppInstanceProvider.getInstance().setAnsycServiceDelegate(this);
 		masterController = AppInstanceProvider.getInstance().instanceServiceLogin(this, information, ServiceKeySet.GET_USER_INFO);
-		masterController.getAsyncServiceController().execute();
+		masterController.getAnsycTask().execute();
 		
 	}
 
