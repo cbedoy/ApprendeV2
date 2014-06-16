@@ -24,6 +24,7 @@
     <string name="title_activity_registro">RegistroActivity</string>
     <string name="action_guys">Guys</string>
     <string name="action_course">Course</string>
+    <string name="action_registration">Registration</string>
 
     <string-array name="estados">
         <item>Aguascalientes</item>

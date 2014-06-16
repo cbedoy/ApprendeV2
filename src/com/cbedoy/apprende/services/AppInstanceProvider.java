@@ -3,10 +3,14 @@ package com.cbedoy.apprende.services;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.View;
+import android.widget.BaseAdapter;
 
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
+import com.cbedoy.apprende.interfaces.IContextDetection;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
+import com.cbedoy.apprende.keysets.UserKeySet;
 
 import java.util.HashMap;
 
@@ -54,15 +58,34 @@ public class AppInstanceProvider {
 		
 	}
 
-    public MasterController instanceServiceWithEnum(Activity activity, HashMap<String, Object> dataModel, ServiceKeySet serviceKeySet){
+    public MasterController instanceServiceLogin(IContextDetection view, HashMap<Object, Object> dataModel, ServiceKeySet serviceKeySet){
+
+    	AsyncServiceController asyncServiceController   = null;
+        MasterController masterController               = MasterController.getInstance();
+        
+        if(view instanceof Activity){
+        	asyncServiceController   					= new AsyncServiceController(((Activity)view).getApplicationContext());
+        }else if(view instanceof BaseAdapter){
+        	asyncServiceController   					= new AsyncServiceController(((View)view).getContext());
+        }
+        String urlResponse								= serviceKeySet.toString();
+        urlResponse 									= urlResponse.replace("$username", dataModel.get(UserKeySet.USERNAME).toString());
+        urlResponse										= urlResponse.replace("$password", dataModel.get(UserKeySet.PASSWORD).toString());
+        CBRESTClient restClient                         = new CBRESTClient(urlResponse);
+        asyncServiceController.setRestClient(restClient);
+        asyncServiceController.setAnsycServiceDelegate(asyncServiceDelegate);
+        masterController.setAsyncServiceController(asyncServiceController);
+        return masterController;
+    }
+    
+    public MasterController instanceService(Activity activity, HashMap<Object, Object> dataModel, ServiceKeySet serviceKeySet){
 
         MasterController masterController               = MasterController.getInstance();
         AsyncServiceController asyncServiceController   = new AsyncServiceController(activity.getApplicationContext());
-        String urlFormater 								= "";
-        for(String key : dataModel.keySet()){
-        	urlFormater +="/"+dataModel.get(key).toString();
-        }
-        CBRESTClient restClient                         = new CBRESTClient(serviceKeySet.toString()+urlFormater);
+        String url										= serviceKeySet.toString();
+        url.replace("$username", dataModel.get(UserKeySet.USERNAME).toString());
+        url.replace("$password", dataModel.get(UserKeySet.PASSWORD).toString());
+        CBRESTClient restClient                         = new CBRESTClient(url);
         asyncServiceController.setRestClient(restClient);
         asyncServiceController.setAnsycServiceDelegate(asyncServiceDelegate);
         masterController.setAsyncServiceController(asyncServiceController);
