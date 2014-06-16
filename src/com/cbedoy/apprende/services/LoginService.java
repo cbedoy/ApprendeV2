@@ -17,9 +17,12 @@ public class LoginService extends AsyncTask<String, Integer, String>{
 	private CBRESTClient 		restClient;
 	private ILoginViewDelegate 	loginViewDelegate;
 	private Context 			context;
+	private static LoginService service;
 	
-	public LoginService(Context context){
-		this.context = context;
+	public static LoginService getInstance(){
+		if(service == null)
+			service = new LoginService();
+		return service;
 	}
 	
 	public LoginService(){

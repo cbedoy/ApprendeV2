@@ -1,9 +1,12 @@
 package com.cbedoy.apprende.services;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 
 import com.cbedoy.apprende.bussiness.MasterController;
@@ -15,18 +18,21 @@ import com.cbedoy.apprende.interfaces.viewdelegates.IThemeViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-
 public class AppInstanceProvider {
+	
 	private static AppInstanceProvider  appInstanceProvider;
-	private Context                     context;
 	public static Typeface 				boldFont;	
 	public static Typeface 				regularFont;	
 	public static Typeface 				thinFont;	
 	public static Typeface 				lightFont;
+	private LoginService				loginService;
+	private ProfileService				profileService;
+	private ThemeService				themeService;
+	private CourseService				courseService;
+	private FeedService					feedService;
+	private CBRESTClient				restClient;
+	private String						urlResponse;
+	private MasterController			masterController;
 
 	public static AppInstanceProvider getInstance(Context context){
 		if(appInstanceProvider == null) {
@@ -54,17 +60,17 @@ public class AppInstanceProvider {
 	}
 
 	private AppInstanceProvider(){
-		
 	}
 
     public MasterController instanceServiceLogin(ILoginViewDelegate loginViewDelegate, HashMap<Object, Object> dataModel, ServiceKeySet serviceKeySet){
 
-    	LoginService loginService   		= new LoginService();
-        MasterController masterController   = MasterController.getInstance();
-        String urlResponse					= serviceKeySet.toString();
+    	loginService   						= LoginService.getInstance();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
         urlResponse 						= urlResponse.replace("$username", dataModel.get(UserKeySet.USERNAME).toString());
         urlResponse							= urlResponse.replace("$password", dataModel.get(UserKeySet.PASSWORD).toString());
-        CBRESTClient restClient             = new CBRESTClient(urlResponse);
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
         loginService.setRestClient(restClient);
         loginService.setLoginViewDelegate(loginViewDelegate);
         masterController.setAnsycTask(loginService);
@@ -73,11 +79,11 @@ public class AppInstanceProvider {
     
     public MasterController instanceServiceProfile(IProfileViewDelegate profileViewDelegate, ServiceKeySet serviceKeySet){
 
-    	ProfileService profileService		= new ProfileService();
-        MasterController masterController   = MasterController.getInstance();
-        String urlResponse					= serviceKeySet.toString();
-        CBRESTClient restClient             = new CBRESTClient(urlResponse);
-        profileService.setRestClient(restClient);
+    	profileService						= ProfileService.getInstance();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
         profileService.setViewDelegate(profileViewDelegate);
         masterController.setAnsycTask(profileService);
         return masterController;
@@ -85,11 +91,11 @@ public class AppInstanceProvider {
 
     public MasterController instanceServiceTheme(IThemeViewDelegate viewDelegate, ServiceKeySet serviceKeySet){
 
-        ThemeService themeService           = new ThemeService();
-        MasterController masterController   = MasterController.getInstance();
-        String urlResponse					= serviceKeySet.toString();
-        CBRESTClient restClient             = new CBRESTClient(urlResponse);
-        themeService.setRestClient(restClient);
+        themeService           				= ThemeService.getInstance();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
         themeService.setViewDelegate(viewDelegate);
         masterController.setAnsycTask(themeService);
         return masterController;
@@ -98,11 +104,11 @@ public class AppInstanceProvider {
 
     public MasterController instanceServiceCourse(ICourseViewDelegate viewDelegate, ServiceKeySet serviceKeySet){
 
-        CourseService   courseService       = new CourseService();
-        MasterController masterController   = MasterController.getInstance();
-        String urlResponse					= serviceKeySet.toString();
-        CBRESTClient restClient             = new CBRESTClient(urlResponse);
-        courseService.setRestClient(restClient);
+    	courseService       				= CourseService.getInstance();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
         courseService.setViewDelegate(viewDelegate);
         masterController.setAnsycTask(courseService);
         return masterController;
@@ -110,19 +116,21 @@ public class AppInstanceProvider {
 
     public MasterController instanceServiceFeed(IFeedViewDelegate viewDelegate, ServiceKeySet serviceKeySet){
 
-        FeedService feedService             = new FeedService();
-        MasterController masterController   = MasterController.getInstance();
-        String urlResponse					= serviceKeySet.toString();
-        CBRESTClient restClient             = new CBRESTClient(urlResponse);
-        feedService.setRestClient(restClient);
+        feedService             			= FeedService.getInstance();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
         feedService.setViewDelegate(viewDelegate);
         masterController.setAnsycTask(feedService);
         return masterController;
     }
     
-    public Bitmap getImageFromURL(String url){
+    public Bitmap getImageFromURL(String placeholder){
     	try {
-    		URL urlImage 					= new URL(url);
+    		String urlFacebook				= new String("https://graph.facebook.com/$placeholder/picture");
+    		urlFacebook 					= urlFacebook.replace("$placeholder", placeholder);
+    		URL	urlImage					= new URL(urlFacebook);
     		Bitmap bitmap					= BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
     		return bitmap;
     	} catch (IOException e) {

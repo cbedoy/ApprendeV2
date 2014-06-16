@@ -16,14 +16,17 @@ public class FeedService extends AsyncTask<String, Integer, String> {
 
     private CBRESTClient 		restClient;
     private IFeedViewDelegate   viewDelegate;
-    private Context context;
-
-    public FeedService(Context context){
-        this.context = context;
-    }
-
-    public FeedService(){
-    }
+    private Context 			context;
+	private static FeedService 	service;
+	
+	public static FeedService getInstance(){
+		if(service == null)
+			service = new FeedService();
+		return service;
+	}
+	
+	public FeedService(){
+	}
 
     public void setViewDelegate(IFeedViewDelegate viewDelegate){
         this.viewDelegate = viewDelegate;

@@ -72,7 +72,7 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profileFacebook.setText("facebook.com/"+dataModel.get(UserKeySet.FACEBOOK).toString());
 		this.profileTwitter.setText(dataModel.get(UserKeySet.TWITTER).toString());
 		this.profilePlays.setText(dataModel.get(UserKeySet.PLAYS).toString()+" plays");
-		//this.profileImage.setImageBitmap(AppInstanceProvider.getInstance().getImageFromURL(dataModel.get(UserKeySet.IMAGE).toString()));
+		//this.profileImage.setImageBitmap(AppInstanceProvider.getInstance().getImageFromURL(dataModel.get(UserKeySet.FACEBOOK).toString()));
 		
 	}
 	

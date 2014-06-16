@@ -18,8 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cbedoy.apprende.bussiness.MasterController;
-import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
-import com.cbedoy.apprende.interfaces.IContextDetection;
 import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
@@ -83,20 +81,14 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 				userInformation.put(UserKeySet.PASSWORD, 	fields.get("password"));
 				userInformation.put(UserKeySet.POINTS, 		fields.get("points"));
 				userInformation.put(UserKeySet.PLAYS, 		fields.get("plays"));
-				userInformation.put(UserKeySet.IMAGE, 		"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/t1.0-9/10395844_914281698598196_6581668355249980923_n.jpg");
+				userInformation.put(UserKeySet.FACEBOOK, 	fields.get("facebook"));
 				MasterController.getInstance().setUserInfo(userInformation);
 				Intent intent = new Intent(this, ProfileView.class);
 				startActivity(intent);
 			} catch (JSONException e) {
 				
 				e.printStackTrace();
-			}
-			
-			
-			
-			
-			
-			
+			}		
 		}else{
 			Toast.makeText(getApplicationContext(), "Username invalid", Toast.LENGTH_LONG).show();
 		}

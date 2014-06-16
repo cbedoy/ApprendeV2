@@ -17,8 +17,12 @@ public class ProfileService extends AsyncTask<String, Integer, String>{
 	private IProfileViewDelegate 	profileViewDelegate;
 	private Context 				context;
 	
-	public ProfileService(Context context){
-		this.context = context;
+	private static ProfileService service;
+	
+	public static ProfileService getInstance(){
+		if(service == null)
+			service = new ProfileService();
+		return service;
 	}
 	
 	public ProfileService(){

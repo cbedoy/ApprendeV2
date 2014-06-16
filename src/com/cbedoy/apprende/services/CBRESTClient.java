@@ -54,7 +54,15 @@ public class CBRESTClient {
 	private int 						responseCode;
 	private String 						message;
 	private String 						response;
-
+	private static CBRESTClient 		restClient;
+	
+	public static CBRESTClient getInstance(){
+		if(restClient == null)
+			restClient = new CBRESTClient();
+		return restClient;
+	}
+	
+	
 	public String getResponse() {
 		return response;
 	}
@@ -65,11 +73,14 @@ public class CBRESTClient {
 	public int getResponseCode() {
 		return responseCode;
 	}
-
-	public CBRESTClient(String url) {
-		this.url = url;
+	
+	private CBRESTClient(){
 		params 		= new ArrayList<NameValuePair>();
 		headers 	= new ArrayList<NameValuePair>();
+	}
+	
+	public void setURL(String url){
+		this.url = url;
 	}
 
 	public void AddParam(String name, String value) {
