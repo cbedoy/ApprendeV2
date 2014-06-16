@@ -1,6 +1,7 @@
 package com.cbedoy.apprende.bussiness;
 
-import com.cbedoy.apprende.services.AsyncServiceController;
+import android.os.AsyncTask;
+
 
 /**
  * Created by Carlos on 09/06/2014.
@@ -8,7 +9,7 @@ import com.cbedoy.apprende.services.AsyncServiceController;
 public class MasterController {
 
     private static MasterController masterController;
-    private AsyncServiceController asyncServiceController;
+    private AsyncTask<String, Integer, String> ansycTask;
 
     public static MasterController getInstance(){
         if(masterController == null)
@@ -16,11 +17,12 @@ public class MasterController {
         return  masterController;
     }
 
-    public void setAsyncServiceController(AsyncServiceController asyncServiceController) {
-        this.asyncServiceController = asyncServiceController;
+    public void setAnsycTask(AsyncTask<String, Integer, String> ansycTask){
+    	this.ansycTask = ansycTask;
     }
-
-    public AsyncServiceController getAsyncServiceController() {
-        return asyncServiceController;
+    
+    public AsyncTask<String, Integer, String> getAnsycTask(){
+    	return this.ansycTask;
     }
+    
 }

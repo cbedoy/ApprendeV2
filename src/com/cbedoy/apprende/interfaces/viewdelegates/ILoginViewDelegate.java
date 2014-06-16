@@ -1,9 +1,11 @@
 package com.cbedoy.apprende.interfaces.viewdelegates;
 
+import org.json.JSONObject;
+
 import android.content.Context;
 
 public interface ILoginViewDelegate {
 	
-	public void userRequestLogin(String username, String password, Context context);
+	public void reloadData(JSONObject json);
 	
 }

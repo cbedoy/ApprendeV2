@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.cbedoy.apprende.adapters.FeedViewAdapter;
 import com.cbedoy.apprende.interfaces.representationDelegates.IFeedResultRepresentationDelegate;
+import com.cbedoy.apprende.interfaces.viewdelegates.IFeedViewDelegate;
 import com.cbedoy.apprende.keysets.FeedKeySet;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
@@ -16,7 +17,9 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class FeedView extends Activity implements IFeedResultRepresentationDelegate{
+import org.json.JSONObject;
+
+public class FeedView extends Activity implements IFeedViewDelegate{
 
 	private TextView feedTitle;
 	private TextView feedLevel;
@@ -60,17 +63,9 @@ public class FeedView extends Activity implements IFeedResultRepresentationDeleg
 		
 	}
 
-	@Override
-	public void reloadViewWithData(HashMap<Object, Object> response) {
-		
-		this.feedBellowYou.setText(response.get(UserKeySet.BELLOWYOU).toString());
-		this.feedLevel.setText(response.get(FeedKeySet.LEVEL).toString());
-		this.feedQuestions.setText(response.get(FeedKeySet.QUESTIONS).toString());
-		this.feedErrors.setText(response.get(FeedKeySet.WRONGS).toString());
-		this.feedPoints.setText(response.get(FeedKeySet.POINTS).toString());
-		this.feedBestYou.setText(response.get(UserKeySet.BESTOFYOU).toString());
-		this.feedPosition.setText(response.get(UserKeySet.POSITION).toString());
-		
-		
-	}
+
+    @Override
+    public void reloadData(JSONObject json) {
+
+    }
 }
