@@ -1,5 +1,6 @@
 package com.cbedoy.apprende.interfaces.viewdelegates;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -7,5 +8,5 @@ import org.json.JSONObject;
  */
 public interface IThemeViewDelegate {
 
-    public void reloadData(JSONObject json);
+    public void reloadDataWithTheme(JSONArray json);
 }

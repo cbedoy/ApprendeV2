@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import com.cbedoy.apprende.interfaces.viewdelegates.ICourseViewDelegate;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -55,10 +56,10 @@ public class CourseService extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String response){
         try {
             if(response != null){
-                JSONObject json = new JSONObject(response);
-                viewDelegate.reloadData(json);
+                JSONArray json = new JSONArray(response);
+                viewDelegate.reloadDataWithCourse(json);
             }else{
-                viewDelegate.reloadData(null);
+                viewDelegate.reloadDataWithCourse(null);
             }
 
         } catch (JSONException e) {

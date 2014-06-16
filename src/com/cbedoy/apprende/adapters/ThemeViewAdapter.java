@@ -18,17 +18,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentationDelegate{
 
-	private Context context;
-	private List<Object> dataModel;
+	private Context 		context;
+	private List<Object> 	dataModel;
 	
 	public ThemeViewAdapter(Context context){
 		this.context 		= context;
 		this.dataModel 		= new ArrayList<Object>();
 	}
-	
 	
 	@Override
 	public int getCount() {
@@ -52,27 +52,32 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 
-		if (view == null) {
-			
+		if (view == null)
 			view = LayoutInflater.from(context).inflate(R.layout.theme_view, null, false);
+		if(view != null){
 			
-		}else{
+			final HashMap<ThemeKeySet, Object>  information 	= (HashMap<ThemeKeySet, Object>) dataModel.get(position);
+			TextView   themeName 						= (TextView) view.findViewById(R.id.theme_name);
+			TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
+			themeName.setText(information.get(ThemeKeySet.NAME).toString());
+			themeDescription.setText(information.get(ThemeKeySet.DESCRIPTION).toString());
+			themeName.setTypeface(AppInstanceProvider.regularFont);
+			themeDescription.setTypeface(AppInstanceProvider.lightFont);
 			
-			if(!dataModel.isEmpty()){
-			@SuppressWarnings("unchecked")
-			HashMap<ThemeKeySet, Object>  information 	= (HashMap<ThemeKeySet, Object>) dataModel.get(position);
-			
-				TextView   themeName 						= (TextView) view.findViewById(R.id.theme_name);
-				TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
-				themeName.setText(information.get(ThemeKeySet.NAME).toString());
-				themeDescription.setText(information.get(ThemeKeySet.DESCRIPTION).toString());
-				themeName.setTypeface(AppInstanceProvider.regularFont);
-				themeDescription.setTypeface(AppInstanceProvider.lightFont);
-			}
+			view.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					showDialogView(information);
+				}
+			});
 		}
 		return view;
 	}
 
+
+	protected void showDialogView(HashMap<ThemeKeySet, Object> information) {
+		
+	}
 
 	@Override
 	public void reloadWithData(List<Object> dataModel) {

@@ -6,7 +6,8 @@ public enum UserKeySet {
     FIRST_NAME,
     LAST_NAME,
     PASSWORD,
-    BIRTHDAY,
+    FACEBOOK, 
+    TWITTER, 
     AGE, 
     POINTS,
     PLAYS, 
@@ -14,5 +15,6 @@ public enum UserKeySet {
     BELLOWYOU,
     COUNTRY,
     UNIVERSITY, 
-    POSITION
+    POSITION, 
+    IMAGE
 }

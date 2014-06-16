@@ -2,6 +2,7 @@ package com.cbedoy.apprende;
 
 import java.util.HashMap;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
@@ -63,9 +65,41 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 	}
 
 	@Override
-	public void reloadData(JSONObject jsonObject) {
-		Intent intent = new Intent(this, ProfileView.class);
-		startActivity(intent);
+	public void reloadData(JSONObject response) {
+		
+		if(response!=null){
+			
+			HashMap<Object, Object> userInformation = new HashMap<Object, Object>();
+			try {
+				JSONObject fields 					= (JSONObject) response.get("fields");
+				userInformation.put(UserKeySet.ID, 			response.get("pk"));
+				userInformation.put(UserKeySet.USERNAME, 	fields.get("username"));
+				userInformation.put(UserKeySet.FIRST_NAME, 	fields.get("first_name"));
+				userInformation.put(UserKeySet.LAST_NAME, 	fields.get("last_name"));
+				userInformation.put(UserKeySet.PLAYS, 		fields.get("plays"));
+				userInformation.put(UserKeySet.AGE, 		fields.get("age"));
+				userInformation.put(UserKeySet.FACEBOOK, 	fields.get("facebook"));
+				userInformation.put(UserKeySet.TWITTER, 	fields.get("twitter"));
+				userInformation.put(UserKeySet.PASSWORD, 	fields.get("password"));
+				userInformation.put(UserKeySet.POINTS, 		fields.get("points"));
+				userInformation.put(UserKeySet.PLAYS, 		fields.get("plays"));
+				userInformation.put(UserKeySet.IMAGE, 		"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/t1.0-9/10395844_914281698598196_6581668355249980923_n.jpg");
+				MasterController.getInstance().setUserInfo(userInformation);
+				Intent intent = new Intent(this, ProfileView.class);
+				startActivity(intent);
+			} catch (JSONException e) {
+				
+				e.printStackTrace();
+			}
+			
+			
+			
+			
+			
+			
+		}else{
+			Toast.makeText(getApplicationContext(), "Username invalid", Toast.LENGTH_LONG).show();
+		}
 		
 	}
 	

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:background="@drawable/bg"
+    android:layout_marginLeft="24dp"
+    android:layout_marginRight="24dp"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dialog_text"
+        android:layout_width="fill_parent"
+        android:layout_height="44dp"
+        android:text="Choose a level"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:background="@color/rank2"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <RadioGroup
+        android:id="@+id/dialog_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/dialog_level_easy"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:checked="true"
+            android:textSize="16sp"
+            android:textColor="#999999"
+            android:text="Easy (5 Questions)" />
+
+        <RadioButton
+            android:id="@+id/dialog_level_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textColor="#999999"
+            android:textSize="16sp"
+            android:text="Medium (10 Questions)" />
+
+        <RadioButton
+            android:id="@+id/dialog_level_hard"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textColor="#999999"
+            android:textSize="16sp"
+            android:text="Hard (20 Questions)" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/dialog_action"
+        android:layout_width="fill_parent"
+        android:layout_height="44dp"
+        android:textSize="18sp"
+        android:background="@color/rank3"
+        android:textColor="#ffffff"
+        android:text="Select" />
+
+</LinearLayout>
