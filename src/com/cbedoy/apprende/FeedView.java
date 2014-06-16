@@ -2,8 +2,10 @@ package com.cbedoy.apprende;
 
 import java.util.HashMap;
 
+import com.cbedoy.apprende.adapters.FeedViewAdapter;
 import com.cbedoy.apprende.interfaces.representationDelegates.IFeedResultRepresentationDelegate;
 import com.cbedoy.apprende.keysets.FeedKeySet;
+import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
@@ -26,6 +28,7 @@ public class FeedView extends Activity implements IFeedResultRepresentationDeleg
 	private TextView feedPosition;
 	private ListView feedList;
 	private TextView feedText;
+	private FeedViewAdapter feedViewAdapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class FeedView extends Activity implements IFeedResultRepresentationDeleg
 		this.feedText 				= (TextView)findViewById(R.id.text_feed);
 		this.feedPosition 			= (TextView)findViewById(R.id.feed_position);
 		this.feedList				= (ListView)findViewById(R.id.feed_list);
+		this.feedViewAdapter		= new FeedViewAdapter(getApplicationContext());
 		this.feedBellowYou.setTypeface(AppInstanceProvider.lightFont);
 		this.feedLevel.setTypeface(AppInstanceProvider.lightFont);
 		this.feedQuestions.setTypeface(AppInstanceProvider.lightFont);
@@ -50,6 +54,9 @@ public class FeedView extends Activity implements IFeedResultRepresentationDeleg
 		this.feedTitle.setTypeface(AppInstanceProvider.lightFont);
 		this.feedPosition.setTypeface(AppInstanceProvider.lightFont);
 		this.feedText.setTypeface(AppInstanceProvider.regularFont);
+		this.feedList.setAdapter(feedViewAdapter);
+		
+		
 		
 	}
 
