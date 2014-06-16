@@ -22,8 +22,8 @@ import android.widget.Toast;
 
 public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentationDelegate{
 
-	private Context context;
-	private List<Object> dataModel;
+	private Context 		context;
+	private List<Object> 	dataModel;
 	
 	public ThemeViewAdapter(Context context){
 		this.context 		= context;
@@ -55,7 +55,8 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 		if (view == null)
 			view = LayoutInflater.from(context).inflate(R.layout.theme_view, null, false);
 		if(view != null){
-			HashMap<ThemeKeySet, Object>  information 	= (HashMap<ThemeKeySet, Object>) dataModel.get(position);
+			
+			final HashMap<ThemeKeySet, Object>  information 	= (HashMap<ThemeKeySet, Object>) dataModel.get(position);
 			TextView   themeName 						= (TextView) view.findViewById(R.id.theme_name);
 			TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
 			themeName.setText(information.get(ThemeKeySet.NAME).toString());
@@ -63,10 +64,20 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 			themeName.setTypeface(AppInstanceProvider.regularFont);
 			themeDescription.setTypeface(AppInstanceProvider.lightFont);
 			
+			view.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					showDialogView(information);
+				}
+			});
 		}
 		return view;
 	}
 
+
+	protected void showDialogView(HashMap<ThemeKeySet, Object> information) {
+		
+	}
 
 	@Override
 	public void reloadWithData(List<Object> dataModel) {
