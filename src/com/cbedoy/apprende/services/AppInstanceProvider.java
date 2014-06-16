@@ -1,17 +1,13 @@
 package com.cbedoy.apprende.services;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.view.View;
-import android.widget.BaseAdapter;
 
 import com.cbedoy.apprende.bussiness.MasterController;
-import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
-import com.cbedoy.apprende.interfaces.IContextDetection;
 import com.cbedoy.apprende.interfaces.viewdelegates.ICourseViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IProfileViewDelegate;
+import com.cbedoy.apprende.interfaces.viewdelegates.IThemeViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 
@@ -84,6 +80,31 @@ public class AppInstanceProvider {
         profileService.setRestClient(restClient);
         profileService.setViewDelegate(profileViewDelegate);
         masterController.setAnsycTask(profileService);
+        return masterController;
+    }
+
+    public MasterController instanceServiceTheme(IThemeViewDelegate viewDelegate, ServiceKeySet serviceKeySet){
+
+        ThemeService themeService           = new ThemeService();
+        MasterController masterController   = MasterController.getInstance();
+        String urlResponse					= serviceKeySet.toString();
+        CBRESTClient restClient             = new CBRESTClient(urlResponse);
+        themeService.setRestClient(restClient);
+        themeService.setViewDelegate(viewDelegate);
+        masterController.setAnsycTask(themeService);
+        return masterController;
+    }
+
+
+    public MasterController instanceServiceCourse(ICourseViewDelegate viewDelegate, ServiceKeySet serviceKeySet){
+
+        CourseService   courseService       = new CourseService();
+        MasterController masterController   = MasterController.getInstance();
+        String urlResponse					= serviceKeySet.toString();
+        CBRESTClient restClient             = new CBRESTClient(urlResponse);
+        courseService.setRestClient(restClient);
+        courseService.setViewDelegate(viewDelegate);
+        masterController.setAnsycTask(courseService);
         return masterController;
     }
     

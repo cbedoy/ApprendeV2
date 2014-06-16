@@ -1,9 +1,9 @@
 package com.cbedoy.apprende.interfaces.viewdelegates;
 
+import org.json.JSONObject;
+
 public interface IRegistrationViewDelegate {
 
-	public void userRequestLogin();
-	
-	public void userRequestRegistration();
+    public void reloadData(JSONObject json);
 	
 }
