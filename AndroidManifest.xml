@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.uandroides.aprende"
+    package="com.cbedoy.apprende"
     android:versionCode="1"
     android:versionName="1.1" >
 
     <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="11" />
+        android:minSdkVersion="14"
+        android:targetSdkVersion="14" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -15,44 +15,39 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Theme.Apprende" >
         <activity
-            android:name="com.uandroides.aprende.vistas.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name="com.uandroides.aprende.vistas.SplashActivity"
-            android:label="@string/title_activity_splash" >
+            android:name="com.cbedoy.apprende.SplashView"
+            android:label="@string/title_activity_splash_view" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
-            android:name="com.uandroides.aprende.vistas.ExamenActivity"
-            android:label="@string/title_activity_examen" >
+            android:name="com.cbedoy.apprende.LoginView"
+            android:label="@string/title_activity_login_view" >
         </activity>
         <activity
-            android:name="com.uandroides.aprende.vistas.TemasActivity"
-            android:label="@string/title_activity_temas" >
+            android:name="com.cbedoy.apprende.ProfileView"
+            android:label="@string/title_activity_profile_view" >
         </activity>
         <activity
-            android:name="com.uandroides.aprende.vistas.PerfilActivity"
-            android:label="@string/title_activity_lateral" >
+            android:name="com.cbedoy.apprende.ThemeView"
+            android:label="@string/title_activity_theme_view" >
         </activity>
         <activity
-            android:name="com.uandroides.aprende.vistas.EstadisticasActivity"
-            android:label="@string/title_activity_estadisticas" >
+            android:name="com.cbedoy.apprende.QuestionaryView"
+            android:label="@string/title_activity_questionary_view" >
         </activity>
         <activity
-            android:name="com.uandroides.aprende.vistas.RegistroActivity"
-            android:label="@string/title_activity_registro" >
+            android:name="com.cbedoy.apprende.FeedView"
+            android:label="@string/title_activity_feed_view" >
         </activity>
         <activity
-            android:name="com.uandroides.aprende.vistas.PresentacionActivity"
-            android:label="@string/title_activity_presentacion" >
+            android:name="com.cbedoy.apprende.RegistrationView"
+            android:label="@string/title_activity_registration_view" >
         </activity>
     </application>
 

@@ -22,6 +22,9 @@
     <string name="action_search">Buscar tema</string>
     <string name="ip_fija">192.168.0.11</string>
     <string name="title_activity_registro">RegistroActivity</string>
+    <string name="action_guys">Guys</string>
+    <string name="action_course">Course</string>
+    <string name="action_registration">Registration</string>
 
     <string-array name="estados">
         <item>Aguascalientes</item>
@@ -44,5 +47,22 @@
     <string name="miniproyectos">MINIPROYECTOS UAA 2013</string>
     <string name="title_activity_dificultad">DificultadActivity</string>
     <string name="title_activity_materias">MateriasActivity</string>
+    <string name="refactory">Refactory</string>
+    <string name="AppName">Apprende </string>
+    <string name="Pandamobile">Pandamobile</string>
+    <string name="detail">Detail</string>
+    <string name="Terminate">Terminar</string>
+    <string name="cbedoy">Carlos Alfredo Cervantes Bedoy</string>
+    <string name="dave">David Angel Gutierrez Duron</string>
+    <string name="tito">Efrain Sanchez Vazquez</string>
+    <string name="title_activity_splash_view">SplashView</string>
+    <string name="title_activity_login_view">LoginView</string>
+    <string name="title_activity_profile_view">ProfileView</string>
+    <string name="title_activity_theme_view">ThemeView</string>
+    <string name="title_activity_questionary_view">QuestionaryView</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_feed_view">FeedView</string>
+    <string name="title_activity_registration_view">RegistrationView</string>
 
 </resources>
