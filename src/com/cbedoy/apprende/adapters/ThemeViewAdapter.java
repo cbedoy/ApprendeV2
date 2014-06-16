@@ -58,14 +58,17 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 			
 		}else{
 			
+			if(!dataModel.isEmpty()){
 			@SuppressWarnings("unchecked")
 			HashMap<ThemeKeySet, Object>  information 	= (HashMap<ThemeKeySet, Object>) dataModel.get(position);
-			TextView   themeName 						= (TextView) view.findViewById(R.id.theme_name);
-			TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
-			themeName.setText(information.get(ThemeKeySet.NAME).toString());
-			themeDescription.setText(information.get(ThemeKeySet.DESCRIPTION).toString());
-			themeName.setTypeface(AppInstanceProvider.regularFont);
-			themeDescription.setTypeface(AppInstanceProvider.lightFont);
+			
+				TextView   themeName 						= (TextView) view.findViewById(R.id.theme_name);
+				TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
+				themeName.setText(information.get(ThemeKeySet.NAME).toString());
+				themeDescription.setText(information.get(ThemeKeySet.DESCRIPTION).toString());
+				themeName.setTypeface(AppInstanceProvider.regularFont);
+				themeDescription.setTypeface(AppInstanceProvider.lightFont);
+			}
 		}
 		return view;
 	}

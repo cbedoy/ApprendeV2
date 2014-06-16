@@ -53,14 +53,15 @@ public class CourseViewAdapter extends BaseAdapter implements ICourseRepresentat
 			
 		}else{
 			
-			@SuppressWarnings("unchecked")
-			HashMap<CourseKeySet, Object>  information 	= (HashMap<CourseKeySet, Object>) dataModel.get(position);
-			TextView   courseName 						= (TextView) view.findViewById(R.id.course_name);
-			TextView   courseQuantity					= (TextView) view.findViewById(R.id.course_theme_qunatity);
-			courseName.setText(information.get(CourseKeySet.NAME).toString());
-			courseQuantity.setText(information.get(CourseKeySet.QUANTITY).toString());
-			courseName.setTypeface(AppInstanceProvider.regularFont);
-			courseQuantity.setTypeface(AppInstanceProvider.lightFont);
+			if(!dataModel.isEmpty()){
+				HashMap<Object, Object>  information 		= (HashMap<Object, Object>) dataModel.get(position);
+				TextView   courseName 						= (TextView) view.findViewById(R.id.course_name);
+				TextView   courseQuantity					= (TextView) view.findViewById(R.id.course_theme_qunatity);
+				courseName.setText(information.get(CourseKeySet.NAME).toString());
+				courseQuantity.setText(information.get(CourseKeySet.QUANTITY).toString());
+				courseName.setTypeface(AppInstanceProvider.regularFont);
+				courseQuantity.setTypeface(AppInstanceProvider.lightFont);
+			}
 		
 		}
 		return view;

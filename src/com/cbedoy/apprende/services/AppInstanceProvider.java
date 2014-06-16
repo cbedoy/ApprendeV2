@@ -78,13 +78,23 @@ public class AppInstanceProvider {
         return masterController;
     }
     
-    public MasterController instanceService(Activity activity, HashMap<Object, Object> dataModel, ServiceKeySet serviceKeySet){
+    public MasterController instanceServiceTheme(Activity activity, ServiceKeySet serviceKeySet){
 
         MasterController masterController               = MasterController.getInstance();
         AsyncServiceController asyncServiceController   = new AsyncServiceController(activity.getApplicationContext());
         String url										= serviceKeySet.toString();
-        url.replace("$username", dataModel.get(UserKeySet.USERNAME).toString());
-        url.replace("$password", dataModel.get(UserKeySet.PASSWORD).toString());
+        CBRESTClient restClient                         = new CBRESTClient(url);
+        asyncServiceController.setRestClient(restClient);
+        asyncServiceController.setAnsycServiceDelegate(asyncServiceDelegate);
+        masterController.setAsyncServiceController(asyncServiceController);
+        return masterController;
+    }
+    
+    public MasterController instanceServiceCourse(Activity activity, ServiceKeySet serviceKeySet){
+
+        MasterController masterController               = MasterController.getInstance();
+        AsyncServiceController asyncServiceController   = new AsyncServiceController(activity.getApplicationContext());
+        String url										= serviceKeySet.toString();
         CBRESTClient restClient                         = new CBRESTClient(url);
         asyncServiceController.setRestClient(restClient);
         asyncServiceController.setAnsycServiceDelegate(asyncServiceDelegate);
