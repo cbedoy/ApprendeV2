@@ -61,7 +61,7 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 	@Override
 	public void reloadViewWithData(HashMap<Object, Object> dataModel) {
 		
-		this.profileAge.setText(dataModel.get(UserKeySet.AGE).toString());
+		this.profileAge.setText(dataModel.get(UserKeySet.AGE).toString()+" years");
 		this.profileName.setText(dataModel.get(UserKeySet.FIRST_NAME)+" "+dataModel.get(UserKeySet.LAST_NAME));
 		this.profileUserName.setText(dataModel.get(UserKeySet.USERNAME).toString());
 		//this.profileBellowYou.setText(dataModel.get(UserKeySet.BELLOWYOU).toString());
@@ -70,7 +70,7 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		//this.profileUniversity.setText(dataModel.get(UserKeySet.UNIVERSITY).toString());
 		this.profilePoints.setText(dataModel.get(UserKeySet.POINTS).toString()+" points");
 		this.profileFacebook.setText("facebook.com/"+dataModel.get(UserKeySet.FACEBOOK).toString());
-		this.profileTwitter.setText("@"+dataModel.get(UserKeySet.TWITTER).toString());
+		this.profileTwitter.setText(dataModel.get(UserKeySet.TWITTER).toString());
 		this.profilePlays.setText(dataModel.get(UserKeySet.PLAYS).toString()+" plays");
 		//this.profileImage.setImageBitmap(AppInstanceProvider.getInstance().getImageFromURL(dataModel.get(UserKeySet.IMAGE).toString()));
 		

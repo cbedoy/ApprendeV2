@@ -6,7 +6,7 @@ package com.cbedoy.apprende.keysets;
 public enum  ServiceKeySet {
 	
 	
-    NEW_USER            ("http://148.211.75.182:8000/apprende/user/get/$username/$password/$firstName/$lastName/$/$"),
+    NEW_USER            ("http://148.211.75.182:8000/apprende/user/new/$username/$password/$fistName/$lastName/$facebook/$twitter/$age/$points/$plays/"),
     GET_EXAM            ("http://148.211.75.182:8000/apprende/user/get/$theme/$level/"),
     GET_USER_INFO       ("http://148.211.75.182:8000/apprende/user/get/$username/$password/"),
     GET_USER_STATISTICS (""),

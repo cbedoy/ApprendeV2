@@ -4,5 +4,6 @@ public enum ThemeKeySet {
     ID,
     NAME,
     DESCRIPTION,
-    ID_COURSE
+    ID_COURSE,
+    COURSE_NAME
 }

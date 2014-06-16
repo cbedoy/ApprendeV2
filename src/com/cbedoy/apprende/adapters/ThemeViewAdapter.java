@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentationDelegate{
 
@@ -51,9 +52,9 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 
-		if (view == null) {
+		if (view == null)
 			view = LayoutInflater.from(context).inflate(R.layout.theme_view, null, false);
-		}else{
+		if(view != null){
 			HashMap<ThemeKeySet, Object>  information 	= (HashMap<ThemeKeySet, Object>) dataModel.get(position);
 			TextView   themeName 						= (TextView) view.findViewById(R.id.theme_name);
 			TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
@@ -61,6 +62,7 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 			themeDescription.setText(information.get(ThemeKeySet.DESCRIPTION).toString());
 			themeName.setTypeface(AppInstanceProvider.regularFont);
 			themeDescription.setTypeface(AppInstanceProvider.lightFont);
+			
 		}
 		return view;
 	}
