@@ -8,6 +8,7 @@ import com.cbedoy.apprende.services.CBRESTClient.RequestMethod;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class LoginService extends AsyncTask<String, Integer, String>{
 
@@ -39,7 +40,7 @@ public class LoginService extends AsyncTask<String, Integer, String>{
 	@Override
 	protected String doInBackground(String... information) {
 		try{
-            restClient.Execute(RequestMethod.GET);
+            restClient.Execute(RequestMethod.POST);
 			if(restClient.getResponse()!=null)
 				return restClient.getResponse();
 			return null;
