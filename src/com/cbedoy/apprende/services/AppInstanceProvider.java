@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.viewdelegates.ICourseViewDelegate;
+import com.cbedoy.apprende.interfaces.viewdelegates.IFeedViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IProfileViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IThemeViewDelegate;
@@ -19,15 +20,8 @@ public class AppInstanceProvider {
 	public static Typeface 				boldFont;	
 	public static Typeface 				regularFont;	
 	public static Typeface 				thinFont;	
-	public static Typeface 				lightFont;	
-	private ILoginViewDelegate       	loginViewDelegate;
-	//private IThemeViewDelegate			themeViewDelegate;
-	private ICourseViewDelegate			courseViewDelegate;
-	//private IRegistrationViewDelegate	registrationViewDelegate;
-	//private IFeedViewDelegate			feedViewDelegate;
-	
+	public static Typeface 				lightFont;
 
-	
 	public static AppInstanceProvider getInstance(Context context){
 		if(appInstanceProvider == null) {
             appInstanceProvider = new AppInstanceProvider(context);
@@ -107,41 +101,17 @@ public class AppInstanceProvider {
         masterController.setAnsycTask(courseService);
         return masterController;
     }
-    
-    
-    /*
-    public MasterController instanceServiceTheme(Activity activity, ServiceKeySet serviceKeySet){
 
-        MasterController masterController               = MasterController.getInstance();
-        AsyncServiceController asyncServiceController   = new AsyncServiceController(activity.getApplicationContext());
-        String url										= serviceKeySet.toString();
-        CBRESTClient restClient                         = new CBRESTClient(url);
-        asyncServiceController.setRestClient(restClient);
-        asyncServiceController.setAnsycServiceDelegate(asyncServiceDelegate);
-        masterController.setAsyncServiceController(asyncServiceController);
+    public MasterController instanceServiceFeed(IFeedViewDelegate viewDelegate, ServiceKeySet serviceKeySet){
+
+        FeedService feedService             = new FeedService();
+        MasterController masterController   = MasterController.getInstance();
+        String urlResponse					= serviceKeySet.toString();
+        CBRESTClient restClient             = new CBRESTClient(urlResponse);
+        feedService.setRestClient(restClient);
+        feedService.setViewDelegate(viewDelegate);
+        masterController.setAnsycTask(feedService);
         return masterController;
     }
     
-    public MasterController instanceServiceCourse(Activity activity, ServiceKeySet serviceKeySet){
-
-        MasterController masterController               = MasterController.getInstance();
-        AsyncServiceController asyncServiceController   = new AsyncServiceController(activity.getApplicationContext());
-        String url										= serviceKeySet.toString();
-        CBRESTClient restClient                         = new CBRESTClient(url);
-        asyncServiceController.setRestClient(restClient);
-        asyncServiceController.setAnsycServiceDelegate(asyncServiceDelegate);
-        masterController.setAsyncServiceController(asyncServiceController);
-        return masterController;
-    }
-    */
-    
-    
-    
-    
-    
-    
-
-
-
-	 
 }
