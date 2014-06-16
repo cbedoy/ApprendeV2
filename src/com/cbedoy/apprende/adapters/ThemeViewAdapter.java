@@ -29,7 +29,6 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 		this.dataModel 		= new ArrayList<Object>();
 	}
 	
-	
 	@Override
 	public int getCount() {
 

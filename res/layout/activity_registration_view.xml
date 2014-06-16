@@ -48,6 +48,24 @@
         android:hint="first name" />
 
     <EditText
+        android:id="@+id/registration_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:ems="10"
+        android:hint="facebook url:" />
+    
+    <EditText
+        android:id="@+id/registration_twitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:ems="10"
+        android:hint="@twitter" />
+    
+    <EditText
         android:id="@+id/registration_last_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
