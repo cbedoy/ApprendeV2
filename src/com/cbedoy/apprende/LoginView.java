@@ -2,6 +2,7 @@ package com.cbedoy.apprende;
 
 import java.util.HashMap;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
@@ -64,8 +66,36 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 
 	@Override
 	public void reloadData(JSONObject jsonObject) {
-		Intent intent = new Intent(this, ProfileView.class);
-		startActivity(intent);
+		
+		if(jsonObject!=null){
+			
+			HashMap<Object, Object> userInformation = new HashMap<Object, Object>();
+			try {
+				userInformation.put(UserKeySet.ID, 			jsonObject.get("pk"));
+				userInformation.put(UserKeySet.USERNAME, 	jsonObject.get("username"));
+				userInformation.put(UserKeySet.FIRST_NAME, 	jsonObject.get("first_name"));
+				userInformation.put(UserKeySet.LAST_NAME, 	jsonObject.get("last_name"));
+				userInformation.put(UserKeySet.PLAYS, 		jsonObject.get("plays"));
+				userInformation.put(UserKeySet.AGE, 		jsonObject.get("age"));
+				userInformation.put(UserKeySet.BIRTHDAY, 	jsonObject.get("birthday"));
+				userInformation.put(UserKeySet.PASSWORD, 	jsonObject.get("password"));
+				userInformation.put(UserKeySet.POINTS, 		jsonObject.get("points"));
+				MasterController.getInstance().setUserInfo(userInformation);
+				Intent intent = new Intent(this, ProfileView.class);
+				startActivity(intent);
+			} catch (JSONException e) {
+				
+				e.printStackTrace();
+			}
+			
+			
+			
+			
+			
+			
+		}else{
+			Toast.makeText(getApplicationContext(), "Username invalid", Toast.LENGTH_LONG).show();
+		}
 		
 	}
 	

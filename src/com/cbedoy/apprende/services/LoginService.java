@@ -1,5 +1,6 @@
 package com.cbedoy.apprende.services;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,7 +41,7 @@ public class LoginService extends AsyncTask<String, Integer, String>{
 	@Override
 	protected String doInBackground(String... information) {
 		try{
-            restClient.Execute(RequestMethod.POST);
+            restClient.Execute(RequestMethod.GET);
 			if(restClient.getResponse()!=null)
 				return restClient.getResponse();
 			return null;
@@ -54,14 +55,14 @@ public class LoginService extends AsyncTask<String, Integer, String>{
 	protected void onPostExecute(String response){
 		try {
 			if(response != null){
-				JSONObject json = new JSONObject(response);
-				loginViewDelegate.reloadData(json);
+				JSONArray json = new JSONArray(response);
+				loginViewDelegate.reloadData(json.getJSONObject(0));
 			}else{
 				loginViewDelegate.reloadData(null);
 			}
 				
 		} catch (JSONException e) {
-			e.printStackTrace();
+			loginViewDelegate.reloadData(null);
 			
 		}
 	}

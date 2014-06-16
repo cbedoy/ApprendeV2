@@ -113,5 +113,5 @@ public class AppInstanceProvider {
         masterController.setAnsycTask(feedService);
         return masterController;
     }
-    
+        
 }
