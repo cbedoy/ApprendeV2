@@ -78,9 +78,11 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 				userInformation.put(UserKeySet.LAST_NAME, 	fields.get("last_name"));
 				userInformation.put(UserKeySet.PLAYS, 		fields.get("plays"));
 				userInformation.put(UserKeySet.AGE, 		fields.get("age"));
-				userInformation.put(UserKeySet.BIRTHDAY, 	fields.get("birthday"));
+				userInformation.put(UserKeySet.FACEBOOK, 	fields.get("facebook"));
+				userInformation.put(UserKeySet.TWITTER, 	fields.get("twitter"));
 				userInformation.put(UserKeySet.PASSWORD, 	fields.get("password"));
 				userInformation.put(UserKeySet.POINTS, 		fields.get("points"));
+				userInformation.put(UserKeySet.PLAYS, 		fields.get("plays"));
 				userInformation.put(UserKeySet.IMAGE, 		"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/t1.0-9/10395844_914281698598196_6581668355249980923_n.jpg");
 				MasterController.getInstance().setUserInfo(userInformation);
 				Intent intent = new Intent(this, ProfileView.class);

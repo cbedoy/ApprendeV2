@@ -21,6 +21,10 @@ import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class ThemeView extends Activity implements IThemeViewDelegate, ICourseViewDelegate{
@@ -30,31 +34,36 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 	private ThemeViewAdapter 	themeViewAdapter;
 	private CourseViewAdapter 	courseViewAdapter;
 	private MasterController	masterController;
-	private List<Object> 		informationAdapter;
+	private List<Object> 		informationThemeAdapter;
+	private List<Object> 		informationCourseAdapter;
+	private DrawerLayout 		drawerLayout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_theme_view);
-		this.courseViewAdapter 	= new CourseViewAdapter(getApplicationContext());
-		this.themeViewAdapter 	= new ThemeViewAdapter(getApplicationContext());
-		this.themeList 			= (ListView)findViewById(R.id.theme_listView);
-		this.courseList	 		= (ListView)findViewById(R.id.course_view_list);
-		this.informationAdapter	= new ArrayList<Object>();
+		this.courseViewAdapter 			= new CourseViewAdapter(getApplicationContext());
+		this.themeViewAdapter 			= new ThemeViewAdapter(getApplicationContext());
+		this.themeList 					= (ListView)findViewById(R.id.theme_listView);
+		this.courseList	 				= (ListView)findViewById(R.id.course_view_list);
+		this.drawerLayout 				= (DrawerLayout) findViewById(R.id.drawer_layout);
+		this.informationCourseAdapter	= new ArrayList<Object>();
+		this.informationThemeAdapter	= new ArrayList<Object>();
+		this.informationCourseAdapter.clear();
+		this.informationThemeAdapter.clear();
 		this.themeList.setAdapter(themeViewAdapter);
 		this.courseList.setAdapter(courseViewAdapter);
-		
-		
 		this.masterController = AppInstanceProvider.getInstance().instanceServiceCourse(this, ServiceKeySet.GET_COURSE);
 		this.masterController.getAnsycTask().execute();
 		this.masterController = AppInstanceProvider.getInstance().instanceServiceTheme(this, ServiceKeySet.GET_THEME);
 		this.masterController.getAnsycTask().execute();
+		
 	}
 	
 
 	@Override
 	public void reloadDataWithCourse(JSONArray response) {
-		this.informationAdapter.clear();
+		this.informationCourseAdapter.clear();
 		try {
 			if(response!=null){
 				for(int index = 0; index < response.length(); index++){
@@ -63,11 +72,9 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 					HashMap<Object, Object> information = new HashMap<Object, Object>();
 					information.put(CourseKeySet.ID, data.get("pk"));
 					information.put(CourseKeySet.NAME, fields.get("name"));
-					information.put(CourseKeySet.DESCRIPTION, fields.get("description"));
-					this.informationAdapter.add(information);
+					this.informationCourseAdapter.add(information);
 				}
-				this.courseViewAdapter.reloadWithData(informationAdapter);
-				this.courseViewAdapter.notifyDataSetChanged();
+				this.courseViewAdapter.reloadWithData(informationCourseAdapter);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -76,20 +83,20 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 
 	@Override
 	public void reloadDataWithTheme(JSONArray response) {
-		this.informationAdapter.clear();
+		this.informationThemeAdapter.clear();
 		try {
 			if(response!=null){
 				for(int index = 0; index < response.length(); index++){
 					JSONObject data 					= response.getJSONObject(index);
 					JSONObject fields					= data.getJSONObject("fields");
 					HashMap<Object, Object> information = new HashMap<Object, Object>();
-					information.put(ThemeKeySet.ID, data.get("pk"));
-					information.put(ThemeKeySet.NAME, fields.get("name"));
-					information.put(ThemeKeySet.DESCRIPTION, fields.get("description"));
-					this.informationAdapter.add(information);
+					information.put(ThemeKeySet.ID, 			data.get("pk"));
+					information.put(ThemeKeySet.NAME, 			fields.get("name"));
+					information.put(ThemeKeySet.DESCRIPTION, 	fields.get("description"));
+					information.put(ThemeKeySet.ID_COURSE, 		fields.get("course"));
+					this.informationThemeAdapter.add(information);
 				}
-				this.themeViewAdapter.reloadWithData(informationAdapter);
-				this.themeViewAdapter.notifyDataSetChanged();
+				this.themeViewAdapter.reloadWithData(informationThemeAdapter);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

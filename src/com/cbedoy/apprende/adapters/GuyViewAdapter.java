@@ -50,12 +50,9 @@ public class GuyViewAdapter extends BaseAdapter implements IGuyRepresentationDel
 	@SuppressWarnings("unused")
 	@Override
 	public View getView(int position, View view, ViewGroup groupView) {		
-		if (view == null) {
-			
+		if (view == null)
 			view = LayoutInflater.from(context).inflate(R.layout.guy_view, null, false);
-			
-		}else{
-			
+		if(view != null){
 			@SuppressWarnings("unchecked")
 			HashMap<UserKeySet, Object>  information 	= (HashMap<UserKeySet, Object>) dataModel.get(position);
 			ImageView   guyImage 						= (ImageView) view.findViewById(R.id.guy_view_image);
