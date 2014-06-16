@@ -67,6 +67,7 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 					this.informationAdapter.add(information);
 				}
 				this.courseViewAdapter.reloadWithData(informationAdapter);
+				this.courseViewAdapter.notifyDataSetChanged();
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -88,6 +89,7 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 					this.informationAdapter.add(information);
 				}
 				this.themeViewAdapter.reloadWithData(informationAdapter);
+				this.themeViewAdapter.notifyDataSetChanged();
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

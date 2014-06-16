@@ -48,21 +48,15 @@ public class CourseViewAdapter extends BaseAdapter implements ICourseRepresentat
 	public View getView(int position, View view, ViewGroup viewGroup) {
 		
 		if (view == null) {
-			
 			view = LayoutInflater.from(context).inflate(R.layout.course_view, null, false);
-			
 		}else{
-			
-			if(!dataModel.isEmpty()){
 				HashMap<Object, Object>  information 		= (HashMap<Object, Object>) dataModel.get(position);
 				TextView   courseName 						= (TextView) view.findViewById(R.id.course_name);
 				TextView   courseQuantity					= (TextView) view.findViewById(R.id.course_theme_qunatity);
 				courseName.setText(information.get(CourseKeySet.NAME).toString());
-				//courseQuantity.setText(information.get(CourseKeySet.QUANTITY).toString());
+				courseQuantity.setText("+");
 				courseName.setTypeface(AppInstanceProvider.regularFont);
-				//courseQuantity.setTypeface(AppInstanceProvider.lightFont);
-			}
-		
+				courseQuantity.setTypeface(AppInstanceProvider.lightFont);
 		}
 		return view;
 	}
