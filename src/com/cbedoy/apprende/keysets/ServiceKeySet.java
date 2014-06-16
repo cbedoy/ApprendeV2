@@ -4,7 +4,8 @@ package com.cbedoy.apprende.keysets;
  * Created by Carlos on 09/06/2014.
  */
 public enum  ServiceKeySet {
-
+	
+	
     NEW_USER            ("http://148.211.75.182:8000/apprende/user/get/$username/$password/$firstName/$lastName/$/$"),
     GET_EXAM            ("http://148.211.75.182:8000/apprende/user/get/$theme/$level/"),
     GET_USER_INFO       ("http://148.211.75.182:8000/apprende/user/get/$username/$password/"),

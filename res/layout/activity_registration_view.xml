@@ -63,7 +63,7 @@
         android:layout_marginLeft="11dp"
         android:layout_marginRight="11dp"
         android:ems="10"
-        android:hint="@twitter" />
+        android:hint="twitter nickname" />
     
     <EditText
         android:id="@+id/registration_last_name"

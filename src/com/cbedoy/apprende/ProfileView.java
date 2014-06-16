@@ -22,10 +22,12 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 	private TextView profileAge;
 	private TextView profileBestOfYou;
 	private TextView profileBellowYou;
-	private TextView profileCountry;
 	private TextView profilePoints;
 	private TextView profileUniversity;
 	private TextView profileUserName;
+	private TextView profilePlays;
+	private TextView profileFacebook;
+	private TextView profileTwitter;
 	private ImageView profileImage;
 	
 	@Override
@@ -37,18 +39,22 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profileAge 		= (TextView) findViewById(R.id.profile_age);
 		this.profileBellowYou 	= (TextView) findViewById(R.id.profile_BellowYou);
 		this.profileBestOfYou 	= (TextView) findViewById(R.id.profile_BestOfYou);
-		this.profileCountry 	= (TextView) findViewById(R.id.profile_country);
 		this.profilePoints 		= (TextView) findViewById(R.id.profile_pints);
 		this.profileUniversity 	= (TextView) findViewById(R.id.profile_university);
 		this.profileUserName 	= (TextView) findViewById(R.id.profile_username);
+		this.profileFacebook 	= (TextView) findViewById(R.id.profile_facebook);
+		this.profileTwitter		= (TextView) findViewById(R.id.profile_twitter);
+		this.profilePlays		= (TextView) findViewById(R.id.profile_plays);
 		this.profileName.setTypeface(AppInstanceProvider.lightFont);
 		this.profileAge.setTypeface(AppInstanceProvider.lightFont);
 		this.profileBellowYou.setTypeface(AppInstanceProvider.lightFont);
 		this.profileBestOfYou.setTypeface(AppInstanceProvider.lightFont);
-		this.profileCountry.setTypeface(AppInstanceProvider.lightFont);
 		this.profilePoints.setTypeface(AppInstanceProvider.lightFont);
 		this.profileUniversity.setTypeface(AppInstanceProvider.lightFont);
 		this.profileUserName.setTypeface(AppInstanceProvider.lightFont);
+		this.profileFacebook.setTypeface(AppInstanceProvider.lightFont);
+		this.profilePlays.setTypeface(AppInstanceProvider.lightFont);;
+		this.profileTwitter.setTypeface(AppInstanceProvider.lightFont);
 		this.reloadViewWithData(MasterController.getInstance().getUserInformation());
 	}
 
@@ -62,7 +68,10 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		//this.profileBestOfYou.setText(dataModel.get(UserKeySet.BESTOFYOU).toString());
 		//this.profileCountry.setText(dataModel.get(UserKeySet.COUNTRY).toString());
 		//this.profileUniversity.setText(dataModel.get(UserKeySet.UNIVERSITY).toString());
-		this.profilePoints.setText(dataModel.get(UserKeySet.POINTS).toString());
+		this.profilePoints.setText(dataModel.get(UserKeySet.POINTS).toString()+" points");
+		this.profileFacebook.setText("facebook.com/"+dataModel.get(UserKeySet.FACEBOOK).toString());
+		this.profileTwitter.setText("@"+dataModel.get(UserKeySet.TWITTER).toString());
+		this.profilePlays.setText(dataModel.get(UserKeySet.PLAYS).toString()+" plays");
 		//this.profileImage.setImageBitmap(AppInstanceProvider.getInstance().getImageFromURL(dataModel.get(UserKeySet.IMAGE).toString()));
 		
 	}

@@ -85,16 +85,27 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/profile_country"
+                android:id="@+id/profile_facebook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:layout_marginRight="22dp"
                 android:layout_marginTop="5dp"
-                android:text="Mexico"
+                android:text="www.facebook.com/carlos.bedoy"
                 android:textColor="#F0F0F0"
                 android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/profile_twitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="5dp"
+                android:text="twitter"
+                android:textColor="#F0F0F0"
+                android:textSize="16sp" />
+            
             <TextView
                 android:id="@+id/profile_age"
                 android:layout_width="wrap_content"
