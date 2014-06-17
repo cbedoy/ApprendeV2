@@ -8,24 +8,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.widget.ListView;
+
 import com.cbedoy.apprende.adapters.CourseViewAdapter;
 import com.cbedoy.apprende.adapters.ThemeViewAdapter;
 import com.cbedoy.apprende.bussiness.MasterController;
-import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.ICourseViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IThemeViewDelegate;
 import com.cbedoy.apprende.keysets.CourseKeySet;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.ThemeKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
 public class ThemeView extends Activity implements IThemeViewDelegate, ICourseViewDelegate{
 
@@ -70,8 +66,8 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 					JSONObject data 					= response.getJSONObject(index);
 					JSONObject fields					= data.getJSONObject("fields");
 					HashMap<Object, Object> information = new HashMap<Object, Object>();
-					information.put(CourseKeySet.ID, data.get("pk"));
-					information.put(CourseKeySet.NAME, fields.get("name"));
+					information.put(CourseKeySet.ID, 	data.get("pk"));
+					information.put(CourseKeySet.NAME, 	fields.get("name"));
 					this.informationCourseAdapter.add(information);
 				}
 				this.courseViewAdapter.reloadWithData(informationCourseAdapter);

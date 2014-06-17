@@ -57,8 +57,8 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 		if(view != null){
 			
 			final HashMap<ThemeKeySet, Object>  information 	= (HashMap<ThemeKeySet, Object>) dataModel.get(position);
-			TextView   themeName 						= (TextView) view.findViewById(R.id.theme_name);
-			TextView   themeDescription					= (TextView) view.findViewById(R.id.theme_description);
+			TextView   themeName 								= (TextView) view.findViewById(R.id.theme_name);
+			TextView   themeDescription							= (TextView) view.findViewById(R.id.theme_description);
 			themeName.setText(information.get(ThemeKeySet.NAME).toString());
 			themeDescription.setText(information.get(ThemeKeySet.DESCRIPTION).toString());
 			themeName.setTypeface(AppInstanceProvider.regularFont);
