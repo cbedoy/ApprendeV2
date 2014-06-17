@@ -1,16 +1,20 @@
 package com.cbedoy.apprende;
 
+import org.json.JSONArray;
+
+import com.cbedoy.apprende.interfaces.viewdelegates.IUniversityViewDelegate;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class RegistrationView extends Activity {
+public class RegistrationView extends Activity implements IUniversityViewDelegate{
 
 	private EditText 	username;
 	private EditText 	password;
@@ -34,6 +38,7 @@ public class RegistrationView extends Activity {
 		this.lastName 					= (EditText)findViewById(R.id.registration_last_name);
 		this.finishRegistrationAction 	= (Button)findViewById(R.id.registration_finish);
 		this.universityList 			= (Spinner)findViewById(R.id.registration_university);
+
 		
 		this.username.setTypeface(AppInstanceProvider.lightFont);
 		this.password.setTypeface(AppInstanceProvider.lightFont);
@@ -42,6 +47,12 @@ public class RegistrationView extends Activity {
 		this.firstName.setTypeface(AppInstanceProvider.lightFont);
 		this.lastName.setTypeface(AppInstanceProvider.lightFont);
 		this.finishRegistrationAction.setTypeface(AppInstanceProvider.lightFont);
+		
+	}
+
+	@Override
+	public void reloadDataWithUniversity(JSONArray json) {
+		
 		
 	}
 }
