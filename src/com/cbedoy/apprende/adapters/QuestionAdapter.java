@@ -16,6 +16,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.cbedoy.apprende.FeedView;
 import com.cbedoy.apprende.QuestionView;
 import com.cbedoy.apprende.QuestionaryView;
+import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.viewdelegates.IQuestionViewHandler;
 
 
@@ -59,6 +60,7 @@ public class QuestionAdapter extends FragmentPagerAdapter implements IQuestionVi
 
 	@Override
 	public void userFinishExam() {
+		MasterController.getInstance().setQuestionaryInfo(dataModel);
 		Intent intent = new Intent(QuestionaryView.INSTANCE, FeedView.class);
 		QuestionaryView.INSTANCE.startActivity(intent);
 		

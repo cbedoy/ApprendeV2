@@ -63,7 +63,12 @@ public class FeedViewAdapter extends BaseAdapter implements IFeedRepresentationD
 					TextView	feedUser 							= (TextView) view.findViewById(R.id.feed_your_option);
 					feedQuestion.setText(information.get(QuestionKeySet.QUESTION).toString());
 					feedCorrect.setText(information.get(QuestionKeySet.CORRECT).toString());
-					feedUser.setText(information.get(QuestionKeySet.OPTION_USER).toString());
+		
+					if(information.containsKey(QuestionKeySet.OPTION_USER)){
+						feedUser.setText(information.get(QuestionKeySet.OPTION_USER).toString());
+					}else{
+						feedUser.setText("No seleccion");
+					}
 					feedQuestion.setTypeface(AppInstanceProvider.regularFont);
 					feedCorrect.setTypeface(AppInstanceProvider.lightFont);
 					feedUser.setTypeface(AppInstanceProvider.lightFont);

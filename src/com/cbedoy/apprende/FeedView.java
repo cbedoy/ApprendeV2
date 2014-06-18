@@ -1,11 +1,14 @@
 package com.cbedoy.apprende;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.cbedoy.apprende.adapters.FeedViewAdapter;
+import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.representationDelegates.IFeedResultRepresentationDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IFeedViewDelegate;
 import com.cbedoy.apprende.keysets.FeedKeySet;
+import com.cbedoy.apprende.keysets.QuestionKeySet;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
@@ -19,7 +22,7 @@ import android.widget.TextView;
 
 import org.json.JSONObject;
 
-public class FeedView extends Activity implements IFeedViewDelegate{
+public class FeedView extends Activity{
 
 	private TextView 		feedTitle;
 	private TextView 		feedLevel;
@@ -32,7 +35,6 @@ public class FeedView extends Activity implements IFeedViewDelegate{
 	private ListView 		feedList;
 	private TextView 		feedText;
 	private FeedViewAdapter feedViewAdapter;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,13 +61,29 @@ public class FeedView extends Activity implements IFeedViewDelegate{
 		this.feedPosition.setTypeface(AppInstanceProvider.lightFont);
 		this.feedText.setTypeface(AppInstanceProvider.regularFont);
 		this.feedList.setAdapter(feedViewAdapter);
-		
+		this.reloadData(MasterController.getInstance().getQuestionaryInfo());
 		
 		
 	}
 
-    @Override
-    public void reloadData(JSONObject json) {
-
+    
+    public void reloadData(List<Object> dataModel) {
+    	int size 		= dataModel.size();
+    	int errors 		= 0;
+    	float factor 	= 0;
+    	this.feedLevel.setText(size==20?"Hard.":size==10?"Medium.":"Easy.");
+    	for(Object object : dataModel){
+    		HashMap<Object, Object> information = (HashMap<Object, Object>) object;
+    		if(information.containsKey(QuestionKeySet.OPTION_USER))
+    			if(information.containsKey(QuestionKeySet.OPTION_USER) != information.containsKey(QuestionKeySet.CORRECT))
+    				errors++;
+    		errors++;
+    	}
+    	this.feedQuestions.setText(size+" questions.");
+    	this.feedErrors.setText(errors+" errors.");
+    	factor = (float)(size-errors)/(float)size;
+    	this.feedPoints.setText(factor+" points");
+    	this.feedTitle.setText("@"+MasterController.getInstance().getUserInformation().get(UserKeySet.USERNAME));
+    	this.feedViewAdapter.reloadWithData(dataModel);
     }
 }
