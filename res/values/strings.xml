@@ -55,14 +55,14 @@
     <string name="cbedoy">Carlos Alfredo Cervantes Bedoy</string>
     <string name="dave">David Angel Gutierrez Duron</string>
     <string name="tito">Efrain Sanchez Vazquez</string>
-    <string name="title_activity_splash_view">SplashView</string>
-    <string name="title_activity_login_view">LoginView</string>
-    <string name="title_activity_profile_view">ProfileView</string>
-    <string name="title_activity_theme_view">ThemeView</string>
-    <string name="title_activity_questionary_view">QuestionaryView</string>
+    <string name="title_activity_splash_view"></string>
+    <string name="title_activity_login_view">Login</string>
+    <string name="title_activity_profile_view">User profile</string>
+    <string name="title_activity_theme_view">Theme selecction</string>
+    <string name="title_activity_questionary_view">Exam</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-    <string name="title_activity_feed_view">FeedView</string>
-    <string name="title_activity_registration_view">RegistrationView</string>
+    <string name="title_activity_feed_view">Feeds</string>
+    <string name="title_activity_registration_view">Registration</string>
 
 </resources>

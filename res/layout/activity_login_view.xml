@@ -14,7 +14,7 @@
         android:layout_marginRight="22dp"
         android:textSize="18sp"
         android:gravity="right"
-        android:text="Version"
+        android:text=":D"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <ImageView
