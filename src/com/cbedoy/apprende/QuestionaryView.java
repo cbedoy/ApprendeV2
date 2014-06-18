@@ -15,7 +15,7 @@ public class QuestionaryView extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_questionary_view);
-
+		
 		questionAdapter 	= new QuestionAdapter(getSupportFragmentManager());
 		mViewPager 			= (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(questionAdapter);
