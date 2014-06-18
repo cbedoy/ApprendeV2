@@ -19,12 +19,7 @@ public class ThemeService  extends AsyncTask<String, Integer, String> {
     private IThemeViewDelegate      viewDelegate;
 	private static ThemeService service;
 	
-	public static ThemeService getInstance(){
-		if(service == null)
-			service = new ThemeService();
-		return service;
-	}
-	
+
 	public ThemeService(){
 	
 	}

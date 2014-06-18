@@ -11,7 +11,7 @@ import android.os.AsyncTask;
 public class UniversityService extends AsyncTask<String, Integer, String> {
 
     private CBRESTClient 				restClient;
-    private IUniversityViewDelegate      	viewDelegate;
+    private IUniversityViewDelegate     viewDelegate;
 	private static UniversityService 	service;
 	
 	public static UniversityService getInstance(){

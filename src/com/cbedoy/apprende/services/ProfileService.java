@@ -18,12 +18,7 @@ public class ProfileService extends AsyncTask<String, Integer, String>{
 	private Context 				context;
 	
 	private static ProfileService service;
-	
-	public static ProfileService getInstance(){
-		if(service == null)
-			service = new ProfileService();
-		return service;
-	}
+
 	
 	public ProfileService(){
 	}

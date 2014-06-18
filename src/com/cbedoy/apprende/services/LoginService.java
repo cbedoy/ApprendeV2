@@ -18,13 +18,7 @@ public class LoginService extends AsyncTask<String, Integer, String>{
 	private ILoginViewDelegate 	loginViewDelegate;
 	private Context 			context;
 	private static LoginService service;
-	
-	public static LoginService getInstance(){
-		if(service == null)
-			service = new LoginService();
-		return service;
-	}
-	
+
 	public LoginService(){
 	}
 	

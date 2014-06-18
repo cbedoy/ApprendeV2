@@ -57,8 +57,7 @@ public class CBRESTClient {
 	private static CBRESTClient 		restClient;
 	
 	public static CBRESTClient getInstance(){
-		if(restClient == null)
-			restClient = new CBRESTClient();
+		restClient = new CBRESTClient();
 		return restClient;
 	}
 	

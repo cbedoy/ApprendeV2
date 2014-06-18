@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.cbedoy.apprende.ExamViewDialog;
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.R.id;
 import com.cbedoy.apprende.R.layout;
@@ -12,7 +13,9 @@ import com.cbedoy.apprende.keysets.CourseKeySet;
 import com.cbedoy.apprende.keysets.ThemeKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,7 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 
 	private Context 		context;
 	private List<Object> 	dataModel;
+	private ExamViewDialog  examViewDialog;
 	
 	public ThemeViewAdapter(Context context){
 		this.context 		= context;
@@ -76,9 +80,24 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 
 
 	protected void showDialogView(HashMap<ThemeKeySet, Object> information) {
-		
+		CharSequence colors[] = new CharSequence[] {
+													"(Easy)   Five questions", 
+													"(Medium) Ten questions", 
+													"(Hard)   Twenty questions", 
+													"(Random) Twenty questions"
+													};
+		AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
+		builder.setTitle("Pick a level");
+		builder.setMessage("Select the level of the questionnaire");
+		builder.setItems(colors, new DialogInterface.OnClickListener() {
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		        
+		    }
+		});
+		builder.show();
 	}
-
+ 
 	@Override
 	public void reloadWithData(List<Object> dataModel) {
 		this.dataModel = dataModel;

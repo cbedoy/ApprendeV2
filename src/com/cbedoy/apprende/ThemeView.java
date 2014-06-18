@@ -38,8 +38,8 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_theme_view);
-		this.courseViewAdapter 			= new CourseViewAdapter(getApplicationContext());
-		this.themeViewAdapter 			= new ThemeViewAdapter(getApplicationContext());
+		this.courseViewAdapter 			= new CourseViewAdapter(this);
+		this.themeViewAdapter 			= new ThemeViewAdapter(this);
 		this.themeList 					= (ListView)findViewById(R.id.theme_listView);
 		this.courseList	 				= (ListView)findViewById(R.id.course_view_list);
 		this.drawerLayout 				= (DrawerLayout) findViewById(R.id.drawer_layout);
