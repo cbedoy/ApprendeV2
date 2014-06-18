@@ -56,22 +56,22 @@ public class FeedViewAdapter extends BaseAdapter implements IFeedRepresentationD
 			
 			if(!dataModel.isEmpty()){
 				@SuppressWarnings("unchecked")
-				HashMap<QuestionKeySet, Object>  information 	= (HashMap<QuestionKeySet, Object>) dataModel.get(position);
+				HashMap<QuestionKeySet, Object>  information 		= (HashMap<QuestionKeySet, Object>) dataModel.get(position);
 				if(!information.isEmpty()){
 					TextView	feedQuestion 						= (TextView) view.findViewById(R.id.feed_question);
-					TextView	feedCorrect 						= (TextView) view.findViewById(R.id.feed_correct);
-					TextView	feedUser 							= (TextView) view.findViewById(R.id.feed_your_option);
 					feedQuestion.setText(information.get(QuestionKeySet.QUESTION).toString());
-					feedCorrect.setText(information.get(QuestionKeySet.CORRECT).toString());
-		
 					if(information.containsKey(QuestionKeySet.OPTION_USER)){
-						feedUser.setText(information.get(QuestionKeySet.OPTION_USER).toString());
+						if(information.containsKey(QuestionKeySet.OPTION_USER) != information.containsKey(QuestionKeySet.CORRECT)){
+							feedQuestion.setText("incorrect");
+						}else{
+							feedQuestion.setText("correct");
+						}
 					}else{
-						feedUser.setText("No seleccion");
+						feedQuestion.setText("no selection");
 					}
-					feedQuestion.setTypeface(AppInstanceProvider.regularFont);
-					feedCorrect.setTypeface(AppInstanceProvider.lightFont);
-					feedUser.setTypeface(AppInstanceProvider.lightFont);
+
+					
+					
 				}
 			}
 		
