@@ -21,16 +21,16 @@ import org.json.JSONObject;
 
 public class FeedView extends Activity implements IFeedViewDelegate{
 
-	private TextView feedTitle;
-	private TextView feedLevel;
-	private TextView feedQuestions;
-	private TextView feedErrors;
-	private TextView feedPoints;
-	private TextView feedBestYou;
-	private TextView feedBellowYou;
-	private TextView feedPosition;
-	private ListView feedList;
-	private TextView feedText;
+	private TextView 		feedTitle;
+	private TextView 		feedLevel;
+	private TextView 		feedQuestions;
+	private TextView 		feedErrors;
+	private TextView 		feedPoints;
+	private TextView 		feedBestYou;
+	private TextView 		feedBellowYou;
+	private TextView 		feedPosition;
+	private ListView 		feedList;
+	private TextView 		feedText;
 	private FeedViewAdapter feedViewAdapter;
 	
 	@Override
@@ -47,6 +47,7 @@ public class FeedView extends Activity implements IFeedViewDelegate{
 		this.feedText 				= (TextView)findViewById(R.id.text_feed);
 		this.feedPosition 			= (TextView)findViewById(R.id.feed_position);
 		this.feedList				= (ListView)findViewById(R.id.feed_list);
+		this.feedTitle				= (TextView)findViewById(R.id.feed_title);
 		this.feedViewAdapter		= new FeedViewAdapter(getApplicationContext());
 		this.feedBellowYou.setTypeface(AppInstanceProvider.lightFont);
 		this.feedLevel.setTypeface(AppInstanceProvider.lightFont);
@@ -62,7 +63,6 @@ public class FeedView extends Activity implements IFeedViewDelegate{
 		
 		
 	}
-
 
     @Override
     public void reloadData(JSONObject json) {

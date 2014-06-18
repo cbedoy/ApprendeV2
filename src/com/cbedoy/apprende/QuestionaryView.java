@@ -26,6 +26,7 @@ public class QuestionaryView extends FragmentActivity  implements IQuestionaryRe
 	private ViewPager 				mViewPager;
 	private MasterController		masterController;
 	private List<Object>			dataModel;
+	public static QuestionaryView 	INSTANCE;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class QuestionaryView extends FragmentActivity  implements IQuestionaryRe
 		this.dataModel 				= new ArrayList<Object>();
 		this.masterController = AppInstanceProvider.getInstance().instanceServiceQuestionary(this, ServiceKeySet.GET_EXAM_RANDOM);
 		this.masterController.getAnsycTask().execute();
+		INSTANCE = this;
 	}
 
 	@Override

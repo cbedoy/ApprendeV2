@@ -37,7 +37,7 @@ public class AppInstanceProvider {
 	private CBRESTClient				restClient;
 	private String						urlResponse;
 	private MasterController			masterController;
-	public static String				SERVER_URL = "192.168.0.16:8000";
+	public static String				SERVER_URL = "148.211.93.75:8000";
 
 	public static AppInstanceProvider getInstance(Context context){
 		if(appInstanceProvider == null) {

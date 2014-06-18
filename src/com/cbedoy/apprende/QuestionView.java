@@ -50,7 +50,7 @@ public  class QuestionView extends Fragment {
 		CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener(){
 			@Override
 			public void onCheckedChanged(CompoundButton view, boolean isChecked) {
-				int position = getArguments().getInt("positon");
+				int position = getArguments().getInt("position");
 				if(optionOne.isChecked()) 	information.put(QuestionKeySet.OPTION_USER, 1);
 				if(optionTwo.isChecked()) 	information.put(QuestionKeySet.OPTION_USER, 2);
 				if(optionThree.isChecked()) information.put(QuestionKeySet.OPTION_USER, 3);
@@ -62,8 +62,7 @@ public  class QuestionView extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-			
-				
+				questionHandler.userFinishExam();
 			}
 		};
 		this.finishAction.setOnClickListener(finishActionListener);

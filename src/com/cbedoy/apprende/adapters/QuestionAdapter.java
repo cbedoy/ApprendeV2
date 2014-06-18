@@ -5,12 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.cbedoy.apprende.FeedView;
 import com.cbedoy.apprende.QuestionView;
+import com.cbedoy.apprende.QuestionaryView;
 import com.cbedoy.apprende.interfaces.viewdelegates.IQuestionViewHandler;
 
 
@@ -50,6 +55,13 @@ public class QuestionAdapter extends FragmentPagerAdapter implements IQuestionVi
 	@Override
 	public void updateInformation(Object information, int position) {
 		this.dataModel.set(position, information);
+	}
+
+	@Override
+	public void userFinishExam() {
+		Intent intent = new Intent(QuestionaryView.INSTANCE, FeedView.class);
+		QuestionaryView.INSTANCE.startActivity(intent);
+		
 	}
 
 }
