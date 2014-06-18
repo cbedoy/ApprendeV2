@@ -9,6 +9,7 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.R.id;
 import com.cbedoy.apprende.R.layout;
 import com.cbedoy.apprende.interfaces.representationDelegates.IThemeRepresentationDelegate;
+import com.cbedoy.apprende.interfaces.viewdelegates.IThemeCellDelegate;
 import com.cbedoy.apprende.keysets.CourseKeySet;
 import com.cbedoy.apprende.keysets.ThemeKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
@@ -25,13 +26,17 @@ import android.widget.Toast;
 
 public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentationDelegate{
 
-	private Context 		context;
-	private List<Object> 	dataModel;
-	private ExamViewDialog  examViewDialog;
+	private Context 			context;
+	private List<Object> 		dataModel;
+	private IThemeCellDelegate 	themeCellDelegate;
 	
 	public ThemeViewAdapter(Context context){
 		this.context 		= context;
 		this.dataModel 		= new ArrayList<Object>();
+	}
+	
+	public void setIThemeCellDelegate(IThemeCellDelegate themeCellDelegate){
+		this.themeCellDelegate = themeCellDelegate;
 	}
 	
 	@Override
@@ -79,23 +84,8 @@ public class ThemeViewAdapter extends BaseAdapter implements IThemeRepresentatio
 	}
 
 
-	protected void showDialogView(HashMap<ThemeKeySet, Object> information) {
-		CharSequence colors[] = new CharSequence[] {
-													"(Easy)   Five questions", 
-													"(Medium) Ten questions", 
-													"(Hard)   Twenty questions", 
-													"(Random) Twenty questions"
-													};
-		AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
-		builder.setTitle("Pick a level");
-		builder.setMessage("Select the level of the questionnaire");
-		builder.setItems(colors, new DialogInterface.OnClickListener() {
-		    @Override
-		    public void onClick(DialogInterface dialog, int which) {
-		        
-		    }
-		});
-		builder.show();
+	protected void showDialogView(Object information) {
+		this.themeCellDelegate.userSelectedCell(information);
 	}
  
 	@Override

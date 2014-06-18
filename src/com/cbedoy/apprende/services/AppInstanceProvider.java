@@ -14,6 +14,7 @@ import com.cbedoy.apprende.interfaces.viewdelegates.ICourseViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IFeedViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IProfileViewDelegate;
+import com.cbedoy.apprende.interfaces.viewdelegates.IQuestionaryRepresentationDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IThemeViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IUniversityViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
@@ -32,6 +33,7 @@ public class AppInstanceProvider {
 	private CourseService				courseService;
 	private FeedService					feedService;
 	private UniversityService			universityService;
+	private QuestionService				questionService;
 	private CBRESTClient				restClient;
 	private String						urlResponse;
 	private MasterController			masterController;
@@ -147,6 +149,19 @@ public class AppInstanceProvider {
         return masterController;
     }
     
+    public MasterController instanceServiceQuestionary(IQuestionaryRepresentationDelegate viewDelegate, ServiceKeySet serviceKeySet) {
+		questionService             		= new QuestionService();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
+        questionService.setRestClient(restClient);
+        questionService.setViewDelegate(viewDelegate);
+        masterController.setAnsycTask(questionService);
+        return masterController;
+		
+	}
+    
     public Bitmap getImageFromURL(String placeholder){
     	try {
     		String urlFacebook				= new String("https://graph.facebook.com/$placeholder/picture");
@@ -159,5 +174,7 @@ public class AppInstanceProvider {
     		return null;
     	}
     }
+
+	
         
 }
