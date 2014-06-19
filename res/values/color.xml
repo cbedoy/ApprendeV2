@@ -16,4 +16,8 @@
     <color name="rank4">#995856D6</color>
     <color name="rank5">#99FF2D55</color>
     
+    
+    <color name="error_color">#99FF3B30</color>
+    <color name="correct_color">#990BD318</color>
+    <color name="noselection_color">#99C86EDF</color>
 </resources>

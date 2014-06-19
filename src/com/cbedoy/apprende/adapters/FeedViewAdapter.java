@@ -4,18 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.cbedoy.apprende.R;
-import com.cbedoy.apprende.interfaces.representationDelegates.IFeedRepresentationDelegate;
-import com.cbedoy.apprende.keysets.QuestionKeySet;
-import com.cbedoy.apprende.services.AppInstanceProvider;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.interfaces.representationDelegates.IFeedRepresentationDelegate;
+import com.cbedoy.apprende.keysets.QuestionKeySet;
 
 public class FeedViewAdapter extends BaseAdapter implements IFeedRepresentationDelegate{
 
@@ -35,7 +33,6 @@ public class FeedViewAdapter extends BaseAdapter implements IFeedRepresentationD
 
 	@Override
 	public Object getItem(int position) {
-		
 		return dataModel.get(position);
 	}
 
@@ -59,19 +56,15 @@ public class FeedViewAdapter extends BaseAdapter implements IFeedRepresentationD
 				HashMap<QuestionKeySet, Object>  information 		= (HashMap<QuestionKeySet, Object>) dataModel.get(position);
 				if(!information.isEmpty()){
 					TextView	feedQuestion 						= (TextView) view.findViewById(R.id.feed_question);
-					feedQuestion.setText(information.get(QuestionKeySet.QUESTION).toString());
-					if(information.containsKey(QuestionKeySet.OPTION_USER)){
-						if(information.containsKey(QuestionKeySet.OPTION_USER) != information.containsKey(QuestionKeySet.CORRECT)){
-							feedQuestion.setText("incorrect");
-						}else{
-							feedQuestion.setText("correct");
-						}
-					}else{
-						feedQuestion.setText("no selection");
-					}
-
-					
-					
+					boolean contains = information.containsKey(QuestionKeySet.OPTION_USER);
+		    		if(contains){
+		    			boolean status = ((information.containsKey(QuestionKeySet.OPTION_USER) == information.containsKey(QuestionKeySet.CORRECT)))?false:true;
+		    			feedQuestion.setBackgroundResource(status?R.color.correct_color:R.color.error_color);
+		    			feedQuestion.setText(status?"Correct":"Error");
+		    		}else{
+		    			feedQuestion.setBackgroundResource(R.color.noselection_color);
+		    			feedQuestion.setText("No selection");
+		    		}
 				}
 			}
 		

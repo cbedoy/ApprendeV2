@@ -73,16 +73,19 @@ public class FeedView extends Activity{
     	float factor 	= 0;
     	this.feedLevel.setText(size==20?"Hard.":size==10?"Medium.":"Easy.");
     	for(Object object : dataModel){
-    		HashMap<Object, Object> information = (HashMap<Object, Object>) object;
-    		if(information.containsKey(QuestionKeySet.OPTION_USER))
-    			if(information.containsKey(QuestionKeySet.OPTION_USER) != information.containsKey(QuestionKeySet.CORRECT))
-    				errors++;
-    		errors++;
+    		@SuppressWarnings("unchecked")
+			HashMap<Object, Object> information = (HashMap<Object, Object>) object;
+    		boolean contains = information.containsKey(QuestionKeySet.OPTION_USER);
+    		if(contains){
+    			errors+= ((information.containsKey(QuestionKeySet.OPTION_USER) != information.containsKey(QuestionKeySet.CORRECT)))?1:0;
+    		}else{
+    			errors+=1;
+    		}
     	}
+    	factor = (float)(size-errors)/(float)size;
     	this.feedQuestions.setText(size+" questions.");
     	this.feedErrors.setText(errors+" errors.");
-    	factor = (float)(size-errors)/(float)size;
-    	this.feedPoints.setText(factor+" points");
+    	this.feedPoints.setText(String.format("%.2f", factor*100)+" points.");
     	this.feedTitle.setText("@"+MasterController.getInstance().getUserInformation().get(UserKeySet.USERNAME));
     	this.feedViewAdapter.reloadWithData(dataModel);
     }

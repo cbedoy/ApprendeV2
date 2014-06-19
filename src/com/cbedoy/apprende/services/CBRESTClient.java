@@ -94,17 +94,6 @@ public class CBRESTClient {
 		switch (method) {
 		case GET: {
 			String combinedParams 		= "";
-			if (!params.isEmpty()) {
-				combinedParams 			+= "?";
-				for (NameValuePair p : params) {
-					String paramString 	= p.getName() + "=" + URLEncoder.encode(p.getValue(), "UTF-8");
-					if (combinedParams.length() > 1) {
-						combinedParams 	+= "&" + paramString;
-					} else {
-						combinedParams 	+= paramString;
-					}
-				}
-			}
 			Log.i("RestClient","GET  :"+url + combinedParams);
 			HttpGet request = new HttpGet(url + combinedParams);
 			for (NameValuePair h : headers) {
@@ -118,12 +107,7 @@ public class CBRESTClient {
 			request.setHeader("Content-type","application/x-www-form-urlencoded");
 			for (NameValuePair h : headers) {
 				request.addHeader(h.getName(), h.getValue());
-			}		
-			if (!params.isEmpty()) {
-				request.setEntity(new UrlEncodedFormEntity(params,"UTF-8"));  
-				Log.i("posting",request.getEntity().toString()+" in "+url );
-			}		
-			
+			}					
 			executeRequest(request, url);
 			break;
 		}
