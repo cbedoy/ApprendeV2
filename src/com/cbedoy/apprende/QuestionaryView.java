@@ -42,7 +42,7 @@ public class QuestionaryView extends FragmentActivity  implements IQuestionaryRe
 		Object level 				= getIntent().getExtras().get("level");
 		Object theme 				= getIntent().getExtras().get("theme");
 		
-		if(level.equals(0))
+		if(level.equals("0"))
 			this.masterController 	= AppInstanceProvider.getInstance().instanceServiceQuestionary(this, ServiceKeySet.GET_EXAM_RANDOM);
 		else{
 			HashMap<Object, Object> information = new HashMap<Object, Object>();

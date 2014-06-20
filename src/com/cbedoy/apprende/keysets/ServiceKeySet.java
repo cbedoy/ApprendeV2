@@ -17,7 +17,8 @@ public enum  ServiceKeySet {
     GET_USER_RANKS      ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/user/get/ranks/"),
     GET_THEME           ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/theme/get/"),
     GET_COURSE          ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/course/get/"),
-    GET_UNIVERSITY		("http://"+AppInstanceProvider.SERVER_URL+"/apprende/university/get/");
+    GET_UNIVERSITY		("http://"+AppInstanceProvider.SERVER_URL+"/apprende/university/get/"), 
+    GET_GUYS			("http://"+AppInstanceProvider.SERVER_URL+"/apprende/user/get/"),;
     
     private final String url;
 

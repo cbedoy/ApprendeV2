@@ -55,10 +55,12 @@ public class GuyViewAdapter extends BaseAdapter implements IGuyRepresentationDel
 		if(view != null){
 			@SuppressWarnings("unchecked")
 			HashMap<UserKeySet, Object>  information 	= (HashMap<UserKeySet, Object>) dataModel.get(position);
-			ImageView   guyImage 						= (ImageView) view.findViewById(R.id.guy_view_image);
 			TextView	guyName 						= (TextView) view.findViewById(R.id.guy_view_username);
+			TextView    guyPoints						= (TextView) view.findViewById(R.id.guy_points);
 			guyName.setText(information.get(UserKeySet.USERNAME).toString());
+			guyPoints.setText(information.get(UserKeySet.POINTS).toString()+ " points.");
 			guyName.setTypeface(AppInstanceProvider.lightFont);
+			guyPoints.setTypeface(AppInstanceProvider.lightFont);
 		}
 		return view;
 	}

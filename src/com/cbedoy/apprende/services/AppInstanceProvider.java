@@ -12,6 +12,7 @@ import android.graphics.Typeface;
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.viewdelegates.ICourseViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IFeedViewDelegate;
+import com.cbedoy.apprende.interfaces.viewdelegates.IGuyViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IProfileViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IQuestionaryRepresentationDelegate;
@@ -35,6 +36,7 @@ public class AppInstanceProvider {
 	private FeedService					feedService;
 	private UniversityService			universityService;
 	private QuestionService				questionService;
+	private GuysService					guyService;
 	private CBRESTClient				restClient;
 	private String						urlResponse;
 	private MasterController			masterController;
@@ -94,6 +96,19 @@ public class AppInstanceProvider {
         profileService.setRestClient(restClient);
         profileService.setViewDelegate(profileViewDelegate);
         masterController.setAnsycTask(profileService);
+        return masterController;
+    }
+    
+    public MasterController instanceServiceGuys(IGuyViewDelegate guyViewDelegate, ServiceKeySet serviceKeySet){
+
+    	guyService							= new GuysService();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
+        guyService.setRestClient(restClient);
+        guyService.setViewDelegate(guyViewDelegate);
+        masterController.setAnsycTask(guyService);
         return masterController;
     }
 
