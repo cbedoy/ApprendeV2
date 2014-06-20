@@ -18,6 +18,7 @@ import com.cbedoy.apprende.interfaces.viewdelegates.IQuestionaryRepresentationDe
 import com.cbedoy.apprende.interfaces.viewdelegates.IThemeViewDelegate;
 import com.cbedoy.apprende.interfaces.viewdelegates.IUniversityViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
+import com.cbedoy.apprende.keysets.ThemeKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 
 public class AppInstanceProvider {
@@ -37,7 +38,7 @@ public class AppInstanceProvider {
 	private CBRESTClient				restClient;
 	private String						urlResponse;
 	private MasterController			masterController;
-	public static String				SERVER_URL = "148.211.93.75:8000";
+	public static String				SERVER_URL 			= "192.168.0.16:8000";
 
 	public static AppInstanceProvider getInstance(Context context){
 		if(appInstanceProvider == null) {
@@ -161,6 +162,22 @@ public class AppInstanceProvider {
         return masterController;
 		
 	}
+    
+    public MasterController instanceServiceQuestionary(IQuestionaryRepresentationDelegate viewDelegate, HashMap<Object, Object> dataModel, ServiceKeySet serviceKeySet) {
+		questionService             		= new QuestionService();
+        masterController   					= MasterController.getInstance();
+        urlResponse							= serviceKeySet.toString();
+        urlResponse 						= urlResponse.replace("$theme", dataModel.get(ThemeKeySet.ID).toString());
+        urlResponse 						= urlResponse.replace("$level", dataModel.get(ThemeKeySet.LEVEL).toString());
+        restClient             				= CBRESTClient.getInstance();
+        restClient.setURL(urlResponse);
+        questionService.setRestClient(restClient);
+        questionService.setViewDelegate(viewDelegate);
+        masterController.setAnsycTask(questionService);
+        return masterController;
+		
+	}
+    
     
     public Bitmap getImageFromURL(String placeholder){
     	try {

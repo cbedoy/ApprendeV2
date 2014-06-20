@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.cbedoy.apprende.ExamViewDialog;
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.R.id;
 import com.cbedoy.apprende.R.layout;

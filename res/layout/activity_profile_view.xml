@@ -9,7 +9,7 @@
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:background="@color/rank5" >
+        android:background="@color/rank3" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                     android:layout_marginRight="22dp"
                     android:layout_marginTop="22dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/mock" />
+                    android:src="@drawable/mock_es" />
             </LinearLayout>
 
             <TextView

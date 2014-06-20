@@ -33,14 +33,13 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_view);
 
-		((TextView) findViewById(R.id.version_name)).setTypeface(AppInstanceProvider.lightFont);
 		((Button) 	findViewById(R.id.login_action)).setTypeface(AppInstanceProvider.lightFont);
 		((EditText) findViewById(R.id.username_field)).setTypeface(AppInstanceProvider.lightFont);
 		((EditText) findViewById(R.id.password_field)).setTypeface(AppInstanceProvider.lightFont);
 		this.username = (EditText)findViewById(R.id.username_field);
 		this.password = (EditText)findViewById(R.id.password_field);
 		
-		this.username.setText("cbedoy");
+		this.username.setText("mermelada");
 		this.password.setText("nomeacuerdo");
 		
 		View.OnClickListener loginAction = new View.OnClickListener() {
@@ -85,6 +84,7 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 				MasterController.getInstance().setUserInfo(userInformation);
 				Intent intent = new Intent(this, ProfileView.class);
 				startActivity(intent);
+				finish();
 			} catch (JSONException e) {
 				
 				e.printStackTrace();

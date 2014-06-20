@@ -108,6 +108,7 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
+			finish();
 		}
 	}
 
@@ -121,14 +122,17 @@ public class ThemeView extends Activity implements IThemeViewDelegate, ICourseVi
 			@SuppressWarnings("unchecked")
 			@Override
 			public void onClick(DialogInterface dialog, int position) {
-				requestView((HashMap<Object, Object>) object);
+				int level = position==0?5:position==1?10:position==2?20:0;
+				requestView((HashMap<Object, Object>) object, level);
 			}
 		});
 		builder.show();
 	}
 	
-	public void requestView(HashMap<Object, Object> information){
+	public void requestView(HashMap<Object, Object> information, int level){
 		Intent intent = new Intent(ThemeView.this, QuestionaryView.class);
+		intent.putExtra("theme", information.get(ThemeKeySet.ID).toString());
+		intent.putExtra("level", level+"");
 		intent.addFlags(
                 Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_NEW_TASK);

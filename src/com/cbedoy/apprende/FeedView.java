@@ -63,7 +63,6 @@ public class FeedView extends Activity{
 		this.feedList.setAdapter(feedViewAdapter);
 		this.reloadData(MasterController.getInstance().getQuestionaryInfo());
 		
-		
 	}
 
     
@@ -71,7 +70,7 @@ public class FeedView extends Activity{
     	int size 		= dataModel.size();
     	int errors 		= 0;
     	float factor 	= 0;
-    	this.feedLevel.setText(size==20?"Hard.":size==10?"Medium.":"Easy.");
+    	this.feedLevel.setText(size>=20?"Hard.":size>=10?"Medium.":"Ea sy.");
     	for(Object object : dataModel){
     		@SuppressWarnings("unchecked")
 			HashMap<Object, Object> information = (HashMap<Object, Object>) object;

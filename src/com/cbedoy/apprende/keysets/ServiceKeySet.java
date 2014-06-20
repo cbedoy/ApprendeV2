@@ -8,8 +8,8 @@ import com.cbedoy.apprende.services.AppInstanceProvider;
 public enum  ServiceKeySet {
 	
 	
-    NEW_USER            ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/user/new/$username/$password/$fistName/$lastName/$facebook/$twitter/$age/$points/$plays/"),
-    GET_EXAM            ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/user/get/$theme/$level/"),
+    NEW_USER            ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/user/new/$username/$password/$fistName/$lastName/$facebook/$twitter/$age/"),
+    GET_EXAM            ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/exam/get/$theme/$level/"),
     GET_EXAM_RANDOM     ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/exam/get/20/"),
     GET_USER_INFO       ("http://"+AppInstanceProvider.SERVER_URL+"/apprende/user/get/$username/$password/"),
     GET_USER_STATISTICS (""),
