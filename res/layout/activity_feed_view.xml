@@ -2,22 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/feed_card"
         android:layout_width="match_parent"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:layout_height="wrap_content"
-        android:background="#00aaff"
-        android:orientation="vertical" >
+        android:background="#9900aaff"
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
 
         <TextView
             android:id="@+id/feed_title"
             android:layout_width="fill_parent"
             android:layout_height="24dp"
             android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Result of user"

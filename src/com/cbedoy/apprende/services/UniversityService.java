@@ -1,34 +1,30 @@
 package com.cbedoy.apprende.services;
 
-import android.content.Context;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import com.cbedoy.apprende.interfaces.viewdelegates.IUniversityViewDelegate;
+
 import android.os.AsyncTask;
 
-import com.cbedoy.apprende.interfaces.viewdelegates.IFeedViewDelegate;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+public class UniversityService extends AsyncTask<String, Integer, String> {
 
-/**
- * Created by Carlos on 16/06/2014.
- */
-public class FeedService extends AsyncTask<String, Integer, String> {
-
-
-    private CBRESTClient 		restClient;
-    private IFeedViewDelegate   viewDelegate;
-    private Context 			context;
-	private static FeedService 	service;
+    private CBRESTClient 				restClient;
+    private IUniversityViewDelegate     viewDelegate;
+	private static UniversityService 	service;
 	
-	public static FeedService getInstance(){
+	public static UniversityService getInstance(){
 		if(service == null)
-			service = new FeedService();
+			service = new UniversityService();
 		return service;
 	}
 	
-	public FeedService(){
+	public UniversityService(){
+	
 	}
 
-    public void setViewDelegate(IFeedViewDelegate viewDelegate){
+    public void setViewDelegate(IUniversityViewDelegate viewDelegate){
         this.viewDelegate = viewDelegate;
     }
 
@@ -58,10 +54,10 @@ public class FeedService extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String response){
         try {
             if(response != null){
-                JSONObject json = new JSONObject(response);
-                viewDelegate.reloadData(json);
+                JSONArray json = new JSONArray(response);
+                viewDelegate.reloadDataWithUniversity(json);
             }else{
-                viewDelegate.reloadData(null);
+                viewDelegate.reloadDataWithUniversity(null);
             }
 
         } catch (JSONException e) {

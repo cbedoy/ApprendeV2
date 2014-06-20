@@ -17,14 +17,12 @@ public class ThemeService  extends AsyncTask<String, Integer, String> {
 
     private CBRESTClient 			restClient;
     private IThemeViewDelegate      viewDelegate;
-    private Context context;
+	private static ThemeService service;
+	
 
-    public ThemeService(Context context){
-        this.context = context;
-    }
-
-    public ThemeService(){
-    }
+	public ThemeService(){
+	
+	}
 
     public void setViewDelegate(IThemeViewDelegate viewDelegate){
         this.viewDelegate = viewDelegate;

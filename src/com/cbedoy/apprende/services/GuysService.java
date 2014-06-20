@@ -2,28 +2,25 @@ package com.cbedoy.apprende.services;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
-import com.cbedoy.apprende.services.CBRESTClient.RequestMethod;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
-public class LoginService extends AsyncTask<String, Integer, String>{
+import com.cbedoy.apprende.interfaces.viewdelegates.IGuyViewDelegate;
+import com.cbedoy.apprende.services.CBRESTClient.RequestMethod;
+
+public class GuysService extends AsyncTask<String, Integer, String>{
 
 	
 	private CBRESTClient 		restClient;
-	private ILoginViewDelegate 	loginViewDelegate;
+	private IGuyViewDelegate 	guyViewDelegate;
 	private Context 			context;
-	private static LoginService service;
 
-	public LoginService(){
+	public GuysService(){
 	}
 	
-	public void setLoginViewDelegate(ILoginViewDelegate loginViewDelegate){
-		this.loginViewDelegate = loginViewDelegate;
+	public void setViewDelegate(IGuyViewDelegate viewDelegate){
+		this.guyViewDelegate = viewDelegate;
 	}
 	
 	public void setRestClient(CBRESTClient restClient){
@@ -53,13 +50,13 @@ public class LoginService extends AsyncTask<String, Integer, String>{
 		try {
 			if(response != null){
 				JSONArray json = new JSONArray(response);
-				loginViewDelegate.reloadData(json.getJSONObject(0));
+				guyViewDelegate.reloadDataWithGuys(json);
 			}else{
-				loginViewDelegate.reloadData(null);
+				guyViewDelegate.reloadDataWithGuys(null);
 			}
 				
 		} catch (JSONException e) {
-			loginViewDelegate.reloadData(null);
+			guyViewDelegate.reloadDataWithGuys(null);
 			
 		}
 	}

@@ -1,34 +1,51 @@
 package com.cbedoy.apprende;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.cbedoy.apprende.adapters.GuyViewAdapter;
 import com.cbedoy.apprende.bussiness.MasterController;
 import com.cbedoy.apprende.interfaces.representationDelegates.IProfileRepresentacionDelegate;
+import com.cbedoy.apprende.interfaces.viewdelegates.IGuyViewDelegate;
+import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
 import com.cbedoy.apprende.services.AppInstanceProvider;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-public class ProfileView extends Activity implements IProfileRepresentacionDelegate{
+public class ProfileView extends Activity implements IProfileRepresentacionDelegate, IGuyViewDelegate{
 
-	private TextView profileName;
-	private TextView profileAge;
-	private TextView profileBestOfYou;
-	private TextView profileBellowYou;
-	private TextView profilePoints;
-	private TextView profileUniversity;
-	private TextView profileUserName;
-	private TextView profilePlays;
-	private TextView profileFacebook;
-	private TextView profileTwitter;
-	private ImageView profileImage;
+	private TextView 			profileName;
+	private TextView 			profileAge;
+	private TextView 			profileBestOfYou;
+	private TextView 			profileBellowYou;
+	private TextView 			profilePoints;
+	private TextView 			profileUniversity;
+	private TextView 			profileUserName;
+	private TextView 			profilePlays;
+	private TextView 			profileFacebook;
+	private TextView 			profileTwitter;
+	private ImageView 			profileImage;
+	private GuyViewAdapter 		guyViewAdapter;
+	private List<Object>		dataModel;
+	private MasterController 	masterController;
+	private AlertDialog.Builder builder;
+	private ListView			guysList;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +62,9 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profileFacebook 	= (TextView) findViewById(R.id.profile_facebook);
 		this.profileTwitter		= (TextView) findViewById(R.id.profile_twitter);
 		this.profilePlays		= (TextView) findViewById(R.id.profile_plays);
+		this.guysList			= (ListView) findViewById(R.id.guys_view_list);
+		this.guyViewAdapter		= new GuyViewAdapter(this);
+		this.dataModel			= new ArrayList<Object>();
 		this.profileName.setTypeface(AppInstanceProvider.lightFont);
 		this.profileAge.setTypeface(AppInstanceProvider.lightFont);
 		this.profileBellowYou.setTypeface(AppInstanceProvider.lightFont);
@@ -56,6 +76,9 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profilePlays.setTypeface(AppInstanceProvider.lightFont);;
 		this.profileTwitter.setTypeface(AppInstanceProvider.lightFont);
 		this.reloadViewWithData(MasterController.getInstance().getUserInformation());
+		
+		this.masterController = AppInstanceProvider.getInstance().instanceServiceGuys(this, ServiceKeySet.GET_GUYS);
+		this.masterController.getAnsycTask().execute();
 	}
 
 	@Override
@@ -72,7 +95,7 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 		this.profileFacebook.setText("facebook.com/"+dataModel.get(UserKeySet.FACEBOOK).toString());
 		this.profileTwitter.setText(dataModel.get(UserKeySet.TWITTER).toString());
 		this.profilePlays.setText(dataModel.get(UserKeySet.PLAYS).toString()+" plays");
-		//this.profileImage.setImageBitmap(AppInstanceProvider.getInstance().getImageFromURL(dataModel.get(UserKeySet.IMAGE).toString()));
+		//this.profileImage.setImageBitmap(AppInstanceProvider.getInstance().getImageFromURL(dataModel.get(UserKeySet.FACEBOOK).toString()));
 		
 	}
 	
@@ -96,6 +119,49 @@ public class ProfileView extends Activity implements IProfileRepresentacionDeleg
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
+	}
+
+	@Override
+	public void reloadDataWithGuys(JSONArray response) {
+		
+		if(response == null || response.length() == 0){
+			showErrorView();
+		}else{
+			this.dataModel.clear();
+			for(int i = 0; i< response.length(); i++){
+				try {
+					JSONObject object 						= response.getJSONObject(i);
+					HashMap<Object, Object> information 	= new HashMap<Object, Object>();
+					information.put(UserKeySet.ID, 			object.get("pk"));
+					JSONObject fields 						= object.getJSONObject("fields");
+					information.put(UserKeySet.USERNAME, 	fields.get("username"));
+					information.put(UserKeySet.POINTS, 		fields.get("points"));
+					this.dataModel.add(information);
+					} catch (JSONException e) {
+						e.printStackTrace();
+				}
+				
+			}
+			this.guyViewAdapter.reloadViewWithData(dataModel);
+			this.guysList.setAdapter(guyViewAdapter);
+		}
+		
+	}
+	
+	private void showErrorView() {
+		if(builder==null)
+			builder = new AlertDialog.Builder(this);
+		builder.setTitle("Oh no!");
+		builder.setMessage("Ups no information available, Possibly no questions available, try later :)");
+		builder.setCancelable(false);
+		builder.setNegativeButton("Ok", new DialogInterface.OnClickListener(){
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				finish();
+			}} 
+		);
+		builder.show();
+		
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.cbedoy.apprende.bussiness;
 
 import java.util.HashMap;
+import java.util.List;
 
 import android.os.AsyncTask;
 
@@ -10,9 +11,10 @@ import android.os.AsyncTask;
  */
 public class MasterController {
 
-    private static MasterController masterController;
-    private AsyncTask<String, Integer, String> ansycTask;
-    private HashMap<Object, Object> userInfo;
+    private static MasterController 			masterController;
+    private AsyncTask<String, Integer, String> 	ansycTask;
+    private HashMap<Object, Object> 			userInfo;
+    private List<Object> 						questionaryInfo;
 
     public static MasterController getInstance(){
         if(masterController == null)
@@ -34,6 +36,14 @@ public class MasterController {
     
     public HashMap<Object, Object> getUserInformation(){
     	return this.userInfo;
+    }
+    
+    public void setQuestionaryInfo(List<Object> dataModel){
+    	this.questionaryInfo = dataModel;
+    }
+    
+    public List<Object> getQuestionaryInfo(){
+    	return this.questionaryInfo;
     }
     
 }

@@ -2,20 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/login"
     android:gravity="center"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/version_name"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:textSize="18sp"
-        android:gravity="right"
-        android:text="Version"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
 
     <ImageView
         android:id="@+id/imageView1"
@@ -24,8 +15,7 @@
         android:layout_marginBottom="22dp"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
-        android:layout_marginTop="11dp"
-        android:src="@drawable/logo_nuevo" />
+        android:layout_marginTop="11dp" />
 
     <EditText
         android:id="@+id/username_field"

@@ -1,37 +1,69 @@
 package com.cbedoy.apprende.adapters;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.cbedoy.apprende.FeedView;
 import com.cbedoy.apprende.QuestionView;
-import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.QuestionaryView;
+import com.cbedoy.apprende.bussiness.MasterController;
+import com.cbedoy.apprende.interfaces.viewdelegates.IQuestionViewHandler;
 
 
-public class QuestionAdapter extends FragmentPagerAdapter {
+
+public class QuestionAdapter extends FragmentPagerAdapter implements IQuestionViewHandler{
 
 	
-	public QuestionAdapter(FragmentManager fm) {
+	private List<Object> dataModel;
+	private QuestionView questionView;
+	
+	public QuestionAdapter(FragmentManager fm, List<Object> dataModel) {
 		super(fm);
+		this.dataModel = dataModel;
 	}
 
 	@Override
 	public Fragment getItem(int position) {
-
-		return QuestionView.newInstance(position + 1);
+		this.questionView = new QuestionView((HashMap<Object, Object>) dataModel.get(position));
+		Bundle params     = new Bundle();
+		params.putBoolean("isLast", position == dataModel.size()-1 ? true : false);
+		params.putInt("position", position);
+		this.questionView.setArguments(params);
+		this.questionView.setViewHandler(this);
+		return this.questionView;
 	}
 
 	@Override
 	public int getCount() {
-		return 3;
+		return dataModel.size();
 	}
 
 	@Override
-	public CharSequence getPageTitle(int position) {
-		Locale l = Locale.getDefault();
-		
+	public CharSequence getPageTitle(int position) {	
 		return null;
 	}
+
+	@Override
+	public void updateInformation(Object information, int position) {
+		this.dataModel.set(position, information);
+	}
+
+	@Override
+	public void userFinishExam() {
+		MasterController.getInstance().setQuestionaryInfo(dataModel);
+		Intent intent = new Intent(QuestionaryView.INSTANCE, FeedView.class);
+		QuestionaryView.INSTANCE.startActivity(intent);
+		
+	}
+
 }

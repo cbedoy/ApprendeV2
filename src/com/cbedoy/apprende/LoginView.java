@@ -18,8 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cbedoy.apprende.bussiness.MasterController;
-import com.cbedoy.apprende.interfaces.IAsyncServiceDelegate;
-import com.cbedoy.apprende.interfaces.IContextDetection;
 import com.cbedoy.apprende.interfaces.viewdelegates.ILoginViewDelegate;
 import com.cbedoy.apprende.keysets.ServiceKeySet;
 import com.cbedoy.apprende.keysets.UserKeySet;
@@ -35,14 +33,13 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_view);
 
-		((TextView) findViewById(R.id.version_name)).setTypeface(AppInstanceProvider.lightFont);
 		((Button) 	findViewById(R.id.login_action)).setTypeface(AppInstanceProvider.lightFont);
 		((EditText) findViewById(R.id.username_field)).setTypeface(AppInstanceProvider.lightFont);
 		((EditText) findViewById(R.id.password_field)).setTypeface(AppInstanceProvider.lightFont);
 		this.username = (EditText)findViewById(R.id.username_field);
 		this.password = (EditText)findViewById(R.id.password_field);
 		
-		this.username.setText("cbedoy");
+		this.username.setText("mermelada");
 		this.password.setText("nomeacuerdo");
 		
 		View.OnClickListener loginAction = new View.OnClickListener() {
@@ -83,20 +80,15 @@ public class LoginView extends Activity implements ILoginViewDelegate{
 				userInformation.put(UserKeySet.PASSWORD, 	fields.get("password"));
 				userInformation.put(UserKeySet.POINTS, 		fields.get("points"));
 				userInformation.put(UserKeySet.PLAYS, 		fields.get("plays"));
-				userInformation.put(UserKeySet.IMAGE, 		"https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/t1.0-9/10395844_914281698598196_6581668355249980923_n.jpg");
+				userInformation.put(UserKeySet.FACEBOOK, 	fields.get("facebook"));
 				MasterController.getInstance().setUserInfo(userInformation);
 				Intent intent = new Intent(this, ProfileView.class);
 				startActivity(intent);
+				finish();
 			} catch (JSONException e) {
 				
 				e.printStackTrace();
-			}
-			
-			
-			
-			
-			
-			
+			}		
 		}else{
 			Toast.makeText(getApplicationContext(), "Username invalid", Toast.LENGTH_LONG).show();
 		}

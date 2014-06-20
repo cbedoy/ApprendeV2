@@ -16,15 +16,18 @@ public class CourseService extends AsyncTask<String, Integer, String> {
 
 
     private CBRESTClient 			restClient;
-    private ICourseViewDelegate viewDelegate;
-    private Context context;
-
-    public CourseService(Context context){
-        this.context = context;
-    }
-
-    public CourseService(){
-    }
+    private ICourseViewDelegate 	viewDelegate;
+    private Context 				context;
+	private static CourseService 	service;
+	
+	public static CourseService getInstance(){
+		if(service == null)
+			service = new CourseService();
+		return service;
+	}
+	
+	public CourseService(){
+	}
 
     public void setViewDelegate(ICourseViewDelegate viewDelegate){
         this.viewDelegate = viewDelegate;
