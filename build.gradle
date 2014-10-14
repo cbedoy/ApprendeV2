@@ -3,18 +3,38 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+<<<<<<< HEAD
         classpath 'com.android.tools.build:gradle:0.12.+'
+=======
+        classpath 'com.android.tools.build:gradle:0.12.2'
+>>>>>>> master
     }
 }
-apply plugin: 'android'
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
 
 dependencies {
+
+    compile 'de.hdodenhof:circleimageview:1.2.0'
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
+<<<<<<< HEAD
     compileSdkVersion 19
     buildToolsVersion '19.1.0'
+=======
+    compileSdkVersion 14
+    buildToolsVersion '20'
+>>>>>>> master
 
     sourceSets {
         main {
@@ -39,4 +59,17 @@ android {
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
     }
+
+    productFlavors {
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+
 }
