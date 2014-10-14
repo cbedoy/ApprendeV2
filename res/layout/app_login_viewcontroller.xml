@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="-96dp"
+        android:layout_marginRight="-96dp"
+        android:id="@+id/imageView"
+        android:scaleType="fitXY"
+        android:src="@drawable/login_blur"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="48dp"
+        android:padding="6dp"
+        android:textSize="20sp"
+        android:textColor="#f0f0f0"
+        android:textColorHint="#c0c0c0"
+        android:id="@+id/app_login_viewcontroller_username"
+        android:layout_below="@+id/app_login_viewcontroller_tittle"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:padding="6dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:hint="password"
+        android:textSize="20sp"
+        android:textColor="#f0f0f0"
+        android:textColorHint="#c0c0c0"
+        android:ems="10"
+        android:id="@+id/app_login_viewcontroller_password"
+        android:layout_below="@+id/app_login_viewcontroller_username"
+        android:layout_alignParentLeft="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sing Up"
+        android:padding="6dp"
+        android:id="@+id/login_viewcontroller_singup"
+        android:textColor="#f0f0f0"
+        android:background="#99000000"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="6dp"
+        android:background="#99ffffff"
+        android:textColor="#f0f0f0"
+        android:textSize="20sp"
+        android:text="Login"
+        android:id="@+id/app_login_viewcontroller_login"
+        android:layout_above="@+id/login_viewcontroller_singup"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apprende"
+        android:textColor="#f0f0f0"
+        android:textSize="34sp"
+        android:padding="6dp"
+        android:id="@+id/app_login_viewcontroller_tittle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp" />
+
+
+</RelativeLayout>
