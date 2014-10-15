@@ -6,13 +6,22 @@ import android.view.View;
 import android.widget.GridView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryRepresentationDelegate;
+import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryRepresentationHandler;
 
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class SubcategoryViewController extends AbstractViewController {
+public class SubcategoryViewController extends AbstractViewController implements ISubcategoryRepresentationHandler{
 
     private GridView gridView;
+
+    private ISubcategoryRepresentationDelegate subcategoryRepresentationDelegate;
+
+    public void setSubcategoryRepresentationDelegate(ISubcategoryRepresentationDelegate subcategoryRepresentationDelegate) {
+        this.subcategoryRepresentationDelegate = subcategoryRepresentationDelegate;
+    }
+
     @Override
     protected View init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

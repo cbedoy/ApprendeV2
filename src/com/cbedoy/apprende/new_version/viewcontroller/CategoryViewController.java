@@ -6,13 +6,22 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryRepresentationDelegate;
+import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryRepresentationHandler;
 
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class CategoryViewController extends AbstractViewController {
+public class CategoryViewController extends AbstractViewController implements ICategoryRepresentationHandler{
 
     private ListView listView;
+
+    private ICategoryRepresentationDelegate categoryRepresentationDelegate;
+
+    public void setCategoryRepresentationDelegate(ICategoryRepresentationDelegate categoryRepresentationDelegate) {
+        this.categoryRepresentationDelegate = categoryRepresentationDelegate;
+    }
+
     @Override
     protected View init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

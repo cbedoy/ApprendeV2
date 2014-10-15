@@ -8,13 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileRepresentationDelegate;
+import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileRepresentationHandler;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class ProfileViewController extends AbstractViewController {
+public class ProfileViewController extends AbstractViewController implements IProfileRepresentationHandler{
     private CircleImageView userAvatar;
     private ImageView backgroundView;
 
@@ -27,6 +29,12 @@ public class ProfileViewController extends AbstractViewController {
     private View overlay;
     private Button actionShare;
     private Button actionStart;
+
+    private IProfileRepresentationDelegate profileRepresentationDelegate;
+
+    public void setProfileRepresentationDelegate(IProfileRepresentationDelegate profileRepresentationDelegate) {
+        this.profileRepresentationDelegate = profileRepresentationDelegate;
+    }
 
     @Override
     protected View init() {

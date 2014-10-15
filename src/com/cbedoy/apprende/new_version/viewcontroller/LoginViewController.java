@@ -8,17 +8,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.new_version.business.login.interfaces.ILoginRepresentationDelegate;
+import com.cbedoy.apprende.new_version.business.login.interfaces.ILoginRepresentationHandler;
 
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class LoginViewController extends AbstractViewController {
+public class LoginViewController extends AbstractViewController implements ILoginRepresentationHandler{
 
     private EditText username;
     private EditText password;
     private Button actionSingup;
     private Button actionLogin;
     private TextView title;
+
+    private ILoginRepresentationDelegate loginRepresentationDelegate;
+
+    public void setLoginRepresentationDelegate(ILoginRepresentationDelegate loginRepresentationDelegate) {
+        this.loginRepresentationDelegate = loginRepresentationDelegate;
+    }
 
     @Override
     protected View init() {

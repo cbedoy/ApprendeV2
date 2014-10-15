@@ -1,11 +1,8 @@
-package com.cbedoy.apprende.new_version;
-
 import com.cbedoy.apprende.new_version.interfaces.IMessageRepresentationHandler;
 
-/**
- * Created by Carlos on 14/10/2014.
- */
-public class NotificationMessages implements IMessageRepresentationHandler {
+public class MessageRepresentation implements IMessageRepresentationHandler {
+
+
     @Override
     public void showLoading() {
 
@@ -40,4 +37,5 @@ public class NotificationMessages implements IMessageRepresentationHandler {
     public void showCodeTitleMessageWithCallback(MESSAGE_REPRESENTATION_CODE code, String title, String message, IMessageRepresentationCallback callback) {
 
     }
+
 }

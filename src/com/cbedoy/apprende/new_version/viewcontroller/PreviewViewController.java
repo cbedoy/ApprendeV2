@@ -8,13 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.new_version.business.preview.interfaces.IPreviewRepresentationDelegate;
+import com.cbedoy.apprende.new_version.business.preview.interfaces.IPreviewRepresentationHandler;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class PreviewViewController extends AbstractViewController {
+public class PreviewViewController extends AbstractViewController implements IPreviewRepresentationHandler{
 
     private View overlay;
     private Button start;
@@ -24,6 +26,12 @@ public class PreviewViewController extends AbstractViewController {
     private TextView subcategory;
     private TextView description;
     private ImageView background;
+
+    private IPreviewRepresentationDelegate previewRepresentationDelegate;
+
+    public void setPreviewRepresentationDelegate(IPreviewRepresentationDelegate previewRepresentationDelegate) {
+        this.previewRepresentationDelegate = previewRepresentationDelegate;
+    }
 
     @Override
     protected View init() {

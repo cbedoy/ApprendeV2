@@ -27,6 +27,13 @@ android {
     compileSdkVersion 14
     buildToolsVersion '20'
 
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 20
+        renderscriptTargetApi 18
+        renderscriptSupportMode true
+    }
+
 
     sourceSets {
         main {
