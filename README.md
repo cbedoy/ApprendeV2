@@ -1,7 +1,10 @@
-# Apprende
+# Apprende V 2.0
 
-![alt tag](https://scontent-a-dfw.xx.fbcdn.net/hphotos-frc3/t1/1463651_237800966382557_514520905_n.png)
+![alt tag](http://oi57.tinypic.com/2cgh7oy.jpg)
+SubcategoryView
 
+![alt tag](http://oi60.tinypic.com/1z3tmq1.jpg)
+User profile
 
 Original idea by:
 
