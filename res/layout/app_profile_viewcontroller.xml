@@ -22,7 +22,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1EBF6C"/>
+        android:background="#331EBF6C"
+        android:id="@+id/app_profile_viewcontroller_overlay" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -137,7 +138,7 @@
             android:layout_marginLeft="48dp"
             android:layout_marginRight="48dp"
             android:layout_marginBottom="24dp"
-            android:id="@+id/button"
+            android:id="@+id/app_profile_viewcontroller_share"
             android:layout_above="@+id/app_profile_viewcontroller_start"
             android:layout_centerHorizontal="true" />
 
@@ -162,7 +163,7 @@
         android:textColor="#f0f0f0"
         android:textSize="36sp"
         android:gravity="center|right"
-        android:id="@+id/textView4"
+        android:id="@+id/app_profile_viewcontroller_place"
         android:layout_alignTop="@+id/app_profile_viewcontroller_avatar"
         android:layout_alignRight="@+id/app_profile_viewcontroller_points"
         android:layout_alignBottom="@+id/app_profile_viewcontroller_avatar"
