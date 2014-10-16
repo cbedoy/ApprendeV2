@@ -14,7 +14,7 @@
         android:layout_marginLeft="-96dp"
         android:layout_marginRight="-96dp"
         android:src="@drawable/profile_blur"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:id="@+id/app_profile_viewcontroller_background"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

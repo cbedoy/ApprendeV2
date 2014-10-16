@@ -12,7 +12,7 @@
         android:layout_marginLeft="-96dp"
         android:layout_marginRight="-96dp"
         android:id="@+id/imageView"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/login_blur"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />

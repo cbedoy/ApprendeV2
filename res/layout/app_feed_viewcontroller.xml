@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="-96dp"
+        android:layout_marginRight="-96dp"
+        android:src="@drawable/profile_blur"
+        android:scaleType="centerCrop"
+        android:id="@+id/app_feed_viewcontroller_background"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#331EBF6C"
+        android:id="@+id/app_feed_viewcontroller_overlay" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/app_feed_viewcontroller_avatar"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/profile_avatar"
+        app:border_width="2dp"
+        app:border_color="#66f0f0f0"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Results"
+        android:textSize="20sp"
+        android:textColor="#99f0f0f0"
+        android:background="#1EBF6C"
+        android:padding="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/app_feed_viewcontroller_avatar"
+        android:id="@+id/app_feed_viewcontroller_username"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/app_feed_viewcontroller_username"
+        android:layout_alignParentLeft="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#dd000000"
+            android:textColor="#f0f0f0"
+            android:text="Share on twitter"
+            android:id="@+id/app_feed_viewcontroller_share"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:dividerHeight="0dp"
+            android:divider="@null"
+            android:id="@+id/app_feed_viewcontroller_listview"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@+id/app_feed_viewcontroller_share" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="12dp"
+        android:src="@drawable/ic_launcher"
+        android:id="@+id/app_feed_viewcontroller_icon"
+        android:layout_alignTop="@+id/app_feed_viewcontroller_avatar"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>
