@@ -40,4 +40,9 @@ public class CategoryBusinessController extends BusinessController implements IC
     public void userSelectedCategory(HashMap<String, Object> categoryData) {
 
     }
+
+    @Override
+    public void getCategories() {
+
+    }
 }

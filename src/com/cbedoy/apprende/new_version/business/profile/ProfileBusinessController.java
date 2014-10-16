@@ -40,4 +40,9 @@ public class ProfileBusinessController extends BusinessController implements IPr
     public void userSelectedStartToLearn() {
 
     }
+
+    @Override
+    public void getProfileByUser() {
+
+    }
 }

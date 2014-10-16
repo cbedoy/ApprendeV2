@@ -41,4 +41,9 @@ public class PreviewBusinessController extends BusinessController implements IPr
     public void userSelectedApprende() {
 
     }
+
+    @Override
+    public void getPreview() {
+
+    }
 }

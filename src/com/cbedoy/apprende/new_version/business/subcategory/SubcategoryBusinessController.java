@@ -40,4 +40,9 @@ public class SubcategoryBusinessController extends BusinessController implements
     public void userSelectedCategory(HashMap<String, Object> subcategoryInformation) {
 
     }
+
+    @Override
+    public void getSubcategories() {
+
+    }
 }

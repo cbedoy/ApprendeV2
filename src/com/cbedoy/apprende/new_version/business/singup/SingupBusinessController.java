@@ -40,4 +40,9 @@ public class SingupBusinessController extends BusinessController implements ISin
     public void userSelectedSingup() {
 
     }
+
+    @Override
+    public void startSingup() {
+
+    }
 }

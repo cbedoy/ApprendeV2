@@ -52,4 +52,34 @@ public class MasterBusinessController extends BusinessController implements ICat
     public void startApprendeApp(){
 
     }
+
+    @Override
+    public void presentCategoryView() {
+
+    }
+
+    @Override
+    public void userAuthenticated() {
+
+    }
+
+    @Override
+    public void presentPreview() {
+
+    }
+
+    @Override
+    public void presentProfile() {
+
+    }
+
+    @Override
+    public void userRegistred() {
+
+    }
+
+    @Override
+    public void presentSubcategories() {
+
+    }
 }

@@ -40,4 +40,9 @@ public class LoginBusinessController extends BusinessController implements ILogi
     public void loginWithData(String username, String password) {
 
     }
+
+    @Override
+    public void startLogin() {
+
+    }
 }
