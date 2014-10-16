@@ -6,6 +6,9 @@ import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileInfor
 import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileRepresentationDelegate;
 import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileRepresentationHandler;
 import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileTransactionDelegate;
+import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileTransactionHandler;
+
+import java.util.HashMap;
 
 /**
  * Created by Carlos on 15/10/2014.
@@ -14,7 +17,7 @@ public class ProfileBusinessController extends BusinessController implements IPr
 {
     private IProfileRepresentationHandler profileRepresentationHandler;
     private IProfileInformationHandler profileInformationHandler;
-    private IProfileTransactionDelegate profileTransactionDelegate;
+    private IProfileTransactionHandler profileTransactionHandler;
 
     public void setProfileInformationHandler(IProfileInformationHandler profileInformationHandler) {
         this.profileInformationHandler = profileInformationHandler;
@@ -24,7 +27,17 @@ public class ProfileBusinessController extends BusinessController implements IPr
         this.profileRepresentationHandler = profileRepresentationHandler;
     }
 
-    public void setProfileTransactionDelegate(IProfileTransactionDelegate profileTransactionDelegate) {
-        this.profileTransactionDelegate = profileTransactionDelegate;
+    public void setProfileTransactionHandler(IProfileTransactionHandler profileTransactionHandler) {
+        this.profileTransactionHandler = profileTransactionHandler;
+    }
+
+    @Override
+    public void profileResponse(HashMap<String, Object> response) {
+
+    }
+
+    @Override
+    public void userSelectedStartToLearn() {
+
     }
 }

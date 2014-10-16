@@ -1,376 +1,149 @@
 package com.cbedoy.apprende.new_version.service;
 
-import org.pademobile.com.currency.interfaces.ICurrencyInformationDelegate;
-import org.pademobile.com.currency.interfaces.ICurrencyInformationHandler;
-import org.pademobile.com.interfaces.IMementoHandler;
-import org.pademobile.com.interfaces.IRestService;
-import org.pademobile.com.login.interfaces.ILoginInformationDelegate;
-import org.pademobile.com.login.interfaces.ILoginInformationHandler;
-import org.pademobile.com.objects.Memento;
-import org.pademobile.com.payment.interfaces.IPaymentOriginsInformationDelegate;
-import org.pademobile.com.payment.interfaces.IPaymentOriginsInformationHandler;
-import org.pademobile.com.serviceinformation.interfaces.IServiceInformationInformationDelegate;
-import org.pademobile.com.serviceinformation.interfaces.IServiceInformationInformationHandler;
-import org.pademobile.com.usercertification.interfaces.IUserCertificationInformationDelegate;
-import org.pademobile.com.usercertification.interfaces.IUserCertificationInformationHandler;
-import org.pademobile.com.userselector.interfaces.IUserSelectorInformationDelegate;
-import org.pademobile.com.userselector.interfaces.IUserSelectorInformationHandler;
-import org.pademobile.com.wallet.interfaces.IWalletInformationDelegate;
-import org.pademobile.com.wallet.interfaces.IWalletInformationHandler;
-import org.pademobile.com.walletselector.interfaces.IWalletSelectorInformationDelegate;
-import org.pademobile.com.walletselector.interfaces.IWalletSelectorInformationHandler;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+
+import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryInformationDelegate;
+import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryInformationHandler;
+import com.cbedoy.apprende.new_version.business.login.interfaces.ILoginInformationDelegate;
+import com.cbedoy.apprende.new_version.business.login.interfaces.ILoginInformationHandler;
+import com.cbedoy.apprende.new_version.business.preview.interfaces.IPreviewInformationDelegate;
+import com.cbedoy.apprende.new_version.business.preview.interfaces.IPreviewInformationHandler;
+import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileInformationDelegate;
+import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileInformationHandler;
+import com.cbedoy.apprende.new_version.business.singup.interfaces.ISingupInformationDelegate;
+import com.cbedoy.apprende.new_version.business.singup.interfaces.ISingupInformationHandler;
+import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryInformationDelegate;
+import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryInformationHandler;
+import com.cbedoy.apprende.new_version.interfaces.IMementoHandler;
+import com.cbedoy.apprende.new_version.interfaces.IRestService;
+
 import java.util.HashMap;
-import java.util.Map;
 
-public class InformationService implements ILoginInformationHandler, IUserCertificationInformationHandler, IUserSelectorInformationHandler, IServiceInformationInformationHandler, ICurrencyInformationHandler, IPaymentOriginsInformationHandler, IWalletSelectorInformationHandler, IWalletInformationHandler {
+public class InformationService implements ICategoryInformationHandler, IPreviewInformationHandler, ISubcategoryInformationHandler, ISingupInformationHandler, ILoginInformationHandler, IProfileInformationHandler {
 
-    private IRestService mRestService;
-    private IMementoHandler mMementoHandler;
-    private ILoginInformationDelegate mLoginController;
-    private ICurrencyInformationDelegate mCurrenciesController;
-    private IUserSelectorInformationDelegate mUserSelectorController;
-    private IPaymentOriginsInformationDelegate mPaymentOriginsController;
-    private IWalletSelectorInformationDelegate mWalletSelectorController;
-    private IUserCertificationInformationDelegate mCertificationController;
-    private IServiceInformationInformationDelegate mServiceInformationController;
+    private IRestService restService;
+    private IMementoHandler mementoHandler;
+    private ICategoryInformationDelegate categoryInformationDelegate;
+    private ISubcategoryInformationDelegate subcategoryInformationDelegate;
+    private IPreviewInformationDelegate previewInformationDelegate;
+    private IProfileInformationDelegate profileInformationDelegate;
+    private ILoginInformationDelegate loginInformationDelegate;
+    private ISingupInformationDelegate singupInformationHandler;
 
-    public void setRestService(IRestService restService) {
-        mRestService = restService;
+    public void setCategoryInformationDelegate(ICategoryInformationDelegate categoryInformationDelegate) {
+        this.categoryInformationDelegate = categoryInformationDelegate;
+    }
+
+    public void setLoginInformationDelegate(ILoginInformationDelegate loginInformationDelegate) {
+        this.loginInformationDelegate = loginInformationDelegate;
     }
 
     public void setMementoHandler(IMementoHandler mementoHandler) {
-        mMementoHandler = mementoHandler;
+        this.mementoHandler = mementoHandler;
     }
 
-    public void setLoginController(ILoginInformationDelegate loginController) {
-        mLoginController = loginController;
+    public void setPreviewInformationDelegate(IPreviewInformationDelegate previewInformationDelegate) {
+        this.previewInformationDelegate = previewInformationDelegate;
     }
 
-    public void setCurrenciesController(ICurrencyInformationDelegate currencyController) {
-        mCurrenciesController = currencyController;
+    public void setProfileInformationDelegate(IProfileInformationDelegate profileInformationDelegate) {
+        this.profileInformationDelegate = profileInformationDelegate;
     }
 
-    public void setUserSelectorController(IUserSelectorInformationDelegate userSelectorController) {
-        mUserSelectorController = userSelectorController;
+    public void setRestService(IRestService restService) {
+        this.restService = restService;
     }
 
-    public void setCertificationController(IUserCertificationInformationDelegate certificationController) {
-        mCertificationController = certificationController;
+    public void setSingupInformationHandler(ISingupInformationDelegate singupInformationHandler) {
+        this.singupInformationHandler = singupInformationHandler;
     }
 
-    public void setWalletSelectorController(IWalletSelectorInformationDelegate walletSelectorController) {
-        mWalletSelectorController = walletSelectorController;
-    }
-
-    public void setPaymentOriginsController(IPaymentOriginsInformationDelegate paymentOriginsController) {
-        mPaymentOriginsController = paymentOriginsController;
-    }
-
-    public void setServiceInformationController(IServiceInformationInformationDelegate serviceInformationController) {
-        mServiceInformationController = serviceInformationController;
+    public void setSubcategoryInformationDelegate(ISubcategoryInformationDelegate subcategoryInformationDelegate) {
+        this.subcategoryInformationDelegate = subcategoryInformationDelegate;
     }
 
     @Override
-    public void login() {
-        String url = "/ws/users.py/login";
-        Memento memento = mMementoHandler.getTopMemento();
+    public void performCategoriesRequest() {
+
+    }
+
+    @Override
+    public void performLoginRequest() {
+        String url = "url";
+        Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
-
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("pin", data.get("pin"));
-        parameters.put("nick", data.get("nick"));
-        parameters.put("codigo_pais", data.get("codigo_pais"));
-        parameters.put("idioma", data.get("idioma"));
-
+        //TODO get parameters from memento
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                mLoginController.loginResponse(response);
+                loginInformationDelegate.loginResponse(response);
             }
         };
-
-        mRestService.request(url, parameters, callback);
+        restService.request(url, parameters, callback);
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public void sendReferences() {
-        String url = "/ws/netverify.py/finalizar";
-        Memento memento = mMementoHandler.getTopMemento();
+    public void performPreviewRequest() {
+        String url = "url";
+        Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
-        HashMap<String, Object> login_response = (HashMap<String, Object>) data.get("login_response");
-
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("id_usuario", login_response.get("id_usuario"));
-        parameters.put("id_sesion", login_response.get("id_sesion"));
-        parameters.put("codigo_pais", data.get("codigo_pais"));
-        parameters.put("idioma", data.get("idioma"));
-        parameters.put("merchantIdScanReference", data.get("generated_scan_reference"));
-        parameters.put("jumioIdScanReference", data.get("external_scan_reference"));
-        parameters.put("email", data.get("user_email"));
-
+        //TODO get parameters from memento
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                mCertificationController.sendReferencesResponse(response);
+                previewInformationDelegate.previewResponse(response);
             }
         };
-
-        mRestService.request(url, parameters, callback);
+        restService.request(url, parameters, callback);
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public void getAvailableUsers() {
-        Memento memento = mMementoHandler.getTopMemento();
+    public void performProfileRequest() {
+        String url = "url";
+        Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
-
-        HashMap<String, Object> targetUser = (HashMap<String, Object>) data.get("target_user");
-        ArrayList<HashMap<String, Object>> usersList = (ArrayList<HashMap<String, Object>>) data.get("users_list");
-
-        ArrayList<HashMap<String, Object>> responseList = new ArrayList<HashMap<String, Object>>();
-        if (targetUser != null) {
-            responseList.add(targetUser);
-        }
-        if (usersList != null) {
-            responseList.addAll(usersList);
-        }
-
-        HashMap<String, Object> response = new HashMap<String, Object>();
-        response.put("status", true);
-        response.put("users_list", responseList);
-
-        mUserSelectorController.availableUsersResponse(response);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public void requestServiceInformation() {
-        String url = "/ws/util.py/get_caracteristicas";
-        Memento memento = mMementoHandler.getTopMemento();
-        HashMap<String, Object> data = memento.getMementoData();
-        HashMap<String, Object> loginResponse = (HashMap<String, Object>) data.get("login_response");
-        HashMap<String, Object> targetUser = (HashMap<String, Object>) data.get("target_user");
-
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("id_usuario", loginResponse.get("id_usuario"));
-        parameters.put("id_sesion", loginResponse.get("id_sesion"));
-        parameters.put("codigo_pais", data.get("codigo_pais"));
-        parameters.put("idioma", data.get("idioma"));
-
-        String entry = data.get("punto_de_entrada").toString();
-        if (entry.compareToIgnoreCase("enviodinero") == 0 && data.get("codigo_pais").toString().compareToIgnoreCase(targetUser.get("codigo_pais").toString()) != 0)
-            entry = "remesadirigida";
-        parameters.put("punto_de_entrada", entry);
-
+        //TODO get parameters from memento
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                mServiceInformationController.serviceInformationResponse(response);
+                profileInformationDelegate.profileResponse(response);
             }
         };
-
-        mRestService.request(url, parameters, callback);
+        restService.request(url, parameters, callback);
     }
 
     @Override
-    public void getAvailableCurrencies() {
-        String url = "/ws/divisas.py/listado";
-        Memento memento = mMementoHandler.getTopMemento();
+    public void performSingupRequest() {
+        String url = "url";
+        Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
-
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("idioma", data.get("idioma"));
-        parameters.put("seleccion", true);
-
+        //TODO get parameters from memento
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                mCurrenciesController.currenciesResponse(response);
+                singupInformationHandler.singupResponse(response);
             }
         };
-
-        mRestService.request(url, parameters, callback);
+        restService.request(url, parameters, callback);
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public void requestPaymentOrigins() {
-        String url = "/ws/origenesdefondos.py/gestor_origenes_propios";
-        Memento memento = mMementoHandler.getTopMemento();
+    public void performSubcategoryRequest() {
+        String url = "url";
+        Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
-        HashMap<String, Object> loginResponse = (HashMap<String, Object>) data.get("login_response");
-
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("id_usuario", loginResponse.get("id_usuario"));
-        parameters.put("id_sesion", loginResponse.get("id_sesion"));
-        parameters.put("codigo_pais", data.get("codigo_pais"));
-        parameters.put("idioma", data.get("idioma"));
-        parameters.put("comando", "listado");
-
+        //TODO get parameters from memento
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                mPaymentOriginsController.paymentOriginsResponse(response);
+                subcategoryInformationDelegate.subcategoryResponse(response);
             }
         };
-
-        mRestService.request(url, parameters, callback);
+        restService.request(url, parameters, callback);
     }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public void deletePaymentOrigin() {
-        String url = "/ws/origenesdefondos.py/gestor_origenes_propios";
-        Memento memento = mMementoHandler.getTopMemento();
-        HashMap<String, Object> data = memento.getMementoData();
-        HashMap<String, Object> loginResponse = (HashMap<String, Object>) data.get("login_response");
-        HashMap<String, Object> paymentOrigin = (HashMap<String, Object>) data.get("deleted_origin");
-
-        HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("id_usuario", loginResponse.get("id_usuario"));
-        parameters.put("id_sesion", loginResponse.get("id_sesion"));
-        parameters.put("codigo_pais", data.get("codigo_pais"));
-        parameters.put("idioma", data.get("idioma"));
-        parameters.put("comando", "borrar");
-        parameters.put("id_origen_o_perfil", paymentOrigin.get("id"));
-
-        IRestService.IRestCallback callback = new IRestService.IRestCallback() {
-            @Override
-            public void run(HashMap<String, Object> response) {
-                mPaymentOriginsController.deletePaymentOriginResponse(response);
-            }
-        };
-
-        mRestService.request(url, parameters, callback);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public void setPreferredPaymentOrigin() {
-        try {
-            Memento memento = mMementoHandler.getTopMemento();
-            HashMap<String, Object> data = memento.getMementoData();
-            HashMap<String, Object> paymentOrigin = (HashMap<String, Object>) data.get("preferred_origin");
-
-            String id = paymentOrigin.get("id").toString();
-            Method method = mPaymentOriginsController.getClass().getDeclaredMethod("preferredPaymentOriginResponse", HashMap.class);
-
-            setPreferredPaymentOrigin(id, mPaymentOriginsController, method);
-        } catch (Exception ex) {
-            HashMap<String, Object> response = new HashMap<String, Object>();
-            response.put("status", false);
-            response.put("error", "java_lang_reflect_method");
-            response.put("message", "Unknown Declared Method");
-
-            mPaymentOriginsController.preferredPaymentOriginResponse(response);
-        }
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public void getAvailableWallets() {
-        Memento memento = mMementoHandler.getTopMemento();
-        HashMap<String, Object> data = memento.getMementoData();
-        HashMap<String, Object> paymentOriginsResponse = (HashMap<String, Object>) data.get("payment_origins_response");
-        HashMap<String, Object> resultado = (HashMap<String, Object>) paymentOriginsResponse.get("resultado");
-        ArrayList<HashMap<String, Object>> creadores = (ArrayList<HashMap<String, Object>>) resultado.get("creadores");
-
-        HashMap<String, Object> response = new HashMap<String, Object>();
-        response.put("status", true);
-        response.put("available_wallets", creadores);
-
-        mWalletSelectorController.availableWalletsResponse(response);
-    }
-
-    @SuppressWarnings("unchecked")
-    private void setPreferredPaymentOrigin(String id, final Object receiver, final Method method) {
-        String url = "/ws/origenesdefondos.py/gestor_origenes_propios";
-        Memento memento = mMementoHandler.getTopMemento();
-        HashMap<String, Object> data = memento.getMementoData();
-        HashMap<String, Object> loginResponse = (HashMap<String, Object>) data.get("login_response");
-
-        HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("id_usuario", loginResponse.get("id_usuario"));
-        parameters.put("id_sesion", loginResponse.get("id_sesion"));
-        parameters.put("codigo_pais", data.get("codigo_pais"));
-        parameters.put("idioma", data.get("idioma"));
-        parameters.put("comando", "cambiar_por_defecto");
-        parameters.put("id_origen_o_perfil", id);
-
-        IRestService.IRestCallback callback = new IRestService.IRestCallback() {
-            @Override
-            public void run(HashMap<String, Object> response) {
-                try {
-                    method.invoke(receiver, response);
-                } catch (Exception ex) {
-
-                }
-            }
-        };
-
-        mRestService.request(url, parameters, callback);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public void addWallet() {
-        String url = "/ws/origenesdefondos.py/gestor_origenes_propios";
-        Memento memento = mMementoHandler.getTopMemento();
-        HashMap<String, Object> data = memento.getMementoData();
-        HashMap<String, Object> loginResponse = (HashMap<String, Object>) data.get("login_response");
-        HashMap<String, Object> selectedWallet = (HashMap<String, Object>) data.get("selected_wallet");
-        HashMap<String, Object> walletParameters = (HashMap<String, Object>) data.get("wallet_parameters");
-        final IWalletInformationDelegate walletController = (IWalletInformationDelegate) data.get("wallet_controller");
-
-        HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("id_usuario", loginResponse.get("id_usuario"));
-        parameters.put("id_sesion", loginResponse.get("id_sesion"));
-        parameters.put("codigo_pais", data.get("codigo_pais"));
-        parameters.put("idioma", data.get("idioma"));
-        parameters.put("comando", "crear");
-        parameters.put("id_origen_o_perfil", selectedWallet.get("id"));
-
-        for (Map.Entry<String, Object> entry : walletParameters.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            parameters.put(key, value);
-        }
-
-        IRestService.IRestCallback callback = new IRestService.IRestCallback() {
-            @Override
-            public void run(HashMap<String, Object> response) {
-                boolean status = (Boolean) response.get("status");
-                if (status) {
-                    HashMap<String, Object> data = new HashMap<String, Object>();
-                    data.put("wallet_response", response);
-                    mMementoHandler.setStateForOwner(data, this);
-
-                    HashMap<String, Object> resultado = (HashMap<String, Object>) response.get("resultado");
-                    String idOrigenCreado = resultado.get("id_origen_creado").toString();
-
-                    try {
-                        Method method = walletController.getClass().getDeclaredMethod("addWalletResponse", HashMap.class);
-
-                        setPreferredPaymentOrigin(idOrigenCreado, walletController, method);
-                    } catch (Exception ex) {
-                        HashMap<String, Object> internalResponse = new HashMap<String, Object>();
-                        internalResponse.put("status", false);
-                        internalResponse.put("error", "java_lang_reflect_method");
-                        internalResponse.put("message", "Unknown Declared Method");
-
-                        walletController.addWalletResponse(internalResponse);
-                    }
-                } else {
-                    walletController.addWalletResponse(response);
-                }
-            }
-        };
-
-        mRestService.request(url, parameters, callback);
-    }
-
 }

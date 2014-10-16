@@ -48,4 +48,8 @@ public class MasterBusinessController extends BusinessController implements ICat
     public void setSubcategoryTransactionDelegate(ISubcategoryTransactionDelegate subcategoryTransactionDelegate) {
         this.subcategoryTransactionDelegate = subcategoryTransactionDelegate;
     }
+
+    public void startApprendeApp(){
+
+    }
 }

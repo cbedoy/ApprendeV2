@@ -8,6 +8,8 @@ import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryRep
 import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryTransactionDelegate;
 import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryTransactionHandler;
 
+import java.util.HashMap;
+
 /**
  * Created by Carlos on 15/10/2014.
  */
@@ -27,5 +29,15 @@ public class CategoryBusinessController extends BusinessController implements IC
 
     public void setCategoryTransactionHandler(ICategoryTransactionHandler categoryTransactionHandler) {
         this.categoryTransactionHandler = categoryTransactionHandler;
+    }
+
+    @Override
+    public void categoryResponse(HashMap<String, Object> response) {
+
+    }
+
+    @Override
+    public void userSelectedCategory(HashMap<String, Object> categoryData) {
+
     }
 }

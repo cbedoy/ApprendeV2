@@ -70,4 +70,14 @@ public class SingUpViewController extends AbstractViewController implements ISin
     public void reload() {
 
     }
+
+    @Override
+    public void showSingupView() {
+
+    }
+
+    @Override
+    public void clearInputs() {
+
+    }
 }

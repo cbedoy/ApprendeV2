@@ -8,6 +8,8 @@ import com.cbedoy.apprende.new_version.business.singup.interfaces.ISingupReprese
 import com.cbedoy.apprende.new_version.business.singup.interfaces.ISingupTransactionDelegate;
 import com.cbedoy.apprende.new_version.business.singup.interfaces.ISingupTransactionHandler;
 
+import java.util.HashMap;
+
 /**
  * Created by Carlos on 15/10/2014.
  */
@@ -27,5 +29,15 @@ public class SingupBusinessController extends BusinessController implements ISin
 
     public void setSingupTransactionHandler(ISingupTransactionHandler singupTransactionHandler) {
         this.singupTransactionHandler = singupTransactionHandler;
+    }
+
+    @Override
+    public void singupResponse(HashMap<String, Object> response) {
+
+    }
+
+    @Override
+    public void userSelectedSingup() {
+
     }
 }

@@ -8,6 +8,8 @@ import com.cbedoy.apprende.new_version.business.login.interfaces.ILoginRepresent
 import com.cbedoy.apprende.new_version.business.login.interfaces.ILoginTransactionDelegate;
 import com.cbedoy.apprende.new_version.business.login.interfaces.ILoginTransactionHandler;
 
+import java.util.HashMap;
+
 /**
  * Created by Carlos on 15/10/2014.
  */
@@ -27,5 +29,15 @@ public class LoginBusinessController extends BusinessController implements ILogi
 
     public void setLoginTransactionHandler(ILoginTransactionHandler loginTransactionHandler) {
         this.loginTransactionHandler = loginTransactionHandler;
+    }
+
+    @Override
+    public void loginResponse(HashMap<String, Object> response) {
+
+    }
+
+    @Override
+    public void loginWithData(String username, String password) {
+
     }
 }

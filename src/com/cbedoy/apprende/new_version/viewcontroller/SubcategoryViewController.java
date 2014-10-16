@@ -9,6 +9,8 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryRepresentationDelegate;
 import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryRepresentationHandler;
 
+import java.util.HashMap;
+
 /**
  * Created by Carlos on 14/10/2014.
  */
@@ -32,6 +34,11 @@ public class SubcategoryViewController extends AbstractViewController implements
 
     @Override
     public void reload() {
+
+    }
+
+    @Override
+    public void showSubcategoryViewWithData(HashMap<String, Object> data) {
 
     }
 }

@@ -11,6 +11,8 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileRepresentationDelegate;
 import com.cbedoy.apprende.new_version.business.profile.interfaces.IProfileRepresentationHandler;
 
+import java.util.HashMap;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -68,6 +70,21 @@ public class ProfileViewController extends AbstractViewController implements IPr
 
     @Override
     public void reload() {
+
+    }
+
+    @Override
+    public void showPreviewViewWithData(HashMap<String, Object> userInformation) {
+
+    }
+
+    @Override
+    public void showAvatarView(String avatarBase64) {
+
+    }
+
+    @Override
+    public void animateBlurBackground() {
 
     }
 }

@@ -44,4 +44,19 @@ public class LoginViewController extends AbstractViewController implements ILogi
     public void reload() {
 
     }
+
+    @Override
+    public void showLoginView() {
+
+    }
+
+    @Override
+    public void cleanLoginViewFields() {
+
+    }
+
+    @Override
+    public void animateEasterEgg() {
+
+    }
 }

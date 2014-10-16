@@ -9,6 +9,8 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryRepresentationDelegate;
 import com.cbedoy.apprende.new_version.business.category.interfaces.ICategoryRepresentationHandler;
 
+import java.util.HashMap;
+
 /**
  * Created by Carlos on 14/10/2014.
  */
@@ -32,6 +34,11 @@ public class CategoryViewController extends AbstractViewController implements IC
 
     @Override
     public void reload() {
+
+    }
+
+    @Override
+    public void showCategoryViewWithData(HashMap<String, Object> data) {
 
     }
 }

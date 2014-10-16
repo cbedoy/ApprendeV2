@@ -8,6 +8,8 @@ import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcateg
 import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryTransactionDelegate;
 import com.cbedoy.apprende.new_version.business.subcategory.interfaces.ISubcategoryTransactionHandler;
 
+import java.util.HashMap;
+
 /**
  * Created by Carlos on 15/10/2014.
  */
@@ -27,5 +29,15 @@ public class SubcategoryBusinessController extends BusinessController implements
 
     public void setSubcategoryTransactionHandler(ISubcategoryTransactionHandler subcategoryTransactionHandler) {
         this.subcategoryTransactionHandler = subcategoryTransactionHandler;
+    }
+
+    @Override
+    public void subcategoryResponse(HashMap<String, Object> response) {
+
+    }
+
+    @Override
+    public void userSelectedCategory(HashMap<String, Object> subcategoryInformation) {
+
     }
 }

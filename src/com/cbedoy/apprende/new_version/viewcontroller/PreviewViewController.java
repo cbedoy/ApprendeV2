@@ -11,6 +11,8 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.new_version.business.preview.interfaces.IPreviewRepresentationDelegate;
 import com.cbedoy.apprende.new_version.business.preview.interfaces.IPreviewRepresentationHandler;
 
+import java.util.HashMap;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -50,6 +52,16 @@ public class PreviewViewController extends AbstractViewController implements IPr
 
     @Override
     public void reload() {
+
+    }
+
+    @Override
+    public void showPreviewWithData(HashMap<String, Object> previewInformation) {
+
+    }
+
+    @Override
+    public void showBackground(String base64image) {
 
     }
 }

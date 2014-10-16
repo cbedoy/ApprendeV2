@@ -22,8 +22,6 @@ import java.util.Locale;
 
 public class ImageService {
 
-    public static String mPademobileImagesUrl = "https://staging.pademobile.com:700/static/pademobile/images/";
-
     private static int mActionBarSize;
     private static int mStatusBarSize;
     private static int mNavigationBarSize;
@@ -123,22 +121,6 @@ public class ImageService {
     public static float getScaledScreenDensity() {
         return mMetrics.scaledDensity;
     }
-
-    /*switch (unit) {
-        case COMPLEX_UNIT_PX:
-            return value;
-        case COMPLEX_UNIT_DIP:
-            return value * metrics.density;
-        case COMPLEX_UNIT_SP:
-            return value * metrics.scaledDensity;
-        case COMPLEX_UNIT_PT:
-            return value * metrics.xdpi * (1.0f/72);
-        case COMPLEX_UNIT_IN:
-            return value * metrics.xdpi;
-        case COMPLEX_UNIT_MM:
-            return value * metrics.xdpi * (1.0f/25.4f);
-        }
-        return 0;*/
 
     public static float getPXsFromDPs(float dp) {
         float px = dp * getXDpi() / DisplayMetrics.DENSITY_DEFAULT;

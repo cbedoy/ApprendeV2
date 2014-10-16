@@ -45,20 +45,20 @@ public class InjectionManager
     private InjectionManager() {
         switch (this.env) {
             case 0: //dev
-                this.rest_port = 70;
-                this.rest_url = "http://staging.pademobile.com:";
+                this.rest_port = 0;
+                this.rest_url = "";
                 break;
             case 1: //pre
-                this.rest_port = 50;
-                this.rest_url = "http://staging.pademobile.com:";
+                this.rest_port = 0;
+                this.rest_url = "";
                 break;
             case 2: //pro
-                this.rest_port = 50;
-                this.rest_url = "https://www.pademobile.com:";
+                this.rest_port = 0;
+                this.rest_url = "";
                 break;
             default:
                 this.rest_port = 70;
-                this.rest_url = "http://staging.pademobile.com:";
+                this.rest_url = "";
                 break;
         }
     }
@@ -82,8 +82,6 @@ public class InjectionManager
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
         Bitmap imageBlur = BlurService.getInstance().blurRenderScript(bitmap, context);
 
-        MasterBusinessController masterBusinessController = new MasterBusinessController();
-
         RestService restService = new RestService();
         restService.setURL(this.rest_url);
         restService.setPort(this.rest_port);
@@ -94,8 +92,9 @@ public class InjectionManager
             data.put(key, extras.get(key));
         mementoHandler.setStateForOwner(data, this);
 
-
         NotificationMessages notificationMessages = new NotificationMessages();
+        InformationService informationService = new InformationService();
+        MasterBusinessController masterBusinessController = new MasterBusinessController();
 
         masterBusinessController.setMessageRepresentationHandler(notificationMessages);
         masterBusinessController.setMementoHandler(mementoHandler);
@@ -106,6 +105,8 @@ public class InjectionManager
         loginBusinessController.setMementoHandler(mementoHandler);
         loginBusinessController.setMessageRepresentationHandler(notificationMessages);
         loginBusinessController.setLoginRepresentationHandler(loginViewController);
+        loginBusinessController.setLoginInformationHandler(informationService);
+        loginBusinessController.setLoginTransactionHandler(masterBusinessController);
         loginViewController.setAppViewManager(appViewManager);
         loginViewController.setContext(context);
         loginViewController.setNotificationMessages(notificationMessages);
@@ -119,6 +120,8 @@ public class InjectionManager
         singupBusinessController.setMementoHandler(mementoHandler);
         singupBusinessController.setMessageRepresentationHandler(notificationMessages);
         singupBusinessController.setSingupRepresentationHandler(singUpViewController);
+        singupBusinessController.setSingupInformationHandler(informationService);
+        singupBusinessController.setSingupTransactionHandler(masterBusinessController);
         singUpViewController.setAppViewManager(appViewManager);
         singUpViewController.setContext(context);
         singUpViewController.setNotificationMessages(notificationMessages);
@@ -132,6 +135,8 @@ public class InjectionManager
         profileBusinessController.setMessageRepresentationHandler(notificationMessages);
         profileBusinessController.setMementoHandler(mementoHandler);
         profileBusinessController.setProfileRepresentationHandler(profileViewController);
+        profileBusinessController.setProfileInformationHandler(informationService);
+        profileBusinessController.setProfileTransactionHandler(masterBusinessController);
         profileViewController.setAppViewManager(appViewManager);
         profileViewController.setContext(context);
         profileViewController.setNotificationMessages(notificationMessages);
@@ -145,6 +150,8 @@ public class InjectionManager
         categoryBusinessController.setMementoHandler(mementoHandler);
         categoryBusinessController.setMessageRepresentationHandler(notificationMessages);
         categoryBusinessController.setCategoryRepresentationHandler(categoryViewController);
+        categoryBusinessController.setCategoryInformationHandler(informationService);
+        categoryBusinessController.setCategoryTransactionHandler(masterBusinessController);
         categoryViewController.setAppViewManager(appViewManager);
         categoryViewController.setContext(context);
         categoryViewController.setNotificationMessages(notificationMessages);
@@ -158,6 +165,8 @@ public class InjectionManager
         subcategoryBusinessController.setMessageRepresentationHandler(notificationMessages);
         subcategoryBusinessController.setMementoHandler(mementoHandler);
         subcategoryBusinessController.setSubcategoryRepresentationHandler(subcategoryViewController);
+        subcategoryBusinessController.setSubcategoryTransactionHandler(masterBusinessController);
+        subcategoryBusinessController.setSubcategoryInformationHandler(informationService);
         subcategoryViewController.setAppViewManager(appViewManager);
         subcategoryViewController.setContext(context);
         subcategoryViewController.setNotificationMessages(notificationMessages);
@@ -171,6 +180,8 @@ public class InjectionManager
         previewBusinessController.setMessageRepresentationHandler(notificationMessages);
         previewBusinessController.setMementoHandler(mementoHandler);
         previewBusinessController.setPreviewRepresentationHandler(previewViewController);
+        previewBusinessController.setPreviewTransactionHandler(masterBusinessController);
+        previewBusinessController.setPreviewInformationHandler(informationService);
         previewViewController.setAppViewManager(appViewManager);
         previewViewController.setContext(context);
         previewViewController.setNotificationMessages(notificationMessages);
@@ -178,12 +189,22 @@ public class InjectionManager
         previewViewController.setPreviewRepresentationDelegate(previewBusinessController);
         appViewManager.addViewWithTag(previewViewController, tag);
 
+        informationService.setCategoryInformationDelegate(categoryBusinessController);
+        informationService.setLoginInformationDelegate(loginBusinessController);
+        informationService.setPreviewInformationDelegate(previewBusinessController);
+        informationService.setSubcategoryInformationDelegate(subcategoryBusinessController);
+        informationService.setProfileInformationDelegate(profileBusinessController);
+        informationService.setSingupInformationHandler(singupBusinessController);
+        informationService.setRestService(restService);
+        informationService.setMementoHandler(mementoHandler);
+
         masterBusinessController.setCategoryTransactionDelegate(categoryBusinessController);
         masterBusinessController.setLoginTransactionDelegate(loginBusinessController);
         masterBusinessController.setPreviewTransactionDelegate(previewBusinessController);
         masterBusinessController.setSingupTransactionDelegate(singupBusinessController);
         masterBusinessController.setSubcategoryTransactionDelegate(subcategoryBusinessController);
         masterBusinessController.setProfileTransactionDelegate(profileBusinessController);
+
 
     }
 }
