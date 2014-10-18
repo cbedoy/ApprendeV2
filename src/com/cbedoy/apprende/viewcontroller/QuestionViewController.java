@@ -56,6 +56,6 @@ public class QuestionViewController extends AbstractViewController implements IQ
 
     @Override
     public void showQuestionary() {
-
+        this.appViewManager.presentViewForTag(this.tag);
     }
 }

@@ -130,6 +130,9 @@ public class InjectionManager
         singUpViewController.setTag(tag);
         singUpViewController.setSingupRepresentationDelegate(singupBusinessController);
         appViewManager.addViewWithTag(singUpViewController, tag);
+        apprendeActivity.setCameraInformationDelegate(singUpViewController);
+        singUpViewController.setCameraInformationHandler(apprendeActivity);
+
 
         tag = "ProfileViewController";
         ProfileViewController profileViewController = new ProfileViewController();

@@ -3,6 +3,7 @@ package com.cbedoy.apprende.viewcontroller;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,6 +38,16 @@ public class LoginViewController extends AbstractViewController implements ILogi
         actionLogin = (Button) view.findViewById(R.id.app_login_viewcontroller_login);
         actionSingup = (Button) view.findViewById(R.id.app_login_viewcontroller_singup);
         title = (TextView) view.findViewById(R.id.app_login_viewcontroller_tittle);
+        actionLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String _username = username.getText().toString();
+                String _password = password.getText().toString();
+                loginRepresentationDelegate.loginWithData(_username, _password);
+                username.setText(null);
+                password.setText(null);
+            }
+        });
         return view;
     }
 
@@ -47,16 +58,18 @@ public class LoginViewController extends AbstractViewController implements ILogi
 
     @Override
     public void showLoginView() {
-
+        this.appViewManager.presentViewForTag(this.tag);
     }
 
     @Override
     public void cleanLoginViewFields() {
-
+        this.username.setText(null);
+        this.password.setText(null);
     }
 
     @Override
-    public void animateEasterEgg() {
+    public void animateEasterEgg()
+    {
 
     }
 }

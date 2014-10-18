@@ -28,7 +28,7 @@ public class PreviewViewController extends AbstractViewController implements IPr
     private TextView subcategory;
     private TextView description;
     private ImageView background;
-
+    private HashMap<String, Object> previewInformation;
     private IPreviewRepresentationDelegate previewRepresentationDelegate;
 
     public void setPreviewRepresentationDelegate(IPreviewRepresentationDelegate previewRepresentationDelegate) {
@@ -57,7 +57,8 @@ public class PreviewViewController extends AbstractViewController implements IPr
 
     @Override
     public void showPreviewWithData(HashMap<String, Object> previewInformation) {
-
+        this.appViewManager.presentViewForTag(this.tag);
+        this.previewInformation = previewInformation;
     }
 
     @Override

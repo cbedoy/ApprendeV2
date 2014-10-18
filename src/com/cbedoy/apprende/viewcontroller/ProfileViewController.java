@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.business.profile.interfaces.IProfileRepresentationDelegate;
 import com.cbedoy.apprende.business.profile.interfaces.IProfileRepresentationHandler;
+import com.cbedoy.apprende.service.TwitterService;
 
 import java.util.HashMap;
 
@@ -19,9 +20,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by Carlos on 14/10/2014.
  */
 public class ProfileViewController extends AbstractViewController implements IProfileRepresentationHandler{
+
     private CircleImageView userAvatar;
     private ImageView backgroundView;
-
     private TextView place;
     private TextView username;
     private TextView firstName;
@@ -31,6 +32,7 @@ public class ProfileViewController extends AbstractViewController implements IPr
     private View overlay;
     private Button actionShare;
     private Button actionStart;
+    private HashMap<String, Object> userInformation;
 
     private IProfileRepresentationDelegate profileRepresentationDelegate;
 
@@ -56,13 +58,13 @@ public class ProfileViewController extends AbstractViewController implements IPr
         actionShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                TwitterService.getInstance().postTweetWithInfo(userInformation);
             }
         });
         actionStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                profileRepresentationDelegate.userSelectedStartToLearn();
             }
         });
         return view;
@@ -74,8 +76,9 @@ public class ProfileViewController extends AbstractViewController implements IPr
     }
 
     @Override
-    public void showPreviewViewWithData(HashMap<String, Object> userInformation) {
-
+    public void showProfileViewWithData(HashMap<String, Object> userInformation) {
+        this.appViewManager.presentViewForTag(this.tag);
+        this.userInformation = userInformation;
     }
 
     @Override

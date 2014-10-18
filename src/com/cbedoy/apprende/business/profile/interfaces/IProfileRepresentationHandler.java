@@ -7,7 +7,7 @@ import java.util.HashMap;
  */
 public interface IProfileRepresentationHandler
 {
-    public void showPreviewViewWithData(HashMap<String, Object> userInformation);
+    public void showProfileViewWithData(HashMap<String, Object> userInformation);
     public void showAvatarView(String avatarBase64);
     public void animateBlurBackground();
 }

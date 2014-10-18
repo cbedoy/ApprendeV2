@@ -57,7 +57,7 @@ public class MasterBusinessController extends BusinessController implements ICat
     }
 
     public void startApprendeApp(){
-
+        this.loginTransactionDelegate.startLogin();
     }
 
     @Override

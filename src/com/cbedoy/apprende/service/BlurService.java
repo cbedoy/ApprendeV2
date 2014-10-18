@@ -36,8 +36,6 @@ public class BlurService
 
         rs.destroy();
 
-
-
         return output;
     }
 }

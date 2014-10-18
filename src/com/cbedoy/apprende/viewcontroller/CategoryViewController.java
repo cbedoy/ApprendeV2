@@ -3,6 +3,7 @@ package com.cbedoy.apprende.viewcontroller;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.cbedoy.apprende.R;
@@ -10,6 +11,7 @@ import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationD
 import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationHandler;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Carlos on 14/10/2014.
@@ -19,7 +21,7 @@ public class CategoryViewController extends AbstractViewController implements IC
     private ListView listView;
 
     private ICategoryRepresentationDelegate categoryRepresentationDelegate;
-
+    private List<Object> categories;
     public void setCategoryRepresentationDelegate(ICategoryRepresentationDelegate categoryRepresentationDelegate) {
         this.categoryRepresentationDelegate = categoryRepresentationDelegate;
     }
@@ -29,6 +31,13 @@ public class CategoryViewController extends AbstractViewController implements IC
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_category_viewcontroller,  null);
         listView = (ListView) view.findViewById(R.id.app_category_viewcontroller_list);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                HashMap<String, Object> category = (HashMap<String, Object>) categories.get(i);
+                categoryRepresentationDelegate.userSelectedCategory(category);
+            }
+        });
         return view;
     }
 
@@ -38,7 +47,8 @@ public class CategoryViewController extends AbstractViewController implements IC
     }
 
     @Override
-    public void showCategoryViewWithData(HashMap<String, Object> data) {
-
+    public void showCategoryViewWithData(List<Object> categories) {
+        this.appViewManager.presentViewForTag(this.tag);
+        this.categories = categories;
     }
 }

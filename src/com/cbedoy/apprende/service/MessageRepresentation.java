@@ -144,22 +144,22 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
 
 
     @Override
-    public void showCode(MESSAGE_REPRESENTATION_CODE code) {
+    public void showCode(NOTIFICATION_CODE code) {
 
     }
 
     @Override
-    public void showCodeMessage(MESSAGE_REPRESENTATION_CODE code, String message) {
+    public void showCodeMessage(NOTIFICATION_CODE code, String message) {
 
     }
 
     @Override
-    public void showCodeTitleMessage(MESSAGE_REPRESENTATION_CODE code, String title, String message) {
+    public void showCodeTitleMessage(NOTIFICATION_CODE code, String title, String message) {
 
     }
 
     @Override
-    public void showCodeTitleMessageWithCallback(MESSAGE_REPRESENTATION_CODE code, String title, String message, IMessageRepresentationCallback callback) {
+    public void showCodeTitleMessageWithCallback(NOTIFICATION_CODE code, String title, String message, IMessageRepresentationCallback callback) {
 
     }
 

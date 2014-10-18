@@ -20,6 +20,7 @@
 <resources>
 
     <style name="Theme.Apprende" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:typeface">serif</item>
         <item name="android:actionBarItemBackground">@drawable/selectable_background_apprende</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Apprende</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Apprende</item>
