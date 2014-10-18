@@ -15,40 +15,6 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Apprende" >
-        <activity
-            android:name="com.cbedoy.apprende.SplashView"
-            android:label="@string/title_activity_splash_view" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.cbedoy.apprende.LoginView"
-            android:label="@string/title_activity_login_view" >
-        </activity>
-        <activity
-            android:name="com.cbedoy.apprende.ProfileView"
-            android:label="@string/title_activity_profile_view" >
-        </activity>
-        <activity
-            android:name="com.cbedoy.apprende.ThemeView"
-            android:label="@string/title_activity_theme_view" >
-        </activity>
-        <activity
-            android:name="com.cbedoy.apprende.QuestionaryView"
-            android:label="@string/title_activity_questionary_view" >
-        </activity>
-        <activity
-            android:name="com.cbedoy.apprende.FeedView"
-            android:label="@string/title_activity_feed_view" >
-        </activity>
-        <activity
-            android:name="com.cbedoy.apprende.RegistrationView"
-            android:label="@string/title_activity_registration_view" >
-        </activity>
-    </application>
+        android:theme="@style/Theme.Apprende" ></application>
 
 </manifest>
