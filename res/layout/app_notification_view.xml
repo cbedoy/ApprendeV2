@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Develop by Carlos Bedoy"
+        android:text="Develop by Carlos Bedoy @Apprende App"
         android:textColor="#999"
         android:layout_marginBottom="24dp"
         android:id="@+id/notification_author"
@@ -26,14 +26,14 @@
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:textColor="#f0f0f0"
-        android:background="#1EBF6C"
+        android:background="@color/rank5"
         android:textSize="20sp"
         android:id="@+id/notification_accept"
         android:layout_above="@+id/notification_author"
         android:layout_centerHorizontal="true" />
 
     <RelativeLayout
-        android:background="#dd1EBF6C"
+        android:background="@color/rank5"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -43,8 +43,8 @@
         android:layout_above="@+id/notification_accept">
 
         <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:id="@+id/notification_image"
             android:layout_marginTop="48dp"
             android:src="@drawable/ic_launcher"
@@ -59,7 +59,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ooops!"
+            android:text="Apprende App"
             android:id="@+id/notification_title"
             android:layout_below="@+id/notification_image"
             android:layout_centerHorizontal="true" />
@@ -68,7 +68,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Some description about the problem, maybe you dont have internet"
+        android:text="You have answered all the questions correctly, well done!!\nkeep using Apprende"
         android:textSize="18sp"
         android:textColor="#666"
         android:layout_marginRight="24dp"
@@ -77,5 +77,5 @@
         android:id="@+id/notification_message"
         android:layout_above="@+id/notification_accept"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="72dp" />
+        android:layout_marginBottom="48dp" />
 </RelativeLayout>
