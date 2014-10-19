@@ -5,8 +5,13 @@
     android:orientation="vertical"
     android:id="@+id/background_splash"
     android:layout_width="match_parent"
-    android:background="@color/rank5"
+    android:background="@drawable/bg_app"
     android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/rank2"
+        android:layout_height="match_parent"/>
 
     <ImageView
         android:layout_width="96dp"

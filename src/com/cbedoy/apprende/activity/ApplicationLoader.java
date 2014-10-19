@@ -25,6 +25,7 @@ public class ApplicationLoader extends Application
     public static volatile Handler mainHandler = null;
     public static volatile DisplayImageOptions options;
     public static volatile ImageLoaderConfiguration config;
+
     @Override
     public void onCreate() {
         super.onCreate();

@@ -13,6 +13,7 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.activity.ApplicationLoader;
 import com.cbedoy.apprende.service.BlurService;
 import com.cbedoy.apprende.service.ImageService;
+import com.cbedoy.apprende.service.InjectionManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
@@ -27,7 +28,7 @@ public class CustomViewCell extends BaseAdapter
     private List<Object> viewModel;
     private Context context;
     private LayoutInflater layoutInflater;
-    private String MEDIA_URL = "http://10.75.181.55:8080/media/";
+
 
     public CustomViewCell(Context context, LayoutInflater layoutInflater, List<Object> viewModel)
     {
@@ -67,7 +68,7 @@ public class CustomViewCell extends BaseAdapter
             viewHolder = (ViewHolder) convertView.getTag();
         }
         HashMap<String, Object> currentModel = (HashMap<String, Object>) viewModel.get(position);
-        String string = MEDIA_URL + ((HashMap) (currentModel.get("fields"))).get("thumbnail").toString();
+        String string = InjectionManager.MEDIA_URL + ((HashMap) (currentModel.get("fields"))).get("thumbnail").toString();
         ImageLoader.getInstance().displayImage(
                 string,
                 viewHolder.imageCell,

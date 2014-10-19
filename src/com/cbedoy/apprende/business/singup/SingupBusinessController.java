@@ -65,7 +65,7 @@ public class SingupBusinessController extends BusinessController implements ISin
 
     @Override
     public void startSingup() {
-        singupTransactionHandler.userRegistred();
+        singupRepresentationHandler.showSingupView();
     }
 
     private boolean validateEmail(String email){

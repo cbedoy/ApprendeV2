@@ -132,12 +132,12 @@ public class InAppActivity extends Activity implements IAppViewManager{
         flipper.setLayoutParams(flipper_params);
 
         TranslateAnimation in = new TranslateAnimation(view_controller_width, 0, 0, 0);
-        in.setDuration(1000);
+        in.setDuration(5000);
         in.setZAdjustment(Animation.ZORDER_TOP);
         flipper.setInAnimation(in);
 
         TranslateAnimation out = new TranslateAnimation(0, -view_controller_width, 0, 0);
-        out.setDuration(1000);
+        out.setDuration(5000);
         out.setZAdjustment(Animation.ZORDER_TOP);
         flipper.setOutAnimation(out);
 
@@ -201,12 +201,12 @@ public class InAppActivity extends Activity implements IAppViewManager{
                     int ltr = child_index > displayed_child ? 1 : -1;
 
                     TranslateAnimation in = new TranslateAnimation(width * ltr, 0, 0, 0);
-                    in.setDuration(600);
+                    in.setDuration(10000);
                     in.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setInAnimation(in);
 
                     TranslateAnimation out = new TranslateAnimation(0, -width * ltr, 0, 0);
-                    out.setDuration(600);
+                    out.setDuration(10000);
                     out.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setOutAnimation(out);
 

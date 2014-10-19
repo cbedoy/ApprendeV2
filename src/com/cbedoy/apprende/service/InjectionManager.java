@@ -65,6 +65,8 @@ public class InjectionManager
         }
     }
 
+    public static final String MEDIA_URL = "http://10.75.181.55:8080/media/";
+
     public boolean isProduction() {
         return env == 2;
     }
@@ -95,6 +97,7 @@ public class InjectionManager
         mementoHandler.setStateForOwner(data, this);
 
         MessageRepresentation messageRepresentation = new MessageRepresentation(apprendeActivity);
+        LevelSelectorView levelSelectorView = new LevelSelectorView(apprendeActivity);
         InformationService informationService = new InformationService();
         MasterBusinessController masterBusinessController = new MasterBusinessController();
 
@@ -192,6 +195,8 @@ public class InjectionManager
         previewViewController.setMessageRepresentation(messageRepresentation);
         previewViewController.setTag(tag);
         previewViewController.setPreviewRepresentationDelegate(previewBusinessController);
+        previewViewController.setLevelSelectorView(levelSelectorView);
+        levelSelectorView.setLevelSelectorViewDelegate(previewViewController);
         appViewManager.addViewWithTag(previewViewController, tag);
 
         informationService.setCategoryInformationDelegate(categoryBusinessController);

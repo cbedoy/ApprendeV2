@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationDelegate;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationHandler;
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
+import com.cbedoy.apprende.service.BlurService;
 
 import java.util.HashMap;
 
@@ -23,6 +25,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SingUpViewController extends AbstractViewController implements ISingupRepresentationHandler, ICameraInformationDelegate
 {
     private CircleImageView circleImageView;
+    private ImageView backgroundImage;
     private Button actionConfirm;
     private EditText username;
     private EditText email;
@@ -60,6 +63,7 @@ public class SingUpViewController extends AbstractViewController implements ISin
         facebook = (EditText) view.findViewById(R.id.app_singup_viewcontroller_facebook);
         twitter = (EditText) view.findViewById(R.id.app_singup_viewcontroller_twitter);
         age = (EditText) view.findViewById(R.id.app_singup_viewcontroller_age);
+        backgroundImage = (ImageView) view.findViewById(R.id.app_singup_viewcontroller_background);
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +124,9 @@ public class SingUpViewController extends AbstractViewController implements ISin
 
     @Override
     public void setPreviusImage(Bitmap bitmap) {
+        Bitmap blur_bitmap = BlurService.getInstance().blurRenderScript(bitmap);
         circleImageView.setImageBitmap(bitmap);
+        backgroundImage.setImageBitmap(blur_bitmap);
+
     }
 }

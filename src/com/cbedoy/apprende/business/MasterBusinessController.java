@@ -57,7 +57,7 @@ public class MasterBusinessController extends BusinessController implements ICat
     }
 
     public void startApprendeApp(){
-        this.loginTransactionDelegate.startLogin();
+        loginTransactionDelegate.startLogin();
     }
 
     @Override
@@ -72,8 +72,12 @@ public class MasterBusinessController extends BusinessController implements ICat
     }
 
     @Override
-    public void presentPreview() {
+    public void userWantsSingup() {
+        singupTransactionDelegate.startSingup();
+    }
 
+    @Override
+    public void presentPreview() {
     }
 
     @Override
@@ -82,12 +86,14 @@ public class MasterBusinessController extends BusinessController implements ICat
     }
 
     @Override
-    public void userRegistred() {
-
+    public void userRegistred()
+    {
     }
 
     @Override
-    public void presentSubcategories() {
+    public void presentSubcategories()
+    {
+        previewTransactionDelegate.getPreview();
     }
 
     @Override

@@ -30,27 +30,23 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/app_preview_viewcontroller_avatar"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/theme_placeholder"
-        app:border_width="2dp"
-        app:border_color="#66f0f0f0"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Matematicas II"
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="#99f0f0f0"
         android:background="#1EBF6C"
-        android:padding="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_below="@+id/app_preview_viewcontroller_avatar"
         android:id="@+id/app_preview_viewcontroller_category"
         android:layout_centerHorizontal="true" />
@@ -68,7 +64,7 @@
             android:background="#99000000"
             android:textColor="#f0f0f0"
             android:textSize="20sp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Apprende+"
             android:id="@+id/app_preview_viewcontroller_aprende"
             android:layout_alignParentBottom="true"
@@ -76,10 +72,9 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:textSize="16sp"
             android:textColor="#f0f0f0"
-            android:padding="12dp"
             android:background="#001EBF6C"
             android:gravity="center"
             android:text="Algebra Diferencial"
@@ -87,22 +82,14 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#33f0f0f0"
-            android:layout_marginLeft="12dp"
-            android:layout_alignBottom="@+id/app_preview_viewcontroller_aprende"
-            android:layout_alignParentLeft="true" />
-
-
-
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_height="96dp"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
             android:textColor="#f0f0f0"
-            android:padding="12dp"
             android:text="Case erat democritum ex sea, ius ridens dissentias dissentiunt et. Nonumy altera pericula mel ex. Ei dicat viris abhorreant sit. Ad pro quot tamquam debitis, his at veri eirmod postulant. Tota summo democritum est in, no odio vivendum quo."
             android:id="@+id/app_preview_viewcontroller_detail"
             android:layout_alignParentLeft="true"
@@ -110,7 +97,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Choose level"
             android:background="#1EBF6C"
             android:textSize="20sp"
@@ -126,12 +113,21 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:background="#33f0f0f0"
             android:layout_alignTop="@+id/app_preview_viewcontroller_detail"
             android:layout_alignParentRight="true" />
 
 
     </RelativeLayout>
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        layout="@layout/app_action_bar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
 
 
 </RelativeLayout>

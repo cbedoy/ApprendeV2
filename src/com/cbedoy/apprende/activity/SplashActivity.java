@@ -21,8 +21,8 @@ public class SplashActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_splash_view);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.background_splash);
-        ColorDrawable[] color = {new ColorDrawable(Color.parseColor("#012423")),
-                                 new ColorDrawable(Color.parseColor("#b9d474"))};
+        ColorDrawable[] color = {new ColorDrawable(Color.parseColor("#332B2B2B")),
+                                 new ColorDrawable(Color.parseColor("#664A4A4A"))};
         TransitionDrawable trans = new TransitionDrawable(color);
         relativeLayout.setBackgroundDrawable(trans);
         trans.startTransition(2000);

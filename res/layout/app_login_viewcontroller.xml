@@ -92,7 +92,7 @@
         android:id="@+id/app_login_viewcontroller_tittle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="72dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,6 +104,13 @@
         android:id="@+id/currentVersion"
         android:layout_below="@+id/app_login_viewcontroller_password"
         android:layout_alignRight="@+id/app_login_viewcontroller_password" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        layout="@layout/app_action_bar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
 
 
 </RelativeLayout>

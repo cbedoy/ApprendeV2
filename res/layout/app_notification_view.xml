@@ -43,8 +43,8 @@
         android:layout_above="@+id/notification_accept">
 
         <ImageView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:id="@+id/notification_image"
             android:layout_marginTop="24dp"
             android:src="@drawable/ic_launcher"

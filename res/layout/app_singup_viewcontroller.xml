@@ -30,18 +30,18 @@
         android:src="@drawable/profile_avatar"
         app:border_width="2dp"
         app:border_color="#66f0f0f0"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Insert your information"
         android:textSize="20sp"
+        android:gravity="center"
         android:textColor="#99f0f0f0"
         android:background="#1EBF6C"
-        android:padding="12dp"
         android:layout_marginTop="24dp"
         android:layout_below="@+id/app_singup_viewcontroller_avatar"
         android:id="@+id/app_singup_viewcontroller_div"
@@ -86,10 +86,11 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginLeft="24dp"
                     android:inputType="textEmailAddress"
                     android:hint="e-mail"
+                    android:background="#00000000"
                     android:id="@+id/app_singup_viewcontroller_email" />
                 <View
                     android:layout_width="match_parent"
@@ -99,9 +100,11 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginLeft="24dp"
+                    android:inputType="textEmailAddress"
                     android:hint="username"
+                    android:background="#00000000"
                     android:ems="10"
                     android:id="@+id/app_singup_viewcontroller_username" />
 
@@ -113,9 +116,10 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginLeft="24dp"
                     android:hint="first name"
+                    android:background="#00000000"
                     android:id="@+id/app_singup_viewcontroller_first_name" />
 
                 <View
@@ -126,9 +130,10 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginLeft="24dp"
                     android:hint="last name"
+                    android:background="#00000000"
                     android:id="@+id/app_singup_viewcontroller_last_name" />
 
                 <View
@@ -139,10 +144,11 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:inputType="textPassword"
                     android:layout_marginLeft="24dp"
                     android:ems="10"
+                    android:background="#00000000"
                     android:hint="password"
                     android:id="@+id/app_singup_viewcontroller_password" />
 
@@ -154,10 +160,11 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:inputType="textPassword"
                     android:layout_marginLeft="24dp"
                     android:hint="confirm password"
+                    android:background="#00000000"
                     android:ems="10"
                     android:id="@+id/app_singup_viewcontroller_confirm_password" />
 
@@ -168,10 +175,11 @@
                     android:background="#33f0f0f0"/>
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
+                    android:layout_height="48dp"
+                    android:inputType="textEmailAddress"
                     android:layout_marginLeft="24dp"
                     android:hint="twitter"
+                    android:background="#00000000"
                     android:ems="10"
                     android:id="@+id/app_singup_viewcontroller_facebook" />
                 <View
@@ -182,10 +190,11 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:inputType="textPassword"
                     android:layout_marginLeft="24dp"
                     android:hint="facebook"
+                    android:background="#00000000"
                     android:ems="10"
                     android:id="@+id/app_singup_viewcontroller_twitter" />
                 <View
@@ -196,10 +205,11 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:inputType="textPassword"
                     android:layout_marginLeft="24dp"
                     android:hint="age"
+                    android:background="#00000000"
                     android:ems="10"
                     android:id="@+id/app_singup_viewcontroller_age" />
                 <View

@@ -54,6 +54,12 @@ public class LoginViewController extends AbstractViewController implements ILogi
                 loginRepresentationDelegate.loginWithData(_username, _password);
             }
         });
+        actionSingup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginRepresentationDelegate.userNeedSingup();
+            }
+        });
         version.setText("Current Version "+ApplicationLoader.getAppVersion());
         username.setText("carlosbedoy");
         password.setText("nomeacuerdo");

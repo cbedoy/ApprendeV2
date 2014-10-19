@@ -53,7 +53,10 @@ public class SubcategoryBusinessController extends BusinessController implements
 
     @Override
     public void userSelectedCategory(HashMap<String, Object> subcategoryInformation) {
-
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        data.put("subcategory_selected", subcategoryInformation);
+        mMementoHandler.setStateForOwner(data, this);
+        subcategoryTransactionHandler.presentSubcategories();
     }
 
     @Override

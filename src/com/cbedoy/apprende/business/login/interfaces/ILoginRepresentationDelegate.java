@@ -6,4 +6,5 @@ package com.cbedoy.apprende.business.login.interfaces;
 public interface ILoginRepresentationDelegate
 {
     public void loginWithData(String username, String password);
+    public void userNeedSingup();
 }

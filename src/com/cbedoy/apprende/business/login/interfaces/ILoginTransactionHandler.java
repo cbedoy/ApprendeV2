@@ -6,4 +6,5 @@ package com.cbedoy.apprende.business.login.interfaces;
 public interface ILoginTransactionHandler
 {
     public void userAuthenticated();
+    public void userWantsSingup();
 }

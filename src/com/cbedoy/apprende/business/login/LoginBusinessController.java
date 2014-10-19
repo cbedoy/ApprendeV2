@@ -68,6 +68,11 @@ public class LoginBusinessController extends BusinessController implements ILogi
     }
 
     @Override
+    public void userNeedSingup() {
+        loginTransactionHandler.userWantsSingup();
+    }
+
+    @Override
     public void startLogin() {
         Memento topMemento = mMementoHandler.getTopMemento();
         HashMap<String, Object> mementoData = topMemento.getMementoData();

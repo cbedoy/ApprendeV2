@@ -27,7 +27,7 @@
         android:id="@+id/app_feed_viewcontroller_avatar"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:layout_marginRight="12dp"
         android:src="@drawable/profile_avatar"
         app:border_width="2dp"
@@ -57,7 +57,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="#dd000000"
             android:textColor="#f0f0f0"
             android:text="Share on twitter"
@@ -84,6 +84,13 @@
         android:src="@drawable/ic_launcher"
         android:id="@+id/app_feed_viewcontroller_icon"
         android:layout_alignTop="@+id/app_feed_viewcontroller_avatar"
+        android:layout_alignParentLeft="true" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        layout="@layout/app_action_bar"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
 
 </RelativeLayout>

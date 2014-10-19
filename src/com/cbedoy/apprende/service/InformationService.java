@@ -161,7 +161,7 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void performQuestionaryRequest() {
-        String url = "url";
+        String url = "apprende/exam/get/$theme/$level";
         Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
         HashMap<String, Object> parameters = new HashMap<String, Object>();

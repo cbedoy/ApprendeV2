@@ -7,6 +7,7 @@ import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationDel
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationHandler;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewTransactionDelegate;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewTransactionHandler;
+import com.cbedoy.apprende.service.Memento;
 
 import java.util.HashMap;
 
@@ -43,6 +44,11 @@ public class PreviewBusinessController extends BusinessController implements IPr
 
     @Override
     public void getPreview() {
-
+        Memento topMemento = mMementoHandler.getTopMemento();
+        HashMap<String, Object> mementoData = topMemento.getMementoData();
+        HashMap<String, Object> previewInformation = new HashMap<String, Object>();
+        previewInformation.put ("category_selected", mementoData.get("category_selected"));
+        previewInformation.put ("subcategory_selected", mementoData.get("subcategory_selected"));
+        previewRepresentationHandler.showPreviewWithData(previewInformation);
     }
 }
