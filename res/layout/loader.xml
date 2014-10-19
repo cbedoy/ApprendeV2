@@ -31,10 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/loading"
+        android:layout_marginTop="12dp"
         android:textColor="#f0f0f0"
         android:textSize="20sp"
         android:id="@+id/txtLoading"
-        android:layout_below="@+id/notification_view_icon"
-        android:layout_alignRight="@+id/notification_view_icon"/>
+        android:layout_below="@+id/progressBar2"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

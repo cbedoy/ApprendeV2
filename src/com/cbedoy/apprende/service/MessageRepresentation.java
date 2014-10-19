@@ -51,6 +51,9 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
                     hide();
                 }
             });
+            this.notificationAccept.setTypeface(ImageService.regularFont);
+            this.notificationTitle.setTypeface(ImageService.regularFont);
+            this.notificationMessage.setTypeface(ImageService.thinFont);
             this.view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -77,7 +80,6 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
     public void showLoading() {
         this.isLoading = true;
         initLoading();
-
         this.show();
     }
 
@@ -93,6 +95,7 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
                 weakSelf.dialog.dismiss();
                 loaderImage.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_launcher));
                 loaderText.setText(activity.getString(R.string.loading));
+                loaderText.setTypeface(ImageService.thinFont);
             }
         }, 400);
     }

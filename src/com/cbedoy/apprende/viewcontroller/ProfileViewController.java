@@ -91,6 +91,14 @@ public class ProfileViewController extends AbstractViewController implements IPr
         Bitmap user_avatar_blur = BlurService.getInstance().performRequestBlurByImage(user_avatar_image);
         this.userAvatar.setImageBitmap(user_avatar_image);
         this.backgroundView.setImageBitmap(user_avatar_blur);
+
+        this.place.setTypeface(ImageService.lightFont);
+        this.username.setTypeface(ImageService.regularFont);
+        this.points.setTypeface(ImageService.lightFont);
+        this.firstName.setTypeface(ImageService.lightFont);
+        this.lastName.setTypeface(ImageService.lightFont);
+        this.actionShare.setTypeface(ImageService.lightFont);
+        this.actionStart.setTypeface(ImageService.regularFont);
     }
 
     @Override

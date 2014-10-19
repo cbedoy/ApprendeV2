@@ -1,6 +1,7 @@
 package com.cbedoy.apprende.artifacts;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.activity.ApplicationLoader;
+import com.cbedoy.apprende.service.BlurService;
+import com.cbedoy.apprende.service.ImageService;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +27,7 @@ public class CustomViewCell extends BaseAdapter
     private List<Object> viewModel;
     private Context context;
     private LayoutInflater layoutInflater;
+    private String MEDIA_URL = "http://10.75.181.55:8080/media/";
 
     public CustomViewCell(Context context, LayoutInflater layoutInflater, List<Object> viewModel)
     {
@@ -46,7 +53,7 @@ public class CustomViewCell extends BaseAdapter
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         if(convertView == null)
         {
             convertView = layoutInflater.inflate(R.layout.app_category_cell, null);
@@ -60,7 +67,21 @@ public class CustomViewCell extends BaseAdapter
             viewHolder = (ViewHolder) convertView.getTag();
         }
         HashMap<String, Object> currentModel = (HashMap<String, Object>) viewModel.get(position);
+        String string = MEDIA_URL + ((HashMap) (currentModel.get("fields"))).get("thumbnail").toString();
+        ImageLoader.getInstance().displayImage(
+                string,
+                viewHolder.imageCell,
+                ApplicationLoader.options,
+                new SimpleImageLoadingListener() {
+                    @Override
+                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                        super.onLoadingComplete(imageUri, view, loadedImage);
+                        //Bitmap bitmap = BlurService.getInstance().performRequestBlurByImage(loadedImage);
+                        //viewHolder.imageCell.setImageBitmap(bitmap);
+                    }
+                });
         viewHolder.textCell.setText(((HashMap) currentModel.get("fields")).get("name").toString());
+        viewHolder.textCell.setTypeface(ImageService.lightFont);
         return convertView;
     }
 

@@ -19,6 +19,7 @@ tasks.withType(JavaCompile) {
 
 dependencies {
 
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     compile 'de.hdodenhof:circleimageview:1.2.0'
     compile fileTree(dir: 'libs', include: '*.jar')
 }
