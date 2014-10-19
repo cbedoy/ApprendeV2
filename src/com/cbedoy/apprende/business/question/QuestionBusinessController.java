@@ -1,6 +1,5 @@
 package com.cbedoy.apprende.business.question;
 
-import com.cbedoy.apprende.interfaces.viewdelegates.IQuestionaryRepresentationDelegate;
 import com.cbedoy.apprende.business.BusinessController;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationHandler;

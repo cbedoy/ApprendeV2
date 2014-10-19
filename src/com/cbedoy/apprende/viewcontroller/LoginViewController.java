@@ -9,8 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.activity.ApplicationLoader;
 import com.cbedoy.apprende.business.login.interfaces.ILoginRepresentationDelegate;
 import com.cbedoy.apprende.business.login.interfaces.ILoginRepresentationHandler;
+import com.cbedoy.apprende.service.ImageService;
 
 /**
  * Created by Carlos on 14/10/2014.
@@ -22,7 +24,7 @@ public class LoginViewController extends AbstractViewController implements ILogi
     private Button actionSingup;
     private Button actionLogin;
     private TextView title;
-
+    private TextView version;
     private ILoginRepresentationDelegate loginRepresentationDelegate;
 
     public void setLoginRepresentationDelegate(ILoginRepresentationDelegate loginRepresentationDelegate) {
@@ -38,16 +40,23 @@ public class LoginViewController extends AbstractViewController implements ILogi
         actionLogin = (Button) view.findViewById(R.id.app_login_viewcontroller_login);
         actionSingup = (Button) view.findViewById(R.id.app_login_viewcontroller_singup);
         title = (TextView) view.findViewById(R.id.app_login_viewcontroller_tittle);
+        version = (TextView) view.findViewById(R.id.currentVersion);
+        actionSingup.setTypeface(ImageService.regularFont);
+        actionLogin.setTypeface(ImageService.regularFont);
+        title.setTypeface(ImageService.thinFont);
+        username.setTypeface(ImageService.thinFont);
+        password.setTypeface(ImageService.thinFont);
         actionLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String _username = username.getText().toString();
                 String _password = password.getText().toString();
                 loginRepresentationDelegate.loginWithData(_username, _password);
-                username.setText(null);
-                password.setText(null);
             }
         });
+        version.setText("Current Version "+ApplicationLoader.getAppVersion());
+        username.setText("carlosbedoy");
+        password.setText("nomeacuerdo");
         return view;
     }
 

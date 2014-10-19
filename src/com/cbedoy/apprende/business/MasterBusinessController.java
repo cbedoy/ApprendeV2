@@ -66,8 +66,9 @@ public class MasterBusinessController extends BusinessController implements ICat
     }
 
     @Override
-    public void userAuthenticated() {
-
+    public void userAuthenticated()
+    {
+        profileTransactionDelegate.getProfileByUser();
     }
 
     @Override
@@ -77,7 +78,7 @@ public class MasterBusinessController extends BusinessController implements ICat
 
     @Override
     public void presentProfile() {
-
+        categoryTransactionDelegate.getCategories();
     }
 
     @Override
@@ -87,7 +88,6 @@ public class MasterBusinessController extends BusinessController implements ICat
 
     @Override
     public void presentSubcategories() {
-
     }
 
     @Override

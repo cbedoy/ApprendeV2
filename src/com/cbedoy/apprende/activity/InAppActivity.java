@@ -3,6 +3,7 @@ package com.cbedoy.apprende.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.widget.ViewFlipper;
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.interfaces.IActivityResultListener;
 import com.cbedoy.apprende.interfaces.IAppViewManager;
+import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.viewcontroller.AbstractViewController;
 
 import java.util.ArrayList;
@@ -32,7 +34,17 @@ public class InAppActivity extends Activity implements IAppViewManager{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        ImageService.init(this);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        this.viewModel = new HashMap<String, AbstractViewController>();
+        this.resultListeners = new ArrayList<IActivityResultListener>();
+        this.mainLayout = createMainLayout();
+        this.view_controller_height = ImageService.getScreenHeight();
+        this.view_controller_width = ImageService.getScreenWidth();
+        this.setContentView(this.mainLayout);
+        this.overridePendingTransition(R.anim.enter_in_anim, R.anim.enter_out_anim);
     }
 
     private ViewFlipper viewFlipper;
@@ -189,12 +201,12 @@ public class InAppActivity extends Activity implements IAppViewManager{
                     int ltr = child_index > displayed_child ? 1 : -1;
 
                     TranslateAnimation in = new TranslateAnimation(width * ltr, 0, 0, 0);
-                    in.setDuration(400);
+                    in.setDuration(600);
                     in.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setInAnimation(in);
 
                     TranslateAnimation out = new TranslateAnimation(0, -width * ltr, 0, 0);
-                    out.setDuration(400);
+                    out.setDuration(600);
                     out.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setOutAnimation(out);
 
@@ -210,7 +222,6 @@ public class InAppActivity extends Activity implements IAppViewManager{
     public void finishWithResult(String result) {
         Intent intent = new Intent();
         intent.putExtra("result", result);
-
         this.setResult(RESULT_OK, intent);
         this.finish();
     }

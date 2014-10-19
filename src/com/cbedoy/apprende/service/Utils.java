@@ -135,6 +135,16 @@ public class Utils
         return result;
     }
 
+    public static String mapToUrlDjangoString(String url, HashMap<String, Object> map){
+        String result = "";
+        result = url;
+        for(String key : map.keySet())
+        {
+            result = result.replace(key, map.get(key).toString());
+        }
+        return result;
+    }
+
     public static boolean isValidEmail(String eMail) {
         String email_pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         Pattern pattern = Pattern.compile(email_pattern);

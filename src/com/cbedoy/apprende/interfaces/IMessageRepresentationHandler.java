@@ -18,6 +18,11 @@ public interface IMessageRepresentationHandler {
 
     public enum NOTIFICATION_CODE {
         K_INVALID_LOGIN,
+        K_INVALID_COMMON_FIELDS,
+        K_INVALID_EMAIL,
+        K_INVALID_PASSWORD_FORMAT,
+        K_NETWORK_INTERNET,
+        K_SINGUP_DATA
     }
 
     public interface IMessageRepresentationCallback {

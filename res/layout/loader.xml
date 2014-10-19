@@ -25,8 +25,7 @@
         android:progress="0"
         android:layout_alignParentTop="true"
         android:layout_marginTop="120dp"
-        android:layout_alignRight="@+id/notification_view_icon"
-        android:layout_alignEnd="@+id/notification_view_icon" />
+        android:layout_alignRight="@+id/notification_view_icon" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +35,6 @@
         android:textSize="20sp"
         android:id="@+id/txtLoading"
         android:layout_below="@+id/notification_view_icon"
-        android:layout_alignRight="@+id/notification_view_icon"
-        android:layout_alignEnd="@+id/notification_view_icon" />
+        android:layout_alignRight="@+id/notification_view_icon"/>
 
 </RelativeLayout>

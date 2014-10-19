@@ -7,6 +7,7 @@ import com.cbedoy.apprende.business.profile.interfaces.IProfileRepresentationDel
 import com.cbedoy.apprende.business.profile.interfaces.IProfileRepresentationHandler;
 import com.cbedoy.apprende.business.profile.interfaces.IProfileTransactionDelegate;
 import com.cbedoy.apprende.business.profile.interfaces.IProfileTransactionHandler;
+import com.cbedoy.apprende.service.Memento;
 
 import java.util.HashMap;
 
@@ -38,11 +39,16 @@ public class ProfileBusinessController extends BusinessController implements IPr
 
     @Override
     public void userSelectedStartToLearn() {
-
+        profileTransactionHandler.presentProfile();
     }
 
     @Override
-    public void getProfileByUser() {
-
+    public void getProfileByUser()
+    {
+        Memento topMemento = mMementoHandler.getTopMemento();
+        HashMap<String, Object> mementoData = topMemento.getMementoData();
+        HashMap<String, Object> login_response = (HashMap<String, Object>) mementoData.get("login_response");
+        HashMap<String, Object> fields = (HashMap<String, Object>) login_response.get("fields");
+        this.profileRepresentationHandler.showProfileViewWithData(fields);
     }
 }

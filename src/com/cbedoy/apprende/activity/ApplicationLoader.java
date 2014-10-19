@@ -21,7 +21,7 @@ public class ApplicationLoader extends Application
         super.onCreate();
         mainContext = getApplicationContext();
         mainHandler = new Handler(mainContext.getMainLooper());
-        TypefaceService.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Regular.ttf");
+        TypefaceService.overrideFont(getApplicationContext(), "SERIF", "fonts/Roboto-Light.ttf");
     }
 
     public static int getAppVersion() {

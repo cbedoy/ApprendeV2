@@ -35,24 +35,36 @@ public class LoginBusinessController extends BusinessController implements ILogi
 
     @Override
     public void loginResponse(HashMap<String, Object> response) {
-
+        boolean status = response.containsKey("model") && response.containsKey("pk");
+        mMessageRepresentationHandler.hideLoading();
+        if (status) {
+            HashMap<String, Object> data = new HashMap<String, Object>();
+            data.put("login_response", response);
+            mMementoHandler.setStateForOwner(data, this);
+            loginTransactionHandler.userAuthenticated();
+        } else {
+            loginRepresentationHandler.cleanLoginViewFields();
+            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
+        }
     }
 
     @Override
     public void loginWithData(String username, String password) {
 
-        if(!isValidField(username) || isValidField(password))
+        if(!isValidField(username) || !isValidField(password))
         {
             loginRepresentationHandler.cleanLoginViewFields();
             mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
         }
-        HashMap<String, Object> data = new HashMap<String, Object>();
-        data.put("username", username);
-        data.put("password", password);
-        mMementoHandler.setStateForOwner(data, this);
-
-        mMessageRepresentationHandler.showLoading();
-        loginInformationHandler.performLoginRequest();
+        else
+        {
+            HashMap<String, Object> data = new HashMap<String, Object>();
+            data.put("username", username);
+            data.put("password", password);
+            mMementoHandler.setStateForOwner(data, this);
+            mMessageRepresentationHandler.showLoading();
+            loginInformationHandler.performLoginRequest();
+        }
     }
 
     @Override

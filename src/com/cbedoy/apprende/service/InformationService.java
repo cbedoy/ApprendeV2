@@ -72,11 +72,12 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void performLoginRequest() {
-        String url = "url";
+        String url = "/apprende/user/get/$username/$password/";
         Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        //TODO get parameters from memento
+        parameters.put("$username", data.get("username"));
+        parameters.put("$password", data.get("password"));
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {

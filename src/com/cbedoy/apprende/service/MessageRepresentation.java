@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
@@ -22,7 +23,7 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
     private ImageView notificationIcon;
     private TextView notificationMessage;
     private Button notificationAccept;
-    private Button notificationCancel;
+    private RelativeLayout notificationContent;
     private TextView notificationTitle;
 
     private View viewLoading;
@@ -43,7 +44,8 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
             this.notificationAccept = (Button) this.view.findViewById(R.id.notification_accept);
             this.notificationMessage = (TextView) this.view.findViewById(R.id.notification_message);
             this.notificationTitle = (TextView) this.view.findViewById(R.id.notification_title);
-            this.notificationCancel.setOnClickListener(new View.OnClickListener() {
+            this.notificationContent = (RelativeLayout) this.view.findViewById(R.id.notification_background);
+            this.notificationAccept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     hide();
@@ -142,25 +144,132 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
         });
     }
 
+    private void showDialog(String title, String message, int resource, int color, final IMessageRepresentationCallback callback){
+        this.isLoading = false;
+        this.show();
+        this.notificationTitle.setText(title);
+        this.notificationMessage.setText(message);
+        this.notificationIcon.setImageResource(resource);
+        this.notificationAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(callback != null)
+                    callback.run();
+                else
+                    hide();
+            }
+        });
+        this.notificationAccept.setBackgroundColor(color);
+        this.notificationContent.setBackgroundColor(color);
+
+    }
 
     @Override
     public void showCode(NOTIFICATION_CODE code) {
+        String title = getTitleFromCode(code);
+        String message = getMessageFromCode(code);
+        int resourceId = getIconFromCode(code);
+        int color = getColorFromCode(code);
+        showDialog(title, message, resourceId, color, null);
 
     }
 
     @Override
     public void showCodeMessage(NOTIFICATION_CODE code, String message) {
-
+        String title = getTitleFromCode(code);
+        int resourceId = getIconFromCode(code);
+        int color = getColorFromCode(code);
+        showDialog(title, message, resourceId, color, null);
     }
 
     @Override
     public void showCodeTitleMessage(NOTIFICATION_CODE code, String title, String message) {
-
+        int resourceId = getIconFromCode(code);
+        int color = getColorFromCode(code);
+        showDialog(title, message, resourceId, color, null);
     }
 
     @Override
     public void showCodeTitleMessageWithCallback(NOTIFICATION_CODE code, String title, String message, IMessageRepresentationCallback callback) {
+        int resourceId = getIconFromCode(code);
+        int color = getColorFromCode(code);
+        showDialog(title, message, resourceId, color, callback);
+    }
 
+    private String getTitleFromCode(NOTIFICATION_CODE code){
+        switch (code) {
+            case K_INVALID_LOGIN:
+                return "Ooops!";
+            case K_INVALID_COMMON_FIELDS:
+                return "Ooops!";
+            case K_INVALID_EMAIL:
+                return "Ooops!";
+            case K_INVALID_PASSWORD_FORMAT:
+                return "Ooops!";
+            case K_NETWORK_INTERNET:
+                return "Ooops!";
+            case K_SINGUP_DATA:
+                return "Ooops!";
+            default:
+                return "XXX";
+        }
+    }
+
+    private String getMessageFromCode(NOTIFICATION_CODE code){
+        switch (code) {
+            case K_INVALID_LOGIN:
+                return "Invalid login";
+            case K_INVALID_COMMON_FIELDS:
+                return "The common fields are invalid";
+            case K_INVALID_EMAIL:
+                return "The format by email is invalid";
+            case K_INVALID_PASSWORD_FORMAT:
+                return "The format by password is invalid";
+            case K_NETWORK_INTERNET:
+                return "Network issues";
+            case K_SINGUP_DATA:
+                return "Great! You has registred on Apprende, let go to learn";
+            default:
+                return "XXX";
+        }
+    }
+
+    private int getIconFromCode(NOTIFICATION_CODE code){
+        switch (code) {
+            case K_INVALID_LOGIN:
+                return R.drawable.ic_launcher;
+            case K_INVALID_COMMON_FIELDS:
+                return R.drawable.ic_launcher;
+            case K_INVALID_EMAIL:
+                return R.drawable.ic_launcher;
+            case K_INVALID_PASSWORD_FORMAT:
+                return R.drawable.ic_launcher;
+            case K_NETWORK_INTERNET:
+                return R.drawable.ic_launcher;
+            case K_SINGUP_DATA:
+                return R.drawable.ic_launcher;
+            default:
+                return R.drawable.ic_launcher;
+        }
+    }
+
+    private int getColorFromCode(NOTIFICATION_CODE code){
+        switch (code) {
+            case K_INVALID_LOGIN:
+                return activity.getResources().getColor(R.color.rank1);
+            case K_INVALID_COMMON_FIELDS:
+                return activity.getResources().getColor(R.color.rank2);
+            case K_INVALID_EMAIL:
+                return activity.getResources().getColor(R.color.rank3);
+            case K_INVALID_PASSWORD_FORMAT:
+                return activity.getResources().getColor(R.color.rank4);
+            case K_NETWORK_INTERNET:
+                return activity.getResources().getColor(R.color.rank5);
+            case K_SINGUP_DATA:
+                return activity.getResources().getColor(R.color.rank4);
+            default:
+                return activity.getResources().getColor(R.color.rank2);
+        }
     }
 
 }

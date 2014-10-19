@@ -81,8 +81,8 @@
                 android:layout_height="fill_parent"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
-                android:layout_above="@+id/button"
-                android:id="@+id/">
+                android:layout_above="@+id/app_singup_viewcontroller_confirm"
+                android:id="@+id/some">
 
                 <EditText
                     android:layout_width="match_parent"

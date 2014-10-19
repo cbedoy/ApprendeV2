@@ -47,20 +47,20 @@ public class InjectionManager
     private InjectionManager() {
         switch (this.env) {
             case 0: //dev
-                this.rest_port = 0;
-                this.rest_url = "";
+                this.rest_port = 8080;
+                this.rest_url = "http://10.75.181.55";
                 break;
             case 1: //pre
-                this.rest_port = 0;
-                this.rest_url = "";
+                this.rest_port = 8080;
+                this.rest_url = "http://10.75.181.55";
                 break;
             case 2: //pro
-                this.rest_port = 0;
-                this.rest_url = "";
+                this.rest_port = 8080;
+                this.rest_url = "http://10.75.181.55";
                 break;
             default:
-                this.rest_port = 70;
-                this.rest_url = "";
+                this.rest_port = 8080;
+                this.rest_url = "http://10.75.181.55";
                 break;
         }
     }
@@ -79,10 +79,10 @@ public class InjectionManager
         Bundle extras = apprendeActivity.getIntent().getExtras();
         IAppViewManager appViewManager = apprendeActivity;
         String tag;
-        String imageService = extras.getString("image_service");
-        Drawable drawable = Utils.getDrawableImage(imageService);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Bitmap imageBlur = BlurService.getInstance().blurRenderScript(bitmap, context);
+        //String imageService = extras.getString("image_service");
+        //Drawable drawable = Utils.getDrawableImage(imageService);
+        //Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+        //Bitmap imageBlur = BlurService.getInstance().blurRenderScript(bitmap, context);
 
         RestService restService = new RestService();
         restService.setURL(this.rest_url);
@@ -210,7 +210,7 @@ public class InjectionManager
         masterBusinessController.setSubcategoryTransactionDelegate(subcategoryBusinessController);
         masterBusinessController.setProfileTransactionDelegate(profileBusinessController);
 
-
+        masterBusinessController.startApprendeApp();
     }
 
     public void performQuestionaryFlow(QuestionerActivity questionerActivity, int level){

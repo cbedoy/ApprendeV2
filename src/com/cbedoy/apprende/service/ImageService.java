@@ -29,10 +29,11 @@ public class ImageService {
     private static DisplayMetrics mMetrics;
     private static HashMap<String, Typeface> mFontsMap;
     private static HashMap<String, String> mImagesMap;
-    private static Typeface boldFont;
-    private static Typeface regularFont;
-    private static Typeface thinFont;
-    private static Typeface lightFont;
+    public static Typeface boldFont;
+    public static Typeface regularFont;
+    public static Typeface thinFont;
+    public static Typeface lightFont;
+
 
     public static void init(Activity activity) {
         mMetrics = new DisplayMetrics();

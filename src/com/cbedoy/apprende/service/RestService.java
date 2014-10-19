@@ -16,6 +16,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -95,9 +96,9 @@ public class RestService implements IRestService {
                 }
                 else
                 {
-                    String query = Utils.mapToUrlString(parameters);
-                    httpUriRequest = new HttpGet(mUrl + mPort + url + (query.length() > 0 ? ("?" + query) : ""));
-                    Log.e("Request", mUrl + mPort + url + (query.length() > 0 ? ("?" + query) : ""));
+                    String query = Utils.mapToUrlDjangoString(url, parameters);
+                    httpUriRequest = new HttpGet(mUrl +":"+ mPort + (query.length() > 0 ? ("" + query) : ""));
+                    Log.e("Request", mUrl +":"+ mPort  + (query.length() > 0 ? ("/" + query) : ""));
                 }
 
                 httpResponse = defaultHttpClient.execute(httpUriRequest);
@@ -108,8 +109,8 @@ public class RestService implements IRestService {
                     builder.append(line).append("\n");
                 }
                 JSONTokener jsonTokener = new JSONTokener(builder.toString());
-                JSONObject jsonObject = new JSONObject(jsonTokener);
-                response = (HashMap<String, Object>) Utils.toMap(jsonObject);
+                JSONArray jsonArray = new JSONArray(jsonTokener);
+                response = (HashMap<String, Object>) Utils.toMap(jsonArray.getJSONObject(0));
             } catch (UnsupportedEncodingException uee) {
                 response = new HashMap<String, Object>();
                 response.put("status", false);

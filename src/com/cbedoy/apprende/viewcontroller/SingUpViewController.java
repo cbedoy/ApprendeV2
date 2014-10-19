@@ -1,7 +1,6 @@
 package com.cbedoy.apprende.viewcontroller;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,8 @@ import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationDeleg
 import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationHandler;
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
+
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -68,7 +69,27 @@ public class SingUpViewController extends AbstractViewController implements ISin
         actionConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String _username =username.getText().toString();
+                String _email = username.getText().toString();
+                String _password = password.getText().toString();
+                String _confirmPassword = confirmPassword.getText().toString();
+                String _firstName = firstName.getText().toString();
+                String _lastName = lastName.getText().toString();
+                String _facebook = facebook.getText().toString();
+                String _twitter = twitter.getText().toString();
+                Integer _age = Integer.parseInt(age.getText().toString());
 
+                HashMap<String, Object> currentInformation = new HashMap<String, Object>();
+                currentInformation.put("username", _username);
+                currentInformation.put("email", _email);
+                currentInformation.put("password", _password);
+                currentInformation.put("confirm_password", _confirmPassword);
+                currentInformation.put("first_name", _firstName);
+                currentInformation.put("last_name", _lastName);
+                currentInformation.put("facebook", _facebook);
+                currentInformation.put("twitter", _twitter);
+                currentInformation.put("age", _age);
+                singupRepresentationDelegate.singupWithData(currentInformation);
             }
         });
         return view;
@@ -86,7 +107,15 @@ public class SingUpViewController extends AbstractViewController implements ISin
 
     @Override
     public void clearInputs() {
-
+        username.setText(null);
+        email.setText(null);
+        lastName.setText(null);
+        firstName.setText(null);
+        age.setText(null);
+        facebook.setText(null);
+        twitter.setText(null);
+        password.setText(null);
+        confirmPassword.setText(null);
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
+import com.cbedoy.apprende.service.InjectionManager;
 
 /**
  * Created by Carlos on 17/10/2014.
@@ -21,7 +22,9 @@ public class ApprendeActivity extends InAppActivity implements ICameraInformatio
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        InjectionManager.getInstance().performApprendeFlow(this);
     }
 
     @Override
