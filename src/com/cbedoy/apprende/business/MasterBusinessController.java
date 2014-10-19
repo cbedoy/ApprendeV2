@@ -62,7 +62,7 @@ public class MasterBusinessController extends BusinessController implements ICat
 
     @Override
     public void presentCategoryView() {
-
+        subcategoryTransactionDelegate.getSubcategories();
     }
 
     @Override

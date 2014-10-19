@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.artifacts.CustomViewCell;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationDelegate;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationHandler;
 
@@ -19,7 +20,7 @@ import java.util.List;
 public class CategoryViewController extends AbstractViewController implements ICategoryRepresentationHandler{
 
     private ListView listView;
-
+    private LayoutInflater inflater;
     private ICategoryRepresentationDelegate categoryRepresentationDelegate;
     private List<Object> categories;
     public void setCategoryRepresentationDelegate(ICategoryRepresentationDelegate categoryRepresentationDelegate) {
@@ -28,7 +29,7 @@ public class CategoryViewController extends AbstractViewController implements IC
 
     @Override
     protected View init() {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_category_viewcontroller,  null);
         listView = (ListView) view.findViewById(R.id.app_category_viewcontroller_list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,5 +51,6 @@ public class CategoryViewController extends AbstractViewController implements IC
     public void showCategoryViewWithData(List<Object> categories) {
         this.appViewManager.presentViewForTag(this.tag);
         this.categories = categories;
+        this.listView.setAdapter(new CustomViewCell(context, inflater, categories));
     }
 }

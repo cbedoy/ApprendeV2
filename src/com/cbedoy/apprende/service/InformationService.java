@@ -67,7 +67,15 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void performCategoriesRequest() {
-
+        String url = "/apprende/course/get/";
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
+        IRestService.IRestCallback callback = new IRestService.IRestCallback() {
+            @Override
+            public void run(HashMap<String, Object> response) {
+                categoryInformationDelegate.categoryResponse(response);
+            }
+        };
+        restService.request(url, parameters, callback);
     }
 
     @Override
@@ -137,11 +145,11 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void performSubcategoryRequest() {
-        String url = "url";
+        String url = "/apprende/theme/get/$categorySelected/";
         Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        //TODO get parameters from memento
+        parameters.put("$categorySelected", ((HashMap)data.get("category_selected")).get("pk"));
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {

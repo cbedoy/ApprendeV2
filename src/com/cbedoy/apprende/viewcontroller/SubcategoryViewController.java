@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.artifacts.CustomViewCell;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryRepresentationDelegate;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryRepresentationHandler;
 
@@ -20,6 +21,7 @@ public class SubcategoryViewController extends AbstractViewController implements
 
     private GridView gridView;
     private List<Object> subcategories;
+    private LayoutInflater inflater;
     private ISubcategoryRepresentationDelegate subcategoryRepresentationDelegate;
 
     public void setSubcategoryRepresentationDelegate(ISubcategoryRepresentationDelegate subcategoryRepresentationDelegate) {
@@ -28,7 +30,7 @@ public class SubcategoryViewController extends AbstractViewController implements
 
     @Override
     protected View init() {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_subcategory_viewcontroller,  null);
         gridView = (GridView) view.findViewById(R.id.app_subcategory_viewcontroller_gridview);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,5 +52,6 @@ public class SubcategoryViewController extends AbstractViewController implements
     public void showSubcategoryViewWithData(List<Object> subcategories) {
         this.appViewManager.presentViewForTag(this.tag);
         this.subcategories = subcategories;
+        this.gridView.setAdapter(new CustomViewCell(context, inflater, subcategories));
     }
 }

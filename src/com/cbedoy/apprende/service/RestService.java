@@ -27,6 +27,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -110,7 +111,19 @@ public class RestService implements IRestService {
                 }
                 JSONTokener jsonTokener = new JSONTokener(builder.toString());
                 JSONArray jsonArray = new JSONArray(jsonTokener);
-                response = (HashMap<String, Object>) Utils.toMap(jsonArray.getJSONObject(0));
+                if(jsonArray.length()>1)
+                {
+                    HashMap<String, Object> objects = new HashMap<String, Object>();
+                    for(int i=0; i<jsonArray.length(); i++)
+                    {
+                        objects.put("row_"+(i+1), Utils.toMap(jsonArray.getJSONObject(i)));
+                    }
+                    response = objects;
+                }
+                else
+                {
+                    response = (HashMap<String, Object>) Utils.toMap(jsonArray.getJSONObject(0));
+                }
             } catch (UnsupportedEncodingException uee) {
                 response = new HashMap<String, Object>();
                 response.put("status", false);

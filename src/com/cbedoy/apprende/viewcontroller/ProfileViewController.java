@@ -88,7 +88,7 @@ public class ProfileViewController extends AbstractViewController implements IPr
         this.points.setText(userInformation.get("points")+" points");
         this.place.setText(userInformation.get("plays")+" th Place");
         Bitmap user_avatar_image =  BlurService.getInstance().performRequestByImage(userInformation.get("thumbnail").toString());
-        Bitmap user_avatar_blur = BlurService.getInstance().blurRenderScript(user_avatar_image, context);
+        Bitmap user_avatar_blur = BlurService.getInstance().performRequestBlurByImage(user_avatar_image);
         this.userAvatar.setImageBitmap(user_avatar_image);
         this.backgroundView.setImageBitmap(user_avatar_blur);
     }

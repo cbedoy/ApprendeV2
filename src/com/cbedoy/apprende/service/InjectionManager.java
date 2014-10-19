@@ -221,7 +221,7 @@ public class InjectionManager
         String imageService = extras.getString("image_service");
         Drawable drawable = Utils.getDrawableImage(imageService);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Bitmap imageBlur = BlurService.getInstance().blurRenderScript(bitmap, context);
+        Bitmap imageBlur = BlurService.getInstance().blurRenderScript(bitmap);
 
         RestService restService = new RestService();
         restService.setURL(this.rest_url);
