@@ -21,17 +21,10 @@ public class SplashActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_splash_view);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.background_splash);
-        ColorDrawable[] color = {new ColorDrawable(Color.parseColor("#332B2B2B")),
-                                 new ColorDrawable(Color.parseColor("#664A4A4A"))};
-        TransitionDrawable trans = new TransitionDrawable(color);
-        relativeLayout.setBackgroundDrawable(trans);
-        trans.startTransition(2000);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, ApprendeActivity.class);
-                intent.putExtra("image_service", "login_blur");
                 startActivity(intent);
                 finish();
             }

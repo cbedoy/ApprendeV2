@@ -7,11 +7,12 @@ import android.os.Bundle;
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
 import com.cbedoy.apprende.service.InjectionManager;
+import com.cbedoy.apprende.widgets.NavigationBar;
 
 /**
  * Created by Carlos on 17/10/2014.
  */
-public class ApprendeActivity extends InAppActivity implements ICameraInformationHandler
+public class ApprendeActivity extends InAppActivity implements ICameraInformationHandler, NavigationBar.INavigationBarDelegate
 {
     private final int CAMERA_REQUEST = 96543;
     private ICameraInformationDelegate cameraInformationDelegate;
@@ -39,6 +40,16 @@ public class ApprendeActivity extends InAppActivity implements ICameraInformatio
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             cameraInformationDelegate.setPreviusImage(photo);
         }
+
+    }
+
+    @Override
+    public void showPreviewViewController() {
+
+    }
+
+    @Override
+    public void showNextViewController() {
 
     }
 }

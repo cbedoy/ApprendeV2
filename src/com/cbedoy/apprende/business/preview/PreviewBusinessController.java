@@ -7,6 +7,7 @@ import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationDel
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationHandler;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewTransactionDelegate;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewTransactionHandler;
+import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 import com.cbedoy.apprende.service.Memento;
 
 import java.util.HashMap;
@@ -34,12 +35,16 @@ public class PreviewBusinessController extends BusinessController implements IPr
 
     @Override
     public void previewResponse(HashMap<String, Object> response) {
-
-    }
-
-    @Override
-    public void userSelectedApprende() {
-
+        boolean status = response.containsKey("model") && response.containsKey("pk");
+        mMessageRepresentationHandler.hideLoading();
+        if (status) {
+            HashMap<String, Object> data = new HashMap<String, Object>();
+            data.put("exam_response", response);
+            mMementoHandler.setStateForOwner(data, this);
+            previewTransactionHandler.apprendeItsReady();
+        } else {
+            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
+        }
     }
 
     @Override
@@ -50,5 +55,10 @@ public class PreviewBusinessController extends BusinessController implements IPr
         previewInformation.put ("category_selected", mementoData.get("category_selected"));
         previewInformation.put ("subcategory_selected", mementoData.get("subcategory_selected"));
         previewRepresentationHandler.showPreviewWithData(previewInformation);
+    }
+
+    @Override
+    public void userSelectedStartApprendeWithData(HashMap<String, Object> information) {
+        previewInformationHandler.performPreviewRequestWithData(information);
     }
 }

@@ -24,6 +24,9 @@ import com.cbedoy.apprende.viewcontroller.ProfileViewController;
 import com.cbedoy.apprende.viewcontroller.QuestionViewController;
 import com.cbedoy.apprende.viewcontroller.SingUpViewController;
 import com.cbedoy.apprende.viewcontroller.SubcategoryViewController;
+import com.cbedoy.apprende.widgets.LevelSelectorView;
+import com.cbedoy.apprende.widgets.MessageRepresentation;
+import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;
 
@@ -81,10 +84,6 @@ public class InjectionManager
         Bundle extras = apprendeActivity.getIntent().getExtras();
         IAppViewManager appViewManager = apprendeActivity;
         String tag;
-        //String imageService = extras.getString("image_service");
-        //Drawable drawable = Utils.getDrawableImage(imageService);
-        //Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        //Bitmap imageBlur = BlurService.getInstance().blurRenderScript(bitmap, context);
 
         RestService restService = new RestService();
         restService.setURL(this.rest_url);
@@ -92,17 +91,14 @@ public class InjectionManager
 
         MementoHandler mementoHandler = new MementoHandler();
         HashMap<String, Object> data = new HashMap<String, Object>();
-        for(String key : extras.keySet())
-            data.put(key, extras.get(key));
         mementoHandler.setStateForOwner(data, this);
 
         MessageRepresentation messageRepresentation = new MessageRepresentation(apprendeActivity);
         LevelSelectorView levelSelectorView = new LevelSelectorView(apprendeActivity);
         InformationService informationService = new InformationService();
         MasterBusinessController masterBusinessController = new MasterBusinessController();
-
-        masterBusinessController.setMessageRepresentationHandler(messageRepresentation);
-        masterBusinessController.setMementoHandler(mementoHandler);
+        NavigationBar navigationBar = new NavigationBar();
+        navigationBar.setNavigationBarDelegate(apprendeActivity);
 
         tag = "LoginViewController";
         LoginViewController loginViewController = new LoginViewController();
@@ -117,6 +113,7 @@ public class InjectionManager
         loginViewController.setMessageRepresentation(messageRepresentation);
         loginViewController.setTag(tag);
         loginViewController.setLoginRepresentationDelegate(loginBusinessController);
+        loginViewController.setNavigationBar(navigationBar);
         appViewManager.addViewWithTag(loginViewController, tag);
 
         tag = "SingUpViewController";
@@ -132,6 +129,7 @@ public class InjectionManager
         singUpViewController.setMessageRepresentation(messageRepresentation);
         singUpViewController.setTag(tag);
         singUpViewController.setSingupRepresentationDelegate(singupBusinessController);
+        singUpViewController.setNavigationBar(navigationBar);
         appViewManager.addViewWithTag(singUpViewController, tag);
         apprendeActivity.setCameraInformationDelegate(singUpViewController);
         singUpViewController.setCameraInformationHandler(apprendeActivity);
@@ -150,6 +148,7 @@ public class InjectionManager
         profileViewController.setMessageRepresentation(messageRepresentation);
         profileViewController.setTag(tag);
         profileViewController.setProfileRepresentationDelegate(profileBusinessController);
+        profileViewController.setNavigationBar(navigationBar);
         appViewManager.addViewWithTag(profileViewController, tag);
 
         tag = "CategoryViewController";
@@ -165,6 +164,7 @@ public class InjectionManager
         categoryViewController.setMessageRepresentation(messageRepresentation);
         categoryViewController.setTag(tag);
         categoryViewController.setCategoryRepresentationDelegate(categoryBusinessController);
+        categoryViewController.setNavigationBar(navigationBar);
         appViewManager.addViewWithTag(categoryViewController, tag);
 
         tag = "SubcategoryViewController";
@@ -180,6 +180,7 @@ public class InjectionManager
         subcategoryViewController.setMessageRepresentation(messageRepresentation);
         subcategoryViewController.setTag(tag);
         subcategoryViewController.setSubcategoryRepresentationDelegate(subcategoryBusinessController);
+        subcategoryViewController.setNavigationBar(navigationBar);
         appViewManager.addViewWithTag(subcategoryViewController, tag);
 
         tag = "PreviewViewController";
@@ -196,6 +197,7 @@ public class InjectionManager
         previewViewController.setTag(tag);
         previewViewController.setPreviewRepresentationDelegate(previewBusinessController);
         previewViewController.setLevelSelectorView(levelSelectorView);
+        previewViewController.setNavigationBar(navigationBar);
         levelSelectorView.setLevelSelectorViewDelegate(previewViewController);
         appViewManager.addViewWithTag(previewViewController, tag);
 
@@ -208,6 +210,8 @@ public class InjectionManager
         informationService.setRestService(restService);
         informationService.setMementoHandler(mementoHandler);
 
+        masterBusinessController.setMessageRepresentationHandler(messageRepresentation);
+        masterBusinessController.setMementoHandler(mementoHandler);
         masterBusinessController.setCategoryTransactionDelegate(categoryBusinessController);
         masterBusinessController.setLoginTransactionDelegate(loginBusinessController);
         masterBusinessController.setPreviewTransactionDelegate(previewBusinessController);

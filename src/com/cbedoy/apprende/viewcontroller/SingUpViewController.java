@@ -52,6 +52,7 @@ public class SingUpViewController extends AbstractViewController implements ISin
     protected View init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_singup_viewcontroller,  null);
+        navigationBar.initWithView(view);
         circleImageView = (CircleImageView) view.findViewById(R.id.app_singup_viewcontroller_avatar);
         actionConfirm = (Button) view.findViewById(R.id.app_singup_viewcontroller_confirm);
         username = (EditText) view.findViewById(R.id.app_singup_viewcontroller_username);

@@ -5,5 +5,5 @@ package com.cbedoy.apprende.business.preview.interfaces;
  */
 public interface IPreviewTransactionHandler
 {
-    public void presentPreview();
+    public void apprendeItsReady();
 }

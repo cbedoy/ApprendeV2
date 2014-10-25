@@ -10,16 +10,16 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="144dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
         android:scaleType="center"
         android:id="@+id/app_category_cell_image"
         android:src="@drawable/login_blur"/>
 
     <View
         android:layout_width="match_parent"
-        android:background="#99000000"
+        android:background="@color/app_principal_trans"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginTop="4dp"

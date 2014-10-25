@@ -13,8 +13,8 @@ public interface IAppViewManager
     public void reActivateCurrentView();
     public int getViewControllerWidth();
     public int getViewControllerHeight();
-    public void presentViewForTag(String tag);
+    public void presentViewForTag(AbstractViewController.CONTROLLER tag);
     public void finishWithResult(String result);
     public void addActivityResultListener(IActivityResultListener listener);
-    public void addViewWithTag(AbstractViewController controller, String tag);
+    public void addViewWithTag(AbstractViewController controller, AbstractViewController.CONTROLLER tag);
 }

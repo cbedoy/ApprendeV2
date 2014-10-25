@@ -77,7 +77,9 @@ public class MasterBusinessController extends BusinessController implements ICat
     }
 
     @Override
-    public void presentPreview() {
+    public void apprendeItsReady()
+    {
+
     }
 
     @Override
@@ -98,6 +100,6 @@ public class MasterBusinessController extends BusinessController implements ICat
 
     @Override
     public void questionaryPresented() {
-
+        questionTransactionDelegate.startQuestionaryApprende();
     }
 }

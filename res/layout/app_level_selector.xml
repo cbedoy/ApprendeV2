@@ -4,15 +4,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/rank2"
+    android:background="@color/app_principal"
     android:layout_height="match_parent">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Choose level"
         android:gravity="center"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@color/app_pink"
         android:textSize="24sp"
         android:textColor="#f0f0f0"
         android:id="@+id/level_selector_title"
@@ -21,21 +25,24 @@
     <RadioGroup
         android:id="@+id/level_radio_group"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/level_selector_title"
+        android:layout_alignParentLeft="true">
     <RadioButton
-        android:layout_marginTop="48dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#f0f0f0"
-        android:background="#11000000"
+        android:background="@color/app_principal_trans"
         android:text="Easy\nThis test contains 20 random questions about the selected topic."
         android:id="@+id/app_selector_optionOne"
         android:layout_below="@+id/level_selector_title"
         android:layout_alignParentLeft="true" />
-    <View
+
+     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#33000000"
+        android:background="@color/app_principal_bottom"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_above="@+id/app_selector_optionTwo"
@@ -46,7 +53,6 @@
         android:layout_height="wrap_content"
         android:text="Medium\nThis test contains 20 random questions about the selected topic."
         android:textColor="#f0f0f0"
-        android:background="#11000000"
         android:id="@+id/app_selector_optionTwo"
         android:layout_below="@+id/app_selector_optionOne"
         android:layout_alignParentLeft="true" />
@@ -54,7 +60,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#33000000"
+        android:background="@color/app_principal_bottom"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_above="@+id/app_selector_optionThree"
@@ -63,9 +69,8 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hard\nThis test contains 20 random questions about the selected topic."
+        android:text="@string/hard_level"
         android:textColor="#f0f0f0"
-        android:background="#11000000"
         android:id="@+id/app_selector_optionThree"
         android:layout_below="@+id/app_selector_optionTwo"
         android:layout_alignParentLeft="true" />
@@ -73,7 +78,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#33000000"
+        android:background="@color/app_principal_bottom"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_below="@+id/app_selector_optionThree"
@@ -83,7 +88,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#33000000"
+        android:background="@color/app_principal_bottom"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_alignTop="@+id/app_selector_optionOne"
@@ -95,7 +100,7 @@
         android:layout_height="48dp"
         android:text="Confirm"
         android:id="@+id/level_selector_action"
-        android:background="#bb000000"
+        android:background="@color/app_principal_bottom"
         android:textColor="#f0f0f0"
         android:textSize="20sp"
         android:layout_alignParentBottom="true"

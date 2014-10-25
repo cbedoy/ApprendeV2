@@ -32,6 +32,7 @@ public class SubcategoryViewController extends AbstractViewController implements
     protected View init() {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_subcategory_viewcontroller,  null);
+        navigationBar.initWithView(view);
         gridView = (GridView) view.findViewById(R.id.app_subcategory_viewcontroller_gridview);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

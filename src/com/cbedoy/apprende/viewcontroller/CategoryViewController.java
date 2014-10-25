@@ -31,6 +31,7 @@ public class CategoryViewController extends AbstractViewController implements IC
     protected View init() {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_category_viewcontroller,  null);
+        navigationBar.initWithView(view);
         listView = (ListView) view.findViewById(R.id.app_category_viewcontroller_list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

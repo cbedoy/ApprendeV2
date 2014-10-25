@@ -34,6 +34,7 @@ public class QuestionViewController extends AbstractViewController implements IQ
     {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_question_viewcontroller,  null);
+        navigationBar.initWithView(view);
         questionView = (TextView) view.findViewById(R.id.question_question);
         answerOne = (RadioButton) view.findViewById(R.id.question_question_option_one);
         answerTwo = (RadioButton) view.findViewById(R.id.question_question_option_two);

@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class InAppActivity extends Activity implements IAppViewManager{
+public  class InAppActivity extends Activity implements IAppViewManager{
 
     public static int AndroidInAppCode = 109506 / 4;
 
@@ -38,7 +38,7 @@ public class InAppActivity extends Activity implements IAppViewManager{
         super.onCreate(savedInstanceState);
         ImageService.init(this);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        this.viewModel = new HashMap<String, AbstractViewController>();
+        this.viewModel = new HashMap<AbstractViewController.CONTROLLER, AbstractViewController>();
         this.resultListeners = new ArrayList<IActivityResultListener>();
         this.mainLayout = createMainLayout();
         this.view_controller_height = ImageService.getScreenHeight();
@@ -52,7 +52,7 @@ public class InAppActivity extends Activity implements IAppViewManager{
     private LinearLayout mainLayout;
     private int view_controller_width;
     private int view_controller_height;
-    private HashMap<String, AbstractViewController> viewModel;
+    private HashMap<AbstractViewController.CONTROLLER, AbstractViewController> viewModel;
     private ArrayList<IActivityResultListener> resultListeners;
 
     @Override
@@ -95,7 +95,7 @@ public class InAppActivity extends Activity implements IAppViewManager{
         int displayed_child = this.viewFlipper.getDisplayedChild();
         View view = this.viewFlipper.getChildAt(displayed_child);
 
-        for(Map.Entry<String, AbstractViewController> entry : this.viewModel.entrySet()) {
+        for(Map.Entry<AbstractViewController.CONTROLLER, AbstractViewController> entry : this.viewModel.entrySet()) {
             AbstractViewController child = entry.getValue();
 
             if(child.getView() == view) {
@@ -132,12 +132,12 @@ public class InAppActivity extends Activity implements IAppViewManager{
         flipper.setLayoutParams(flipper_params);
 
         TranslateAnimation in = new TranslateAnimation(view_controller_width, 0, 0, 0);
-        in.setDuration(5000);
+        in.setDuration(400);
         in.setZAdjustment(Animation.ZORDER_TOP);
         flipper.setInAnimation(in);
 
         TranslateAnimation out = new TranslateAnimation(0, -view_controller_width, 0, 0);
-        out.setDuration(5000);
+        out.setDuration(400);
         out.setZAdjustment(Animation.ZORDER_TOP);
         flipper.setOutAnimation(out);
 
@@ -164,7 +164,7 @@ public class InAppActivity extends Activity implements IAppViewManager{
                 int displayed_child = self.viewFlipper.getDisplayedChild();
                 View view = self.viewFlipper.getChildAt(displayed_child);
 
-                for(Map.Entry<String, AbstractViewController> entry : self.viewModel.entrySet()) {
+                for(Map.Entry<AbstractViewController.CONTROLLER, AbstractViewController> entry : self.viewModel.entrySet()) {
                     AbstractViewController child = entry.getValue();
 
                     if(child.getView() == view) {
@@ -177,9 +177,9 @@ public class InAppActivity extends Activity implements IAppViewManager{
     }
 
     @Override
-    public void presentViewForTag(String tag) {
+    public void presentViewForTag(AbstractViewController.CONTROLLER tag) {
         final InAppActivity self = this;
-        final String final_tag = tag;
+        final AbstractViewController.CONTROLLER final_tag = tag;
 
         this.runOnUiThread(new Runnable() {
             @Override
@@ -201,12 +201,12 @@ public class InAppActivity extends Activity implements IAppViewManager{
                     int ltr = child_index > displayed_child ? 1 : -1;
 
                     TranslateAnimation in = new TranslateAnimation(width * ltr, 0, 0, 0);
-                    in.setDuration(10000);
+                    in.setDuration(1000);
                     in.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setInAnimation(in);
 
                     TranslateAnimation out = new TranslateAnimation(0, -width * ltr, 0, 0);
-                    out.setDuration(10000);
+                    out.setDuration(1000);
                     out.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setOutAnimation(out);
 
@@ -227,7 +227,7 @@ public class InAppActivity extends Activity implements IAppViewManager{
     }
 
     @Override
-    public void addViewWithTag(AbstractViewController controller, String tag) {
+    public void addViewWithTag(AbstractViewController controller, AbstractViewController.CONTROLLER tag) {
         this.viewModel.put(tag, controller);
     }
 

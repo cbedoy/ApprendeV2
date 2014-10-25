@@ -10,9 +10,10 @@ import android.widget.TextView;
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationDelegate;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationHandler;
+import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.service.InjectionManager;
-import com.cbedoy.apprende.service.LevelSelectorView;
+import com.cbedoy.apprende.widgets.LevelSelectorView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.HashMap;
@@ -48,6 +49,8 @@ public class PreviewViewController extends AbstractViewController implements IPr
     protected View init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_preview_viewcontroller,  null);
+        navigationBar.initWithView(view);
+        previewInformation = new HashMap<String, Object>();
         overlay = view.findViewById(R.id.app_preview_viewcontroller_overlay);
         start = (Button) view.findViewById(R.id.app_preview_viewcontroller_aprende);
         choseLevel = (Button) view.findViewById(R.id.app_preview_viewcontroller_level);
@@ -58,8 +61,12 @@ public class PreviewViewController extends AbstractViewController implements IPr
         background = (ImageView) view.findViewById(R.id.app_preview_viewcontroller_background);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                previewRepresentationDelegate.userSelectedApprende();
+            public void onClick(View view)
+            {
+                if(previewInformation.containsKey("level"))
+                    previewRepresentationDelegate.userSelectedStartApprendeWithData(previewInformation);
+                else
+                    messageRepresentation.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
             }
         });
         choseLevel.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +109,7 @@ public class PreviewViewController extends AbstractViewController implements IPr
         description.setTypeface(ImageService.lightFont);
         choseLevel.setTypeface(ImageService.lightFont);
         start.setTypeface(ImageService.lightFont);
+        previewInformation.put("theme", subcategory_selected.get("pk"));
     }
 
     @Override
@@ -111,6 +119,6 @@ public class PreviewViewController extends AbstractViewController implements IPr
 
     @Override
     public void userSelectedLevel(int level) {
-
+        previewInformation.put("level", level);
     }
 }

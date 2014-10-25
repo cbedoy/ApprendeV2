@@ -96,12 +96,11 @@ public class InformationService implements ICategoryInformationHandler, IPreview
     }
 
     @Override
-    public void performPreviewRequest() {
-        String url = "url";
-        Memento memento = mementoHandler.getTopMemento();
-        HashMap<String, Object> data = memento.getMementoData();
+    public void performPreviewRequestWithData(HashMap<String, Object> information) {
+        String url = "/apprende/exam/get/$theme/$level";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        //TODO get parameters from memento
+        parameters.put("$theme", information.get("theme"));
+        parameters.put("$level", information.get("level"));
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {

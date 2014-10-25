@@ -13,13 +13,13 @@
         android:layout_marginRight="-96dp"
         android:id="@+id/imageView"
         android:scaleType="centerCrop"
-        android:src="@drawable/login_blur"
+        android:background="@color/app_principal"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="username"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
@@ -35,7 +35,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:inputType="textPassword"
         android:padding="6dp"
         android:background="#44000000"
@@ -53,7 +53,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Sing Up"
         android:padding="6dp"
         android:id="@+id/app_login_viewcontroller_singup"
@@ -65,7 +65,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:padding="6dp"
         android:background="#33ffffff"
         android:textColor="#f0f0f0"
@@ -81,7 +81,7 @@
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:layout_height="wrap_content"
+        android:layout_height="72dp"
         android:background="#44000000"
         android:text="Apprende"
         android:padding="6dp"
@@ -95,22 +95,21 @@
         android:layout_marginTop="72dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Current version"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="Current version @ PandaMobile"
         android:textSize="14sp"
         android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="#44000000"
         android:textColor="#99f0f0f0"
         android:id="@+id/currentVersion"
         android:layout_below="@+id/app_login_viewcontroller_password"
-        android:layout_alignRight="@+id/app_login_viewcontroller_password" />
+        android:layout_alignParentRight="true" />
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        layout="@layout/app_action_bar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true" />
+
 
 
 </RelativeLayout>

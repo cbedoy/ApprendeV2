@@ -35,6 +35,7 @@ public class LoginViewController extends AbstractViewController implements ILogi
     protected View init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_login_viewcontroller,  null);
+        navigationBar.initWithView(view);
         username = (EditText) view.findViewById(R.id.app_login_viewcontroller_username);
         password = (EditText) view.findViewById(R.id.app_login_viewcontroller_password);
         actionLogin = (Button) view.findViewById(R.id.app_login_viewcontroller_login);

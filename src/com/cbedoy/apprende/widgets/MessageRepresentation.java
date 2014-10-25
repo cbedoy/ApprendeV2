@@ -1,4 +1,4 @@
-package com.cbedoy.apprende.service;
+package com.cbedoy.apprende.widgets;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
+import com.cbedoy.apprende.service.ImageService;
 
 public class MessageRepresentation implements IMessageRepresentationHandler {
 
@@ -259,19 +260,19 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
     private int getColorFromCode(NOTIFICATION_CODE code){
         switch (code) {
             case K_INVALID_LOGIN:
-                return activity.getResources().getColor(R.color.rank1);
+                return activity.getResources().getColor(R.color.app_principal);
             case K_INVALID_COMMON_FIELDS:
-                return activity.getResources().getColor(R.color.rank2);
+                return activity.getResources().getColor(R.color.app_principal);
             case K_INVALID_EMAIL:
-                return activity.getResources().getColor(R.color.rank3);
+                return activity.getResources().getColor(R.color.app_principal);
             case K_INVALID_PASSWORD_FORMAT:
-                return activity.getResources().getColor(R.color.rank4);
+                return activity.getResources().getColor(R.color.app_principal);
             case K_NETWORK_INTERNET:
-                return activity.getResources().getColor(R.color.rank5);
+                return activity.getResources().getColor(R.color.app_principal);
             case K_SINGUP_DATA:
-                return activity.getResources().getColor(R.color.rank4);
+                return activity.getResources().getColor(R.color.app_principal);
             default:
-                return activity.getResources().getColor(R.color.rank2);
+                return activity.getResources().getColor(R.color.app_principal);
         }
     }
 

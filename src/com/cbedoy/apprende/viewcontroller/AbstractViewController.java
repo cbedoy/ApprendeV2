@@ -5,7 +5,8 @@ import android.graphics.Bitmap;
 import android.view.View;
 
 import com.cbedoy.apprende.interfaces.IAppViewManager;
-import com.cbedoy.apprende.service.MessageRepresentation;
+import com.cbedoy.apprende.widgets.MessageRepresentation;
+import com.cbedoy.apprende.widgets.NavigationBar;
 
 /**
  * Created by Carlos on 14/10/2014.
@@ -13,17 +14,29 @@ import com.cbedoy.apprende.service.MessageRepresentation;
 public abstract class AbstractViewController
 {
     protected Context context;
-    protected String tag;
+    protected CONTROLLER tag;
     protected IAppViewManager appViewManager;
     protected View view;
     protected Bitmap backgroundBitmap;
     protected MessageRepresentation messageRepresentation;
+    protected NavigationBar navigationBar;
     protected boolean buttons_status;
+
+    public enum CONTROLLER
+    {
+        LOGIN,
+        CATEGORY,
+        PREVIEW,
+        PROFILE,
+        QUESTION,
+        SIGHUP,
+        SUBCATEGORY
+    }
 
     protected abstract View init();
     public abstract void reload();
 
-    public void setTag(String tag) {
+    public void setTag(CONTROLLER tag) {
         this.tag = tag;
     }
 
@@ -73,5 +86,9 @@ public abstract class AbstractViewController
 
     public boolean onBackPressed() {
         return true;
+    }
+
+    public void setNavigationBar(NavigationBar navigationBar) {
+        this.navigationBar = navigationBar;
     }
 }

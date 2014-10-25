@@ -47,6 +47,7 @@ public class ProfileViewController extends AbstractViewController implements IPr
     protected View init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_profile_viewcontroller,  null);
+        navigationBar.initWithView(view);
         userAvatar = (CircleImageView) view.findViewById(R.id.app_profile_viewcontroller_avatar);
         backgroundView = (ImageView) view.findViewById(R.id.app_profile_viewcontroller_background);
         place = (TextView) view.findViewById(R.id.app_profile_viewcontroller_place);

@@ -1,4 +1,4 @@
-package com.cbedoy.apprende.service;
+package com.cbedoy.apprende.widgets;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -90,6 +90,12 @@ public class LevelSelectorView
                     {
                         levelSelectorViewDelegate.userSelectedLevel(5);
                     }
+                }
+            });
+            actionSelected.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    hide();
                 }
             });
         }
