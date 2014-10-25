@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:text="¿Por qué dejaste en blanco una o más preguntas de matemáticas? Llena uno o más óvalos. "
+        android:textSize="20sp"
+        android:padding="6dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#f0f0f0"
+        android:id="@+id/question_question"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        android:textSize="20sp"
+        android:background="#99000000"
+        android:textColor="#f0f0f0"
+        android:id="@+id/question_finish"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
+
+    <RadioButton
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No tuve suficiente tiempo."
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:textColor="#f0f0f0"
+        android:id="@+id/question_question_option_one"
+        android:layout_below="@+id/question_question"
+        android:layout_alignParentLeft="true"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No sé cómo usar la calculadora."
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:textColor="#f0f0f0"
+        android:id="@+id/question_question_option_two"
+        android:layout_below="@+id/question_question_option_one"
+        android:layout_alignParentLeft="true"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" No estoy acostumbrado a escribir mis respuestas."
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:textColor="#f0f0f0"
+        android:id="@+id/question_question_option_three"
+        android:layout_below="@+id/question_question_option_two"
+        android:layout_alignParentLeft="true"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Las preguntas eran muy difíciles."
+        android:padding="6dp"
+        android:textSize="16sp"
+        android:textColor="#f0f0f0"
+        android:id="@+id/question_question_option_four"
+        android:layout_below="@+id/question_question_option_three"
+        android:layout_alignParentLeft="true"
+        android:checked="false" />
+</RelativeLayout>

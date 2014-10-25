@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
+        android:scaleType="center"
+        android:id="@+id/app_category_cell_image"
+        android:src="@drawable/login_blur"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/app_principal_trans"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/app_category_cell_image">
+
+    </View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_height="wrap_content"
+        android:text="Name of category"
+        android:textSize="24sp"
+        android:textColor="#f0f0f0"
+        android:id="@+id/app_category_cell_name"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

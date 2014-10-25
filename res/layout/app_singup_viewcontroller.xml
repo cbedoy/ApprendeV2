@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="-96dp"
+        android:layout_marginRight="-96dp"
+        android:id="@+id/app_singup_viewcontroller_background"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/profile_blur"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_blue_trans"
+        android:id="@+id/app_singup_viewcontroller_overlay" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/app_singup_viewcontroller_avatar"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/profile_avatar"
+        app:border_width="2dp"
+        app:border_color="#66f0f0f0"
+        android:layout_marginTop="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Insert your information"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#99f0f0f0"
+        android:background="@color/app_blue"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/app_singup_viewcontroller_avatar"
+        android:id="@+id/app_singup_viewcontroller_div"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/app_principal"
+        android:layout_below="@+id/app_singup_viewcontroller_div"
+        android:layout_alignParentLeft="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@color/app_principal_bottom"
+            android:textColor="#f0f0f0"
+            android:textSize="20sp"
+            android:text="Confirm"
+            android:id="@+id/app_singup_viewcontroller_confirm"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@+id/app_singup_viewcontroller_confirm"
+            android:layout_alignParentRight="true" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_above="@+id/app_singup_viewcontroller_confirm"
+                android:id="@+id/some">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="24dp"
+                    android:inputType="textEmailAddress"
+                    android:hint="e-mail"
+                    android:background="#00000000"
+                    android:id="@+id/app_singup_viewcontroller_email" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="24dp"
+                    android:inputType="textEmailAddress"
+                    android:hint="username"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:id="@+id/app_singup_viewcontroller_username" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="24dp"
+                    android:hint="first name"
+                    android:background="#00000000"
+                    android:id="@+id/app_singup_viewcontroller_first_name" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="24dp"
+                    android:hint="last name"
+                    android:background="#00000000"
+                    android:id="@+id/app_singup_viewcontroller_last_name" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="24dp"
+                    android:ems="10"
+                    android:background="#00000000"
+                    android:hint="password"
+                    android:id="@+id/app_singup_viewcontroller_password" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="24dp"
+                    android:hint="confirm password"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:id="@+id/app_singup_viewcontroller_confirm_password" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginLeft="24dp"
+                    android:hint="twitter"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:id="@+id/app_singup_viewcontroller_facebook" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="24dp"
+                    android:hint="facebook"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:id="@+id/app_singup_viewcontroller_twitter" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="24dp"
+                    android:hint="age"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:id="@+id/app_singup_viewcontroller_age" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="#33f0f0f0"/>
+
+            </LinearLayout>
+
+            </ScrollView>
+
+
+    </RelativeLayout>
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        layout="@layout/app_action_bar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>

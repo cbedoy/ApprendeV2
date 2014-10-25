@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.2'
+        classpath 'com.android.tools.build:gradle:0.12.+'
     }
 }
 apply plugin: 'com.android.application'
@@ -19,6 +19,7 @@ tasks.withType(JavaCompile) {
 
 dependencies {
 
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     compile 'de.hdodenhof:circleimageview:1.2.0'
     compile fileTree(dir: 'libs', include: '*.jar')
 }
@@ -26,6 +27,14 @@ dependencies {
 android {
     compileSdkVersion 14
     buildToolsVersion '20'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 20
+        renderscriptTargetApi 18
+        renderscriptSupportMode true
+    }
+
 
     sourceSets {
         main {

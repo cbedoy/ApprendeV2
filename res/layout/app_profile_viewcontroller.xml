@@ -7,14 +7,13 @@
     android:layout_height="match_parent">
 
 
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="-96dp"
         android:layout_marginRight="-96dp"
         android:src="@drawable/profile_blur"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:id="@+id/app_profile_viewcontroller_background"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -22,18 +21,16 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1EBF6C"/>
+        android:background="@color/app_blue_trans"
+        android:id="@+id/app_profile_viewcontroller_overlay" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/app_profile_viewcontroller_avatar"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:src="@drawable/profile_avatar"
-        app:border_width="2dp"
-        app:border_color="#66f0f0f0"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="12dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
@@ -44,9 +41,9 @@
         android:text="paula.musi"
         android:textSize="20sp"
         android:textColor="#99f0f0f0"
-        android:background="#1EBF6C"
+        android:background="@color/app_blue"
         android:padding="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_below="@+id/app_profile_viewcontroller_avatar"
         android:id="@+id/app_profile_viewcontroller_username"
         android:layout_centerHorizontal="true" />
@@ -54,17 +51,17 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#cc000000"
+        android:background="@color/app_principal"
         android:layout_below="@+id/app_profile_viewcontroller_username"
         android:layout_alignParentLeft="true"
         android:id="@+id/relativeLayout">
 
         <Button
             android:layout_width="match_parent"
-            android:background="#99000000"
+            android:background="@color/app_principal_bottom"
             android:textColor="#f0f0f0"
             android:textSize="20sp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Start to learn"
             android:id="@+id/app_profile_viewcontroller_start"
             android:layout_alignParentBottom="true"
@@ -129,15 +126,15 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Share on Twitter"
             android:textColor="#f0f0f0"
             android:textSize="20sp"
-            android:background="#1EBF6C"
+            android:background="@color/app_pink"
             android:layout_marginLeft="48dp"
             android:layout_marginRight="48dp"
             android:layout_marginBottom="24dp"
-            android:id="@+id/button"
+            android:id="@+id/app_profile_viewcontroller_share"
             android:layout_above="@+id/app_profile_viewcontroller_start"
             android:layout_centerHorizontal="true" />
 
@@ -162,11 +159,18 @@
         android:textColor="#f0f0f0"
         android:textSize="36sp"
         android:gravity="center|right"
-        android:id="@+id/textView4"
+        android:id="@+id/app_profile_viewcontroller_place"
         android:layout_alignTop="@+id/app_profile_viewcontroller_avatar"
         android:layout_alignRight="@+id/app_profile_viewcontroller_points"
         android:layout_alignBottom="@+id/app_profile_viewcontroller_avatar"
         android:layout_toRightOf="@+id/app_profile_viewcontroller_avatar" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        layout="@layout/app_action_bar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
 
 
 </RelativeLayout>

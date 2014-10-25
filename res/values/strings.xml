@@ -64,5 +64,9 @@
     <string name="title_section3">Section 3</string>
     <string name="title_activity_feed_view">Feeds</string>
     <string name="title_activity_registration_view">Registration</string>
+    <string name="success">Success</string>
+    <string name="loading">Loading</string>
+    <string name="copyright">Apprende Mobile\nCopyright © PandaMobile</string>
+    <string name="hard_level"><![CDATA[<b>Hard</b>\nThis test contains 20 random questions about the selected topic.]]></string>
 
 </resources>

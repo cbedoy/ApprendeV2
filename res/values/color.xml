@@ -14,10 +14,24 @@
     <color name="rank2">#994CD964</color>
     <color name="rank3">#99007AFF</color>
     <color name="rank4">#995856D6</color>
-    <color name="rank5">#99FF2D55</color>
+    <color name="rank5">#FF2D55</color>
     
     
     <color name="error_color">#99FF3B30</color>
     <color name="correct_color">#990BD318</color>
     <color name="noselection_color">#99C86EDF</color>
+
+
+
+
+    <color name="app_principal_bottom">#303238</color>
+    <color name="app_principal">#3d4147</color>
+    <color name="app_principal_trans">#994d5059</color>
+    <color name="app_pink">#CF4858</color>
+    <color name="app_blue">#16A79D</color>
+    <color name="app_blue_trans">#9916A79D</color>
+    <color name="app_purple">#80628B</color>
+    <color name="app_yellow">#F4AC42</color>
+    <color name="app_text">#FAFAFA</color>
+
 </resources>
