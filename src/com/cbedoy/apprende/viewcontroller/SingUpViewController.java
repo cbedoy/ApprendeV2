@@ -14,6 +14,7 @@ import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationHandl
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
 import com.cbedoy.apprende.service.BlurService;
+import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;
 
@@ -22,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class SingUpViewController extends AbstractViewController implements ISingupRepresentationHandler, ICameraInformationDelegate
+public class SingUpViewController extends AbstractViewController implements ISingupRepresentationHandler, ICameraInformationDelegate, NavigationBar.INavigationBarDelegate
 {
     private CircleImageView circleImageView;
     private ImageView backgroundImage;
@@ -53,6 +54,7 @@ public class SingUpViewController extends AbstractViewController implements ISin
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_singup_viewcontroller,  null);
         navigationBar.initWithView(view);
+        navigationBar.setNavigationBarDelegate(this);
         circleImageView = (CircleImageView) view.findViewById(R.id.app_singup_viewcontroller_avatar);
         actionConfirm = (Button) view.findViewById(R.id.app_singup_viewcontroller_confirm);
         username = (EditText) view.findViewById(R.id.app_singup_viewcontroller_username);
@@ -129,5 +131,10 @@ public class SingUpViewController extends AbstractViewController implements ISin
         circleImageView.setImageBitmap(bitmap);
         backgroundImage.setImageBitmap(blur_bitmap);
 
+    }
+
+    @Override
+    public void showPreviewViewController() {
+        this.appViewManager.presentViewForTag(CONTROLLER.LOGIN);
     }
 }

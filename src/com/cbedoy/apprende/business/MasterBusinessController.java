@@ -79,7 +79,7 @@ public class MasterBusinessController extends BusinessController implements ICat
     @Override
     public void apprendeItsReady()
     {
-
+        questionTransactionDelegate.startQuestionaryApprende();
     }
 
     @Override

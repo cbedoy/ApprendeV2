@@ -12,7 +12,6 @@
         android:layout_marginRight="-96dp"
         android:id="@+id/app_singup_viewcontroller_background"
         android:layout_alignParentTop="true"
-        android:src="@drawable/profile_blur"
         android:layout_centerHorizontal="true" />
 
     <View
@@ -27,10 +26,9 @@
         android:id="@+id/app_singup_viewcontroller_avatar"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:src="@drawable/profile_avatar"
         app:border_width="2dp"
         app:border_color="#66f0f0f0"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="60dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 

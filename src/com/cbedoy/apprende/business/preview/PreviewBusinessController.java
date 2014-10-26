@@ -35,7 +35,7 @@ public class PreviewBusinessController extends BusinessController implements IPr
 
     @Override
     public void previewResponse(HashMap<String, Object> response) {
-        boolean status = response.containsKey("model") && response.containsKey("pk");
+        boolean status = response.size()>5;
         mMessageRepresentationHandler.hideLoading();
         if (status) {
             HashMap<String, Object> data = new HashMap<String, Object>();
@@ -60,5 +60,6 @@ public class PreviewBusinessController extends BusinessController implements IPr
     @Override
     public void userSelectedStartApprendeWithData(HashMap<String, Object> information) {
         previewInformationHandler.performPreviewRequestWithData(information);
+        mMessageRepresentationHandler.showLoading();
     }
 }

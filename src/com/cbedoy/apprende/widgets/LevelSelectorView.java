@@ -25,6 +25,8 @@ public class LevelSelectorView
     private RadioButton optionOne;
     private RadioButton optionTwo;
     private RadioButton optionThree;
+    private RadioButton optionFour;
+    private RadioButton optionFive;
     private RadioGroup radioGroup;
     private Button actionSelected;
     private ILevelSelectorViewDelegate levelSelectorViewDelegate;
@@ -74,19 +76,29 @@ public class LevelSelectorView
             optionOne = (RadioButton) view.findViewById(R.id.app_selector_optionOne);
             optionTwo = (RadioButton) view.findViewById(R.id.app_selector_optionTwo);
             optionThree = (RadioButton) view.findViewById(R.id.app_selector_optionThree);
-            radioGroup = (RadioGroup) view.findViewById(R.id.level_radio_group);
+            optionFour = (RadioButton) view.findViewById(R.id.app_selector_optionFour);
+            optionFive = (RadioButton) view.findViewById(R.id.app_selector_optionFive);
+            radioGroup = (RadioGroup) view.findViewById(R.id.level_selector_radio_group);
             radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup radioGroup, int i) {
                     if(optionOne.isChecked())
                     {
-                        levelSelectorViewDelegate.userSelectedLevel(20);
+                        levelSelectorViewDelegate.userSelectedLevel(25);
                     }
                     else if(optionTwo.isChecked())
                     {
-                        levelSelectorViewDelegate.userSelectedLevel(10);
+                        levelSelectorViewDelegate.userSelectedLevel(20);
                     }
                     else if(optionThree.isChecked())
+                    {
+                        levelSelectorViewDelegate.userSelectedLevel(15);
+                    }
+                    else if(optionFour.isChecked())
+                    {
+                        levelSelectorViewDelegate.userSelectedLevel(10);
+                    }
+                    else  if(optionFive.isChecked())
                     {
                         levelSelectorViewDelegate.userSelectedLevel(5);
                     }

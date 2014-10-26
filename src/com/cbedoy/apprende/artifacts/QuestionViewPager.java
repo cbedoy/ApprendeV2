@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cbedoy.apprende.viewcontroller.AbstractViewController;
+import com.cbedoy.apprende.widgets.QuestionView;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,35 +19,39 @@ import java.util.List;
 public class QuestionViewPager extends PagerAdapter
 {
 
-    private List<Object> viewModel;
-    private List<AbstractViewController> questionModel;
+    private List<Object> dataModel;
+    private List<QuestionView> questionModel;
     private Context context;
-    public QuestionViewPager(Context context, List<Object> viewModel, List<AbstractViewController> questionModel){
+    public QuestionViewPager(Context context, List<Object> dataModel, List<QuestionView> questionModel){
         this.context = context;
-        this.viewModel = viewModel;
+        this.dataModel = dataModel;
         this.questionModel = questionModel;
     }
 
     @Override
     public int getCount() {
-        return viewModel.size();
+        return dataModel.size();
     }
 
     @Override
     public boolean isViewFromObject(View view, Object o) {
-        return view == ((AbstractViewController)o).getView();
+        return view == ((QuestionView)o).getView();
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        AbstractViewController abstractViewController = questionModel.get(position);
-        ((ViewPager)container).addView(abstractViewController.getView());
-        return abstractViewController;
+        QuestionView questionView = questionModel.get(position);
+        HashMap<String, Object> currentModel = (HashMap<String, Object>) dataModel.get(position);
+        questionView.setDataModel(currentModel);
+        questionView.getView();
+        questionView.reload();
+        ((ViewPager)container).addView(questionView.getView());
+        return questionView;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView(((AbstractViewController)object).getView());
+        ((ViewPager) container).removeView(((QuestionView)object).getView());
     }
 
     @Override
