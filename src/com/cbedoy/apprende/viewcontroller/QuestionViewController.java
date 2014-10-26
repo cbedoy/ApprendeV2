@@ -1,52 +1,54 @@
 package com.cbedoy.apprende.viewcontroller;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.support.v4.view.ViewPager;
+import android.widget.ImageView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.artifacts.QuestionViewPager;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionRepresentationDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionRepresentationHandler;
+import com.cbedoy.apprende.service.BlurService;
+import com.cbedoy.apprende.service.Memento;
+import com.cbedoy.apprende.service.MementoHandler;
+import com.cbedoy.apprende.widgets.QuestionView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Carlos on 17/10/2014.
  */
 public class QuestionViewController extends AbstractViewController implements IQuestionRepresentationHandler
 {
-    private TextView questionView;
-    private RadioButton answerOne;
-    private RadioButton answerTwo;
-    private RadioButton answerThree;
-    private RadioButton answerFour;
-    private Button actionFinish;
-
     private IQuestionRepresentationDelegate questionRepresentationDelegate;
-
+    private QuestionViewPager questionViewPager;
+    private ViewPager viewPager;
+    private MementoHandler mementoHandler;
+    private List<QuestionView> questionViewModel;
+    private List<Object> questionDataModel;
+    private ImageView background;
     public void setQuestionRepresentationDelegate(IQuestionRepresentationDelegate questionRepresentationDelegate) {
         this.questionRepresentationDelegate = questionRepresentationDelegate;
+    }
+
+    public void setMementoHandler(MementoHandler mementoHandler) {
+        this.mementoHandler = mementoHandler;
     }
 
     @Override
     protected View init()
     {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(R.layout.app_question_viewcontroller,  null);
-        navigationBar.initWithView(view);
-        questionView = (TextView) view.findViewById(R.id.question_question);
-        answerOne = (RadioButton) view.findViewById(R.id.question_question_option_one);
-        answerTwo = (RadioButton) view.findViewById(R.id.question_question_option_two);
-        answerThree = (RadioButton) view.findViewById(R.id.question_question_option_three);
-        answerFour = (RadioButton) view.findViewById(R.id.question_question_option_four);
-        actionFinish = (Button) view.findViewById(R.id.question_finish);
-        actionFinish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        this.view = inflater.inflate(R.layout.app_aprende_viewcontroller,  null);
+        this.background = (ImageView) view.findViewById(R.id.background_apprende);
+        this.viewPager = (ViewPager) view.findViewById(R.id.pager);
+        this.questionDataModel = new ArrayList<Object>();
+        this.questionViewModel = new ArrayList<QuestionView>();
         return view;
     }
 
@@ -56,7 +58,28 @@ public class QuestionViewController extends AbstractViewController implements IQ
     }
 
     @Override
-    public void showQuestionary() {
+    public void showQuestionary()
+    {
         this.appViewManager.presentViewForTag(this.tag);
+        this.questionDataModel.clear();
+        this.questionViewModel.clear();
+        Memento topMemento = mementoHandler.getTopMemento();
+        HashMap<String, Object> mementoData = topMemento.getMementoData();
+        HashMap<String, Object> subcategory_selected = (HashMap<String, Object>) mementoData.get("subcategory_selected");
+        HashMap<String, Object> exam_response = (HashMap<String, Object>) mementoData.get("exam_response");
+
+        HashMap<String, Object> fields = (HashMap<String, Object>) subcategory_selected.get("fields");
+        String thumbnail = fields.get("thumbnail").toString();
+        Bitmap user_avatar_image =  BlurService.getInstance().performRequestByImage(thumbnail);
+        Bitmap user_avatar_blur = BlurService.getInstance().performRequestBlurByImage(user_avatar_image);
+        background.setImageBitmap(user_avatar_blur);
+        for(Object key : exam_response.keySet())
+        {
+            QuestionView questionView = new QuestionView(context);
+            questionDataModel.add(exam_response.get(key));
+            questionViewModel.add(questionView);
+        }
+        this.questionViewPager = new QuestionViewPager(context,questionDataModel, questionViewModel);
+        this.viewPager.setAdapter(questionViewPager);
     }
 }

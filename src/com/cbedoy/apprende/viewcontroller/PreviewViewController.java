@@ -14,6 +14,7 @@ import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.service.InjectionManager;
 import com.cbedoy.apprende.widgets.LevelSelectorView;
+import com.cbedoy.apprende.widgets.NavigationBar;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.HashMap;
@@ -23,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class PreviewViewController extends AbstractViewController implements IPreviewRepresentationHandler, LevelSelectorView.ILevelSelectorViewDelegate{
+public class PreviewViewController extends AbstractViewController implements IPreviewRepresentationHandler, LevelSelectorView.ILevelSelectorViewDelegate, NavigationBar.INavigationBarDelegate{
 
     private View overlay;
     private Button start;
@@ -50,6 +51,7 @@ public class PreviewViewController extends AbstractViewController implements IPr
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_preview_viewcontroller,  null);
         navigationBar.initWithView(view);
+        navigationBar.setNavigationBarDelegate(this);
         previewInformation = new HashMap<String, Object>();
         overlay = view.findViewById(R.id.app_preview_viewcontroller_overlay);
         start = (Button) view.findViewById(R.id.app_preview_viewcontroller_aprende);
@@ -120,5 +122,10 @@ public class PreviewViewController extends AbstractViewController implements IPr
     @Override
     public void userSelectedLevel(int level) {
         previewInformation.put("level", level);
+    }
+
+    @Override
+    public void showPreviewViewController() {
+        this.appViewManager.presentViewForTag(CONTROLLER.SUBCATEGORY);
     }
 }

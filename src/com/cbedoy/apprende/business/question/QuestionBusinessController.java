@@ -52,8 +52,10 @@ public class QuestionBusinessController extends BusinessController implements IQ
     }
 
     @Override
-    public void startQuestionaryApprende() {
-
+    public void startQuestionaryApprende()
+    {
+        this.mMessageRepresentationHandler.hideLoading();
+        this.questionRepresentationHandler.showQuestionary();
     }
 }
 

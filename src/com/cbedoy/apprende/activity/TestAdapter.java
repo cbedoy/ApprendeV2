@@ -53,45 +53,10 @@ public class TestAdapter extends Activity
                 questionViewController5.getView(),
 
         };
-        viewFlipper.setAdapter(new MyAdapter(this, images));
+
 
 
     }
 
 
-    private class MyAdapter extends PagerAdapter{
-
-        Activity activity;
-        View imageArray[];
-
-        public MyAdapter(Activity act, View[] imgArra) {
-            imageArray = imgArra;
-            activity = act;
-        }
-
-        public int getCount() {
-            return imageArray.length;
-        }
-
-        public Object instantiateItem(View collection, int position) {
-            View view = imageArray[position];
-            ((ViewPager) collection).addView(view, 0);
-            return view;
-        }
-
-        @Override
-        public void destroyItem(View arg0, int arg1, Object arg2) {
-            ((ViewPager) arg0).removeView((View) arg2);
-        }
-
-        @Override
-        public boolean isViewFromObject(View arg0, Object arg1) {
-            return arg0 == ((View) arg1);
-        }
-
-        @Override
-        public Parcelable saveState() {
-            return null;
-        }
-    }
 }

@@ -13,22 +13,11 @@ import com.cbedoy.apprende.R;
 public class NavigationBar
 {
     private INavigationBarDelegate navigationBarDelegate;
-    private ImageView actionNext;
     private ImageView actionBack;
-    private View dividerNext;
-    private View dividerBack;
 
     public void initWithView(View view){
         if(view != null){
-            actionNext = (ImageView) view.findViewById(R.id.action_next);
             actionBack = (ImageView) view.findViewById(R.id.acion_back);
-            actionNext.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(navigationBarDelegate != null)
-                        navigationBarDelegate.showNextViewController();
-                }
-            });
             actionBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -45,6 +34,5 @@ public class NavigationBar
 
     public interface  INavigationBarDelegate{
         public void showPreviewViewController();
-        public void showNextViewController();
     }
 }

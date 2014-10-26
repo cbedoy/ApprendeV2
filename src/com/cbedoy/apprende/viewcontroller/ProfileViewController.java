@@ -14,6 +14,7 @@ import com.cbedoy.apprende.business.profile.interfaces.IProfileRepresentationHan
 import com.cbedoy.apprende.service.BlurService;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.service.TwitterService;
+import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;
 
@@ -22,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class ProfileViewController extends AbstractViewController implements IProfileRepresentationHandler{
+public class ProfileViewController extends AbstractViewController implements IProfileRepresentationHandler, NavigationBar.INavigationBarDelegate {
 
     private CircleImageView userAvatar;
     private ImageView backgroundView;
@@ -48,6 +49,7 @@ public class ProfileViewController extends AbstractViewController implements IPr
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_profile_viewcontroller,  null);
         navigationBar.initWithView(view);
+        navigationBar.setNavigationBarDelegate(this);
         userAvatar = (CircleImageView) view.findViewById(R.id.app_profile_viewcontroller_avatar);
         backgroundView = (ImageView) view.findViewById(R.id.app_profile_viewcontroller_background);
         place = (TextView) view.findViewById(R.id.app_profile_viewcontroller_place);
@@ -111,4 +113,10 @@ public class ProfileViewController extends AbstractViewController implements IPr
     public void animateBlurBackground() {
 
     }
+
+    @Override
+    public void showPreviewViewController() {
+        this.appViewManager.presentViewForTag(CONTROLLER.LOGIN);
+    }
+
 }

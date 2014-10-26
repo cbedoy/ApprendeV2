@@ -10,6 +10,7 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.artifacts.CustomViewCell;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationDelegate;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationHandler;
+import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,12 +18,13 @@ import java.util.List;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class CategoryViewController extends AbstractViewController implements ICategoryRepresentationHandler{
+public class CategoryViewController extends AbstractViewController implements ICategoryRepresentationHandler, NavigationBar.INavigationBarDelegate{
 
     private ListView listView;
     private LayoutInflater inflater;
     private ICategoryRepresentationDelegate categoryRepresentationDelegate;
     private List<Object> categories;
+    private CustomViewCell customViewCell;
     public void setCategoryRepresentationDelegate(ICategoryRepresentationDelegate categoryRepresentationDelegate) {
         this.categoryRepresentationDelegate = categoryRepresentationDelegate;
     }
@@ -32,6 +34,7 @@ public class CategoryViewController extends AbstractViewController implements IC
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_category_viewcontroller,  null);
         navigationBar.initWithView(view);
+        navigationBar.setNavigationBarDelegate(this);
         listView = (ListView) view.findViewById(R.id.app_category_viewcontroller_list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -45,13 +48,18 @@ public class CategoryViewController extends AbstractViewController implements IC
 
     @Override
     public void reload() {
-
     }
 
     @Override
     public void showCategoryViewWithData(List<Object> categories) {
         this.appViewManager.presentViewForTag(this.tag);
         this.categories = categories;
-        this.listView.setAdapter(new CustomViewCell(context, inflater, categories));
+        this.customViewCell = new CustomViewCell(context, inflater, categories);
+        this.listView.setAdapter(customViewCell);
+    }
+
+    @Override
+    public void showPreviewViewController() {
+        this.appViewManager.presentViewForTag(CONTROLLER.PROFILE);
     }
 }
