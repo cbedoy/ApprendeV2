@@ -53,7 +53,7 @@ public class InjectionManager
     private InjectionManager() {
         switch (this.env) {
             case 0: //dev
-                this.rest_port = 8080;
+                this.rest_port = 7777;
                 this.rest_url = "http://10.75.181.55";
                 break;
             case 1: //pre
@@ -71,7 +71,7 @@ public class InjectionManager
         }
     }
 
-    public static final String MEDIA_URL = "http://10.75.181.55:8080/media/";
+    public static final String MEDIA_URL = "http://10.75.181.55:7777/media/";
 
     public boolean isProduction() {
         return env == 2;
@@ -231,6 +231,7 @@ public class InjectionManager
         informationService.setSubcategoryInformationDelegate(subcategoryBusinessController);
         informationService.setProfileInformationDelegate(profileBusinessController);
         informationService.setSingupInformationHandler(singupBusinessController);
+        informationService.setQuestionInformationDelegate(questionBusinessController);
         informationService.setRestService(restService);
         informationService.setMementoHandler(mementoHandler);
 

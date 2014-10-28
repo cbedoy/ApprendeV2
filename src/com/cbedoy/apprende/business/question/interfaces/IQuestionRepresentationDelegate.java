@@ -5,7 +5,6 @@ package com.cbedoy.apprende.business.question.interfaces;
  */
 public interface IQuestionRepresentationDelegate
 {
-    public void userStartApprende();
-    public void showNextQuestion();
-    public void showPassQuestion();
+    public void userFinishExam();
+
 }

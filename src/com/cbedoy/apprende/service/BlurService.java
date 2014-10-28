@@ -72,7 +72,6 @@ public class BlurService
     }
 
     private class BlurAsyncService extends AsyncTask<String, Void, Bitmap>{
-        private String MEDIA_URL = "http://10.75.181.55:8080/media/";
 
         @Override
         protected Bitmap doInBackground(String... strings) {
@@ -81,7 +80,7 @@ public class BlurService
 
         private Bitmap downloadBitmap(String url) {
             final DefaultHttpClient client = new DefaultHttpClient();
-            final HttpGet getRequest = new HttpGet(MEDIA_URL+url);
+            final HttpGet getRequest = new HttpGet(InjectionManager.MEDIA_URL+url);
             try {
                 HttpResponse response = client.execute(getRequest);
                 final int statusCode = response.getStatusLine().getStatusCode();
@@ -114,6 +113,7 @@ public class BlurService
         @Override
         protected Bitmap doInBackground(Bitmap... bitmaps) {
             return blurRenderScript(bitmaps[0]);
+
         }
     }
 }

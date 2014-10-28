@@ -107,7 +107,7 @@ public class RestService implements IRestService {
                 StringBuilder builder = new StringBuilder();
                 for (String line; (line = bufferedReader.readLine()) != null; )
                 {
-                    builder.append(line).append("\n");
+                    builder.append(line);
                 }
                 JSONTokener jsonTokener = new JSONTokener(builder.toString());
                 JSONArray jsonArray = new JSONArray(jsonTokener);

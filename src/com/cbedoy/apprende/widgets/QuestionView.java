@@ -9,6 +9,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.interfaces.IQuestionViewRepresentationDelegate;
+import com.cbedoy.apprende.service.ImageService;
 
 import java.util.HashMap;
 
@@ -28,9 +30,15 @@ public class QuestionView
     private Context context;
     private RadioGroup radioGroup;
     private TextView feedback;
+    private boolean discoverFeedback;
+    private IQuestionViewRepresentationDelegate questionViewRepresentationDelegate;
 
     public QuestionView(Context context){
         this.context = context;
+    }
+
+    public void setQuestionViewRepresentationDelegate(IQuestionViewRepresentationDelegate questionViewRepresentationDelegate) {
+        this.questionViewRepresentationDelegate = questionViewRepresentationDelegate;
     }
 
     public View getView(){
@@ -52,31 +60,40 @@ public class QuestionView
         actionFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                questionViewRepresentationDelegate.didFinishExam();
             }
         });
         radioGroup = (RadioGroup) view.findViewById(R.id.question_radio_group);
+        final QuestionView self = this;
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                HashMap<String, Object> fields = (HashMap<String, Object>) dataModel.get("fields");
                 if(answerOne.isChecked())
                 {
-
+                   fields.put("selection", 1);
                 }
                 else if(answerTwo.isChecked())
                 {
-
+                    fields.put("selection", 2);
                 }
                 else if(answerThree.isChecked())
                 {
-
+                    fields.put("selection", 3);
                 }
                 else if(answerFour.isChecked())
                 {
-
+                    fields.put("selection", 4);
                 }
             }
         });
+        questionView.setTypeface(ImageService.regularFont);
+        answerOne.setTypeface(ImageService.lightFont);
+        answerFour.setTypeface(ImageService.lightFont);
+        answerThree.setTypeface(ImageService.lightFont);
+        answerTwo.setTypeface(ImageService.lightFont);
+        actionFinish.setTypeface(ImageService.boldFont);
+        feedback.setTypeface(ImageService.regularFont);
         return view;
     }
 
@@ -97,7 +114,15 @@ public class QuestionView
             answerThree.setText(fields.get("answer3").toString());
             answerFour.setText(fields.get("answer4").toString());
             feedback.setText(fields.get("feedback").toString());
-            feedback.setVisibility(View.GONE);
+            feedback.setVisibility(!discoverFeedback ? View.GONE : View.VISIBLE);
         }
+    }
+
+    public void discoverFeedBack(){
+        this.discoverFeedback = !discoverFeedback;
+    }
+
+    public HashMap<String, Object> getDataModel() {
+        return dataModel;
     }
 }

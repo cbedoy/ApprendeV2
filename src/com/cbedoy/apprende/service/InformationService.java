@@ -65,6 +65,10 @@ public class InformationService implements ICategoryInformationHandler, IPreview
         this.subcategoryInformationDelegate = subcategoryInformationDelegate;
     }
 
+    public void setQuestionInformationDelegate(IQuestionInformationDelegate questionInformationDelegate) {
+        this.questionInformationDelegate = questionInformationDelegate;
+    }
+
     @Override
     public void performCategoriesRequest() {
         String url = "/apprende/course/get/";
@@ -160,7 +164,7 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void performQuestionaryRequest() {
-        String url = "apprende/exam/get/$theme/$level";
+        String url = "/apprende/exam/get/$theme/$level";
         Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
         HashMap<String, Object> parameters = new HashMap<String, Object>();
@@ -176,15 +180,21 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void sendQuestionaryInformation() {
-        String url = "url";
+        String url = "/apprende/feed/new/$level/$correct/$wrongs/$points/$player";
         Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
+        HashMap<String, Object> exam_results = (HashMap<String, Object>)data.get("exam_results");
+        HashMap<String, Object> login_response = (HashMap<String, Object>) data.get("login_response");
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        //TODO get parameters from memento
+        parameters.put("$level", exam_results.get("level_factor"));
+        parameters.put("$points", exam_results.get("level_points"));
+        parameters.put("$player", login_response.get("pk"));
+        parameters.put("$wrongs", exam_results.get("level_wrongs"));
+        parameters.put("$correct", exam_results.get("level_corrects"));
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                subcategoryInformationDelegate.subcategoryResponse(response);
+                questionInformationDelegate.questionaryResponse(response);
             }
         };
         restService.request(url, parameters, callback);

@@ -22,8 +22,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
         android:id="@+id/scrollView2"
         android:layout_alignParentLeft="true"
         android:layout_above="@+id/question_finish" >
@@ -36,18 +34,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
+                android:background="@color/app_principal_trans"
                 android:text="¿Por qué dejaste en blanco una o más preguntas de matemáticas? Llena uno o más óvalos. "
                 android:textSize="20sp"
-                android:padding="6dp"
-                android:layout_marginTop="12dp"
+                android:padding="12dp"
                 android:textColor="#f0f0f0"
                 android:id="@+id/question_question" />
 
             <RadioGroup
                 android:layout_width="fill_parent"
                 android:id="@+id/question_radio_group"
+                android:layout_marginTop="12dp"
                 android:layout_height="fill_parent">
 
                 <RadioButton
