@@ -2,6 +2,8 @@ package com.cbedoy.apprende.business;
 
 import com.cbedoy.apprende.business.category.interfaces.ICategoryTransactionDelegate;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryTransactionHandler;
+import com.cbedoy.apprende.business.feed.interfaces.IFeedTransactionDelegate;
+import com.cbedoy.apprende.business.feed.interfaces.IFeedTransactionHandler;
 import com.cbedoy.apprende.business.login.interfaces.ILoginTransactionDelegate;
 import com.cbedoy.apprende.business.login.interfaces.ILoginTransactionHandler;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewTransactionDelegate;
@@ -10,8 +12,8 @@ import com.cbedoy.apprende.business.profile.interfaces.IProfileTransactionDelega
 import com.cbedoy.apprende.business.profile.interfaces.IProfileTransactionHandler;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionTransactionDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionTransactionHandler;
+import com.cbedoy.apprende.business.singup.interfaces.ISignUpTransactionHandler;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionHandler;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryTransactionDelegate;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryTransactionHandler;
 import com.cbedoy.apprende.business.timeout.interfaces.ITimeOutTransactionDelegate;
@@ -20,7 +22,7 @@ import com.cbedoy.apprende.business.timeout.interfaces.ITimeOutTransactionHandle
 /**
  * Created by Carlos on 15/10/2014.
  */
-public class MasterBusinessController extends BusinessController implements ITimeOutTransactionHandler, ICategoryTransactionHandler, IProfileTransactionHandler, ILoginTransactionHandler, ISubcategoryTransactionHandler, IPreviewTransactionHandler, ISingupTransactionHandler, IQuestionTransactionHandler
+public class MasterBusinessController extends BusinessController implements IFeedTransactionHandler, ITimeOutTransactionHandler, ICategoryTransactionHandler, IProfileTransactionHandler, ILoginTransactionHandler, ISubcategoryTransactionHandler, IPreviewTransactionHandler, ISignUpTransactionHandler, IQuestionTransactionHandler
 {
     private ILoginTransactionDelegate loginTransactionDelegate;
     private ISingupTransactionDelegate singupTransactionDelegate;
@@ -30,6 +32,11 @@ public class MasterBusinessController extends BusinessController implements ITim
     private ISubcategoryTransactionDelegate subcategoryTransactionDelegate;
     private IQuestionTransactionDelegate questionTransactionDelegate;
     private ITimeOutTransactionDelegate timeOutTransactionDelegate;
+    private IFeedTransactionDelegate feedTransactionDelegate;
+
+    public void setFeedTransactionDelegate(IFeedTransactionDelegate feedTransactionDelegate) {
+        this.feedTransactionDelegate = feedTransactionDelegate;
+    }
 
     public void setTimeOutTransactionDelegate(ITimeOutTransactionDelegate timeOutTransactionDelegate) {
         this.timeOutTransactionDelegate = timeOutTransactionDelegate;
@@ -112,6 +119,11 @@ public class MasterBusinessController extends BusinessController implements ITim
 
     @Override
     public void timerFinished() {
+
+    }
+
+    @Override
+    public void presentFeedbacks() {
 
     }
 }

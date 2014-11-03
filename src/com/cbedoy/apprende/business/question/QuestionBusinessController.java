@@ -16,20 +16,20 @@ import java.util.HashMap;
  */
 public class QuestionBusinessController extends BusinessController implements IQuestionTransactionDelegate, IQuestionRepresentationDelegate, IQuestionInformationDelegate{
 
-    private IQuestionTransactionHandler questionTransactionHandler;
-    private IQuestionInformationHandler questionInformationHandler;
-    private IQuestionRepresentationHandler questionRepresentationHandler;
+    private IQuestionTransactionHandler transactionHandler;
+    private IQuestionInformationHandler informationHandler;
+    private IQuestionRepresentationHandler representationHandler;
 
-    public void setQuestionInformationHandler(IQuestionInformationHandler questionInformationHandler) {
-        this.questionInformationHandler = questionInformationHandler;
+    public void setInformationHandler(IQuestionInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setQuestionRepresentationHandler(IQuestionRepresentationHandler questionRepresentationHandler) {
-        this.questionRepresentationHandler = questionRepresentationHandler;
+    public void setRepresentationHandler(IQuestionRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setQuestionTransactionHandler(IQuestionTransactionHandler questionTransactionHandler) {
-        this.questionTransactionHandler = questionTransactionHandler;
+    public void setTransactionHandler(IQuestionTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class QuestionBusinessController extends BusinessController implements IQ
         boolean status = response.get("status").toString().equals("1");
         if(status)
         {
-            questionRepresentationHandler.showFeedback();
+            representationHandler.showFeedback();
         }
         else
         {
@@ -48,19 +48,19 @@ public class QuestionBusinessController extends BusinessController implements IQ
 
     @Override
     public void userFinishExam() {
-        questionInformationHandler.sendQuestionaryInformation();
+        informationHandler.sendQuestionaryInformation();
     }
 
     @Override
     public void userRequieredProfileView() {
-        questionInformationHandler.performQuestionaryRequest();
+        informationHandler.performQuestionaryRequest();
     }
 
     @Override
     public void startQuestionaryApprende()
     {
         this.mMessageRepresentationHandler.hideLoading();
-        this.questionRepresentationHandler.showQuestionary();
+        this.representationHandler.showQuestionary();
     }
 }
 

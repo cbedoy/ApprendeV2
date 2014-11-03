@@ -1,11 +1,11 @@
 package com.cbedoy.apprende.service;
 
 import android.content.Context;
-import android.os.Bundle;
 
 import com.cbedoy.apprende.activity.MainActivity;
 import com.cbedoy.apprende.business.MasterBusinessController;
 import com.cbedoy.apprende.business.category.CategoryBusinessController;
+import com.cbedoy.apprende.business.feed.FeedBusinessController;
 import com.cbedoy.apprende.business.login.LoginBusinessController;
 import com.cbedoy.apprende.business.preview.PreviewBusinessController;
 import com.cbedoy.apprende.business.profile.ProfileBusinessController;
@@ -15,6 +15,7 @@ import com.cbedoy.apprende.business.subcategory.SubcategoryBusinessController;
 import com.cbedoy.apprende.business.timeout.TimeOutBusinessController;
 import com.cbedoy.apprende.interfaces.IAppViewManager;
 import com.cbedoy.apprende.viewcontroller.CategoryViewController;
+import com.cbedoy.apprende.viewcontroller.LeftMenuViewController;
 import com.cbedoy.apprende.viewcontroller.LoginViewController;
 import com.cbedoy.apprende.viewcontroller.PreviewViewController;
 import com.cbedoy.apprende.viewcontroller.ProfileViewController;
@@ -107,9 +108,9 @@ public class InjectionManager
         LoginBusinessController loginBusinessController = new LoginBusinessController();
         loginBusinessController.setMementoHandler(mementoHandler);
         loginBusinessController.setMessageRepresentationHandler(messageRepresentation);
-        loginBusinessController.setLoginRepresentationHandler(loginViewController);
-        loginBusinessController.setLoginInformationHandler(informationService);
-        loginBusinessController.setLoginTransactionHandler(masterBusinessController);
+        loginBusinessController.setRepresentationHandler(loginViewController);
+        loginBusinessController.setInformationHandler(informationService);
+        loginBusinessController.setTransactionHandler(masterBusinessController);
         loginViewController.setAppViewManager(appViewManager);
         loginViewController.setContext(context);
         loginViewController.setMessageRepresentation(messageRepresentation);
@@ -124,9 +125,9 @@ public class InjectionManager
         SignUpBusinessController signUpBusinessController = new SignUpBusinessController();
         signUpBusinessController.setMementoHandler(mementoHandler);
         signUpBusinessController.setMessageRepresentationHandler(messageRepresentation);
-        signUpBusinessController.setSingupRepresentationHandler(signUpViewController);
-        signUpBusinessController.setSingupInformationHandler(informationService);
-        signUpBusinessController.setSingupTransactionHandler(masterBusinessController);
+        signUpBusinessController.setRepresentationHandler(signUpViewController);
+        signUpBusinessController.setInformationHandler(informationService);
+        signUpBusinessController.setTransactionHandler(masterBusinessController);
         signUpViewController.setAppViewManager(appViewManager);
         signUpViewController.setContext(context);
         signUpViewController.setMessageRepresentation(messageRepresentation);
@@ -144,9 +145,9 @@ public class InjectionManager
         ProfileBusinessController profileBusinessController = new ProfileBusinessController();
         profileBusinessController.setMessageRepresentationHandler(messageRepresentation);
         profileBusinessController.setMementoHandler(mementoHandler);
-        profileBusinessController.setProfileRepresentationHandler(profileViewController);
-        profileBusinessController.setProfileInformationHandler(informationService);
-        profileBusinessController.setProfileTransactionHandler(masterBusinessController);
+        profileBusinessController.setRepresentationHandler(profileViewController);
+        profileBusinessController.setInformationHandler(informationService);
+        profileBusinessController.setTransactionHandler(masterBusinessController);
         profileViewController.setAppViewManager(appViewManager);
         profileViewController.setContext(context);
         profileViewController.setMessageRepresentation(messageRepresentation);
@@ -161,9 +162,9 @@ public class InjectionManager
         CategoryBusinessController categoryBusinessController = new CategoryBusinessController();
         categoryBusinessController.setMementoHandler(mementoHandler);
         categoryBusinessController.setMessageRepresentationHandler(messageRepresentation);
-        categoryBusinessController.setCategoryRepresentationHandler(categoryViewController);
-        categoryBusinessController.setCategoryInformationHandler(informationService);
-        categoryBusinessController.setCategoryTransactionHandler(masterBusinessController);
+        categoryBusinessController.setRepresentationHandler(categoryViewController);
+        categoryBusinessController.setInformationHandler(informationService);
+        categoryBusinessController.setTransactionHandler(masterBusinessController);
         categoryViewController.setAppViewManager(appViewManager);
         categoryViewController.setContext(context);
         categoryViewController.setMessageRepresentation(messageRepresentation);
@@ -178,9 +179,9 @@ public class InjectionManager
         SubcategoryBusinessController subcategoryBusinessController = new SubcategoryBusinessController();
         subcategoryBusinessController.setMessageRepresentationHandler(messageRepresentation);
         subcategoryBusinessController.setMementoHandler(mementoHandler);
-        subcategoryBusinessController.setSubcategoryRepresentationHandler(subcategoryViewController);
-        subcategoryBusinessController.setSubcategoryTransactionHandler(masterBusinessController);
-        subcategoryBusinessController.setSubcategoryInformationHandler(informationService);
+        subcategoryBusinessController.setRepresentationHandler(subcategoryViewController);
+        subcategoryBusinessController.setTransactionHandler(masterBusinessController);
+        subcategoryBusinessController.setInformationHandler(informationService);
         subcategoryViewController.setAppViewManager(appViewManager);
         subcategoryViewController.setContext(context);
         subcategoryViewController.setMessageRepresentation(messageRepresentation);
@@ -195,9 +196,9 @@ public class InjectionManager
         PreviewBusinessController previewBusinessController = new PreviewBusinessController();
         previewBusinessController.setMessageRepresentationHandler(messageRepresentation);
         previewBusinessController.setMementoHandler(mementoHandler);
-        previewBusinessController.setPreviewRepresentationHandler(previewViewController);
-        previewBusinessController.setPreviewTransactionHandler(masterBusinessController);
-        previewBusinessController.setPreviewInformationHandler(informationService);
+        previewBusinessController.setRepresentationHandler(previewViewController);
+        previewBusinessController.setTransactionHandler(masterBusinessController);
+        previewBusinessController.setInformationHandler(informationService);
         previewViewController.setAppViewManager(appViewManager);
         previewViewController.setContext(context);
         previewViewController.setMessageRepresentation(messageRepresentation);
@@ -213,9 +214,9 @@ public class InjectionManager
         QuestionBusinessController questionBusinessController = new QuestionBusinessController();
         questionBusinessController.setMementoHandler(mementoHandler);
         questionBusinessController.setMessageRepresentationHandler(messageRepresentation);
-        questionBusinessController.setQuestionRepresentationHandler(questionViewController);
-        questionBusinessController.setQuestionInformationHandler(informationService);
-        questionBusinessController.setQuestionTransactionHandler(masterBusinessController);
+        questionBusinessController.setRepresentationHandler(questionViewController);
+        questionBusinessController.setInformationHandler(informationService);
+        questionBusinessController.setTransactionHandler(masterBusinessController);
         questionViewController.setAppViewManager(appViewManager);
         questionViewController.setContext(context);
         questionViewController.setMessageRepresentation(messageRepresentation);
@@ -224,6 +225,23 @@ public class InjectionManager
         questionViewController.setMementoHandler(mementoHandler);
         appViewManager.addViewWithTag(questionViewController, tag);
 
+        tag = CONTROLLER.FEED;
+        LeftMenuViewController leftMenuViewController = new LeftMenuViewController();
+        FeedBusinessController feedBusinessController = new FeedBusinessController();
+        feedBusinessController.setMementoHandler(mementoHandler);
+        feedBusinessController.setMessageRepresentationHandler(messageRepresentation);
+        feedBusinessController.setInformationHandler(informationService);
+        feedBusinessController.setTransactionHandler(masterBusinessController);
+        feedBusinessController.setRepresentationHandler(leftMenuViewController);
+        leftMenuViewController.setAppViewManager(appViewManager);
+        leftMenuViewController.setContext(context);
+        leftMenuViewController.setMessageRepresentation(messageRepresentation);
+        leftMenuViewController.setTag(tag);
+        leftMenuViewController.setFeedRepresentationDelegate(feedBusinessController);
+        leftMenuViewController.setMementoHandler(mementoHandler);
+        appViewManager.addViewWithTag(leftMenuViewController, tag);
+        appViewManager.setLeftMenuView(leftMenuViewController, tag);
+
         informationService.setCategoryInformationDelegate(categoryBusinessController);
         informationService.setLoginInformationDelegate(loginBusinessController);
         informationService.setPreviewInformationDelegate(previewBusinessController);
@@ -231,6 +249,7 @@ public class InjectionManager
         informationService.setProfileInformationDelegate(profileBusinessController);
         informationService.setSingupInformationHandler(signUpBusinessController);
         informationService.setQuestionInformationDelegate(questionBusinessController);
+        informationService.setFeedInformationDelegate(feedBusinessController);
         informationService.setRestService(restService);
         informationService.setMementoHandler(mementoHandler);
 
@@ -244,7 +263,7 @@ public class InjectionManager
         masterBusinessController.setProfileTransactionDelegate(profileBusinessController);
         masterBusinessController.setQuestionTransactionDelegate(questionBusinessController);
         masterBusinessController.setTimeOutTransactionDelegate(timeOutBusinessController);
-
+        masterBusinessController.setFeedTransactionDelegate(feedBusinessController);
         masterBusinessController.startApprendeApp();
     }
 }

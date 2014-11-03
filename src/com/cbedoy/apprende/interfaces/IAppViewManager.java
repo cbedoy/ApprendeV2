@@ -17,4 +17,5 @@ public interface IAppViewManager
     public void finishWithResult(String result);
     public void addActivityResultListener(IActivityResultListener listener);
     public void addViewWithTag(AbstractViewController controller, AbstractViewController.CONTROLLER tag);
+    public void setLeftMenuView(AbstractViewController controller, AbstractViewController.CONTROLLER tag);
 }

@@ -9,8 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.business.singup.interfaces.ISignUpRepresentationHandler;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationHandler;
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
 import com.cbedoy.apprende.service.BlurService;
@@ -23,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class SignUpViewController extends AbstractViewController implements ISingupRepresentationHandler, ICameraInformationDelegate, NavigationBar.INavigationBarDelegate
+public class SignUpViewController extends AbstractViewController implements ISignUpRepresentationHandler, ICameraInformationDelegate, NavigationBar.INavigationBarDelegate
 {
     private CircleImageView circleImageView;
     private ImageView backgroundImage;

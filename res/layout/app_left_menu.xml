@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bgb"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="#33fafafa"/>
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/app_blue_trans"
+        android:layout_height="match_parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="48dp"
+        android:background="#99fafafa"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:id="@+id/app_left_menu_title"
+        android:textSize="36sp"
+        android:textColor="#fafafa"
+        android:layout_marginTop="48dp"
+        android:layout_height="120dp"
+        android:text="Your Feeds"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="168dp"
+        android:background="#99fafafa"/>
+
+    <ListView
+        android:id="@+id/app_left_list_view"
+        android:background="#33fafafa"
+        android:layout_marginTop="168dp"
+        android:dividerHeight="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/app_left_share_with_twitter">
+        </ListView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share with Twitter"
+        android:textColor="#fafafa"
+        android:textSize="20sp"
+        android:background="@color/app_principal_bottom"
+        android:id="@+id/app_left_share_with_twitter"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
+</RelativeLayout>

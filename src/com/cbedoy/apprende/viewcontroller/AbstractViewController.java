@@ -31,7 +31,8 @@ public abstract class AbstractViewController
         QUESTION,
         SIGNUP,
         SUBCATEGORY,
-        APPREMDE
+        APPREMDE,
+        FEED
     }
 
     protected abstract View init();

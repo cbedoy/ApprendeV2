@@ -7,12 +7,14 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.widget.SlidingPaneLayout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import com.cbedoy.apprende.R;
@@ -22,6 +24,7 @@ import com.cbedoy.apprende.interfaces.IAppViewManager;
 import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.viewcontroller.AbstractViewController;
+import com.cbedoy.apprende.viewcontroller.LeftMenuViewController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,6 +39,15 @@ public  class MasterViewController extends Activity implements IAppViewManager{
 
     private ITimeOutTransactionDelegate timeOutTransactionDelegate;
     private IMessageRepresentationHandler messageRepresentationHandler;
+    private ViewFlipper viewFlipper;
+    private SlidingPaneLayout slidingPaneLayout;
+    private LinearLayout leftMenu;
+    private HashMap<Object, Object> informationService;
+    private LinearLayout mainLayout;
+    private int view_controller_width;
+    private int view_controller_height;
+    private HashMap<AbstractViewController.CONTROLLER, AbstractViewController> viewModel;
+    private ArrayList<IActivityResultListener> resultListeners;
 
     public void setTimeOutTransactionDelegate(ITimeOutTransactionDelegate timeOutTransactionDelegate) {
         this.timeOutTransactionDelegate = timeOutTransactionDelegate;
@@ -54,20 +66,29 @@ public  class MasterViewController extends Activity implements IAppViewManager{
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         this.viewModel = new HashMap<AbstractViewController.CONTROLLER, AbstractViewController>();
         this.resultListeners = new ArrayList<IActivityResultListener>();
-        this.mainLayout = createMainLayout();
         this.view_controller_height = ImageService.getScreenHeight();
         this.view_controller_width = ImageService.getScreenWidth();
-        this.setContentView(this.mainLayout);
+        this.setContentView(R.layout.master_view_controller);
+
+        this.viewFlipper = (ViewFlipper) findViewById(R.id.main_view_controller_view_flipper);
+        this.slidingPaneLayout = (SlidingPaneLayout) findViewById(R.id.slidingPane);
+        this.slidingPaneLayout.setCoveredFadeColor(Color.parseColor("#00000000"));
+        this.slidingPaneLayout.setSliderFadeColor(Color.parseColor("#00000000"));
+        this.leftMenu = (LinearLayout) findViewById(R.id.main_view_controller_left_menu);
+
+        TranslateAnimation in = new TranslateAnimation(ImageService.getScreenWidth(), 0, 0, 0);
+        in.setDuration(3000);
+        in.setZAdjustment(Animation.ZORDER_TOP);
+        this.viewFlipper.setInAnimation(in);
+        TranslateAnimation out = new TranslateAnimation(0, -ImageService.getScreenWidth(), 0, 0);
+        out.setDuration(3000);
+        out.setZAdjustment(Animation.ZORDER_TOP);
+        this.viewFlipper.setOutAnimation(out);
+
         this.overridePendingTransition(R.anim.enter_in_anim, R.anim.enter_out_anim);
     }
 
-    private ViewFlipper viewFlipper;
-    private HashMap<Object, Object> informationService;
-    private LinearLayout mainLayout;
-    private int view_controller_width;
-    private int view_controller_height;
-    private HashMap<AbstractViewController.CONTROLLER, AbstractViewController> viewModel;
-    private ArrayList<IActivityResultListener> resultListeners;
+
 
     @Override
     public void finish() {
@@ -134,43 +155,6 @@ public  class MasterViewController extends Activity implements IAppViewManager{
         if(allowBack)
             super.onBackPressed();
     }
-
-    private LinearLayout createMainLayout() {
-        LinearLayout mainLayout = new LinearLayout(this);
-        mainLayout.setBackgroundColor(Color.TRANSPARENT);
-        mainLayout.setOrientation(LinearLayout.VERTICAL);
-        mainLayout.setGravity(Gravity.CENTER_HORIZONTAL);
-
-        LinearLayout.LayoutParams mainParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        mainLayout.setLayoutParams(mainParams);
-
-        this.viewFlipper = this.createViewFlipper();
-        mainLayout.addView(this.viewFlipper);
-
-        return mainLayout;
-    }
-
-    private ViewFlipper createViewFlipper() {
-        ViewFlipper flipper = new ViewFlipper(this);
-        flipper.setBackgroundColor(Color.WHITE);
-
-        LinearLayout.LayoutParams flipper_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        flipper_params.gravity = Gravity.CENTER;
-        flipper.setLayoutParams(flipper_params);
-
-        TranslateAnimation in = new TranslateAnimation(ImageService.getScreenWidth(), 0, 0, 0);
-        in.setDuration(3000);
-        in.setZAdjustment(Animation.ZORDER_TOP);
-        flipper.setInAnimation(in);
-
-        TranslateAnimation out = new TranslateAnimation(0, -ImageService.getScreenWidth(), 0, 0);
-        out.setDuration(3000);
-        out.setZAdjustment(Animation.ZORDER_TOP);
-        flipper.setOutAnimation(out);
-
-        return flipper;
-    }
-
     @Override
     public int getViewControllerWidth() {
         return this.view_controller_width;
@@ -257,6 +241,11 @@ public  class MasterViewController extends Activity implements IAppViewManager{
     @Override
     public void addViewWithTag(AbstractViewController controller, AbstractViewController.CONTROLLER tag) {
         this.viewModel.put(tag, controller);
+    }
+
+    @Override
+    public void setLeftMenuView(AbstractViewController controller, AbstractViewController.CONTROLLER tag) {
+        this.leftMenu.addView(controller.getView());
     }
 
     @Override

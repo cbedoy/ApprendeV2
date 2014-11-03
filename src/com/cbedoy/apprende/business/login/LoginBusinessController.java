@@ -17,20 +17,20 @@ import java.util.HashMap;
  */
 public class LoginBusinessController extends BusinessController implements ILoginTransactionDelegate, ILoginRepresentationDelegate, ILoginInformationDelegate
 {
-    private ILoginInformationHandler loginInformationHandler;
-    private ILoginRepresentationHandler loginRepresentationHandler;
-    private ILoginTransactionHandler loginTransactionHandler;
+    private ILoginInformationHandler informationHandler;
+    private ILoginRepresentationHandler representationHandler;
+    private ILoginTransactionHandler transactionHandler;
 
-    public void setLoginInformationHandler(ILoginInformationHandler loginInformationHandler) {
-        this.loginInformationHandler = loginInformationHandler;
+    public void setInformationHandler(ILoginInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setLoginRepresentationHandler(ILoginRepresentationHandler loginRepresentationHandler) {
-        this.loginRepresentationHandler = loginRepresentationHandler;
+    public void setRepresentationHandler(ILoginRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setLoginTransactionHandler(ILoginTransactionHandler loginTransactionHandler) {
-        this.loginTransactionHandler = loginTransactionHandler;
+    public void setTransactionHandler(ILoginTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
@@ -41,9 +41,9 @@ public class LoginBusinessController extends BusinessController implements ILogi
             HashMap<String, Object> data = new HashMap<String, Object>();
             data.put("login_response", response);
             mMementoHandler.setStateForOwner(data, this);
-            loginTransactionHandler.userAuthenticated();
+            transactionHandler.userAuthenticated();
         } else {
-            loginRepresentationHandler.cleanLoginViewFields();
+            representationHandler.cleanLoginViewFields();
             mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
         }
     }
@@ -53,7 +53,7 @@ public class LoginBusinessController extends BusinessController implements ILogi
 
         if(!isValidField(username) || !isValidField(password))
         {
-            loginRepresentationHandler.cleanLoginViewFields();
+            representationHandler.cleanLoginViewFields();
             mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
         }
         else
@@ -63,13 +63,13 @@ public class LoginBusinessController extends BusinessController implements ILogi
             data.put("password", password);
             mMementoHandler.setStateForOwner(data, this);
             mMessageRepresentationHandler.showLoading();
-            loginInformationHandler.performLoginRequest();
+            informationHandler.performLoginRequest();
         }
     }
 
     @Override
     public void userNeedSingup() {
-        loginTransactionHandler.userWantsSingup();
+        transactionHandler.userWantsSingup();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class LoginBusinessController extends BusinessController implements ILogi
         if(withUsername && withPassword){
             loginWithData(mementoData.get("username").toString(), mementoData.get("password").toString());
         }else{
-            loginRepresentationHandler.showLoginView();
+            representationHandler.showLoginView();
         }
     }
 

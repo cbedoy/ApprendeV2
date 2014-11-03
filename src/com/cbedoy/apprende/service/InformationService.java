@@ -4,6 +4,8 @@ package com.cbedoy.apprende.service;
 
 import com.cbedoy.apprende.business.category.interfaces.ICategoryInformationDelegate;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryInformationHandler;
+import com.cbedoy.apprende.business.feed.interfaces.IFeedInformationDelegate;
+import com.cbedoy.apprende.business.feed.interfaces.IFeedInformationHandler;
 import com.cbedoy.apprende.business.login.interfaces.ILoginInformationDelegate;
 import com.cbedoy.apprende.business.login.interfaces.ILoginInformationHandler;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewInformationDelegate;
@@ -12,8 +14,8 @@ import com.cbedoy.apprende.business.profile.interfaces.IProfileInformationDelega
 import com.cbedoy.apprende.business.profile.interfaces.IProfileInformationHandler;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationHandler;
+import com.cbedoy.apprende.business.singup.interfaces.ISignUpInformationHandler;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationHandler;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryInformationDelegate;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryInformationHandler;
 import com.cbedoy.apprende.interfaces.IMementoHandler;
@@ -21,7 +23,7 @@ import com.cbedoy.apprende.interfaces.IRestService;
 
 import java.util.HashMap;
 
-public class InformationService implements ICategoryInformationHandler, IPreviewInformationHandler, ISubcategoryInformationHandler, ISingupInformationHandler, ILoginInformationHandler, IProfileInformationHandler, IQuestionInformationHandler {
+public class InformationService implements IFeedInformationHandler, ICategoryInformationHandler, IPreviewInformationHandler, ISubcategoryInformationHandler, ISignUpInformationHandler, ILoginInformationHandler, IProfileInformationHandler, IQuestionInformationHandler {
 
     private IRestService restService;
     private IMementoHandler mementoHandler;
@@ -32,6 +34,11 @@ public class InformationService implements ICategoryInformationHandler, IPreview
     private ILoginInformationDelegate loginInformationDelegate;
     private ISingupInformationDelegate singupInformationHandler;
     private IQuestionInformationDelegate questionInformationDelegate;
+    private IFeedInformationDelegate feedInformationDelegate;
+
+    public void setFeedInformationDelegate(IFeedInformationDelegate feedInformationDelegate) {
+        this.feedInformationDelegate = feedInformationDelegate;
+    }
 
     public void setCategoryInformationDelegate(ICategoryInformationDelegate categoryInformationDelegate) {
         this.categoryInformationDelegate = categoryInformationDelegate;
@@ -199,5 +206,10 @@ public class InformationService implements ICategoryInformationHandler, IPreview
             }
         };
         restService.request(url, parameters, callback);
+    }
+
+    @Override
+    public void perfomFeedbackRequest() {
+
     }
 }
