@@ -59,4 +59,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true" />
+
+    <View
+        android:layout_width="24dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/shadow"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
 </RelativeLayout>
