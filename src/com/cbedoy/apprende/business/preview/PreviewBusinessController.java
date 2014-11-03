@@ -17,20 +17,20 @@ import java.util.HashMap;
  */
 public class PreviewBusinessController extends BusinessController implements IPreviewTransactionDelegate, IPreviewRepresentationDelegate, IPreviewInformationDelegate
 {
-    private IPreviewInformationHandler previewInformationHandler;
-    private IPreviewRepresentationHandler previewRepresentationHandler;
-    private IPreviewTransactionHandler previewTransactionHandler;
+    private IPreviewInformationHandler informationHandler;
+    private IPreviewRepresentationHandler representationHandler;
+    private IPreviewTransactionHandler transactionHandler;
 
-    public void setPreviewInformationHandler(IPreviewInformationHandler previewInformationHandler) {
-        this.previewInformationHandler = previewInformationHandler;
+    public void setInformationHandler(IPreviewInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setPreviewRepresentationHandler(IPreviewRepresentationHandler previewRepresentationHandler) {
-        this.previewRepresentationHandler = previewRepresentationHandler;
+    public void setRepresentationHandler(IPreviewRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setPreviewTransactionHandler(IPreviewTransactionHandler previewTransactionHandler) {
-        this.previewTransactionHandler = previewTransactionHandler;
+    public void setTransactionHandler(IPreviewTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class PreviewBusinessController extends BusinessController implements IPr
             HashMap<String, Object> data = new HashMap<String, Object>();
             data.put("exam_response", response);
             mMementoHandler.setStateForOwner(data, this);
-            previewTransactionHandler.apprendeItsReady();
+            transactionHandler.apprendeItsReady();
         } else {
             mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
         }
@@ -54,12 +54,12 @@ public class PreviewBusinessController extends BusinessController implements IPr
         HashMap<String, Object> previewInformation = new HashMap<String, Object>();
         previewInformation.put ("category_selected", mementoData.get("category_selected"));
         previewInformation.put ("subcategory_selected", mementoData.get("subcategory_selected"));
-        previewRepresentationHandler.showPreviewWithData(previewInformation);
+        representationHandler.showPreviewWithData(previewInformation);
     }
 
     @Override
     public void userSelectedStartApprendeWithData(HashMap<String, Object> information) {
-        previewInformationHandler.performPreviewRequestWithData(information);
+        informationHandler.performPreviewRequestWithData(information);
         mMessageRepresentationHandler.showLoading();
     }
 }

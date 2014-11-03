@@ -69,4 +69,9 @@
     <string name="copyright">Apprende Mobile\nCopyright © PandaMobile</string>
     <string name="hard_level"><![CDATA[<b>Hard</b>\nThis test contains 20 random questions about the selected topic.]]></string>
 
+    <string name="very_easy">Very easy</string>
+    <string name="easy">Easy</string>
+    <string name="normal">Normal</string>
+    <string name="hard">Hard</string>
+    <string name="very_hard">Very hard</string>
 </resources>

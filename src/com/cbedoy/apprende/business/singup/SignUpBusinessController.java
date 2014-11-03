@@ -1,14 +1,13 @@
 package com.cbedoy.apprende.business.singup;
 
 import com.cbedoy.apprende.business.BusinessController;
+import com.cbedoy.apprende.business.singup.interfaces.ISignUpInformationHandler;
+import com.cbedoy.apprende.business.singup.interfaces.ISignUpRepresentationHandler;
+import com.cbedoy.apprende.business.singup.interfaces.ISignUpTransactionHandler;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationHandler;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationHandler;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionHandler;
 import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
-import com.cbedoy.apprende.service.Memento;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -17,22 +16,22 @@ import java.util.regex.Pattern;
 /**
  * Created by Carlos on 15/10/2014.
  */
-public class SingupBusinessController extends BusinessController implements ISingupTransactionDelegate, ISingupRepresentationDelegate, ISingupInformationDelegate
+public class SignUpBusinessController extends BusinessController implements ISingupTransactionDelegate, ISingupRepresentationDelegate, ISingupInformationDelegate
 {
-    private ISingupInformationHandler singupInformationHandler;
-    private ISingupRepresentationHandler singupRepresentationHandler;
-    private ISingupTransactionHandler singupTransactionHandler;
+    private ISignUpInformationHandler informationHandler;
+    private ISignUpRepresentationHandler representationHandler;
+    private ISignUpTransactionHandler transactionHandler;
 
-    public void setSingupInformationHandler(ISingupInformationHandler singupInformationHandler) {
-        this.singupInformationHandler = singupInformationHandler;
+    public void setInformationHandler(ISignUpInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setSingupRepresentationHandler(ISingupRepresentationHandler singupRepresentationHandler) {
-        this.singupRepresentationHandler = singupRepresentationHandler;
+    public void setRepresentationHandler(ISignUpRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setSingupTransactionHandler(ISingupTransactionHandler singupTransactionHandler) {
-        this.singupTransactionHandler = singupTransactionHandler;
+    public void setTransactionHandler(ISignUpTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
@@ -65,7 +64,7 @@ public class SingupBusinessController extends BusinessController implements ISin
 
     @Override
     public void startSingup() {
-        singupRepresentationHandler.showSingupView();
+        representationHandler.showSingupView();
     }
 
     private boolean validateEmail(String email){

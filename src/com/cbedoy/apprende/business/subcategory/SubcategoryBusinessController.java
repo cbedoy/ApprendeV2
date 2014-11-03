@@ -18,20 +18,20 @@ import java.util.List;
  */
 public class SubcategoryBusinessController extends BusinessController implements ISubcategoryTransactionDelegate, ISubcategoryInformationDelegate, ISubcategoryRepresentationDelegate
 {
-    private ISubcategoryInformationHandler subcategoryInformationHandler;
-    private ISubcategoryRepresentationHandler subcategoryRepresentationHandler;
-    private ISubcategoryTransactionHandler subcategoryTransactionHandler;
+    private ISubcategoryInformationHandler informationHandler;
+    private ISubcategoryRepresentationHandler representationHandler;
+    private ISubcategoryTransactionHandler transactionHandler;
 
-    public void setSubcategoryInformationHandler(ISubcategoryInformationHandler subcategoryInformationHandler) {
-        this.subcategoryInformationHandler = subcategoryInformationHandler;
+    public void setInformationHandler(ISubcategoryInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setSubcategoryRepresentationHandler(ISubcategoryRepresentationHandler subcategoryRepresentationHandler) {
-        this.subcategoryRepresentationHandler = subcategoryRepresentationHandler;
+    public void setRepresentationHandler(ISubcategoryRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setSubcategoryTransactionHandler(ISubcategoryTransactionHandler subcategoryTransactionHandler) {
-        this.subcategoryTransactionHandler = subcategoryTransactionHandler;
+    public void setTransactionHandler(ISubcategoryTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class SubcategoryBusinessController extends BusinessController implements
             List<Object> categories = new ArrayList<Object>();
             for(String key : response.keySet())
                 categories.add(response.get(key));
-            subcategoryRepresentationHandler.showSubcategoryViewWithData(categories);
+            representationHandler.showSubcategoryViewWithData(categories);
             mMessageRepresentationHandler.hideLoading();
         }
     }
@@ -56,12 +56,12 @@ public class SubcategoryBusinessController extends BusinessController implements
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("subcategory_selected", subcategoryInformation);
         mMementoHandler.setStateForOwner(data, this);
-        subcategoryTransactionHandler.presentSubcategories();
+        transactionHandler.presentSubcategories();
     }
 
     @Override
     public void getSubcategories() {
         mMessageRepresentationHandler.showLoading();
-        subcategoryInformationHandler.performSubcategoryRequest();
+        informationHandler.performSubcategoryRequest();
     }
 }

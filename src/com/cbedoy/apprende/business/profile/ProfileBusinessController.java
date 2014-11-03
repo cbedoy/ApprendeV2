@@ -16,20 +16,20 @@ import java.util.HashMap;
  */
 public class ProfileBusinessController extends BusinessController implements IProfileTransactionDelegate, IProfileRepresentationDelegate, IProfileInformationDelegate
 {
-    private IProfileRepresentationHandler profileRepresentationHandler;
-    private IProfileInformationHandler profileInformationHandler;
-    private IProfileTransactionHandler profileTransactionHandler;
+    private IProfileRepresentationHandler representationHandler;
+    private IProfileInformationHandler informationHandler;
+    private IProfileTransactionHandler transactionHandler;
 
-    public void setProfileInformationHandler(IProfileInformationHandler profileInformationHandler) {
-        this.profileInformationHandler = profileInformationHandler;
+    public void setInformationHandler(IProfileInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setProfileRepresentationHandler(IProfileRepresentationHandler profileRepresentationHandler) {
-        this.profileRepresentationHandler = profileRepresentationHandler;
+    public void setRepresentationHandler(IProfileRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setProfileTransactionHandler(IProfileTransactionHandler profileTransactionHandler) {
-        this.profileTransactionHandler = profileTransactionHandler;
+    public void setTransactionHandler(IProfileTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ProfileBusinessController extends BusinessController implements IPr
 
     @Override
     public void userSelectedStartToLearn() {
-        profileTransactionHandler.presentProfile();
+        transactionHandler.presentProfile();
     }
 
     @Override
@@ -49,6 +49,6 @@ public class ProfileBusinessController extends BusinessController implements IPr
         HashMap<String, Object> mementoData = topMemento.getMementoData();
         HashMap<String, Object> login_response = (HashMap<String, Object>) mementoData.get("login_response");
         HashMap<String, Object> fields = (HashMap<String, Object>) login_response.get("fields");
-        this.profileRepresentationHandler.showProfileViewWithData(fields);
+        this.representationHandler.showProfileViewWithData(fields);
     }
 }

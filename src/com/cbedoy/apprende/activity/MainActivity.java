@@ -7,12 +7,11 @@ import android.os.Bundle;
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
 import com.cbedoy.apprende.service.InjectionManager;
-import com.cbedoy.apprende.widgets.NavigationBar;
 
 /**
  * Created by Carlos on 17/10/2014.
  */
-public class ApprendeActivity extends InAppActivity implements ICameraInformationHandler
+public class MainActivity extends MasterViewController implements ICameraInformationHandler
 {
     private final int CAMERA_REQUEST = 96543;
     private ICameraInformationDelegate cameraInformationDelegate;

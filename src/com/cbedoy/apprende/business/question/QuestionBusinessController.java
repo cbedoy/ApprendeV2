@@ -7,6 +7,7 @@ import com.cbedoy.apprende.business.question.interfaces.IQuestionRepresentationD
 import com.cbedoy.apprende.business.question.interfaces.IQuestionRepresentationHandler;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionTransactionDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionTransactionHandler;
+import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 
 import java.util.HashMap;
 
@@ -15,47 +16,51 @@ import java.util.HashMap;
  */
 public class QuestionBusinessController extends BusinessController implements IQuestionTransactionDelegate, IQuestionRepresentationDelegate, IQuestionInformationDelegate{
 
-    private IQuestionTransactionHandler questionTransactionHandler;
-    private IQuestionInformationHandler questionInformationHandler;
-    private IQuestionRepresentationHandler questionRepresentationHandler;
+    private IQuestionTransactionHandler transactionHandler;
+    private IQuestionInformationHandler informationHandler;
+    private IQuestionRepresentationHandler representationHandler;
 
-    public void setQuestionInformationHandler(IQuestionInformationHandler questionInformationHandler) {
-        this.questionInformationHandler = questionInformationHandler;
+    public void setInformationHandler(IQuestionInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setQuestionRepresentationHandler(IQuestionRepresentationHandler questionRepresentationHandler) {
-        this.questionRepresentationHandler = questionRepresentationHandler;
+    public void setRepresentationHandler(IQuestionRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setQuestionTransactionHandler(IQuestionTransactionHandler questionTransactionHandler) {
-        this.questionTransactionHandler = questionTransactionHandler;
+    public void setTransactionHandler(IQuestionTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
     public void questionaryResponse(HashMap<String, Object> response) {
-
+        mMessageRepresentationHandler.hideLoading();
+        boolean status = response.get("status").toString().equals("1");
+        if(status)
+        {
+            representationHandler.showFeedback();
+        }
+        else
+        {
+            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
+        }
     }
 
     @Override
-    public void userStartApprende() {
-
+    public void userFinishExam() {
+        informationHandler.sendQuestionaryInformation();
     }
 
     @Override
-    public void showNextQuestion() {
-
-    }
-
-    @Override
-    public void showPassQuestion() {
-
+    public void userRequieredProfileView() {
+        informationHandler.performQuestionaryRequest();
     }
 
     @Override
     public void startQuestionaryApprende()
     {
         this.mMessageRepresentationHandler.hideLoading();
-        this.questionRepresentationHandler.showQuestionary();
+        this.representationHandler.showQuestionary();
     }
 }
 

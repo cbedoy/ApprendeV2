@@ -6,4 +6,5 @@ package com.cbedoy.apprende.business.question.interfaces;
 public interface IQuestionRepresentationHandler
 {
     public void showQuestionary();
+    public void showFeedback();
 }

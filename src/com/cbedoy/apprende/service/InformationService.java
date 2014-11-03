@@ -4,6 +4,8 @@ package com.cbedoy.apprende.service;
 
 import com.cbedoy.apprende.business.category.interfaces.ICategoryInformationDelegate;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryInformationHandler;
+import com.cbedoy.apprende.business.feed.interfaces.IFeedInformationDelegate;
+import com.cbedoy.apprende.business.feed.interfaces.IFeedInformationHandler;
 import com.cbedoy.apprende.business.login.interfaces.ILoginInformationDelegate;
 import com.cbedoy.apprende.business.login.interfaces.ILoginInformationHandler;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewInformationDelegate;
@@ -12,8 +14,8 @@ import com.cbedoy.apprende.business.profile.interfaces.IProfileInformationDelega
 import com.cbedoy.apprende.business.profile.interfaces.IProfileInformationHandler;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationHandler;
+import com.cbedoy.apprende.business.singup.interfaces.ISignUpInformationHandler;
 import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationHandler;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryInformationDelegate;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryInformationHandler;
 import com.cbedoy.apprende.interfaces.IMementoHandler;
@@ -21,7 +23,7 @@ import com.cbedoy.apprende.interfaces.IRestService;
 
 import java.util.HashMap;
 
-public class InformationService implements ICategoryInformationHandler, IPreviewInformationHandler, ISubcategoryInformationHandler, ISingupInformationHandler, ILoginInformationHandler, IProfileInformationHandler, IQuestionInformationHandler {
+public class InformationService implements IFeedInformationHandler, ICategoryInformationHandler, IPreviewInformationHandler, ISubcategoryInformationHandler, ISignUpInformationHandler, ILoginInformationHandler, IProfileInformationHandler, IQuestionInformationHandler {
 
     private IRestService restService;
     private IMementoHandler mementoHandler;
@@ -32,6 +34,11 @@ public class InformationService implements ICategoryInformationHandler, IPreview
     private ILoginInformationDelegate loginInformationDelegate;
     private ISingupInformationDelegate singupInformationHandler;
     private IQuestionInformationDelegate questionInformationDelegate;
+    private IFeedInformationDelegate feedInformationDelegate;
+
+    public void setFeedInformationDelegate(IFeedInformationDelegate feedInformationDelegate) {
+        this.feedInformationDelegate = feedInformationDelegate;
+    }
 
     public void setCategoryInformationDelegate(ICategoryInformationDelegate categoryInformationDelegate) {
         this.categoryInformationDelegate = categoryInformationDelegate;
@@ -63,6 +70,10 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     public void setSubcategoryInformationDelegate(ISubcategoryInformationDelegate subcategoryInformationDelegate) {
         this.subcategoryInformationDelegate = subcategoryInformationDelegate;
+    }
+
+    public void setQuestionInformationDelegate(IQuestionInformationDelegate questionInformationDelegate) {
+        this.questionInformationDelegate = questionInformationDelegate;
     }
 
     @Override
@@ -160,15 +171,16 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void performQuestionaryRequest() {
-        String url = "apprende/exam/get/$theme/$level";
+        String url = "/apprende/user/get/$username/$password/";
         Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        //TODO get parameters from memento
+        parameters.put("$username", data.get("username"));
+        parameters.put("$password", data.get("password"));
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                subcategoryInformationDelegate.subcategoryResponse(response);
+                loginInformationDelegate.loginResponse(response);
             }
         };
         restService.request(url, parameters, callback);
@@ -176,17 +188,28 @@ public class InformationService implements ICategoryInformationHandler, IPreview
 
     @Override
     public void sendQuestionaryInformation() {
-        String url = "url";
+        String url = "/apprende/feed/new/$level/$correct/$wrongs/$points/$player";
         Memento memento = mementoHandler.getTopMemento();
         HashMap<String, Object> data = memento.getMementoData();
+        HashMap<String, Object> exam_results = (HashMap<String, Object>)data.get("exam_results");
+        HashMap<String, Object> login_response = (HashMap<String, Object>) data.get("login_response");
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        //TODO get parameters from memento
+        parameters.put("$level", exam_results.get("level_factor"));
+        parameters.put("$points", exam_results.get("level_points"));
+        parameters.put("$player", login_response.get("pk"));
+        parameters.put("$wrongs", exam_results.get("level_wrongs"));
+        parameters.put("$correct", exam_results.get("level_corrects"));
         IRestService.IRestCallback callback = new IRestService.IRestCallback() {
             @Override
             public void run(HashMap<String, Object> response) {
-                subcategoryInformationDelegate.subcategoryResponse(response);
+                questionInformationDelegate.questionaryResponse(response);
             }
         };
         restService.request(url, parameters, callback);
+    }
+
+    @Override
+    public void perfomFeedbackRequest() {
+
     }
 }

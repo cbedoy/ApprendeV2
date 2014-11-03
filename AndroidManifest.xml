@@ -52,16 +52,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TestAdapter"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-
-        </activity>
         <activity
-            android:name=".activity.ApprendeActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
-        <activity
-            android:name=".activity.QuestionerActivity"
+            android:name=".activity.MainActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         </application>

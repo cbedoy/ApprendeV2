@@ -29,9 +29,10 @@ public abstract class AbstractViewController
         PREVIEW,
         PROFILE,
         QUESTION,
-        SIGHUP,
+        SIGNUP,
         SUBCATEGORY,
-        APPREMDE
+        APPREMDE,
+        FEED
     }
 
     protected abstract View init();

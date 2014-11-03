@@ -18,20 +18,20 @@ import java.util.List;
  */
 public class CategoryBusinessController extends BusinessController implements ICategoryTransactionDelegate, ICategoryInformationDelegate, ICategoryRepresentationDelegate
 {
-    private ICategoryInformationHandler categoryInformationHandler;
-    private ICategoryRepresentationHandler categoryRepresentationHandler;
-    private ICategoryTransactionHandler categoryTransactionHandler;
+    private ICategoryInformationHandler informationHandler;
+    private ICategoryRepresentationHandler representationHandler;
+    private ICategoryTransactionHandler transactionHandler;
 
-    public void setCategoryInformationHandler(ICategoryInformationHandler categoryInformationHandler) {
-        this.categoryInformationHandler = categoryInformationHandler;
+    public void setInformationHandler(ICategoryInformationHandler informationHandler) {
+        this.informationHandler = informationHandler;
     }
 
-    public void setCategoryRepresentationHandler(ICategoryRepresentationHandler categoryRepresentationHandler) {
-        this.categoryRepresentationHandler = categoryRepresentationHandler;
+    public void setRepresentationHandler(ICategoryRepresentationHandler representationHandler) {
+        this.representationHandler = representationHandler;
     }
 
-    public void setCategoryTransactionHandler(ICategoryTransactionHandler categoryTransactionHandler) {
-        this.categoryTransactionHandler = categoryTransactionHandler;
+    public void setTransactionHandler(ICategoryTransactionHandler transactionHandler) {
+        this.transactionHandler = transactionHandler;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class CategoryBusinessController extends BusinessController implements IC
             List<Object> categories = new ArrayList<Object>();
             for(String key : response.keySet())
                 categories.add(response.get(key));
-            categoryRepresentationHandler.showCategoryViewWithData(categories);
+            representationHandler.showCategoryViewWithData(categories);
             mMessageRepresentationHandler.hideLoading();
         }
     }
@@ -56,12 +56,12 @@ public class CategoryBusinessController extends BusinessController implements IC
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("category_selected", categoryData);
         mMementoHandler.setStateForOwner(data, this);
-        categoryTransactionHandler.presentCategoryView();
+        transactionHandler.presentCategoryView();
     }
 
     @Override
     public void getCategories() {
         mMessageRepresentationHandler.showLoading();
-        categoryInformationHandler.performCategoriesRequest();
+        informationHandler.performCategoriesRequest();
     }
 }
