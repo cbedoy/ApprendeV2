@@ -1,8 +1,11 @@
 package com.cbedoy.apprende.service;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -158,6 +161,23 @@ public class Utils
 
     private static void die(String foa) {
         throw new IllegalArgumentException(foa);
+    }
+
+    public static Bitmap takeScreenShot(Activity activity)
+    {
+        View view = activity.getWindow().getDecorView();
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap drawingCache = view.getDrawingCache();
+        Rect rect = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        int statusBarHeight = rect.top;
+        int width = activity.getWindowManager().getDefaultDisplay().getWidth();
+        int height = activity.getWindowManager().getDefaultDisplay().getHeight();
+
+        Bitmap bitmap = Bitmap.createBitmap(drawingCache, 0, statusBarHeight, width, height  - statusBarHeight);
+        view.destroyDrawingCache();
+        return bitmap;
     }
 
 }

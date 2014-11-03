@@ -6,5 +6,6 @@ package com.cbedoy.apprende.business.question.interfaces;
 public interface IQuestionRepresentationDelegate
 {
     public void userFinishExam();
+    public void userRequieredProfileView();
 
 }

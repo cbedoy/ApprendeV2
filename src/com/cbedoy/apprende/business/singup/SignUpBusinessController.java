@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Carlos on 15/10/2014.
  */
-public class SingupBusinessController extends BusinessController implements ISingupTransactionDelegate, ISingupRepresentationDelegate, ISingupInformationDelegate
+public class SignUpBusinessController extends BusinessController implements ISingupTransactionDelegate, ISingupRepresentationDelegate, ISingupInformationDelegate
 {
     private ISingupInformationHandler singupInformationHandler;
     private ISingupRepresentationHandler singupRepresentationHandler;

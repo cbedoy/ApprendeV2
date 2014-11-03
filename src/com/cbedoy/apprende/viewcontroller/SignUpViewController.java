@@ -23,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class SingUpViewController extends AbstractViewController implements ISingupRepresentationHandler, ICameraInformationDelegate, NavigationBar.INavigationBarDelegate
+public class SignUpViewController extends AbstractViewController implements ISingupRepresentationHandler, ICameraInformationDelegate, NavigationBar.INavigationBarDelegate
 {
     private CircleImageView circleImageView;
     private ImageView backgroundImage;

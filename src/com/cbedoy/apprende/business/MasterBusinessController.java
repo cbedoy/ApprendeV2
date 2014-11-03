@@ -14,11 +14,13 @@ import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionDelegate
 import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionHandler;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryTransactionDelegate;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryTransactionHandler;
+import com.cbedoy.apprende.business.timeout.interfaces.ITimeOutTransactionDelegate;
+import com.cbedoy.apprende.business.timeout.interfaces.ITimeOutTransactionHandler;
 
 /**
  * Created by Carlos on 15/10/2014.
  */
-public class MasterBusinessController extends BusinessController implements ICategoryTransactionHandler, IProfileTransactionHandler, ILoginTransactionHandler, ISubcategoryTransactionHandler, IPreviewTransactionHandler, ISingupTransactionHandler, IQuestionTransactionHandler
+public class MasterBusinessController extends BusinessController implements ITimeOutTransactionHandler, ICategoryTransactionHandler, IProfileTransactionHandler, ILoginTransactionHandler, ISubcategoryTransactionHandler, IPreviewTransactionHandler, ISingupTransactionHandler, IQuestionTransactionHandler
 {
     private ILoginTransactionDelegate loginTransactionDelegate;
     private ISingupTransactionDelegate singupTransactionDelegate;
@@ -27,6 +29,11 @@ public class MasterBusinessController extends BusinessController implements ICat
     private IPreviewTransactionDelegate previewTransactionDelegate;
     private ISubcategoryTransactionDelegate subcategoryTransactionDelegate;
     private IQuestionTransactionDelegate questionTransactionDelegate;
+    private ITimeOutTransactionDelegate timeOutTransactionDelegate;
+
+    public void setTimeOutTransactionDelegate(ITimeOutTransactionDelegate timeOutTransactionDelegate) {
+        this.timeOutTransactionDelegate = timeOutTransactionDelegate;
+    }
 
     public void setQuestionTransactionDelegate(IQuestionTransactionDelegate questionTransactionDelegate) {
         this.questionTransactionDelegate = questionTransactionDelegate;
@@ -101,5 +108,10 @@ public class MasterBusinessController extends BusinessController implements ICat
     @Override
     public void questionaryPresented() {
         questionTransactionDelegate.startQuestionaryApprende();
+    }
+
+    @Override
+    public void timerFinished() {
+
     }
 }

@@ -12,15 +12,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.service.AbstractDialog;
 
 /**
  * Created by Carlos on 19/10/2014.
  */
-public class LevelSelectorView
+public class LevelSelectorView extends AbstractDialog
 {
-    private Activity activity;
-    private Dialog dialog;
-    private View view;
     private TextView title;
     private RadioButton optionOne;
     private RadioButton optionTwo;
@@ -36,38 +34,11 @@ public class LevelSelectorView
     }
 
     public LevelSelectorView(Activity activity){
-        this.activity = activity;
+        super(activity);
+
     }
 
-    public void show()
-    {
-        final LevelSelectorView weakSelf = this;
-        this.activity.runOnUiThread(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                if(weakSelf.dialog == null)
-                    weakSelf.createDialogView();
-
-                weakSelf.dialog.setContentView(init());
-                weakSelf.dialog.setCanceledOnTouchOutside(false);
-                weakSelf.dialog.show();
-            }
-        });
-    }
-
-    public void createDialogView()
-    {
-        this.dialog = new Dialog(this.activity);
-        this.dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.dialog.setContentView(init());
-        this.dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
-        this.dialog.getWindow().setWindowAnimations(R.style.notification_animation);
-        this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-    }
-
-    private View init() {
+    public View init() {
         if(view == null)
         {
             view = activity.getLayoutInflater().inflate(R.layout.app_level_selector, null);
@@ -85,22 +56,27 @@ public class LevelSelectorView
                     if(optionOne.isChecked())
                     {
                         levelSelectorViewDelegate.userSelectedLevel(25);
+                        hide();
                     }
                     else if(optionTwo.isChecked())
                     {
                         levelSelectorViewDelegate.userSelectedLevel(20);
+                        hide();
                     }
                     else if(optionThree.isChecked())
                     {
                         levelSelectorViewDelegate.userSelectedLevel(15);
+                        hide();
                     }
                     else if(optionFour.isChecked())
                     {
                         levelSelectorViewDelegate.userSelectedLevel(10);
+                        hide();
                     }
                     else  if(optionFive.isChecked())
                     {
                         levelSelectorViewDelegate.userSelectedLevel(5);
+                        hide();
                     }
                 }
             });
@@ -112,20 +88,6 @@ public class LevelSelectorView
             });
         }
         return view;
-    }
-
-    public void hide()
-    {
-        final LevelSelectorView weakSelf = this;
-        this.activity.runOnUiThread(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                if(weakSelf.dialog != null)
-                    weakSelf.dialog.dismiss();
-            }
-        });
     }
 
     public interface ILevelSelectorViewDelegate{

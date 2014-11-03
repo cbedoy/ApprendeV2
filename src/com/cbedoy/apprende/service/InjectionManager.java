@@ -1,29 +1,25 @@
 package com.cbedoy.apprende.service;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import com.cbedoy.apprende.activity.ApprendeActivity;
-import com.cbedoy.apprende.activity.QuestionerActivity;
+import com.cbedoy.apprende.activity.MainActivity;
 import com.cbedoy.apprende.business.MasterBusinessController;
 import com.cbedoy.apprende.business.category.CategoryBusinessController;
 import com.cbedoy.apprende.business.login.LoginBusinessController;
 import com.cbedoy.apprende.business.preview.PreviewBusinessController;
 import com.cbedoy.apprende.business.profile.ProfileBusinessController;
 import com.cbedoy.apprende.business.question.QuestionBusinessController;
-import com.cbedoy.apprende.business.singup.SingupBusinessController;
+import com.cbedoy.apprende.business.singup.SignUpBusinessController;
 import com.cbedoy.apprende.business.subcategory.SubcategoryBusinessController;
+import com.cbedoy.apprende.business.timeout.TimeOutBusinessController;
 import com.cbedoy.apprende.interfaces.IAppViewManager;
-import com.cbedoy.apprende.viewcontroller.AbstractViewController;
 import com.cbedoy.apprende.viewcontroller.CategoryViewController;
 import com.cbedoy.apprende.viewcontroller.LoginViewController;
 import com.cbedoy.apprende.viewcontroller.PreviewViewController;
 import com.cbedoy.apprende.viewcontroller.ProfileViewController;
 import com.cbedoy.apprende.viewcontroller.QuestionViewController;
-import com.cbedoy.apprende.viewcontroller.SingUpViewController;
+import com.cbedoy.apprende.viewcontroller.SignUpViewController;
 import com.cbedoy.apprende.viewcontroller.SubcategoryViewController;
 import com.cbedoy.apprende.widgets.LevelSelectorView;
 import com.cbedoy.apprende.widgets.MessageRepresentation;
@@ -53,8 +49,8 @@ public class InjectionManager
     private InjectionManager() {
         switch (this.env) {
             case 0: //dev
-                this.rest_port = 7777;
-                this.rest_url = "http://10.75.181.55";
+                this.rest_port = 8080;
+                this.rest_url = "http://192.168.100.10";
                 break;
             case 1: //pre
                 this.rest_port = 8080;
@@ -71,7 +67,7 @@ public class InjectionManager
         }
     }
 
-    public static final String MEDIA_URL = "http://10.75.181.55:7777/media/";
+    public static final String MEDIA_URL = "http://192.168.100.10:8080/media/";
 
     public boolean isProduction() {
         return env == 2;
@@ -81,11 +77,10 @@ public class InjectionManager
         return env == 1;
     }
 
-    public void performApprendeFlow(ApprendeActivity apprendeActivity){
+    public void performApprendeFlow(MainActivity mainActivity){
 
-        Context context = apprendeActivity.getApplicationContext();
-        Bundle extras = apprendeActivity.getIntent().getExtras();
-        IAppViewManager appViewManager = apprendeActivity;
+        Context context = mainActivity.getApplicationContext();
+        IAppViewManager appViewManager = mainActivity;
         CONTROLLER tag;
 
         RestService restService = new RestService();
@@ -96,13 +91,17 @@ public class InjectionManager
         HashMap<String, Object> data = new HashMap<String, Object>();
         mementoHandler.setStateForOwner(data, this);
 
-        MessageRepresentation messageRepresentation = new MessageRepresentation(apprendeActivity);
-        LevelSelectorView levelSelectorView = new LevelSelectorView(apprendeActivity);
+        MessageRepresentation messageRepresentation = new MessageRepresentation(mainActivity);
+        LevelSelectorView levelSelectorView = new LevelSelectorView(mainActivity);
         InformationService informationService = new InformationService();
         MasterBusinessController masterBusinessController = new MasterBusinessController();
+        TimeOutBusinessController timeOutBusinessController = new TimeOutBusinessController();
+        timeOutBusinessController.setTransactionHandler(masterBusinessController);
+
+        mainActivity.setTimeOutTransactionDelegate(timeOutBusinessController);
+        mainActivity.setMessageRepresentationHandler(messageRepresentation);
 
         tag = CONTROLLER.LOGIN;
-
         NavigationBar loginNavigationBar = new NavigationBar();
         LoginViewController loginViewController = new LoginViewController();
         LoginBusinessController loginBusinessController = new LoginBusinessController();
@@ -119,24 +118,24 @@ public class InjectionManager
         loginViewController.setNavigationBar(loginNavigationBar);
         appViewManager.addViewWithTag(loginViewController, tag);
 
-        tag = CONTROLLER.SIGHUP;
-        NavigationBar singupNavigationBar = new NavigationBar();
-        SingUpViewController singUpViewController = new SingUpViewController();
-        SingupBusinessController singupBusinessController = new SingupBusinessController();
-        singupBusinessController.setMementoHandler(mementoHandler);
-        singupBusinessController.setMessageRepresentationHandler(messageRepresentation);
-        singupBusinessController.setSingupRepresentationHandler(singUpViewController);
-        singupBusinessController.setSingupInformationHandler(informationService);
-        singupBusinessController.setSingupTransactionHandler(masterBusinessController);
-        singUpViewController.setAppViewManager(appViewManager);
-        singUpViewController.setContext(context);
-        singUpViewController.setMessageRepresentation(messageRepresentation);
-        singUpViewController.setTag(tag);
-        singUpViewController.setSingupRepresentationDelegate(singupBusinessController);
-        singUpViewController.setNavigationBar(singupNavigationBar);
-        appViewManager.addViewWithTag(singUpViewController, tag);
-        apprendeActivity.setCameraInformationDelegate(singUpViewController);
-        singUpViewController.setCameraInformationHandler(apprendeActivity);
+        tag = CONTROLLER.SIGNUP;
+        NavigationBar signUpNavigationBar = new NavigationBar();
+        SignUpViewController signUpViewController = new SignUpViewController();
+        SignUpBusinessController signUpBusinessController = new SignUpBusinessController();
+        signUpBusinessController.setMementoHandler(mementoHandler);
+        signUpBusinessController.setMessageRepresentationHandler(messageRepresentation);
+        signUpBusinessController.setSingupRepresentationHandler(signUpViewController);
+        signUpBusinessController.setSingupInformationHandler(informationService);
+        signUpBusinessController.setSingupTransactionHandler(masterBusinessController);
+        signUpViewController.setAppViewManager(appViewManager);
+        signUpViewController.setContext(context);
+        signUpViewController.setMessageRepresentation(messageRepresentation);
+        signUpViewController.setTag(tag);
+        signUpViewController.setSingupRepresentationDelegate(signUpBusinessController);
+        signUpViewController.setNavigationBar(signUpNavigationBar);
+        appViewManager.addViewWithTag(signUpViewController, tag);
+        mainActivity.setCameraInformationDelegate(signUpViewController);
+        signUpViewController.setCameraInformationHandler(mainActivity);
 
 
         tag = CONTROLLER.PROFILE;
@@ -157,7 +156,7 @@ public class InjectionManager
         appViewManager.addViewWithTag(profileViewController, tag);
 
         tag = CONTROLLER.CATEGORY;
-        NavigationBar categoryNabigationBar = new NavigationBar();
+        NavigationBar categoryNavigationBar = new NavigationBar();
         CategoryViewController categoryViewController = new CategoryViewController();
         CategoryBusinessController categoryBusinessController = new CategoryBusinessController();
         categoryBusinessController.setMementoHandler(mementoHandler);
@@ -170,7 +169,7 @@ public class InjectionManager
         categoryViewController.setMessageRepresentation(messageRepresentation);
         categoryViewController.setTag(tag);
         categoryViewController.setCategoryRepresentationDelegate(categoryBusinessController);
-        categoryViewController.setNavigationBar(categoryNabigationBar);
+        categoryViewController.setNavigationBar(categoryNavigationBar);
         appViewManager.addViewWithTag(categoryViewController, tag);
 
         tag = CONTROLLER.SUBCATEGORY;
@@ -230,7 +229,7 @@ public class InjectionManager
         informationService.setPreviewInformationDelegate(previewBusinessController);
         informationService.setSubcategoryInformationDelegate(subcategoryBusinessController);
         informationService.setProfileInformationDelegate(profileBusinessController);
-        informationService.setSingupInformationHandler(singupBusinessController);
+        informationService.setSingupInformationHandler(signUpBusinessController);
         informationService.setQuestionInformationDelegate(questionBusinessController);
         informationService.setRestService(restService);
         informationService.setMementoHandler(mementoHandler);
@@ -240,10 +239,11 @@ public class InjectionManager
         masterBusinessController.setCategoryTransactionDelegate(categoryBusinessController);
         masterBusinessController.setLoginTransactionDelegate(loginBusinessController);
         masterBusinessController.setPreviewTransactionDelegate(previewBusinessController);
-        masterBusinessController.setSingupTransactionDelegate(singupBusinessController);
+        masterBusinessController.setSingupTransactionDelegate(signUpBusinessController);
         masterBusinessController.setSubcategoryTransactionDelegate(subcategoryBusinessController);
         masterBusinessController.setProfileTransactionDelegate(profileBusinessController);
         masterBusinessController.setQuestionTransactionDelegate(questionBusinessController);
+        masterBusinessController.setTimeOutTransactionDelegate(timeOutBusinessController);
 
         masterBusinessController.startApprendeApp();
     }

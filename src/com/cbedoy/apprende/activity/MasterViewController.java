@@ -16,8 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
 import com.cbedoy.apprende.R;
+import com.cbedoy.apprende.business.timeout.interfaces.ITimeOutTransactionDelegate;
 import com.cbedoy.apprende.interfaces.IActivityResultListener;
 import com.cbedoy.apprende.interfaces.IAppViewManager;
+import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.viewcontroller.AbstractViewController;
 
@@ -28,9 +30,21 @@ import java.util.Map;
 /**
  * Created by Carlos on 14/10/2014.
  */
-public  class InAppActivity extends Activity implements IAppViewManager{
+public  class MasterViewController extends Activity implements IAppViewManager{
 
     public static int AndroidInAppCode = 109506 / 4;
+
+    private ITimeOutTransactionDelegate timeOutTransactionDelegate;
+    private IMessageRepresentationHandler messageRepresentationHandler;
+
+    public void setTimeOutTransactionDelegate(ITimeOutTransactionDelegate timeOutTransactionDelegate) {
+        this.timeOutTransactionDelegate = timeOutTransactionDelegate;
+    }
+
+    public void setMessageRepresentationHandler(IMessageRepresentationHandler messageRepresentationHandler) {
+        this.messageRepresentationHandler = messageRepresentationHandler;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +72,7 @@ public  class InAppActivity extends Activity implements IAppViewManager{
     @Override
     public void finish() {
         long delay = 200;
-        final InAppActivity self = this;
+        final MasterViewController self = this;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -74,17 +88,31 @@ public  class InAppActivity extends Activity implements IAppViewManager{
         this.overridePendingTransition(R.anim.exit_in_anim, R.anim.exit_out_anim);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        this.timeOutTransactionDelegate.onResume();
+        if(this.timeOutTransactionDelegate.hasStarted()) {
+            for(IActivityResultListener listener : this.resultListeners) {
+                int code = listener.getRequestCode();
+                if(code == requestCode) {
+                    listener.onActivityResult(resultCode, data);
+                    break;
+                }
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     protected void onPause() {
-
+        this.timeOutTransactionDelegate.onPause();
 
         super.onPause();
     }
 
     @Override
     protected void onResume() {
-
+        this.timeOutTransactionDelegate.onResume();
 
         super.onResume();
     }
@@ -94,7 +122,6 @@ public  class InAppActivity extends Activity implements IAppViewManager{
         boolean allowBack = true;
         int displayed_child = this.viewFlipper.getDisplayedChild();
         View view = this.viewFlipper.getChildAt(displayed_child);
-
         for(Map.Entry<AbstractViewController.CONTROLLER, AbstractViewController> entry : this.viewModel.entrySet()) {
             AbstractViewController child = entry.getValue();
 
@@ -131,13 +158,13 @@ public  class InAppActivity extends Activity implements IAppViewManager{
         flipper_params.gravity = Gravity.CENTER;
         flipper.setLayoutParams(flipper_params);
 
-        TranslateAnimation in = new TranslateAnimation(view_controller_width, 0, 0, 0);
-        in.setDuration(400);
+        TranslateAnimation in = new TranslateAnimation(ImageService.getScreenWidth(), 0, 0, 0);
+        in.setDuration(3000);
         in.setZAdjustment(Animation.ZORDER_TOP);
         flipper.setInAnimation(in);
 
-        TranslateAnimation out = new TranslateAnimation(0, -view_controller_width, 0, 0);
-        out.setDuration(400);
+        TranslateAnimation out = new TranslateAnimation(0, -ImageService.getScreenWidth(), 0, 0);
+        out.setDuration(3000);
         out.setZAdjustment(Animation.ZORDER_TOP);
         flipper.setOutAnimation(out);
 
@@ -156,7 +183,7 @@ public  class InAppActivity extends Activity implements IAppViewManager{
 
     @Override
     public void reActivateCurrentView() {
-        final InAppActivity self = this;
+        final MasterViewController self = this;
 
         this.runOnUiThread(new Runnable() {
             @Override
@@ -178,7 +205,7 @@ public  class InAppActivity extends Activity implements IAppViewManager{
 
     @Override
     public void presentViewForTag(AbstractViewController.CONTROLLER tag) {
-        final InAppActivity self = this;
+        final MasterViewController self = this;
         final AbstractViewController.CONTROLLER final_tag = tag;
 
         this.runOnUiThread(new Runnable() {
@@ -201,12 +228,12 @@ public  class InAppActivity extends Activity implements IAppViewManager{
                     int ltr = child_index > displayed_child ? 1 : -1;
 
                     TranslateAnimation in = new TranslateAnimation(width * ltr, 0, 0, 0);
-                    in.setDuration(1000);
+                    in.setDuration(400);
                     in.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setInAnimation(in);
 
                     TranslateAnimation out = new TranslateAnimation(0, -width * ltr, 0, 0);
-                    out.setDuration(1000);
+                    out.setDuration(400);
                     out.setZAdjustment(Animation.ZORDER_TOP);
                     self.viewFlipper.setOutAnimation(out);
 
@@ -222,6 +249,7 @@ public  class InAppActivity extends Activity implements IAppViewManager{
     public void finishWithResult(String result) {
         Intent intent = new Intent();
         intent.putExtra("result", result);
+
         this.setResult(RESULT_OK, intent);
         this.finish();
     }
@@ -240,5 +268,4 @@ public  class InAppActivity extends Activity implements IAppViewManager{
     public void addActivityResultListener(IActivityResultListener listener) {
         this.resultListeners.add(listener);
     }
-
 }

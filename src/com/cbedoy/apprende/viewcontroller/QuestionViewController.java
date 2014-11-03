@@ -88,16 +88,20 @@ public class QuestionViewController extends AbstractViewController implements IQ
     }
 
     @Override
-    public void showFeedback() {
+    public void showFeedback()
+    {
         for(QuestionView questionView : questionViewModel)
+        {
             questionView.discoverFeedBack();
+            questionView.reload();
+        }
         questionViewPager.notifyDataSetChanged();
     }
 
     @Override
     public void forceCloseApprende()
     {
-        generateDataModel();
+        questionRepresentationDelegate.userRequieredProfileView();
     }
 
     @Override
