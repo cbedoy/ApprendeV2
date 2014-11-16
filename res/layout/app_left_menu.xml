@@ -54,14 +54,14 @@
         android:text="Share with Twitter"
         android:textColor="#fafafa"
         android:textSize="20sp"
-        android:background="@color/app_principal_bottom"
+        android:background="@color/app_principal_feed"
         android:id="@+id/app_left_share_with_twitter"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true" />
 
     <View
-        android:layout_width="24dp"
+        android:layout_width="12dp"
         android:layout_height="match_parent"
         android:background="@drawable/shadow"
         android:layout_alignParentTop="true"

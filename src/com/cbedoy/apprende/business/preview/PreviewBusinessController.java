@@ -36,20 +36,20 @@ public class PreviewBusinessController extends BusinessController implements IPr
     @Override
     public void previewResponse(HashMap<String, Object> response) {
         boolean status = response.size()>5;
-        mMessageRepresentationHandler.hideLoading();
+        messageRepresentationHandler.hideLoading();
         if (status) {
             HashMap<String, Object> data = new HashMap<String, Object>();
             data.put("exam_response", response);
-            mMementoHandler.setStateForOwner(data, this);
+            mementoHandler.setStateForOwner(data, this);
             transactionHandler.apprendeItsReady();
         } else {
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
         }
     }
 
     @Override
     public void getPreview() {
-        Memento topMemento = mMementoHandler.getTopMemento();
+        Memento topMemento = mementoHandler.getTopMemento();
         HashMap<String, Object> mementoData = topMemento.getMementoData();
         HashMap<String, Object> previewInformation = new HashMap<String, Object>();
         previewInformation.put ("category_selected", mementoData.get("category_selected"));
@@ -60,6 +60,11 @@ public class PreviewBusinessController extends BusinessController implements IPr
     @Override
     public void userSelectedStartApprendeWithData(HashMap<String, Object> information) {
         informationHandler.performPreviewRequestWithData(information);
-        mMessageRepresentationHandler.showLoading();
+        messageRepresentationHandler.showLoading();
+    }
+
+    @Override
+    public void backRequested() {
+        mementoHandler.popDataFor(this);
     }
 }

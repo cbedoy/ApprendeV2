@@ -53,8 +53,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:name=".activity.MainActivity">
         </activity>
         </application>
 

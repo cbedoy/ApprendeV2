@@ -136,5 +136,12 @@ public class SignUpViewController extends AbstractViewController implements ISig
     @Override
     public void showPreviewViewController() {
         this.appViewManager.presentViewForTag(CONTROLLER.LOGIN);
+        this.appViewManager.statusByLeftMenu(false);
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        appViewManager.presentViewForTag(CONTROLLER.LOGIN);
+        return false;
     }
 }

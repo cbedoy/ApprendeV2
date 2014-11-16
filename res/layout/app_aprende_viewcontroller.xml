@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/profile_blur"
-        android:layout_marginLeft="-96dp"
-        android:layout_marginRight="-96dp"
-        android:layout_marginTop="-96dp"
-        android:layout_marginBottom="-96dp"
+        android:layout_marginLeft="-192dp"
+        android:layout_marginRight="-192dp"
+        android:layout_marginTop="-192dp"
+        android:layout_marginBottom="-192dp"
         android:scaleType="fitXY"/>
 
     <android.support.v4.view.ViewPager

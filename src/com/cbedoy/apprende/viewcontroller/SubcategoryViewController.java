@@ -40,6 +40,7 @@ public class SubcategoryViewController extends AbstractViewController implements
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                messageRepresentation.showLoading();
                 HashMap<String, Object> subcategory = (HashMap<String, Object>) subcategories.get(i);
                 subcategoryRepresentationDelegate.userSelectedCategory(subcategory);
             }
@@ -55,6 +56,7 @@ public class SubcategoryViewController extends AbstractViewController implements
     @Override
     public void showSubcategoryViewWithData(List<Object> subcategories) {
         this.appViewManager.presentViewForTag(this.tag);
+        this.appViewManager.statusByLeftMenu(false);
         this.subcategories = subcategories;
         this.customViewCell = new CustomViewCell(context, inflater, subcategories);
         this.gridView.setAdapter(customViewCell);
@@ -63,5 +65,12 @@ public class SubcategoryViewController extends AbstractViewController implements
     @Override
     public void showPreviewViewController() {
         this.appViewManager.presentViewForTag(CONTROLLER.CATEGORY);
+    }
+
+
+    @Override
+    public boolean onBackPressed() {
+        appViewManager.presentViewForTag(CONTROLLER.CATEGORY);
+        return false;
     }
 }

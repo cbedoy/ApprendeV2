@@ -37,17 +37,17 @@ public class CategoryBusinessController extends BusinessController implements IC
     @Override
     public void categoryResponse(HashMap<String, Object> response) {
         if(response.containsKey("error")){
-            mMessageRepresentationHandler.hideLoading();
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
+            messageRepresentationHandler.hideLoading();
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
         }else{
             HashMap<String, Object> data = new HashMap<String, Object>();
             data.put("category_response", response);
-            mMementoHandler.setStateForOwner(data, this);
+            mementoHandler.setStateForOwner(data, this);
             List<Object> categories = new ArrayList<Object>();
             for(String key : response.keySet())
                 categories.add(response.get(key));
             representationHandler.showCategoryViewWithData(categories);
-            mMessageRepresentationHandler.hideLoading();
+            messageRepresentationHandler.hideLoading();
         }
     }
 
@@ -55,13 +55,18 @@ public class CategoryBusinessController extends BusinessController implements IC
     public void userSelectedCategory(HashMap<String, Object> categoryData) {
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("category_selected", categoryData);
-        mMementoHandler.setStateForOwner(data, this);
+        mementoHandler.setStateForOwner(data, this);
         transactionHandler.presentCategoryView();
     }
 
     @Override
     public void getCategories() {
-        mMessageRepresentationHandler.showLoading();
+        messageRepresentationHandler.showLoading();
         informationHandler.performCategoriesRequest();
+    }
+
+    @Override
+    public void backRequested() {
+        mementoHandler.popDataFor(this);
     }
 }

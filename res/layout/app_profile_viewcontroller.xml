@@ -10,9 +10,12 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="-96dp"
-        android:layout_marginRight="-96dp"
+        android:layout_marginLeft="-192dp"
+        android:layout_marginRight="-192dp"
+        android:layout_marginTop="-192dp"
+        android:layout_marginBottom="-192dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/profile_avatar"
         android:id="@+id/app_profile_viewcontroller_background"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -28,7 +31,8 @@
         android:id="@+id/app_profile_viewcontroller_avatar"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_marginTop="60dp"
+        android:src="@drawable/profile_avatar"
+        android:layout_marginTop="72dp"
         android:layout_marginLeft="12dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
@@ -41,7 +45,7 @@
         android:textColor="#99f0f0f0"
         android:background="@color/app_blue"
         android:padding="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/app_profile_viewcontroller_avatar"
         android:id="@+id/app_profile_viewcontroller_username"
         android:layout_centerHorizontal="true" />
@@ -49,7 +53,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/app_principal"
+        android:background="@color/app_principal_trans"
         android:layout_below="@+id/app_profile_viewcontroller_username"
         android:layout_alignParentLeft="true"
         android:id="@+id/relativeLayout">
@@ -117,7 +121,7 @@
             android:textSize="16sp"
             android:textColor="#f0f0f0"
             android:padding="12dp"
-            android:text="paula.musi@gmail.com"
+            android:text="Your email"
             android:id="@+id/app_profile_viewcontroller_email"
             android:layout_below="@+id/app_profile_viewcontroller_last_name"
             android:layout_alignParentLeft="true" />

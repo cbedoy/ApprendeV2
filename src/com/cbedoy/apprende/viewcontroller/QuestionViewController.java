@@ -64,6 +64,7 @@ public class QuestionViewController extends AbstractViewController implements IQ
     public void showQuestionary()
     {
         this.appViewManager.presentViewForTag(this.tag);
+        this.appViewManager.statusByLeftMenu(false);
         this.questionDataModel.clear();
         this.questionViewModel.clear();
         Memento topMemento = mementoHandler.getTopMemento();
@@ -73,8 +74,7 @@ public class QuestionViewController extends AbstractViewController implements IQ
 
         HashMap<String, Object> fields = (HashMap<String, Object>) subcategory_selected.get("fields");
         String thumbnail = fields.get("thumbnail").toString();
-        Bitmap user_avatar_image =  BlurService.getInstance().performRequestByImage(thumbnail);
-        Bitmap user_avatar_blur = BlurService.getInstance().performRequestBlurByImage(user_avatar_image);
+        Bitmap user_avatar_blur = BlurService.generateBackgroundBlur(thumbnail);
         background.setImageBitmap(user_avatar_blur);
         for(Object key : exam_response.keySet())
         {
@@ -149,5 +149,11 @@ public class QuestionViewController extends AbstractViewController implements IQ
         data.put("exam_results", currentDataModel);
         mementoHandler.setStateForOwner(data, this);
         questionRepresentationDelegate.userFinishExam();
+    }
+
+
+    @Override
+    public boolean onBackPressed() {
+        return false;
     }
 }

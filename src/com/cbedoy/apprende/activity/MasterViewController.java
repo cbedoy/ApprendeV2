@@ -62,6 +62,7 @@ public  class MasterViewController extends Activity implements IAppViewManager{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        getActionBar().hide();
         ImageService.init(this);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         this.viewModel = new HashMap<AbstractViewController.CONTROLLER, AbstractViewController>();
@@ -84,9 +85,10 @@ public  class MasterViewController extends Activity implements IAppViewManager{
         out.setDuration(3000);
         out.setZAdjustment(Animation.ZORDER_TOP);
         this.viewFlipper.setOutAnimation(out);
-
         this.overridePendingTransition(R.anim.enter_in_anim, R.anim.enter_out_anim);
     }
+
+
 
 
 
@@ -155,37 +157,7 @@ public  class MasterViewController extends Activity implements IAppViewManager{
         if(allowBack)
             super.onBackPressed();
     }
-    @Override
-    public int getViewControllerWidth() {
-        return this.view_controller_width;
-    }
 
-    @Override
-    public int getViewControllerHeight() {
-        return this.view_controller_height;
-    }
-
-    @Override
-    public void reActivateCurrentView() {
-        final MasterViewController self = this;
-
-        this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                int displayed_child = self.viewFlipper.getDisplayedChild();
-                View view = self.viewFlipper.getChildAt(displayed_child);
-
-                for(Map.Entry<AbstractViewController.CONTROLLER, AbstractViewController> entry : self.viewModel.entrySet()) {
-                    AbstractViewController child = entry.getValue();
-
-                    if(child.getView() == view) {
-                        child.toogleButtons(true);
-                        break;
-                    }
-                }
-            }
-        });
-    }
 
     @Override
     public void presentViewForTag(AbstractViewController.CONTROLLER tag) {
@@ -201,13 +173,13 @@ public  class MasterViewController extends Activity implements IAppViewManager{
                 ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0);
 
                 int child_index = self.viewFlipper.indexOfChild(view);
-                if(child_index < 0) {
+                if (child_index < 0) {
                     self.viewFlipper.addView(view);
                     child_index = self.viewFlipper.indexOfChild(view);
                 }
 
                 int displayed_child = self.viewFlipper.getDisplayedChild();
-                if(child_index != displayed_child) {
+                if (child_index != displayed_child) {
                     int width = self.view_controller_width;
                     int ltr = child_index > displayed_child ? 1 : -1;
 
@@ -230,15 +202,6 @@ public  class MasterViewController extends Activity implements IAppViewManager{
     }
 
     @Override
-    public void finishWithResult(String result) {
-        Intent intent = new Intent();
-        intent.putExtra("result", result);
-
-        this.setResult(RESULT_OK, intent);
-        this.finish();
-    }
-
-    @Override
     public void addViewWithTag(AbstractViewController controller, AbstractViewController.CONTROLLER tag) {
         this.viewModel.put(tag, controller);
     }
@@ -249,12 +212,24 @@ public  class MasterViewController extends Activity implements IAppViewManager{
     }
 
     @Override
+    public void presentLeftMenu() {
+        if(slidingPaneLayout!=null){
+            if(slidingPaneLayout.isOpen())
+                slidingPaneLayout.closePane();
+            else
+                slidingPaneLayout.openPane();
+        }
+    }
+
+    @Override
+    public void statusByLeftMenu(boolean status) {
+        View childAt = this.leftMenu.getChildAt(0);
+        childAt.setVisibility(status ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
     public Activity getActivity() {
         return this;
     }
 
-    @Override
-    public void addActivityResultListener(IActivityResultListener listener) {
-        this.resultListeners.add(listener);
-    }
 }

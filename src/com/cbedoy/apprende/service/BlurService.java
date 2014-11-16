@@ -168,4 +168,12 @@ public class BlurService
             return blurRenderScript(bitmaps[0], radius);
         }
     }
+
+    public static Bitmap generateBackgroundBlur(String url)
+    {
+        Bitmap defaultBitmap =  BlurService.getInstance().performRequestByImage(url);
+        Bitmap previewBitmap = BlurService.getInstance().performRequestBlurByImage(defaultBitmap);
+        Bitmap finalBitmap = BlurService.getInstance().performRequestBlurByImage(previewBitmap);
+        return finalBitmap;
+    }
 }

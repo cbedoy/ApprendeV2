@@ -82,7 +82,7 @@ public class CustomViewCell extends BaseAdapter
                     }
                 });
         viewHolder.textCell.setText(((HashMap) currentModel.get("fields")).get("name").toString());
-        viewHolder.textCell.setTypeface(ImageService.lightFont);
+        viewHolder.textCell.setTypeface(ImageService.boldFont);
         return convertView;
     }
 

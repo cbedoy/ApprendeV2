@@ -9,19 +9,19 @@ import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
  */
 public abstract class BusinessController implements IBackCore
 {
-    protected IMementoHandler mMementoHandler;
-    protected IMessageRepresentationHandler mMessageRepresentationHandler;
+    protected IMementoHandler mementoHandler;
+    protected IMessageRepresentationHandler messageRepresentationHandler;
 
     public void setMementoHandler(IMementoHandler mementoHandler) {
-        mMementoHandler = mementoHandler;
+        this.mementoHandler = mementoHandler;
     }
 
     public void setMessageRepresentationHandler(IMessageRepresentationHandler messageRepresentationHandler) {
-        mMessageRepresentationHandler = messageRepresentationHandler;
+        this.messageRepresentationHandler = messageRepresentationHandler;
     }
 
     @Override
     public void backRequested() {
-
+        mementoHandler.popDataFor(this);
     }
 }

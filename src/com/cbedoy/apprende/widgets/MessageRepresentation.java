@@ -90,13 +90,18 @@ public class MessageRepresentation implements IMessageRepresentationHandler {
 
         loaderImage.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_launcher));
         loaderText.setText(activity.getString(R.string.success));
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable()
+        {
             @Override
-            public void run() {
-                weakSelf.dialog.dismiss();
-                loaderImage.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_launcher));
-                loaderText.setText(activity.getString(R.string.loading));
-                loaderText.setTypeface(ImageService.thinFont);
+            public void run()
+            {
+                if(isLoading)
+                {
+                    weakSelf.dialog.dismiss();
+                    loaderImage.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_launcher));
+                    loaderText.setText(activity.getString(R.string.loading));
+                    loaderText.setTypeface(ImageService.thinFont);
+                }
             }
         }, 400);
     }

@@ -17,6 +17,9 @@ import java.util.List;
 
 /**
  * Created by Carlos on 14/10/2014.
+ *
+ * Mobile App Developer
+ *
  */
 public class CategoryViewController extends AbstractViewController implements ICategoryRepresentationHandler, NavigationBar.INavigationBarDelegate{
 
@@ -61,5 +64,13 @@ public class CategoryViewController extends AbstractViewController implements IC
     @Override
     public void showPreviewViewController() {
         this.appViewManager.presentViewForTag(CONTROLLER.PROFILE);
+        this.appViewManager.statusByLeftMenu(false);
+    }
+
+
+    @Override
+    public boolean onBackPressed() {
+        appViewManager.presentViewForTag(CONTROLLER.PROFILE);
+        return false;
     }
 }

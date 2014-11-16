@@ -34,7 +34,7 @@ public class QuestionBusinessController extends BusinessController implements IQ
 
     @Override
     public void questionaryResponse(HashMap<String, Object> response) {
-        mMessageRepresentationHandler.hideLoading();
+        messageRepresentationHandler.hideLoading();
         boolean status = response.get("status").toString().equals("1");
         if(status)
         {
@@ -42,7 +42,7 @@ public class QuestionBusinessController extends BusinessController implements IQ
         }
         else
         {
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
         }
     }
 
@@ -59,8 +59,13 @@ public class QuestionBusinessController extends BusinessController implements IQ
     @Override
     public void startQuestionaryApprende()
     {
-        this.mMessageRepresentationHandler.hideLoading();
+        this.messageRepresentationHandler.hideLoading();
         this.representationHandler.showQuestionary();
+    }
+
+    @Override
+    public void backRequested() {
+        mementoHandler.popDataFor(this);
     }
 }
 

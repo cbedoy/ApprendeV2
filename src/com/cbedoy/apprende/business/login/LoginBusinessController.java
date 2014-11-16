@@ -36,15 +36,15 @@ public class LoginBusinessController extends BusinessController implements ILogi
     @Override
     public void loginResponse(HashMap<String, Object> response) {
         boolean status = response.containsKey("model") && response.containsKey("pk");
-        mMessageRepresentationHandler.hideLoading();
+        messageRepresentationHandler.hideLoading();
         if (status) {
             HashMap<String, Object> data = new HashMap<String, Object>();
             data.put("login_response", response);
-            mMementoHandler.setStateForOwner(data, this);
+            mementoHandler.setStateForOwner(data, this);
             transactionHandler.userAuthenticated();
         } else {
             representationHandler.cleanLoginViewFields();
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
         }
     }
 
@@ -54,15 +54,15 @@ public class LoginBusinessController extends BusinessController implements ILogi
         if(!isValidField(username) || !isValidField(password))
         {
             representationHandler.cleanLoginViewFields();
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_LOGIN);
         }
         else
         {
             HashMap<String, Object> data = new HashMap<String, Object>();
             data.put("username", username);
             data.put("password", password);
-            mMementoHandler.setStateForOwner(data, this);
-            mMessageRepresentationHandler.showLoading();
+            mementoHandler.setStateForOwner(data, this);
+            messageRepresentationHandler.showLoading();
             informationHandler.performLoginRequest();
         }
     }
@@ -74,7 +74,7 @@ public class LoginBusinessController extends BusinessController implements ILogi
 
     @Override
     public void startLogin() {
-        Memento topMemento = mMementoHandler.getTopMemento();
+        Memento topMemento = mementoHandler.getTopMemento();
         HashMap<String, Object> mementoData = topMemento.getMementoData();
         boolean withUsername = mementoData.containsKey("username");
         boolean withPassword = mementoData.containsKey("password");
@@ -90,4 +90,8 @@ public class LoginBusinessController extends BusinessController implements ILogi
     }
 
 
+    @Override
+    public void backRequested() {
+        mementoHandler.popDataFor(this);
+    }
 }

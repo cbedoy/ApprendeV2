@@ -49,15 +49,15 @@ public class SignUpBusinessController extends BusinessController implements ISin
         String last_name = currentInformation.get("last_name").toString();
 
         if(!validateCommonField(username) && !validateCommonField(last_name) && validateCommonField(first_name)){
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
         }else if(!validateEmail(email)){
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_EMAIL);
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_EMAIL);
         }else if(!valideEqualsPasswords(password, confirm_password)){
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_PASSWORD_FORMAT);
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_PASSWORD_FORMAT);
         }else{
-            mMementoHandler.setStateForOwner(currentInformation, this);
+            mementoHandler.setStateForOwner(currentInformation, this);
 
-            mMessageRepresentationHandler.showLoading();
+            messageRepresentationHandler.showLoading();
             startSingup();
         }
     }
@@ -82,5 +82,10 @@ public class SignUpBusinessController extends BusinessController implements ISin
         return passwordOne.equals(passwordTwo);
     }
 
+
+    @Override
+    public void backRequested() {
+        mementoHandler.popDataFor(this);
+    }
 
 }
