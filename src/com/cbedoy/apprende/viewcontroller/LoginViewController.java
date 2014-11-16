@@ -74,6 +74,7 @@ public class LoginViewController extends AbstractViewController implements ILogi
     @Override
     public void showLoginView() {
         this.appViewManager.presentViewForTag(this.tag);
+        this.appViewManager.statusByLeftMenu(false);
     }
 
     @Override

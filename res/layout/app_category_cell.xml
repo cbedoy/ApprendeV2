@@ -9,7 +9,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="144dp"
+        android:layout_height="192dp"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_marginTop="6dp"
@@ -35,7 +35,7 @@
         android:layout_marginRight="24dp"
         android:layout_height="wrap_content"
         android:text="Name of category"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:textColor="#f0f0f0"
         android:id="@+id/app_category_cell_name"
         android:layout_centerVertical="true"

@@ -45,10 +45,15 @@ public class ProfileBusinessController extends BusinessController implements IPr
     @Override
     public void getProfileByUser()
     {
-        Memento topMemento = mMementoHandler.getTopMemento();
+        Memento topMemento = mementoHandler.getTopMemento();
         HashMap<String, Object> mementoData = topMemento.getMementoData();
         HashMap<String, Object> login_response = (HashMap<String, Object>) mementoData.get("login_response");
         HashMap<String, Object> fields = (HashMap<String, Object>) login_response.get("fields");
         this.representationHandler.showProfileViewWithData(fields);
+    }
+
+    @Override
+    public void backRequested() {
+        mementoHandler.popDataFor(this);
     }
 }

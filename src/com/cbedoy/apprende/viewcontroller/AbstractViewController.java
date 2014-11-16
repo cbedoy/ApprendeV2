@@ -10,6 +10,10 @@ import com.cbedoy.apprende.widgets.NavigationBar;
 
 /**
  * Created by Carlos on 14/10/2014.
+ *
+ * Mobile App Developer
+ *
+ * Apprende
  */
 public abstract class AbstractViewController
 {

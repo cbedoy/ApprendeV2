@@ -37,17 +37,17 @@ public class SubcategoryBusinessController extends BusinessController implements
     @Override
     public void subcategoryResponse(HashMap<String, Object> response) {
         if(response.containsKey("error")){
-            mMessageRepresentationHandler.hideLoading();
-            mMessageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
+            messageRepresentationHandler.hideLoading();
+            messageRepresentationHandler.showCode(IMessageRepresentationHandler.NOTIFICATION_CODE.K_INVALID_COMMON_FIELDS);
         }else{
             HashMap<String, Object> data = new HashMap<String, Object>();
             data.put("subcategory_response", response);
-            mMementoHandler.setStateForOwner(data, this);
+            mementoHandler.setStateForOwner(data, this);
             List<Object> categories = new ArrayList<Object>();
             for(String key : response.keySet())
                 categories.add(response.get(key));
             representationHandler.showSubcategoryViewWithData(categories);
-            mMessageRepresentationHandler.hideLoading();
+            messageRepresentationHandler.hideLoading();
         }
     }
 
@@ -55,13 +55,18 @@ public class SubcategoryBusinessController extends BusinessController implements
     public void userSelectedCategory(HashMap<String, Object> subcategoryInformation) {
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("subcategory_selected", subcategoryInformation);
-        mMementoHandler.setStateForOwner(data, this);
+        mementoHandler.setStateForOwner(data, this);
         transactionHandler.presentSubcategories();
     }
 
     @Override
     public void getSubcategories() {
-        mMessageRepresentationHandler.showLoading();
+        messageRepresentationHandler.showLoading();
         informationHandler.performSubcategoryRequest();
+    }
+
+    @Override
+    public void backRequested() {
+        mementoHandler.popDataFor(this);
     }
 }

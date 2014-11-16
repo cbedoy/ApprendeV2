@@ -12,8 +12,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="-96dp"
-        android:layout_marginRight="-96dp"
+        android:layout_marginLeft="-192dp"
+        android:layout_marginRight="-192dp"
+        android:layout_marginTop="-192dp"
+        android:layout_marginBottom="-192dp"
         android:scaleType="centerCrop"
         android:id="@+id/app_preview_viewcontroller_background"
         android:layout_alignParentTop="true"
@@ -25,14 +27,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/app_preview_viewcontroller_overlay"
-        android:background="@color/app_principal_trans"/>
+        android:background="@color/app_blue_trans"/>
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/app_preview_viewcontroller_avatar"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_marginTop="60dp"
+        android:src="@drawable/profile_avatar"
+        android:layout_marginTop="72dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -44,7 +47,7 @@
         android:textSize="20sp"
         android:textColor="#99f0f0f0"
         android:background="@color/app_blue"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/app_preview_viewcontroller_avatar"
         android:id="@+id/app_preview_viewcontroller_category"
         android:layout_centerHorizontal="true" />
@@ -52,7 +55,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/app_principal"
+        android:background="@color/app_principal_trans"
         android:layout_below="@+id/app_preview_viewcontroller_category"
         android:layout_alignParentLeft="true"
         android:id="@+id/relativeLayout">

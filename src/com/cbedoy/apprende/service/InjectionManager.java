@@ -51,7 +51,7 @@ public class InjectionManager
         switch (this.env) {
             case 0: //dev
                 this.rest_port = 8080;
-                this.rest_url = "http://192.168.100.10";
+                this.rest_url = "http://10.75.181.55";
                 break;
             case 1: //pre
                 this.rest_port = 8080;
@@ -68,7 +68,7 @@ public class InjectionManager
         }
     }
 
-    public static final String MEDIA_URL = "http://192.168.100.10:8080/media/";
+    public static final String MEDIA_URL = "http://10.75.181.55:8080/media/";
 
     public boolean isProduction() {
         return env == 2;

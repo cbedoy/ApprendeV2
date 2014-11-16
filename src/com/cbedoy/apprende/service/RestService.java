@@ -99,7 +99,7 @@ public class RestService implements IRestService {
                 {
                     String query = Utils.mapToUrlDjangoString(url, parameters);
                     httpUriRequest = new HttpGet(mUrl +":"+ mPort + (query.length() > 0 ? ("" + query) : ""));
-                    Log.e("Request", mUrl +":"+ mPort  + (query.length() > 0 ? ("/" + query) : ""));
+                    Log.e("Request", mUrl +":"+ mPort  + (query.length() > 0 ? ("" + query) : ""));
                 }
 
                 httpResponse = defaultHttpClient.execute(httpUriRequest);

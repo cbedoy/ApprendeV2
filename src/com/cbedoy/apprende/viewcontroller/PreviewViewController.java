@@ -1,6 +1,7 @@
 package com.cbedoy.apprende.viewcontroller;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationDelegate;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewRepresentationHandler;
 import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
+import com.cbedoy.apprende.service.BlurService;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.service.InjectionManager;
 import com.cbedoy.apprende.widgets.LevelSelectorView;
@@ -94,6 +96,8 @@ public class PreviewViewController extends AbstractViewController implements IPr
         String name_category = (String) ((HashMap)category_selected.get("fields")).get("name");
         String image_category = (String)((HashMap)category_selected.get("fields")).get("thumbnail");
 
+        Bitmap bitmap = BlurService.generateBackgroundBlur(image_category);
+
         String image_subcategory = (String) ((HashMap)subcategory_selected.get("fields")).get("thumbnail");
         String name_subcategory = (String) ((HashMap)subcategory_selected.get("fields")).get("name");
         String description_subcategory = (String) ((HashMap)subcategory_selected.get("fields")).get("description");
@@ -101,7 +105,7 @@ public class PreviewViewController extends AbstractViewController implements IPr
         Integer views = (Integer) ((HashMap)subcategory_selected.get("fields")).get("views");
 
         ImageLoader.getInstance().displayImage(InjectionManager.MEDIA_URL + image_subcategory, avatar);
-        ImageLoader.getInstance().displayImage(InjectionManager.MEDIA_URL + image_category, background);
+        background.setImageBitmap(bitmap);
         category.setText(name_category);
         subcategory.setText(name_subcategory);
         description.setText(description_subcategory);
@@ -112,6 +116,8 @@ public class PreviewViewController extends AbstractViewController implements IPr
         choseLevel.setTypeface(ImageService.lightFont);
         start.setTypeface(ImageService.lightFont);
         previewInformation.put("theme", subcategory_selected.get("pk"));
+
+        messageRepresentation.hideLoading();
     }
 
     @Override
@@ -127,5 +133,13 @@ public class PreviewViewController extends AbstractViewController implements IPr
     @Override
     public void showPreviewViewController() {
         this.appViewManager.presentViewForTag(CONTROLLER.SUBCATEGORY);
+        this.appViewManager.statusByLeftMenu(false);
+    }
+
+
+    @Override
+    public boolean onBackPressed() {
+        appViewManager.presentViewForTag(CONTROLLER.SUBCATEGORY);
+        return false;
     }
 }
