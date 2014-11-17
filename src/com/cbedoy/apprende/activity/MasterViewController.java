@@ -8,13 +8,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SlidingPaneLayout;
-import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import com.cbedoy.apprende.R;
@@ -23,8 +21,7 @@ import com.cbedoy.apprende.interfaces.IActivityResultListener;
 import com.cbedoy.apprende.interfaces.IAppViewManager;
 import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 import com.cbedoy.apprende.service.ImageService;
-import com.cbedoy.apprende.viewcontroller.AbstractViewController;
-import com.cbedoy.apprende.viewcontroller.LeftMenuViewController;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 
 import java.util.ArrayList;
 import java.util.HashMap;

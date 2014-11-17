@@ -9,11 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.cbedoy.apprende.R;
-import com.cbedoy.apprende.business.singup.interfaces.ISignUpRepresentationHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpRepresentationDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpRepresentationHandler;
 import com.cbedoy.apprende.interfaces.ICameraInformationDelegate;
 import com.cbedoy.apprende.interfaces.ICameraInformationHandler;
 import com.cbedoy.apprende.service.BlurService;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;
@@ -38,10 +39,10 @@ public class SignUpViewController extends AbstractViewController implements ISig
     private EditText twitter;
     private EditText age;
 
-    private ISingupRepresentationDelegate singupRepresentationDelegate;
+    private ISignUpRepresentationDelegate singupRepresentationDelegate;
     private ICameraInformationHandler cameraInformationHandler;
 
-    public void setSingupRepresentationDelegate(ISingupRepresentationDelegate singupRepresentationDelegate) {
+    public void setSingupRepresentationDelegate(ISignUpRepresentationDelegate singupRepresentationDelegate) {
         this.singupRepresentationDelegate = singupRepresentationDelegate;
     }
 

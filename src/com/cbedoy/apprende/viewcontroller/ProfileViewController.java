@@ -11,19 +11,23 @@ import android.widget.TextView;
 import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.business.profile.interfaces.IProfileRepresentationDelegate;
 import com.cbedoy.apprende.business.profile.interfaces.IProfileRepresentationHandler;
+import com.cbedoy.apprende.business.rank.interfaces.IRankRepresentationDelegate;
+import com.cbedoy.apprende.business.rank.interfaces.IRankRepresentationHandler;
 import com.cbedoy.apprende.service.BlurService;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.service.TwitterService;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Carlos on 14/10/2014.
  */
-public class ProfileViewController extends AbstractViewController implements IProfileRepresentationHandler, NavigationBar.INavigationBarDelegate {
+public class ProfileViewController extends AbstractViewController implements IProfileRepresentationHandler, IRankRepresentationHandler, NavigationBar.INavigationBarDelegate {
 
     private CircleImageView userAvatar;
     private ImageView backgroundView;
@@ -37,6 +41,8 @@ public class ProfileViewController extends AbstractViewController implements IPr
     private Button actionShare;
     private Button actionStart;
     private HashMap<String, Object> userInformation;
+    private List<HashMap<String, Object>> rankData;
+    private IRankRepresentationDelegate rankRepresentationDelegate;
 
     private IProfileRepresentationDelegate profileRepresentationDelegate;
 
@@ -126,5 +132,10 @@ public class ProfileViewController extends AbstractViewController implements IPr
     public boolean onBackPressed() {
         appViewManager.presentViewForTag(CONTROLLER.LOGIN);
         return false;
+    }
+
+    @Override
+    public void reloadWithRankData(List<HashMap<String, Object>> rankData) {
+        this.rankData = rankData;
     }
 }

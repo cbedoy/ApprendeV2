@@ -1,12 +1,12 @@
-package com.cbedoy.apprende.business.singup;
+package com.cbedoy.apprende.business.signup;
 
 import com.cbedoy.apprende.business.BusinessController;
-import com.cbedoy.apprende.business.singup.interfaces.ISignUpInformationHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISignUpRepresentationHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISignUpTransactionHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupRepresentationDelegate;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpInformationDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpInformationHandler;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpRepresentationDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpRepresentationHandler;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpTransactionDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpTransactionHandler;
 import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Carlos on 15/10/2014.
  */
-public class SignUpBusinessController extends BusinessController implements ISingupTransactionDelegate, ISingupRepresentationDelegate, ISingupInformationDelegate
+public class SignUpBusinessController extends BusinessController implements ISignUpTransactionDelegate, ISignUpRepresentationDelegate, ISignUpInformationDelegate
 {
     private ISignUpInformationHandler informationHandler;
     private ISignUpRepresentationHandler representationHandler;

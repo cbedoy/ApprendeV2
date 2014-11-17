@@ -2,7 +2,7 @@ package com.cbedoy.apprende.interfaces;
 
 import android.app.Activity;
 
-import com.cbedoy.apprende.viewcontroller.AbstractViewController;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 
 /**
  * Created by Carlos on 14/10/2014.

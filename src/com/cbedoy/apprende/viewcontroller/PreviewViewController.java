@@ -15,6 +15,7 @@ import com.cbedoy.apprende.interfaces.IMessageRepresentationHandler;
 import com.cbedoy.apprende.service.BlurService;
 import com.cbedoy.apprende.service.ImageService;
 import com.cbedoy.apprende.service.InjectionManager;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 import com.cbedoy.apprende.widgets.LevelSelectorView;
 import com.cbedoy.apprende.widgets.NavigationBar;
 import com.nostra13.universalimageloader.core.ImageLoader;

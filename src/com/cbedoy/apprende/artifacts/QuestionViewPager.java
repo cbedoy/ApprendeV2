@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cbedoy.apprende.viewcontroller.AbstractViewController;
 import com.cbedoy.apprende.widgets.QuestionView;
 
 import java.util.HashMap;
