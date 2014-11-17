@@ -6,15 +6,18 @@ import com.cbedoy.apprende.activity.MainActivity;
 import com.cbedoy.apprende.business.MasterBusinessController;
 import com.cbedoy.apprende.business.category.CategoryBusinessController;
 import com.cbedoy.apprende.business.feed.FeedBusinessController;
+import com.cbedoy.apprende.business.guy.GuyBusinessController;
 import com.cbedoy.apprende.business.login.LoginBusinessController;
 import com.cbedoy.apprende.business.preview.PreviewBusinessController;
 import com.cbedoy.apprende.business.profile.ProfileBusinessController;
 import com.cbedoy.apprende.business.question.QuestionBusinessController;
-import com.cbedoy.apprende.business.singup.SignUpBusinessController;
+import com.cbedoy.apprende.business.rank.RankBusinessController;
+import com.cbedoy.apprende.business.signup.SignUpBusinessController;
 import com.cbedoy.apprende.business.subcategory.SubcategoryBusinessController;
 import com.cbedoy.apprende.business.timeout.TimeOutBusinessController;
 import com.cbedoy.apprende.interfaces.IAppViewManager;
 import com.cbedoy.apprende.viewcontroller.CategoryViewController;
+import com.cbedoy.apprende.viewcontroller.GuysViewController;
 import com.cbedoy.apprende.viewcontroller.LeftMenuViewController;
 import com.cbedoy.apprende.viewcontroller.LoginViewController;
 import com.cbedoy.apprende.viewcontroller.PreviewViewController;
@@ -28,7 +31,7 @@ import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;
 
-import static com.cbedoy.apprende.viewcontroller.AbstractViewController.CONTROLLER;
+import static com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController.CONTROLLER;
 
 /**
  * Created by Carlos on 14/10/2014.
@@ -156,6 +159,13 @@ public class InjectionManager
         profileViewController.setNavigationBar(profileNavigationBar);
         appViewManager.addViewWithTag(profileViewController, tag);
 
+        RankBusinessController rankBusinessController = new RankBusinessController();
+        rankBusinessController.setInformationHandler(informationService);
+        rankBusinessController.setRankTransactionHandler(masterBusinessController);
+        rankBusinessController.setRepresentationHandler(profileViewController);
+        rankBusinessController.setMementoHandler(mementoHandler);
+        rankBusinessController.setMessageRepresentationHandler(messageRepresentation);
+
         tag = CONTROLLER.CATEGORY;
         NavigationBar categoryNavigationBar = new NavigationBar();
         CategoryViewController categoryViewController = new CategoryViewController();
@@ -242,6 +252,21 @@ public class InjectionManager
         appViewManager.addViewWithTag(leftMenuViewController, tag);
         appViewManager.setLeftMenuView(leftMenuViewController, tag);
 
+        tag = CONTROLLER.GUYS;
+        GuysViewController guysViewController = new GuysViewController();
+        GuyBusinessController guyBusinessController = new GuyBusinessController();
+        guyBusinessController.setMessageRepresentationHandler(messageRepresentation);
+        guyBusinessController.setMementoHandler(mementoHandler);
+        guyBusinessController.setInformationHandler(informationService);
+        guyBusinessController.setTransactionHandler(masterBusinessController);
+        guyBusinessController.setRepresentationHandler(guysViewController);
+        guysViewController.setRepresentationDelegate(guyBusinessController);
+        guysViewController.setContext(context);
+        guysViewController.setTag(tag);
+        guysViewController.setAppViewManager(appViewManager);
+        appViewManager.addViewWithTag(guysViewController, tag);
+
+
         informationService.setCategoryInformationDelegate(categoryBusinessController);
         informationService.setLoginInformationDelegate(loginBusinessController);
         informationService.setPreviewInformationDelegate(previewBusinessController);
@@ -250,7 +275,9 @@ public class InjectionManager
         informationService.setSingupInformationHandler(signUpBusinessController);
         informationService.setQuestionInformationDelegate(questionBusinessController);
         informationService.setFeedInformationDelegate(feedBusinessController);
+        informationService.setRankInformationDelegate(rankBusinessController);
         informationService.setRestService(restService);
+        informationService.setGuyInformationDelegate(guyBusinessController);
         informationService.setMementoHandler(mementoHandler);
 
         masterBusinessController.setMessageRepresentationHandler(messageRepresentation);
@@ -264,6 +291,8 @@ public class InjectionManager
         masterBusinessController.setQuestionTransactionDelegate(questionBusinessController);
         masterBusinessController.setTimeOutTransactionDelegate(timeOutBusinessController);
         masterBusinessController.setFeedTransactionDelegate(feedBusinessController);
+        masterBusinessController.setRankTransactionDelegate(rankBusinessController);
+        masterBusinessController.setGuyTransactionDelegate(guyBusinessController);
         masterBusinessController.startApprendeApp();
     }
 }

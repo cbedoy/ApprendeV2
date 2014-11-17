@@ -10,16 +10,16 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.cbedoy.apprende.R;
-import com.cbedoy.apprende.activity.ApplicationLoader;
 import com.cbedoy.apprende.interfaces.IQuestionViewRepresentationDelegate;
 import com.cbedoy.apprende.service.ImageService;
+import com.cbedoy.apprende.widgets.abstracts.AbstractView;
 
 import java.util.HashMap;
 
 /**
  * Created by Carlos on 26/10/2014.
  */
-public class QuestionView
+public class QuestionView extends AbstractView
 {
     private TextView questionView;
     private RadioButton answerOne;
@@ -28,7 +28,6 @@ public class QuestionView
     private RadioButton answerFour;
     private RadioButton currentSelection;
     private Button actionFinish;
-    private View view;
     private HashMap<String, Object> dataModel;
     private Context context;
     private RadioGroup radioGroup;
@@ -50,7 +49,7 @@ public class QuestionView
         return view;
     }
 
-    private View init() {
+    public View init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.app_question_view,  null);
         questionView = (TextView) view.findViewById(R.id.question_question);

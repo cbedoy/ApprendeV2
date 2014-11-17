@@ -1,4 +1,4 @@
-package com.cbedoy.apprende.business.singup.interfaces;
+package com.cbedoy.apprende.business.signup.interfaces;
 
 /**
  * Created by Carlos on 15/10/2014.

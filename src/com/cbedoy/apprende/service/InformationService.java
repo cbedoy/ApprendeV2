@@ -6,6 +6,8 @@ import com.cbedoy.apprende.business.category.interfaces.ICategoryInformationDele
 import com.cbedoy.apprende.business.category.interfaces.ICategoryInformationHandler;
 import com.cbedoy.apprende.business.feed.interfaces.IFeedInformationDelegate;
 import com.cbedoy.apprende.business.feed.interfaces.IFeedInformationHandler;
+import com.cbedoy.apprende.business.guy.interfaces.IGuyInformationDelegate;
+import com.cbedoy.apprende.business.guy.interfaces.IGuyInformationHandler;
 import com.cbedoy.apprende.business.login.interfaces.ILoginInformationDelegate;
 import com.cbedoy.apprende.business.login.interfaces.ILoginInformationHandler;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewInformationDelegate;
@@ -14,8 +16,10 @@ import com.cbedoy.apprende.business.profile.interfaces.IProfileInformationDelega
 import com.cbedoy.apprende.business.profile.interfaces.IProfileInformationHandler;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionInformationHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISignUpInformationHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupInformationDelegate;
+import com.cbedoy.apprende.business.rank.interfaces.IRankInformationDelegate;
+import com.cbedoy.apprende.business.rank.interfaces.IRankInformationHandler;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpInformationDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpInformationHandler;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryInformationDelegate;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryInformationHandler;
 import com.cbedoy.apprende.interfaces.IMementoHandler;
@@ -23,7 +27,7 @@ import com.cbedoy.apprende.interfaces.IRestService;
 
 import java.util.HashMap;
 
-public class InformationService implements IFeedInformationHandler, ICategoryInformationHandler, IPreviewInformationHandler, ISubcategoryInformationHandler, ISignUpInformationHandler, ILoginInformationHandler, IProfileInformationHandler, IQuestionInformationHandler {
+public class InformationService implements IFeedInformationHandler, IGuyInformationHandler, ICategoryInformationHandler, IPreviewInformationHandler, ISubcategoryInformationHandler, ISignUpInformationHandler, ILoginInformationHandler, IProfileInformationHandler, IQuestionInformationHandler, IRankInformationHandler {
 
     private IRestService restService;
     private IMementoHandler mementoHandler;
@@ -32,9 +36,15 @@ public class InformationService implements IFeedInformationHandler, ICategoryInf
     private IPreviewInformationDelegate previewInformationDelegate;
     private IProfileInformationDelegate profileInformationDelegate;
     private ILoginInformationDelegate loginInformationDelegate;
-    private ISingupInformationDelegate singupInformationHandler;
+    private ISignUpInformationDelegate singupInformationHandler;
     private IQuestionInformationDelegate questionInformationDelegate;
     private IFeedInformationDelegate feedInformationDelegate;
+    private IRankInformationDelegate rankInformationDelegate;
+    private IGuyInformationDelegate guyInformationDelegate;
+
+    public void setGuyInformationDelegate(IGuyInformationDelegate guyInformationDelegate) {
+        this.guyInformationDelegate = guyInformationDelegate;
+    }
 
     public void setFeedInformationDelegate(IFeedInformationDelegate feedInformationDelegate) {
         this.feedInformationDelegate = feedInformationDelegate;
@@ -64,7 +74,7 @@ public class InformationService implements IFeedInformationHandler, ICategoryInf
         this.restService = restService;
     }
 
-    public void setSingupInformationHandler(ISingupInformationDelegate singupInformationHandler) {
+    public void setSingupInformationHandler(ISignUpInformationDelegate singupInformationHandler) {
         this.singupInformationHandler = singupInformationHandler;
     }
 
@@ -74,6 +84,11 @@ public class InformationService implements IFeedInformationHandler, ICategoryInf
 
     public void setQuestionInformationDelegate(IQuestionInformationDelegate questionInformationDelegate) {
         this.questionInformationDelegate = questionInformationDelegate;
+    }
+
+
+    public void setRankInformationDelegate(IRankInformationDelegate rankInformationDelegate) {
+        this.rankInformationDelegate = rankInformationDelegate;
     }
 
     @Override
@@ -210,6 +225,21 @@ public class InformationService implements IFeedInformationHandler, ICategoryInf
 
     @Override
     public void perfomFeedbackRequest() {
+        //TODO
+    }
 
+    @Override
+    public void performRankRequest() {
+        //TODO
+    }
+
+    @Override
+    public void requestGuyData() {
+        //TODO
+    }
+
+    @Override
+    public void sendMessageToGuy() {
+        //TODO
     }
 }

@@ -13,6 +13,7 @@ import com.cbedoy.apprende.business.feed.interfaces.IFeedRepresentationDelegate;
 import com.cbedoy.apprende.business.feed.interfaces.IFeedRepresentationHandler;
 import com.cbedoy.apprende.interfaces.IMementoHandler;
 import com.cbedoy.apprende.service.TwitterService;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 
 import java.util.HashMap;
 import java.util.List;

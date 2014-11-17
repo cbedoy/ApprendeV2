@@ -4,6 +4,8 @@ import com.cbedoy.apprende.business.category.interfaces.ICategoryTransactionDele
 import com.cbedoy.apprende.business.category.interfaces.ICategoryTransactionHandler;
 import com.cbedoy.apprende.business.feed.interfaces.IFeedTransactionDelegate;
 import com.cbedoy.apprende.business.feed.interfaces.IFeedTransactionHandler;
+import com.cbedoy.apprende.business.guy.interfaces.IGuyTransactionDelegate;
+import com.cbedoy.apprende.business.guy.interfaces.IGuyTransactionHandler;
 import com.cbedoy.apprende.business.login.interfaces.ILoginTransactionDelegate;
 import com.cbedoy.apprende.business.login.interfaces.ILoginTransactionHandler;
 import com.cbedoy.apprende.business.preview.interfaces.IPreviewTransactionDelegate;
@@ -12,8 +14,10 @@ import com.cbedoy.apprende.business.profile.interfaces.IProfileTransactionDelega
 import com.cbedoy.apprende.business.profile.interfaces.IProfileTransactionHandler;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionTransactionDelegate;
 import com.cbedoy.apprende.business.question.interfaces.IQuestionTransactionHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISignUpTransactionHandler;
-import com.cbedoy.apprende.business.singup.interfaces.ISingupTransactionDelegate;
+import com.cbedoy.apprende.business.rank.interfaces.IRankTransactionDelegate;
+import com.cbedoy.apprende.business.rank.interfaces.IRankTransactionHandler;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpTransactionDelegate;
+import com.cbedoy.apprende.business.signup.interfaces.ISignUpTransactionHandler;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryTransactionDelegate;
 import com.cbedoy.apprende.business.subcategory.interfaces.ISubcategoryTransactionHandler;
 import com.cbedoy.apprende.business.timeout.interfaces.ITimeOutTransactionDelegate;
@@ -22,10 +26,10 @@ import com.cbedoy.apprende.business.timeout.interfaces.ITimeOutTransactionHandle
 /**
  * Created by Carlos on 15/10/2014.
  */
-public class MasterBusinessController extends BusinessController implements IFeedTransactionHandler, ITimeOutTransactionHandler, ICategoryTransactionHandler, IProfileTransactionHandler, ILoginTransactionHandler, ISubcategoryTransactionHandler, IPreviewTransactionHandler, ISignUpTransactionHandler, IQuestionTransactionHandler
+public class MasterBusinessController extends BusinessController implements IGuyTransactionHandler, IFeedTransactionHandler, ITimeOutTransactionHandler, ICategoryTransactionHandler, IProfileTransactionHandler, ILoginTransactionHandler, ISubcategoryTransactionHandler, IPreviewTransactionHandler, ISignUpTransactionHandler, IQuestionTransactionHandler, IRankTransactionHandler
 {
     private ILoginTransactionDelegate loginTransactionDelegate;
-    private ISingupTransactionDelegate singupTransactionDelegate;
+    private ISignUpTransactionDelegate singupTransactionDelegate;
     private IProfileTransactionDelegate profileTransactionDelegate;
     private ICategoryTransactionDelegate categoryTransactionDelegate;
     private IPreviewTransactionDelegate previewTransactionDelegate;
@@ -33,6 +37,12 @@ public class MasterBusinessController extends BusinessController implements IFee
     private IQuestionTransactionDelegate questionTransactionDelegate;
     private ITimeOutTransactionDelegate timeOutTransactionDelegate;
     private IFeedTransactionDelegate feedTransactionDelegate;
+    private IRankTransactionDelegate rankTransactionDelegate;
+    private IGuyTransactionDelegate guyTransactionDelegate;
+
+    public void setGuyTransactionDelegate(IGuyTransactionDelegate guyTransactionDelegate) {
+        this.guyTransactionDelegate = guyTransactionDelegate;
+    }
 
     public void setFeedTransactionDelegate(IFeedTransactionDelegate feedTransactionDelegate) {
         this.feedTransactionDelegate = feedTransactionDelegate;
@@ -62,12 +72,16 @@ public class MasterBusinessController extends BusinessController implements IFee
         this.profileTransactionDelegate = profileTransactionDelegate;
     }
 
-    public void setSingupTransactionDelegate(ISingupTransactionDelegate singupTransactionDelegate) {
+    public void setSingupTransactionDelegate(ISignUpTransactionDelegate singupTransactionDelegate) {
         this.singupTransactionDelegate = singupTransactionDelegate;
     }
 
     public void setSubcategoryTransactionDelegate(ISubcategoryTransactionDelegate subcategoryTransactionDelegate) {
         this.subcategoryTransactionDelegate = subcategoryTransactionDelegate;
+    }
+
+    public void setRankTransactionDelegate(IRankTransactionDelegate rankTransactionDelegate) {
+        this.rankTransactionDelegate = rankTransactionDelegate;
     }
 
     public void startApprendeApp(){
@@ -124,6 +138,16 @@ public class MasterBusinessController extends BusinessController implements IFee
 
     @Override
     public void presentFeedbacks() {
+
+    }
+
+    @Override
+    public void needRankData() {
+
+    }
+
+    @Override
+    public void showGuys() {
 
     }
 }

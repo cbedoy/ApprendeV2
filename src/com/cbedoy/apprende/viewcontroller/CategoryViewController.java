@@ -10,6 +10,7 @@ import com.cbedoy.apprende.R;
 import com.cbedoy.apprende.artifacts.CustomViewCell;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationDelegate;
 import com.cbedoy.apprende.business.category.interfaces.ICategoryRepresentationHandler;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 import com.cbedoy.apprende.widgets.NavigationBar;
 
 import java.util.HashMap;

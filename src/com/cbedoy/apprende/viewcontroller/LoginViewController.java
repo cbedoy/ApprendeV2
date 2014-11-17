@@ -3,7 +3,6 @@ package com.cbedoy.apprende.viewcontroller;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,6 +12,7 @@ import com.cbedoy.apprende.activity.ApplicationLoader;
 import com.cbedoy.apprende.business.login.interfaces.ILoginRepresentationDelegate;
 import com.cbedoy.apprende.business.login.interfaces.ILoginRepresentationHandler;
 import com.cbedoy.apprende.service.ImageService;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 
 /**
  * Created by Carlos on 14/10/2014.

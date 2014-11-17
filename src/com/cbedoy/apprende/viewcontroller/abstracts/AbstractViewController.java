@@ -1,4 +1,4 @@
-package com.cbedoy.apprende.viewcontroller;
+package com.cbedoy.apprende.viewcontroller.abstracts;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -36,7 +36,8 @@ public abstract class AbstractViewController
         SIGNUP,
         SUBCATEGORY,
         APPREMDE,
-        FEED
+        FEED,
+        GUYS
     }
 
     protected abstract View init();

@@ -16,6 +16,7 @@ import com.cbedoy.apprende.service.BlurService;
 import com.cbedoy.apprende.service.LevelProviderService;
 import com.cbedoy.apprende.service.Memento;
 import com.cbedoy.apprende.service.MementoHandler;
+import com.cbedoy.apprende.viewcontroller.abstracts.AbstractViewController;
 import com.cbedoy.apprende.widgets.QuestionView;
 
 import java.util.ArrayList;
