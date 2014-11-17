@@ -5,9 +5,17 @@
     android:orientation="vertical"
     android:id="@+id/background_splash"
     android:layout_width="match_parent"
-    android:background="@drawable/bgb"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="-192dp"
+        android:layout_marginTop="-192dp"
+        android:layout_marginRight="-192dp"
+        android:layout_marginLeft="-192dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile_avatar"/>
     <View
         android:layout_width="match_parent"
         android:background="@color/app_principal_trans"

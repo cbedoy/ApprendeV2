@@ -24,11 +24,12 @@
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/app_singup_viewcontroller_avatar"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
         app:border_width="2dp"
         app:border_color="#66f0f0f0"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/profile_avatar"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -48,7 +49,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/app_principal"
+        android:background="@color/app_principal_trans"
         android:layout_below="@+id/app_singup_viewcontroller_div"
         android:layout_alignParentLeft="true">
 

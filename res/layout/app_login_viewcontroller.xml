@@ -9,13 +9,20 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="-96dp"
-        android:layout_marginRight="-96dp"
+        android:layout_marginLeft="-192dp"
+        android:layout_marginRight="-192dp"
+        android:layout_marginBottom="-192dp"
+        android:layout_marginTop="-192dp"
         android:id="@+id/imageView"
         android:scaleType="centerCrop"
-        android:background="@color/app_principal"
+        android:background="@drawable/profile_avatar"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_principal_trans"/>
 
     <EditText
         android:layout_width="match_parent"
