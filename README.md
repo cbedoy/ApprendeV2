@@ -10,21 +10,21 @@ Our application continues in constant development, and is not even sent to the P
 
 If you like to help our project you can do in this line of bitcoin :)
 
-Coinbase Wallet 
+##Coinbase Wallet 
 
 1NHcmiWoyvSvEeeb7epGigkvKLDKFfi8g
 
 
-Original idea by:
+##Original idea by:
 
 - David Angel Gutierrez Duron
-- Carlos Alfredo Cervantes Bedoy (CTO)
+- Carlos Alfredo Cervantes Bedoy
 
-Develop by:
+##Develop by:
 
-- Carlos Alfredo Cervantes Bedoy | UI, Backend, Refactory
+- Carlos Alfredo Cervantes Bedoy | UIMobile, WebServices, Backend, Performance
 
-Refactory & new feactures
+##Refactory & new feactures
 
 ![alt tag](https://raw.githubusercontent.com/cbedoy/ApprendeV2/develop/shortcuts/exam.png)
 ##Exam View
@@ -32,7 +32,7 @@ Refactory & new feactures
 ![alt tag](https://raw.githubusercontent.com/cbedoy/ApprendeV2/develop/shortcuts/profile.png)
 ##Profile view
 
-![alt tag](https://raw.githubusercontent.com/cbedoy/ApprendeV2/develop/shortcuts/feed.png)
-##Feed view
+![alt tag](https://raw.githubusercontent.com/cbedoy/ApprendeV2/develop/shortcuts/preview.png)
+##Preview view
 
 
